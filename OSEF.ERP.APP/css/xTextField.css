@@ -1,0 +1,64 @@
+﻿
+/*Tamaño de la letra de los componentes del formulario*/
+.x-form-item 
+{
+    font-family: "WeblySleek UI Semilight" !important; 
+  
+}
+
+.x-form-field
+{
+    font-family: "WeblySleek UI Semilight" !important; 
+  
+}
+/*Quita la sombra de la caja de texto y les aumenta la fuenta a los txt*/
+.customTxtfield .x-form-field
+{
+    background-image: none;
+     font-family: "WeblySleek UI Semilight" !important; 
+     font-size:14px;
+   
+}
+/*Pone borde al hacer click a la caja de texto*/
+.customTxtfield .x-form-focus
+{
+    border-color: #00386a;
+}
+
+/*Fuente para los controles de un formulario*/
+.x-custom-form-item .x-form-item, .x-form-field
+{
+    font-family: "WeblySleek UI Semilight" !important; 
+    
+}
+
+
+.x-item-disabled .x-form-item-label, .x-item-disabled .x-form-field, .x-item-disabled .x-form-display-field, .x-item-disabled .x-form-cb-label, .x-item-disabled .x-form-trigger {
+filter: alpha(opacity=30);
+opacity: .5;
+}
+
+ .total-field {
+            font-weight      : bold !important;
+            color            : #000;
+            margin-right     : 3px;
+        }
+        
+        /*Descripcion del detalle en Volumetrias*/
+
+        
+
+
+/*Fuente para los controles de un formulario*/
+.xcustomtextAreaSinBorde .x-form-field
+{
+    border: none !important;
+    font-family: "WeblySleek UI Semilight" !important; 
+    font-size:10.5px;
+    font-weight: bold;
+}
+/*Clase para deshabilitados que se notan mas*/
+.xDeshabilitados .x-item-disabled .x-form-item-label, .x-item-disabled .x-form-field, .x-item-disabled .x-form-display-field, .x-item-disabled .x-form-cb-label, .x-item-disabled .x-form-trigger {
+filter: alpha(opacity=30);
+opacity: .8;
+}

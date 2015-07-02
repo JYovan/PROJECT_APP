@@ -1,0 +1,341 @@
+﻿@font-face
+{
+    font-family: fontRegistro;
+    src: url('../fonts/Neuton-Regular.ttf');
+}
+
+/************** Configuración personalizada para los ButtonGroup **************/
+.buttonGroup.x-btn-group-default-framed
+{
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    border-color: rgb(204, 204, 204);
+}
+        
+.buttonGroup .x-btn-group-header-default-framed
+{
+    background-color: rgb(204, 204, 204);
+}
+        
+.buttonGroup .x-btn-group-header-text-container-default-framed
+{
+    font: normal 10pt fontRegistro;
+}
+
+/************** Configuración personalizada para los GridPanel **************/
+
+/*Color de fondo del encabezado*/
+.x-grid-custom .x-panel-header-default
+{
+    background-color:rgb(0, 53, 154)!important;
+}
+
+/*Tipo de letra del encabezado*/
+.x-grid-custom .x-column-header {
+    font: 10pt fontRegistro,arial,sans-serif;
+}
+
+/*Espacio del encabezado*/
+.x-grid-custom .x-panel-header-default-horizontal
+{
+    padding:6px 9px 6px 9px !important;
+}
+
+/*Border del encabezado*/
+.x-grid-custom .x-panel-default-outer-border-trl
+{
+    border-top-color: rgb(0, 53, 154)!important;
+    border-right-color: rgb(0, 53, 154)!important;
+    border-left-color: rgb(0, 53, 154)!important;
+}
+
+/*Configuración de las filas*/
+.x-grid-custom .x-grid-row TD {            
+    font: 9pt fontRegistro,arial,sans-serif;
+}
+
+/*Configuración de las filas alternas*/
+.x-grid-custom .x-grid-row-alt .x-grid-cell
+{
+    background-color : rgb(230, 230, 230);
+}
+
+.x-grid-custom .x-grid-row-over .x-grid-cell {
+    background-color : rgb(51, 153, 255);
+}
+        
+.x-grid-custom .x-grid-row-selected .x-grid-cell 
+{
+    background-color: rgb(51, 153, 255) !important;
+}
+
+.x-grid-custom .x-grid-row-selected TD {
+    color : #000;
+}
+
+.x-grid-custom .x-panel-default-outer-border-rl
+{
+   border-right-color: rgb(0, 53, 154)!important;
+   border-left-color: rgb(0, 53, 154)!important;
+}
+
+/*Border del BottomBar*/
+.x-grid-custom .x-panel-default-outer-border-rbl
+{
+    border-right-color: rgb(0, 53, 154)!important;
+    border-bottom-color: rgb(0, 53, 154)!important;
+    border-left-color: rgb(0, 53, 154)!important;
+}
+
+/************** Configuración personalizada para los FormPanel **************/
+.formPanelCustom .x-panel-header-default
+{
+    padding:5px 10px 5px 10px;
+    background-color:rgb(0, 53, 154);
+}
+
+.formPanelCustom .x-panel-body-default
+{
+    background-color:transparent;
+}
+
+.formPanelCustom .x-panel-default-outer-border-rbl
+{
+    border-bottom:0px none;
+    border-left: 1px solid rgb(255, 255, 255) !important;
+    border-right: 1px solid rgb(255, 255, 255) !important;
+    border-top: 1px solid rgb(255, 255, 255) !important;
+}
+
+.formPanelCustom .x-toolbar-footer
+{
+    background-color:transparent;
+    border-bottom-width:0px;
+    border-bottom-color:rgb(255, 255, 255) !important;
+    border-bottom-style:solid;
+    border-left: 0px solid rgb(255, 255, 255) !important;
+    border-right: 0px solid rgb(255, 255, 255) !important;
+}
+
+#sbRegistro
+{
+    border-bottom:0px solid rgb(255, 255, 255) !important;
+    background-color:transparent;
+}
+
+#sbRegistro.x-toolbar .x-toolbar-text
+{
+    font-family: fontRegistro;
+    font-size:14pt;
+    font-weight:bold;
+    color:Red;
+    line-height: 20px;
+}
+
+#sbRegistro.x-statusbar .x-status-busy-base
+{
+    padding-left:0px !important;
+}
+
+/************** Configuración personalizada para los TextField **************/
+.textFieldCustom .x-form-text
+{
+    padding:2px 5px 2px 5px;
+    height: 25px;
+}
+
+.textFieldCustom .x-form-focus
+{
+    border-color:Maroon;
+}
+
+.textFieldCustom .x-field-indicator
+{
+    top: 0px;
+    height: 20px;
+}
+
+.textFieldCustom .x-form-item-label
+{
+    font-family: fontRegistro;
+    font-size:11pt;
+    color:Black;
+}
+
+.textFieldCustom .x-form-item, .x-form-field
+{
+    font-family: fontRegistro;
+    font-size:11pt;
+    color:Black;
+}
+
+.textFieldCustom .x-field-label-cell
+{
+    vertical-align:middle;
+}
+
+.textFieldCustomNote
+{
+    font-family: fontRegistro;
+    font-size:11pt;
+    color:Black;
+}
+
+.textFieldCustomCt
+{
+    height: 55px !important;
+}
+
+.buscar
+{
+    background-image:url('../Images/Acciones/boton_buscar_normal.png');
+}
+
+.buscar:hover
+{
+    background-image:url('../Images/Acciones/boton_buscar_over.png');
+}
+
+.buscar:active
+{
+    background-image:url('../Images/Acciones/boton_buscar_selected.png');
+}
+
+/************** Configuración personalizada para los ComboBox **************/
+.comboBoxCustom .x-form-item-label
+{
+    font-family: fontRegistro;
+    font-size:11pt;
+}
+
+.comboBoxCustom li.x-boundlist-item 
+{
+    font-family: fontRegistro;
+    font-size:11pt;    
+}
+
+.comboBoxCustom .x-form-trigger-wrap .x-form-text
+{
+    height:33px;
+}
+
+.comboBoxCustom .x-form-trigger
+{
+    margin-top: 5px;
+}
+
+.comboBoxCustom .x-field-label-cell
+{
+    vertical-align:middle;
+}
+/************** Configuración personalizada para los Label **************/
+.labelImporte .x-label-value
+{
+    font-family: fontRegistro;
+    text-align: center;
+    font-size:14pt;
+}
+
+.labelCustom .x-label-value
+{
+    font-family: fontRegistro;
+    font-size:8pt;
+}
+
+/************** Configuración personalizada para los Panel **************/
+.panelCustom .x-toolbar-footer
+{
+    background-color:White;
+}
+
+/************** Configuración personalizada para los FieldContainer **************/
+.fieldContainerCustom .x-form-item-label
+{
+    font-family: fontRegistro;
+    font-size:11pt;
+}
+
+#fcDatosContacto-innerCt
+{
+    height: 55px !important;
+}
+
+/************** Configuración personalizada para los RadioButton **************/
+.radioCustom
+{
+    font-family: fontRegistro;
+    font-size:10pt;
+}
+
+/************** Configuración personalizada para los DateFields **************/
+.dateFieldCustom .x-form-item, .x-form-field
+{
+    font-family: fontRegistro;
+    font-size:11pt;
+    color:Black;
+}
+
+.dateFieldCustom .x-form-trigger-wrap .x-form-text
+{
+    height:33px;
+}
+
+.dateFieldCustom .x-form-trigger
+{
+    margin-top: 5px;
+}
+
+/************** Configuración personalizada para los Button **************/
+.buttonCustom .x-btn-inner
+{
+    font-family: fontRegistro;
+    font-size:10pt;
+    font-weight:normal;
+}
+
+.buttonCustom
+{
+    -border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-style:none;
+    padding: 5px 5px 5px 5px;
+}
+
+/************** Configuración personalizada para los MessageBox **************/
+#tool-1021-toolEl
+{
+    opacity:0;
+}
+        
+#messagebox-1001.x-window-default {
+    border-color: #ed1c24;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: fontRegistro;
+}
+
+#messagebox-1001_header.x-window-header-default {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: fontRegistro;
+    border-color: #ed1c24;
+    background-color: #ed1c24;
+}
+
+#button-1005.x-btn-default-small {
+    background-color: #f15a24;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#f15a24),color-stop(50%,#f15a24),color-stop(51%,#f15a24),color-stop(100%,#f15a24));
+    background-image: -moz-linear-gradient(top,#f15a24,#f15a24 50%,#f15a24 51%,#f15a24);
+    background-image: -o-linear-gradient(top,#f15a24,#f15a24 50%,#f15a24 51%,#f15a24);
+    background-image: linear-gradient(top,#f15a24,#f15a24 50%,#f15a24 51%,#f15a24);
+    border-color: #f15a24;
+}
+
+#button-1005-btnInnerEl {
+    font-size: 14px;
+    font-weight: normal;
+    font-family: fontRegistro;
+}

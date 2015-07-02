@@ -1,0 +1,13 @@
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.LIBRARY.COMMON\bin\Debug\OSEF.LIBRARY.COMMON.dll
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.LIBRARY.COMMON\bin\Debug\OSEF.LIBRARY.COMMON.pdb
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.LIBRARY.COMMON\bin\Debug\Ionic.Zip.dll
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.LIBRARY.COMMON\bin\Debug\Ionic.Zip.xml
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.LIBRARY.COMMON\obj\Debug\OSEF.LIBRARY.COMMON.dll
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.LIBRARY.COMMON\obj\Debug\OSEF.LIBRARY.COMMON.pdb
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.LIBRARY.COMMON\bin\Debug\OSEF.LIBRARY.COMMON.dll
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.LIBRARY.COMMON\bin\Debug\OSEF.LIBRARY.COMMON.pdb
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.LIBRARY.COMMON\bin\Debug\Ionic.Zip.dll
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.LIBRARY.COMMON\bin\Debug\Ionic.Zip.xml
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.LIBRARY.COMMON\obj\Debug\OSEF.LIBRARY.COMMON.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.LIBRARY.COMMON\obj\Debug\OSEF.LIBRARY.COMMON.dll
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.LIBRARY.COMMON\obj\Debug\OSEF.LIBRARY.COMMON.pdb

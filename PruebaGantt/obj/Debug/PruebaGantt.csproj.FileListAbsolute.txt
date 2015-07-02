@@ -1,0 +1,6 @@
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\PruebaGantt\bin\PruebaGantt.dll
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\PruebaGantt\bin\PruebaGantt.pdb
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\PruebaGantt\bin\Ionic.Zip.dll
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\PruebaGantt\bin\Ionic.Zip.xml
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\PruebaGantt\obj\Debug\PruebaGantt.dll
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\PruebaGantt\obj\Debug\PruebaGantt.pdb

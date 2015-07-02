@@ -1,0 +1,12 @@
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.APP.EL\bin\Debug\OSEF.APP.EL.dll
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.APP.EL\bin\Debug\OSEF.APP.EL.pdb
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.APP.EL\bin\Debug\Ionic.Zip.dll
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.APP.EL\bin\Debug\Ionic.Zip.xml
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.APP.EL\obj\Debug\OSEF.APP.EL.dll
+C:\Users\Administrator\Documents\GitHub\OSEF_ERP_APP\OSEF.APP.EL\obj\Debug\OSEF.APP.EL.pdb
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\bin\Debug\OSEF.APP.EL.dll
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\bin\Debug\OSEF.APP.EL.pdb
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\bin\Debug\Ionic.Zip.dll
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\bin\Debug\Ionic.Zip.xml
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\obj\Debug\OSEF.APP.EL.dll
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\obj\Debug\OSEF.APP.EL.pdb

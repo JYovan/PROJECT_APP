@@ -1,0 +1,91 @@
+﻿@font-face
+{
+    font-family: fontRegistro;
+    src: url('../fonts/Neuton-Regular.ttf');
+}
+
+.x-body
+{
+    background-color: rgb(255, 255, 255);
+    background-image:url('../imagenes/fondos/f_b.jpg');
+    font-family:fontRegistro;
+    font-size:10pt;
+}
+
+#header_level1
+{
+    text-align:center;
+    height:51px;  
+}
+
+#header_level1_left
+{
+    height:51px;
+    width:50%;
+    background-image:url('../imagenes/cabecera/barra-superior-izquierda.png');
+    float:right;
+}
+
+#header_level1_right
+{
+    height:51px;
+    width:50%;
+    background-image:url('../imagenes/cabecera/barra-superior-derecha.png');
+}
+
+#header_level1_center
+{
+    left:50%;
+    position:absolute;
+    height:51px;
+    width:650px;
+	margin-left:-325px;
+}
+
+#header_level1_center_first
+{
+    width:166px;
+    height:51px;
+	background-image:url('../imagenes/cabecera/barra-superior-central.png');
+	float:left;
+}
+
+#header_level1_center_second
+{
+    width:484px;
+    height:51px;
+	background-image:url('../imagenes/cabecera/barra-superior-izquierda.png');
+	float:left;
+}
+
+#header_level2
+{
+    height:66px;
+    text-align:center;
+    background-color:White;
+}
+
+#header_level2_center
+{
+    height:66px;
+    width:650px;
+    margin:0 auto;
+    background-image:url('../imagenes/cabecera/barra-logos.png');
+}
+
+p#texto_registro
+{
+    height:30px;
+    width:100px;
+    margin-top:25px;
+    margin-left:20px;
+    font-size:16pt;
+    color:White;
+    font-weight:bold;
+}
+
+#pie
+{
+    height:34px;
+    background-image:url('../imagenes/pie/barra-inferior.png');
+}
