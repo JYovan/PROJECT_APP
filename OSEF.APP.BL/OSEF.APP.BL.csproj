@@ -48,12 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AhorroBusiness.cs" />
-    <Compile Include="AhorroDBusiness.cs" />
-    <Compile Include="ArticuloBusiness.cs" />
-    <Compile Include="BienInmuebleSolicitudPrestamoBusiness.cs" />
-    <Compile Include="BienMuebleSolicitudPrestamoBusiness.cs" />
-    <Compile Include="CapacidadPagoBusiness.cs" />
     <Compile Include="CategoriaBusiness.cs" />
     <Compile Include="ClienteBusiness.cs" />
     <Compile Include="CodigoFallasBusiness.cs" />
@@ -62,25 +56,19 @@
     <Compile Include="ConceptoBusiness.cs" />
     <Compile Include="CroquisOrdenEstimacionBusiness.cs" />
     <Compile Include="CuadrillaBusiness.cs" />
-    <Compile Include="CuentaContableBusiness.cs" />
-    <Compile Include="CuestionarioBusiness.cs" />
     <Compile Include="EmpresaBusiness.cs" />
     <Compile Include="EstadoBusiness.cs" />
     <Compile Include="FacturaOrdenEstimacionBusiness.cs" />
-    <Compile Include="FinalidadBusiness.cs" />
     <Compile Include="FirmasReportesBusiness.cs" />
     <Compile Include="GeneradorOrdenEstimacionDBusiness.cs" />
     <Compile Include="GeneradorVolumetriaDBusiness.cs" />
-    <Compile Include="GrupoMenuBusiness.cs" />
     <Compile Include="ImagenOrdenEstimacionBusiness.cs" />
     <Compile Include="ImagenRevisionDBusiness.cs" />
     <Compile Include="ImagenVolumetriaDBusiness.cs" />
-    <Compile Include="MenuBusiness.cs" />
     <Compile Include="MesaDeReporteBusiness.cs" />
     <Compile Include="MunicipioBusiness.cs" />
     <Compile Include="OrdenEstimacionBusiness.cs" />
     <Compile Include="OrdenEstimacionDBusiness.cs" />
-    <Compile Include="ParticipanteBusiness.cs" />
     <Compile Include="PreciarioBusiness.cs" />
     <Compile Include="PreciarioCategoriaBuisness.cs" />
     <Compile Include="PreciarioConceptoBusiness.cs" />
@@ -91,18 +79,12 @@
     <Compile Include="PreciarioGeneralSubSubCategoriaBusiness.cs" />
     <Compile Include="PreciarioSubCategoriaBusiness.cs" />
     <Compile Include="PreciarioSubSubCategoriaBusiness.cs" />
-    <Compile Include="ProfesionBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorBusiness.cs" />
-    <Compile Include="ReferenciaInstitucionSolicitudPrestamoBusiness.cs" />
-    <Compile Include="ReferenciaPersonaSolicitudPrestamoBusiness.cs" />
-    <Compile Include="RespuestasBusiness.cs" />
     <Compile Include="RevisionBusiness.cs" />
     <Compile Include="RevisionDBusiness.cs" />
-    <Compile Include="SolicitudPrestamoBusiness.cs" />
     <Compile Include="SubcategoriaBusiness.cs" />
     <Compile Include="SucursalBusiness.cs" />
-    <Compile Include="TipoParticipanteBusiness.cs" />
     <Compile Include="UsuarioBusiness.cs" />
     <Compile Include="VolumetriaBusiness.cs" />
     <Compile Include="VolumetriaDBusiness.cs" />

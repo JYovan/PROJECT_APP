@@ -52,7 +52,7 @@ namespace OSEF.APP.EL
         string estatus;
         string usuario;
 
-        List<Beneficiario> rbeneficiarios;
+       
 
         #endregion
 
@@ -292,11 +292,7 @@ namespace OSEF.APP.EL
             set { usuario = value; }
         }
 
-        public List<Beneficiario> RBeneficiarios
-        {
-            get { return rbeneficiarios; }
-            set { rbeneficiarios = value; }
-        }
+       
 
         #endregion
     }

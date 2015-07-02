@@ -1,0 +1,332 @@
+
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+a:hover, a:active {
+  outline: 0;
+}
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  /*vertical-align: middle;*/
+
+}
+button, input {
+  *overflow: visible;
+  line-height: normal;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  -moz-appearance: none; 
+}
+/* overrides button presets for mozilla clients*/
+@-moz-document url-prefix() {
+	button,
+	input[type="button"],
+	input[type="reset"],
+	input[type="submit"] {
+		cursor: pointer;
+	 	padding: 6px 14px;
+	}
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+
+.m-btn {
+  border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    position: relative;
+  display: inline-block;
+    overflow: visible;
+    padding: 10px 14px;   
+    margin-top: 8px;   
+    cursor: pointer;
+    outline: none;
+    background-color: #eeeeee;
+    background-repeat: repeat-x;
+    -webkit-background-clip: padding;
+    -moz-background-clip: padding;
+    background-clip: padding;
+    zoom: 1;
+    z-index: 1;
+    display: inline;
+    font-family: "WeblySleek UI Semilight" !important; 
+    font-size: 14px;
+    line-height: 14px;
+    color: #333333;
+    min-width: 42px;
+    text-shadow: #ffffff 0 1px 0;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: inherit;
+    background-image: linear-gradient(top, #eeeeee, #eeeeee);
+/* IE hacks */
+
+  *margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+.m-btn:hover,
+.m-btn:focus,
+.m-btn:active,
+.m-btn.active {
+  color: #333;
+  text-decoration: none;  
+  background-color: #dcdcdc;
+    background-repeat: repeat-x;
+    z-index: 100;
+    outline: none;
+    background-image: linear-gradient(top, #dcdcdc, #dcdcdc);
+}
+.m-btn:active, .m-btn.active {
+  background-color: #eeeeee;
+    background-repeat: repeat-x;
+    -webkit-box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.25);
+    background-image: linear-gradient(top, #eeeeee, #dcdcdc);
+}
+.m-btn:focus {
+  /* Blue border on button focus. */
+  border-color: #4D90FE;
+}
+/* overrides extra padding on button elements in Firefox */
+.m-btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+.m-btn.red-stripe
+{
+	border-left: 3px solid #d84a38;
+}
+
+.m-btn.blue-stripe
+{
+	border-left: 3px solid #4d90fe;
+}
+
+.m-btn.purple-stripe
+{
+	border-left: 3px solid #852b99;
+}
+
+.m-btn.green-stripe
+{
+	border-left: 3px solid #35aa47;
+}
+
+/* Common button classes */
+.m-btn.red:active,
+.m-btn.red.active,
+.m-btn.red.disabled,
+.m-btn.red[disabled],
+.m-btn.blue:active,
+.m-btn.blue.active,
+.m-btn.blue.disabled,
+.m-btn.blue[disabled],
+.m-btn.purple:active,
+.m-btn.purple.active,
+.m-btn.purple.disabled,
+.m-btn.purple[disabled],
+.m-btn.green:active,
+.m-btn.green.active,
+.m-btn.green.disabled,
+.m-btn.green[disabled],
+.m-btn.black:active,
+.m-btn.black.active,
+.m-btn.black.disabled,
+.m-btn.black[disabled]
+{
+  -webkit-box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.25);
+  color: white !important;  
+}
+.m-btn.red.disabled,
+.m-btn.red[disabled],
+.m-btn.blue.disabled,
+.m-btn.blue[disabled],
+.m-btn.purple.disabled,
+.m-btn.purple[disabled],
+.m-btn.green.disabled,
+.m-btn.green[disabled]
+{
+	opacity: .7;
+}
+
+.m-btn.black.disabled,
+.m-btn.black[disabled]
+{
+	opacity: .5;
+}
+
+/*  Red */
+.m-btn.red {
+  color: white;  
+  text-shadow: none;	
+  background-color: #d84a38;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #dd4b39, #d14836);
+}
+.m-btn.red:hover, 
+.m-btn.red:focus, 
+.m-btn.red:active, 
+.m-btn.red.active,
+.m-btn.red[disabled], 
+.m-btn.red.disabled {    
+  background-color: #c53727;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #c53727, #c53727);
+}
+
+
+.m-btn.red:active,
+.m-btn.red.active
+{
+  background-color: #dd4b39;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #dd4b39, #c53727);
+}
+
+/*  Blue */
+.m-btn.blue   
+{
+  color: white;  
+  text-shadow: none;	
+  background-color: #4d90fe;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #4d90fe, #4787ed);
+}
+.m-btn.blue:hover, 
+.m-btn.blue:focus, 
+.m-btn.blue:active,
+.m-btn.blue.active,
+.m-btn.blue[disabled],
+.m-btn.blue.disabled {  
+  background-color: #0072bb;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #0072bb, #0072bb);
+}
+
+.m-btn.blue:active,
+.m-btn.blue.active
+{
+  background-color: #4d90fe;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #4d90fe, #0072bb);
+}
+/*  Green */
+.m-btn.green {
+  color: white;
+  text-shadow: none;	 
+  background-color: #35aa47;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #35aa47, #35aa47);
+}
+.m-btn.green:hover, 
+.m-btn.green:focus, 
+.m-btn.green:active, 
+.m-btn.green.active,
+.m-btn.green.disabled, 
+.m-btn.green[disabled]{ 
+  background-color: #1d943b;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #1d943b, #1d943b);
+}
+
+.m-btn.green:active,
+.m-btn.green.active
+{
+  background-color: #35aa47;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #35aa47, #1d943b);
+}
+/*  Purple */
+.m-btn.purple {
+  color: white; 
+  text-shadow: none;	
+  background-color: #852b99;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #852b99, #852b99);
+}
+.m-btn.purple:hover, 
+.m-btn.purple:focus, 
+.m-btn.purple:active, 
+.m-btn.purple.active, 
+.m-btn.purple.disabled,
+.m-btn.purple[disabled] { 
+  background-color: #6d1b81;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #6d1b81, #6d1b81);
+}
+
+.m-btn.purple:active,
+.m-btn.purple.active
+{
+  background-color: #35aa47;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #852b99, #6d1b81);
+}
+
+
+.m-btn.black {
+  color: white; 
+  text-shadow: none;	
+  background-color: #555555;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #555555, #555555);
+}
+.m-btn.black:hover, 
+.m-btn.black:focus, 
+.m-btn.black:active, 
+.m-btn.black.active, 
+.m-btn.black.disabled,
+.m-btn.black[disabled] { 
+  background-color: #222222;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #222222, #222222);
+}
+
+.m-btn.black:active,
+.m-btn.black.active
+{
+  background-color: #222222;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(top, #444444, #222222);
+}
+
+
+/*  Disabled */
+.m-btn.disabled, .m-btn[disabled] {
+  color: #999999;  
+  background-color: #f5f5f5;
+    background-repeat: repeat-x;
+    cursor: default;
+    -webkit-box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.25);
+    background-image: linear-gradient(top, #eeeeee, #dddddd);
+}

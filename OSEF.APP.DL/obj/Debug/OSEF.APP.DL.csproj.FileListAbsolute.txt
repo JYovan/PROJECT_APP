@@ -18,3 +18,13 @@ C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\bin\Debug\OSEF.L
 C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\obj\Debug\OSEF.APP.DL.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\obj\Debug\OSEF.APP.DL.dll
 C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\obj\Debug\OSEF.APP.DL.pdb
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\bin\Debug\OSEF.APP.DL.dll
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\bin\Debug\OSEF.APP.DL.pdb
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\bin\Debug\Ionic.Zip.dll
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\bin\Debug\OSEF.APP.EL.dll
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\bin\Debug\OSEF.LIBRARY.COMMON.dll
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\bin\Debug\OSEF.APP.EL.pdb
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\bin\Debug\OSEF.LIBRARY.COMMON.pdb
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\obj\Debug\OSEF.APP.DL.csprojResolveAssemblyReference.cache
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\obj\Debug\OSEF.APP.DL.dll
+C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.DL\obj\Debug\OSEF.APP.DL.pdb

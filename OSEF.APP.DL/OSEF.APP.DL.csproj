@@ -44,12 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AhorroDataAccess.cs" />
-    <Compile Include="AhorroDDataAccess.cs" />
-    <Compile Include="ArticuloDataAccess.cs" />
-    <Compile Include="BienInmuebleSolicitudPrestamoDataAccess.cs" />
-    <Compile Include="BienMuebleSolicitudPrestamoDataAccess.cs" />
-    <Compile Include="CapacidadPagoDataAccess.cs" />
     <Compile Include="CategoriaDataAccess.cs" />
     <Compile Include="ClienteDataAccess.cs" />
     <Compile Include="CodigoFallasDataAccess.cs" />
@@ -58,25 +52,19 @@
     <Compile Include="ConceptoDataAccess.cs" />
     <Compile Include="CroquisOrdenEstimacionDDataAccess.cs" />
     <Compile Include="CuadrillaDataAccess.cs" />
-    <Compile Include="CuentaContableDataAccess.cs" />
-    <Compile Include="CuestionarioDataAccess.cs" />
     <Compile Include="EmpresaDataAccess.cs" />
     <Compile Include="EstadoDataAccess.cs" />
     <Compile Include="FacturaOrdenEstimacionDDataAccess.cs" />
-    <Compile Include="FinalidadDataAccess.cs" />
     <Compile Include="FirmasReportesDataAccess.cs" />
     <Compile Include="GeneradorOrdenEstimacionDDataAccess.cs" />
     <Compile Include="GeneradorVolumetriaDataAccess.cs" />
-    <Compile Include="GrupoMenuDataAccess.cs" />
     <Compile Include="ImagenOrdenEstimacionDDataAccess.cs" />
     <Compile Include="ImagenRevisionDDataAccess.cs" />
     <Compile Include="ImagenVolumetriaDDataAccess.cs" />
-    <Compile Include="MenuDataAccess.cs" />
     <Compile Include="MesaDeReporteDataAccess.cs" />
     <Compile Include="MunicipioDataAccess.cs" />
     <Compile Include="OrdenEstimacionDataAccess.cs" />
     <Compile Include="OrdenEstimacionDDataAccess.cs" />
-    <Compile Include="ParticipanteDataAccess.cs" />
     <Compile Include="PreciarioCategoriaDataAccess.cs" />
     <Compile Include="PreciarioConceptosDataAccess.cs" />
     <Compile Include="PreciarioDataAccess.cs" />
@@ -87,18 +75,12 @@
     <Compile Include="PreciarioGeneralSubSubCategoriaDataAccess.cs" />
     <Compile Include="PreciarioSubCategoriasDataAccess.cs" />
     <Compile Include="PreciarioSubSubCategoriaDataAccess.cs" />
-    <Compile Include="ProfesionDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorDataAccess.cs" />
-    <Compile Include="ReferenciaInstitucionSolicitudPrestamoDataAccess.cs" />
-    <Compile Include="ReferenciaPersonaSolicitudPrestamoDataAccess.cs" />
-    <Compile Include="RespuestasDataAccess.cs" />
     <Compile Include="RevisionDataAccess.cs" />
     <Compile Include="RevisionDDataAccess.cs" />
-    <Compile Include="SolicitudPrestamoDataAccess.cs" />
     <Compile Include="SubcategoriaDataAccess.cs" />
     <Compile Include="SucursalDataAccess.cs" />
-    <Compile Include="TipoParticipanteDataAccess.cs" />
     <Compile Include="UsuarioDataAccess.cs" />
     <Compile Include="VolumetriaDataAccess.cs" />
     <Compile Include="VolumetriaDDataAccess.cs" />

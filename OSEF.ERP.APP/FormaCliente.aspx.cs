@@ -24,9 +24,7 @@ namespace OSEF.ERP.APP
             //1. Validar si son peticiones Ajax
             if (!X.IsAjaxRequest)
             {
-                //2. Llenar el ComboBox de Profesiones
-                sProfesiones.DataSource = ProfesionBusiness.ObtenerProfesiones();
-                sProfesiones.DataBind();
+           
                 //3. Llenar el ComboBox de Estados
                 sEstados.DataSource = EstadoBusiness.ObtenerEstados();
                 sEstados.DataBind();
