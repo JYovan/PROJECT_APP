@@ -34,20 +34,6 @@ namespace OSEF.APP.EL
         string entrecalles;
         string estado;
         string municipio;
-        string empresa;
-        string empresacalle;
-        string empresanoexterior;
-        string empresanointerior;
-        string empresacolonia;
-        Nullable <int> empresacodigopostal;
-        string empresaentrecalles;
-        string empresaestado;
-        string empresamunicipio;
-        string empresatelefono;
-        Nullable<short> empresatelefonoext;
-        string puesto;
-        string tiposocio;
-        string numerosocio;
         Nullable<DateTime> fechaalta;
         string estatus;
         string usuario;
@@ -189,91 +175,7 @@ namespace OSEF.APP.EL
             get { return municipio; }
             set { municipio = value; }
         }
-
-        public string Empresa
-        {
-            get { return empresa; }
-            set { empresa = value; }
-        }
-
-        public string EmpresaCalle
-        {
-            get { return empresacalle; }
-            set { empresacalle = value; }
-        }
-
-        public string EmpresaNoExterior
-        {
-            get { return empresanoexterior; }
-            set { empresanoexterior = value; }
-        }
-
-        public string EmpresaNoInterior
-        {
-            get { return empresanointerior; }
-            set { empresanointerior = value; }
-        }
-
-        public string EmpresaColonia
-        {
-            get { return empresacolonia; }
-            set { empresacolonia = value; }
-        }
-
-        public Nullable<int> EmpresaCodigoPostal
-        {
-            get { return empresacodigopostal; }
-            set { empresacodigopostal = value; }
-        }
-
-        public string EmpresaEntreCalles
-        {
-            get { return empresaentrecalles; }
-            set { empresaentrecalles = value; }
-        }
-
-        public string EmpresaEstado
-        {
-            get { return empresaestado; }
-            set { empresaestado = value; }
-        }
-
-        public string EmpresaMunicipio
-        {
-            get { return empresamunicipio; }
-            set { empresamunicipio = value; }
-        }
-
-        public string EmpresaTelefono
-        {
-            get { return empresatelefono; }
-            set { empresatelefono = value; }
-        }
-
-        public Nullable<short> EmpresaTelefonoExt
-        {
-            get { return empresatelefonoext; }
-            set { empresatelefonoext = value; }
-        }
-
-        public string Puesto
-        {
-            get { return puesto; }
-            set { puesto = value; }
-        }
-
-        public string TipoSocio
-        {
-            get { return tiposocio; }
-            set { tiposocio = value; }
-        }
-
-        public string NumeroSocio
-        {
-            get { return numerosocio; }
-            set { numerosocio = value; }
-        }
-
+         
         public Nullable<DateTime> FechaAlta
         {
             get { return fechaalta; }

@@ -389,8 +389,8 @@
                                                     ID="cmbTipoConcepto"
                                                     runat="server" Width="300" Disabled="false" Editable="false" FieldLabel="Tipo Concepto"> 
                                                     <Items>
-                                                        <ext:ListItem Index="0" Text="ADICIONAL" Value="LEND LEASE" />
-                                                        <ext:ListItem Index="1" Text="FUERA DEL CATÁlOGO" Value="JONES LAND LASALL" />
+                                                        <ext:ListItem Index="0" Text="ADICIONAL" Value="ADICIONAL" />
+                                                        <ext:ListItem Index="1" Text="FUERA DEL CATÁlOGO" Value="FUERA DEL CATÁlOGO" />
                                                     </Items> 
                                                 </ext:ComboBox> 
                                             </Items>
