@@ -658,7 +658,7 @@ var sOrdenesMantenimiento_Load = function () {
 
 //Evento lanzado al agregar un registro al store
 var sOrdenesMantenimiento_Add = function (avance, registro) {
-    console.log(registro);
+
     //Si es orden de cambio concluida
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && registro[0].get('Estatus') == 'CONCLUIDO'
     && registro[0].get('Mov').trim() == "Orden de Cambio") {
@@ -703,7 +703,7 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.txtfObservaciones.setValue(registro[0].get('Observaciones'));
         App.sbOrdenEstimacion.setText(registro[0].get('Estatus'));
         App.txtfSucursalID.setValue(registro[0].get('Sucursal'));
-        
+
         App.IdCliente.setValue(registro[0].get('RCliente').ID);
         App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
 
@@ -757,8 +757,10 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.cmbCuadrilla.setValue(registro[0].get('Cuadrilla'));
         App.cmbClasificacion.setValue(registro[0].get('Clasificacion').trim());
 
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
 
         App.imgbtnImprimir.setDisabled(false);
         App.pDatosReporte.tab.show();
@@ -829,8 +831,11 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.tfHoraFinActividad.setValue(registro[0].get('HoraFinActividad'));
         App.cmbCuadrilla.setValue(registro[0].get('Cuadrilla'));
         App.cmbClasificacion.setValue(registro[0].get('Clasificacion').trim());
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
 
         if (registro[0].get('Atendido').trim().length > 0 && registro[0].get('Atendido').trim() == "Si") {
             App.chkAtendido.setValue(true);
@@ -867,9 +872,10 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.sbOrdenEstimacion.setText(registro[0].get('Estatus'));
         App.txtfSucursalID.setValue(registro[0].get('Sucursal'));
 
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
-
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
         App.txtNoOrden.setValue(registro[0].get('NoOrden'));
         App.txtReferenciaOrden.setValue(registro[0].get('ReferenciaOrden'));
         App.chkBoxOrdenCompra.setVisible(false);
@@ -896,8 +902,10 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.sbOrdenEstimacion.setText(registro[0].get('Estatus'));
         App.txtfSucursalID.setValue(registro[0].get('Sucursal'));
 
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
 
         App.txtNoOrden.setValue(registro[0].get('NoOrden'));
         App.txtReferenciaOrden.setValue(registro[0].get('ReferenciaOrden'));
@@ -951,9 +959,10 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.cmbCuadrilla.setValue(registro[0].get('Cuadrilla'));
         App.txtReferenciaOrden.setValue(registro[0].get('ReferenciaOrden'));
 
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
-
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
         if (registro[0].get('Atendido').trim().length > 0 && registro[0].get('Atendido').trim() == "Si") {
             App.chkAtendido.setValue(true);
         } else {
@@ -1009,9 +1018,10 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.sbOrdenEstimacion.setText(registro[0].get('Estatus'));
         App.txtfSucursalID.setValue(registro[0].get('Sucursal'));
 
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
-
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
         //Deshabilita los campos en un movimiento afectado
         App.cmbMov.setReadOnly(true);
         App.txtfSucursalCR.setDisabled(true);
@@ -1035,9 +1045,10 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.sbOrdenEstimacion.setText(registro[0].get('Estatus'));
         App.txtfSucursalID.setValue(registro[0].get('Sucursal'));
 
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
-
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
         //Agregar una fila para seguir capturando
         var storeDetalle = App.sConceptos.getAt(App.sConceptos.getCount() - 1);
 

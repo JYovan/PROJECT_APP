@@ -80,55 +80,7 @@ namespace OSEF.ERP.APP
             sColonias.DataBind();
         }
 
-        /// <summary>
-        /// Evento que se lanza al seleccionar un estado
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void cmbEmpresaEstado_Select(object sender, DirectEventArgs e)
-        {
-            //1. Obtener el valor seleccionado y obtener los municipios
-            string strEstado = e.ExtraParams["valor"];
-            sEmpresaMunicipios.DataSource = MunicipioBusiness.ObtenerMunicipiosPorEstado(strEstado);
-            sEmpresaMunicipios.DataBind();
-        }
-
-        /// <summary>
-        /// Evento que se lanza al seleccionar un Municipio
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void cmbEmpresaMunicipio_Select(object sender, DirectEventArgs e)
-        {
-            //1. Obtener el valor seleccionado y obtener los municipios
-            string strMunicipio = e.ExtraParams["valor"];
-            sEmpresaColonia.DataSource = ColoniaBusiness.ObtenerColoniasPorMunicipio(strMunicipio);
-            sEmpresaColonia.DataBind();
-        }
-
-        /// <summary>
-        /// Evento que se lanza al cargar el store de EmpresaMunicipios
-        /// </summary>
-        [DirectMethod]
-        public void AsignarEmpresaMunicipio(string strEstado)
-        {
-            //1. Listar los municipios de acuerdo al Municipio
-            sEmpresaMunicipios.DataSource = MunicipioBusiness.ObtenerMunicipiosPorEstado(strEstado);
-            sEmpresaMunicipios.DataBind();
-        }
-
-        /// <summary>
-        /// Evento que se lanza al cargar el store de EmpresaColonias
-        /// </summary>
-        /// <param name="strMunicipio"></param>
-        [DirectMethod]
-        public void AsignarEmpresaColonia(string strMunicipio)
-        {
-            //1. Listar las colonias de acuerdo al Municipio
-            sEmpresaColonia.DataSource = ColoniaBusiness.ObtenerColoniasPorMunicipio(strMunicipio);
-            sEmpresaColonia.DataBind();
-        }
-
+        
         /// <summary>
         /// Evento de clic al botón de Guardar
         /// </summary>
@@ -149,9 +101,7 @@ namespace OSEF.ERP.APP
             string strcookieEditarCliente = Cookies.GetCookie("cookieEditarCliente").Value;
             Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strRegistro);
             Cliente oCliente = new Cliente();
-            oCliente.Edad = bEdad;
-            oCliente.TipoSocio = "";
-            oCliente.NumeroSocio = "";
+            oCliente.Edad = bEdad; 
 
             //3. Por cada elemento del submit de la Forma detectar el campo y asignarlo al objeto correspondiente
             foreach (KeyValuePair<string, string> sd in dRegistro)
@@ -218,51 +168,6 @@ namespace OSEF.ERP.APP
                         break;
                     case "cmbMunicipio":
                         oCliente.Municipio = sd.Value;
-                        break;
-                    case "txtfEmpresa":
-                        if (sd.Value.Equals(""))
-                            oCliente.Empresa = null;
-                        else
-                            oCliente.Empresa = sd.Value;
-                        break;
-                    case "txtfEmpresaCalle":
-                        oCliente.EmpresaCalle = sd.Value;
-                        break;
-                    case "txtfEmpresaNoExterior":
-                        oCliente.EmpresaNoExterior = sd.Value;
-                        break;
-                    case "txtfEmpresaNoInterior":
-                        oCliente.EmpresaNoInterior = sd.Value;
-                        break;
-                    case "cmbEmpresaColonia":
-                        oCliente.EmpresaColonia = sd.Value;
-                        break;
-                    case "txtfEmpresaCodigoPostal":
-                        if (sd.Value.Equals(""))
-                            oCliente.EmpresaCodigoPostal = null;
-                        else
-                            oCliente.EmpresaCodigoPostal = Convert.ToInt32(sd.Value);
-                        break;
-                    case "txtfEmpresaEntreCalles":
-                        oCliente.EmpresaEntreCalles = sd.Value;
-                        break;
-                    case "cmbEmpresaEstado":
-                        oCliente.EmpresaEstado = sd.Value;
-                        break;
-                    case "cmbEmpresaMunicipio":
-                        oCliente.EmpresaMunicipio = sd.Value;
-                        break;
-                    case "txtfEmpresaTelefono":
-                        oCliente.EmpresaTelefono = sd.Value;
-                        break;
-                    case "nfEmpresaTelefonoExt":
-                        if (sd.Value == null)
-                            oCliente.EmpresaTelefonoExt = null;
-                        else
-                            oCliente.EmpresaTelefonoExt = Convert.ToInt16(sd.Value);
-                        break;
-                    case "txtfPuesto":
-                        oCliente.Puesto = sd.Value;
                         break;
                     case "cmbEstatus":
                         oCliente.Estatus = sd.Value;
@@ -334,20 +239,6 @@ namespace OSEF.ERP.APP
                 EntreCalles = oCliente.EntreCalles,
                 Estado = oCliente.Estado,
                 Municipio = oCliente.Municipio,
-                Empresa = oCliente.Empresa,
-                EmpresaCalle = oCliente.EmpresaCalle,
-                EmpresaNoExterior = oCliente.EmpresaNoExterior,
-                EmpresaNoInterior = oCliente.EmpresaNoInterior,
-                EmpresaColonia = oCliente.EmpresaColonia,
-                EmpresaCodigoPostal = oCliente.EmpresaCodigoPostal,
-                EmpresaEntreCalles = oCliente.EmpresaEntreCalles,
-                EmpresaEstado = oCliente.EmpresaEstado,
-                EmpresaMunicipio = oCliente.EmpresaMunicipio,
-                EmpresaTelefono = oCliente.EmpresaTelefono,
-                EmpresaTelefonoExt = oCliente.EmpresaTelefonoExt,
-                Puesto = oCliente.Puesto,
-                TipoSocio = oCliente.TipoSocio,
-                NumeroSocio = oCliente.NumeroSocio,
                 Usuario = oCliente.Usuario,
                 FechaAlta = oCliente.FechaAlta,
                 Estatus = oCliente.Estatus
