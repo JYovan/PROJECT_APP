@@ -248,3 +248,6 @@ OSEF.INTELISIS.DL/obj/Debug/OSEF.INTELISIS.DL.csproj.FileListAbsolute.txt
 OSEF.INTELISIS.EL/obj/Debug/OSEF.INTELISIS.EL.csproj.FileListAbsolute.txt
 OSEF.LIBRARY.COMMON/obj/Debug/OSEF.LIBRARY.COMMON.csproj.FileListAbsolute.txt
 PruebaGantt/obj/Debug/PruebaGantt.csproj.FileListAbsolute.txt
+*.pdb
+*.suo
+*.cache
