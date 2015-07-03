@@ -373,30 +373,30 @@ var sCliente_Add = function (store, registro) {
 //    App.cmbEmpresaEstado.select(registro[0].get('EmpresaEstado'));
 
 //    //Asignar los Municipio
-//    App.direct.AsignarMunicipio(registro[0].get('Estado'), {
-//        //Si el proceso es correcto
-//        success: function (result) {
-//            App.cmbMunicipio.select(registro[0].get('Municipio'));
-//        },
+    App.direct.AsignarMunicipio(registro[0].get('Estado'), {
+        //Si el proceso es correcto
+        success: function (result) {
+            App.cmbMunicipio.select(registro[0].get('Municipio'));
+        },
 
-//        //Si existe un error
-//        failure: function (errorMsg) {
-//            Ext.Msg.alert('Error', errorMsg);
-//        }
-//    });
+        //Si existe un error
+        failure: function (errorMsg) {
+            Ext.Msg.alert('Error', errorMsg);
+        }
+    });
 
 //    //Asignar las Colonias
-//    App.direct.AsignarColonia(registro[0].get('Municipio'), {
-//        //Si el proceso es correcto
-//        success: function (result) {
-//            App.cmbColonia.select(registro[0].get('Colonia'));
-//        },
+    App.direct.AsignarColonia(registro[0].get('Municipio'), {
+        //Si el proceso es correcto
+        success: function (result) {
+            App.cmbColonia.select(registro[0].get('Colonia'));
+        },
 
-//        //Si existe un error
-//        failure: function (errorMsg) {
-//            Ext.Msg.alert('Error', errorMsg);
-//        }
-//    });
+        //Si existe un error
+        failure: function (errorMsg) {
+            Ext.Msg.alert('Error', errorMsg);
+        }
+    });
 
 //    //Asignar los EmpresaMunicipios
 //    App.direct.AsignarEmpresaMunicipio(registro[0].get('EmpresaEstado'), {

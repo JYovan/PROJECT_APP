@@ -182,23 +182,20 @@ namespace OSEF.ERP.APP
                 oCliente.FechaAlta = DateTime.Now;
                 oCliente.Estatus = "ALTA";
                 oCliente.Usuario = oUsuario.ID;
+                oCliente.RutaLogo = fuImagenCliente.FileName;
                 oCliente.ID = ClienteBusiness.Insertar(oCliente);
-            }
-            else
-            {
+            } else {
                 oCliente.ID = strcookieEditarCliente;
                 ClienteBusiness.Actualizar(oCliente);
             }
 
-            string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" + oCliente.ID + "\\logo\\";
+            string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" + oCliente.ID + fuImagenCliente.FileName;
             if (Directory.Exists(strDireccion))
             {
-                fuImagenCliente.PostedFile.SaveAs(strDireccion + fuImagenCliente.FileName);
-            }
-            else
-            {
+                fuImagenCliente.PostedFile.SaveAs(strDireccion);
+            } else {
                 Directory.CreateDirectory(strDireccion);
-                fuImagenCliente.PostedFile.SaveAs(strDireccion + fuImagenCliente.FileName);
+                fuImagenCliente.PostedFile.SaveAs(strDireccion);
             }
             //6. Mandar parametro (ID del Cliente)
             e.ExtraParamsResponse.Add(new Ext.Net.Parameter("registro", oCliente.ID, ParameterMode.Value));

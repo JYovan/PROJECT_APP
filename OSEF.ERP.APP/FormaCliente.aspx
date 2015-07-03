@@ -48,6 +48,7 @@
                         <ext:ModelField Name="Usuario" Type="String" />
                         <ext:ModelField Name="FechaAlta" Type="Date" />
                         <ext:ModelField Name="Estatus" Type="String" />
+                        <ext:ModelField Name="RutaLogo" Type="String" />
                     </Fields>
                 </ext:Model>
             </Model>

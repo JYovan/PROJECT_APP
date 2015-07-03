@@ -305,10 +305,11 @@ var sVolumetria_Add = function (avance, registro) {
         App.dfFechaEmision.setValue(registro[0].get('FechaEmision'));
         App.txtfObservaciones.setValue(registro[0].get('Observaciones'));
         App.sbFormaVolumetriaDetalle.setText(registro[0].get('Estatus'));
-         
 
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
         //Deshabilita los campos en un movimiento afectado
         App.cmbMov.setReadOnly(true);
         App.cmbPreciario.setDisabled(true);
@@ -332,8 +333,11 @@ var sVolumetria_Add = function (avance, registro) {
         App.dfFechaEmision.setValue(registro[0].get('FechaEmision'));
         App.txtfObservaciones.setValue(registro[0].get('Observaciones'));
         App.sbFormaVolumetriaDetalle.setText(registro[0].get('Estatus'));
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
 
         //Deshabilita los campos en un movimiento afectado
         App.cmbMov.setReadOnly(true);
@@ -359,9 +363,10 @@ var sVolumetria_Add = function (avance, registro) {
         App.sbFormaVolumetriaDetalle.setText(registro[0].get('Estatus'));
         console.log(registro[0]);
 
-        App.IdCliente.setValue(registro[0].get('RCliente').ID);
-        App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
-
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setValue(registro[0].get('RCliente').ID);
+            App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
+        }
         //Agregar una fila para seguir capturando
         var renglonAnterior = App.sConceptos.getAt(App.sConceptos.getCount() - 1).get('Renglon') + 1;
         App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: renglonAnterior });
@@ -381,9 +386,11 @@ var sVolumetria_Add = function (avance, registro) {
         App.dfFechaEmision.setValue(registro[0].get('FechaEmision'));
         App.txtfObservaciones.setValue(registro[0].get('Observaciones'));
         App.sbFormaVolumetriaDetalle.setText(registro[0].get('Estatus'));
-        App.IdCliente.setText(registro[0].get('RCliente').ID);
-        App.txtCliente.setText(registro[0].get('RCliente').Nombre);
 
+        if (registro[0].get('RCliente') != null) {
+            App.IdCliente.setText(registro[0].get('RCliente').ID);
+            App.txtCliente.setText(registro[0].get('RCliente').Nombre);
+        }
         App.cmbMov.setReadOnly(true);
         App.cmbPreciario.setDisabled(true);
         App.dfFechaEmision.setDisabled(true);

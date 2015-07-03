@@ -37,8 +37,8 @@ namespace OSEF.APP.EL
         Nullable<DateTime> fechaalta;
         string estatus;
         string usuario;
+        string rutalogo;
 
-       
 
         #endregion
 
@@ -194,6 +194,12 @@ namespace OSEF.APP.EL
             set { usuario = value; }
         }
 
+
+        public string RutaLogo
+        {
+            get { return rutalogo; }
+            set { rutalogo = value; }
+        }
        
 
         #endregion

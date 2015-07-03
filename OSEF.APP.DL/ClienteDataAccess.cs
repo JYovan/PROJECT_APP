@@ -182,6 +182,11 @@ namespace OSEF.APP.DL
                 sqlpUsuario.SqlDbType = SqlDbType.VarChar;
                 sqlpUsuario.Value = iCliente.Usuario;
 
+                SqlParameter sqlpRutaLogo = new SqlParameter();
+                sqlpRutaLogo.ParameterName = "@RutaLogo";
+                sqlpRutaLogo.SqlDbType = SqlDbType.VarChar;
+                sqlpRutaLogo.Value = iCliente.RutaLogo;
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpNombre);
@@ -208,6 +213,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpFechaAlta);
                 sqlcComando.Parameters.Add(sqlpEstatus);
                 sqlcComando.Parameters.Add(sqlpUsuario);
+                sqlcComando.Parameters.Add(sqlpRutaLogo);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
@@ -380,6 +386,11 @@ namespace OSEF.APP.DL
                 sqlpEstatus.SqlDbType = SqlDbType.VarChar;
                 sqlpEstatus.Value = uCliente.Estatus;
 
+                SqlParameter sqlpRutaLogo = new SqlParameter();
+                sqlpRutaLogo.ParameterName = "@RutaLogo";
+                sqlpRutaLogo.SqlDbType = SqlDbType.VarChar;
+                sqlpRutaLogo.Value = uCliente.RutaLogo;
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpNombre);
@@ -402,8 +413,9 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpCodigoPostal);
                 sqlcComando.Parameters.Add(sqlpEntreCalles);
                 sqlcComando.Parameters.Add(sqlpEstado);
-                sqlcComando.Parameters.Add(sqlpMunicipio); 
+                sqlcComando.Parameters.Add(sqlpMunicipio);
                 sqlcComando.Parameters.Add(sqlpEstatus);
+                sqlcComando.Parameters.Add(sqlpRutaLogo);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
