@@ -51,21 +51,8 @@ CREATE PROCEDURE web_spU_ActualizarCliente
 	@EntreCalles			VARCHAR(100),
 	@Estado					CHAR(2),
 	@Municipio				CHAR(4),
-	@Empresa				VARCHAR(50),
-	@EmpresaCalle			VARCHAR(100),
-	@EmpresaNoExterior		VARCHAR(10),
-	@EmpresaNoInterior		VARCHAR(10),
-	@EmpresaColonia			CHAR(10),
-	@EmpresaCodigoPostal	INT,
-	@EmpresaEntreCalles		VARCHAR(100),
-	@EmpresaEstado			CHAR(2),
-	@EmpresaMunicipio		CHAR(4),
-	@EmpresaTelefono		VARCHAR(15),
-	@EmpresaTelefonoExt		INT,
-	@Puesto					VARCHAR(50),
-	@TipoSocio				VARCHAR(20),
-	@NumeroSocio			VARCHAR(11),
-	@Estatus				VARCHAR(20)
+	@Estatus				VARCHAR(20),
+	@RutaLogo				VARCHAR(500)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -97,21 +84,8 @@ BEGIN
 		EntreCalles = @EntreCalles,
 		Estado = @Estado,
 		Municipio = @Municipio,
-		Empresa = @Empresa,
-		EmpresaCalle = @EmpresaCalle,
-		EmpresaNoExterior = @EmpresaNoExterior,
-		EmpresaNoInterior = @EmpresaNoInterior,
-		EmpresaColonia = @EmpresaColonia,
-		EmpresaCodigoPostal = @EmpresaCodigoPostal,
-		EmpresaEntreCalles = @EmpresaEntreCalles,
-		EmpresaEstado = @EmpresaEstado,
-		EmpresaMunicipio = @EmpresaMunicipio,
-		EmpresaTelefono = @EmpresaTelefono,
-		EmpresaTelefonoExt = @EmpresaTelefonoExt,
-		Puesto = @Puesto,
-		TipoSocio = @TipoSocio,
-		NumeroSocio = @NumeroSocio,
-		Estatus = @Estatus
+		Estatus = @Estatus,
+		RutaLogo = @RutaLogo
 	WHERE
 		ID = @ID
 END

@@ -58,24 +58,11 @@ BEGIN
 		CodigoPostal,
 		EntreCalles,
 		Estado,
-		Municipio,
-		Empresa,
-		EmpresaCalle,
-		EmpresaNoExterior,
-		EmpresaNoInterior,
-		EmpresaColonia,
-		EmpresaCodigoPostal,
-		EmpresaEntreCalles,
-		EmpresaEstado,
-		EmpresaMunicipio,
-		EmpresaTelefono,
-		EmpresaTelefonoExt,
-		Puesto,
-		TipoSocio,
-		NumeroSocio,
+		Municipio, 
 		FechaAlta,
 		Estatus,
-		Usuario
+		Usuario,
+		RutaLogo
 	FROM
 		Clientes
 END

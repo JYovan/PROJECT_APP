@@ -158,3 +158,20 @@ ALTER TABLE OrdenesEstimaciones ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES 
 ALTER TABLE Sucursales ADD TipoConcepto VARCHAR(50) NULL
 ALTER TABLE Sucursales ADD EmpresaSupervisora VARCHAR(50) NULL
 ALTER TABLE Sucursales ADD TipoObra VARCHAR(50) NULL
+
+
+--Cambios Giovanni Flores 3 de Junio 2015
+ALTER TABLE dbo.Clientes DROP COLUMN Empresa ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaCalle ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaNoExterior ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaNoInterior ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaColonia ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaEstado ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaMunicipio ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaCodigoPostal ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaEntreCalles ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaTelefonoExt ;
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaTelefono ;
+ALTER TABLE dbo.Clientes DROP COLUMN Puesto ;
+ALTER TABLE dbo.Clientes DROP COLUMN TipoSocio ;
+ALTER TABLE dbo.Clientes DROP COLUMN NumeroSocio ;

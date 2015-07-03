@@ -50,24 +50,11 @@ CREATE PROCEDURE web_spI_InsertarCliente
 	@CodigoPostal			INT,
 	@EntreCalles			VARCHAR(100),
 	@Estado					CHAR(2),
-	@Municipio				CHAR(4),
-	@Empresa				VARCHAR(50),
-	@EmpresaCalle			VARCHAR(100),
-	@EmpresaNoExterior		VARCHAR(10),
-	@EmpresaNoInterior		VARCHAR(10),
-	@EmpresaColonia			CHAR(10),
-	@EmpresaCodigoPostal	INT,
-	@EmpresaEntreCalles		VARCHAR(100),
-	@EmpresaEstado			CHAR(2),
-	@EmpresaMunicipio		CHAR(4),
-	@EmpresaTelefono		VARCHAR(15),
-	@EmpresaTelefonoExt		INT,
-	@Puesto					VARCHAR(50),
-	@TipoSocio				VARCHAR(20),
-	@NumeroSocio			VARCHAR(11),
+	@Municipio				CHAR(4), 
 	@FechaAlta				SMALLDATETIME,
 	@Estatus				VARCHAR(20),
-	@Usuario				VARCHAR(50)
+	@Usuario				VARCHAR(50),
+	@RutaLogo				VARCHAR(500)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -138,24 +125,11 @@ BEGIN
 				CodigoPostal,
 				EntreCalles,
 				Estado,
-				Municipio,
-				Empresa,
-				EmpresaCalle,
-				EmpresaNoExterior,
-				EmpresaNoInterior,
-				EmpresaColonia,
-				EmpresaCodigoPostal,
-				EmpresaEntreCalles,
-				EmpresaEstado,
-				EmpresaMunicipio,
-				EmpresaTelefono,
-				EmpresaTelefonoExt,
-				Puesto,
-				TipoSocio,
-				NumeroSocio,
+				Municipio, 
 				FechaAlta,
 				Estatus,
-				Usuario
+				Usuario,
+				RutaLogo
 			)
 		VALUES 
 			(
@@ -180,24 +154,11 @@ BEGIN
 				@CodigoPostal,
 				@EntreCalles,
 				@Estado,
-				@Municipio,
-				@Empresa,
-				@EmpresaCalle,
-				@EmpresaNoExterior,
-				@EmpresaNoInterior,
-				@EmpresaColonia,
-				@EmpresaCodigoPostal,
-				@EmpresaEntreCalles,
-				@EmpresaEstado,
-				@EmpresaMunicipio,
-				@EmpresaTelefono,
-				@EmpresaTelefonoExt,
-				@Puesto,
-				@TipoSocio,
-				@NumeroSocio,
+				@Municipio, 
 				@FechaAlta,
 				@Estatus,
-				@Usuario
+				@Usuario,
+				@RutaLogo
 			)
 END
 GO
