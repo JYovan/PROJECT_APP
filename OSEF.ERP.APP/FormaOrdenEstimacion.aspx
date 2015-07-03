@@ -1373,17 +1373,20 @@
                         <ext:DisplayField
                             ID="dfTotalSinRender"
                             runat="server"
+
                             Hidden="true">
                         </ext:DisplayField>
                         <ext:DisplayField
                             ID="dfTotal"
                             runat="server"
+                            Margins="0 0px 0 470px"
                             FieldLabel="Total"
                             Cls="total-field"
-                            Margins="0 0px 0 470px"
+                           
                             Width="290"
                             Text="">
                         </ext:DisplayField>
+                        <%-- Margins="0 0px 0 470px"--%>
                     </Items>
                 </ext:Toolbar>
             </BottomBar>

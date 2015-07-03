@@ -61,6 +61,7 @@ END
 	 AND SOE.Revisado=1
 	  AND SOE.Facturado=0
 	AND SOE.CLASIFICACION LIKE '%'+@CLASIFICACION+'%'   
+
 		)  Cantidades,
 		(SELECT SUM(OEDSQ.Importe) FROM OrdenesEstimacionesD OEDSQ 
 		JOIN OrdenesEstimaciones SOE
@@ -77,11 +78,12 @@ END
 		JOIN PreciariosGeneralesConceptos PGC ON PGC.ID = OED.ConceptoID 
 		WHERE 
 		OE.Mov in('Mesa de reporte')  
-		AND OE.MovEnLinea = 1
+	AND OE.MovEnLinea = 1
 	 AND OE.Estatus IN('CONCLUIDO') 
 	 AND oe.Revisado=1
 	  AND oe.Facturado=0
 	AND OE.CLASIFICACION LIKE '%'+@CLASIFICACION+'%'   
+
 	GROUP BY OED.ConceptoID,
 		PGC.CLAVE, 
 		PGC.Descripcion,
