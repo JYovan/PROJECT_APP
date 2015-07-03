@@ -2,6 +2,12 @@ bin/*.dll
 **/bin/*.dll
 **/*/bin/*.dll
 **/**/*/bin/*.dll
+
+obj/*.dll
+**/obj/*.dll
+**/*/obj/*.dll
+**/**/*/obj/*.dll
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
