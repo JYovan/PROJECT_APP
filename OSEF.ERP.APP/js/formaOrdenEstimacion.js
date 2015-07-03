@@ -1104,6 +1104,7 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
 
 
 
+
 //-----------------------------------------DETALLE----------------------------------------------------------------
 var cCantidad_Renderer = function (valor) {
     var F = Ext.util.Format;
@@ -1169,10 +1170,12 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
     });
 
     var F = Ext.util.Format;
+
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue('' + F.number(sum, "$000,000,000.00"));
-    App.dfTotalSinRender.setValue(sum);
+
+    App.dfTotal.setValue(F.number(sum, "$000,000.00"));
+    App.dfTotalSinRender.setValue(F.number(sum, "000.00"));
     ImporteFinal = sum;
 
 
@@ -1268,10 +1271,12 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
     });
 
     var F = Ext.util.Format;
+
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue('' + F.number(sum, "$000,000,000.00"));
-    App.dfTotalSinRender.setValue(sum);
+
+    App.dfTotal.setValue(F.number(sum, "$000,000.00"));
+    App.dfTotalSinRender.setValue(F.number(sum, "000.00"));
     ImporteFinal = sum;
 
 
@@ -1291,7 +1296,7 @@ var gpOrdenEstimacion_ItemClick = function (gridview, registro, gvhtml, index) {
     //    Ext.util.Cookies.set('cookieConceptoMovReporte', registro.get('ConceptoID'));
     //    Ext.util.Cookies.set('cookieConceptoClaveMovReporte', registro.get('RPreciarioConceptos').Clave);
 
-//    App.txtfClave.setValue(registro.get('RPreciarioConceptos').Clave);
+    //    App.txtfClave.setValue(registro.get('RPreciarioConceptos').Clave);
     App.taDescripcion.setValue(registro.get('RPreciarioConceptos').Descripcion);
 };
 
@@ -1310,7 +1315,7 @@ var obetenerRenglon_Select = function (a, registro, c) {
     //    Ext.util.Cookies.set('cookieConceptoMovReporte', registro.get('ConceptoID'));
     //    Ext.util.Cookies.set('cookieConceptoClaveMovReporte', registro.get('RPreciarioConceptos').Clave);
 
-//    App.txtfClave.setValue(registro.get('RPreciarioConceptos').Clave);
+    //    App.txtfClave.setValue(registro.get('RPreciarioConceptos').Clave);
     App.taDescripcion.setValue(registro.get('RPreciarioConceptos').Descripcion);
 }
 
@@ -1330,10 +1335,13 @@ var ccAcciones_Command = function (columna, comando, registro, fila, opciones) {
 
 
     var F = Ext.util.Format;
+
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue('' + F.number(ImporteFinal, "$000,000,000.00"));
-    App.dfTotalSinRender.setValue(ImporteFinal);
+
+    App.dfTotal.setValue(F.number(ImporteFinal, "$000,000.00"));
+    App.dfTotalSinRender.setValue(F.number(ImporteFinal, "000.00"));
+
 
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') {
         Ext.util.Cookies.set('cookieIDBorrarFotosOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
@@ -1360,10 +1368,12 @@ var sConceptos_Load = function (avance, registro, index) {
         sum += record.get('Importe');
     });
     var F = Ext.util.Format;
+
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue('' + F.number(sum, "$000,000,000.00"));
-    App.dfTotalSinRender.setValue(sum);
+
+    App.dfTotal.setValue(F.number(sum, "$000,000.00"));
+    App.dfTotalSinRender.setValue(F.number(sum, "000.00"));
 }
 
 
@@ -2026,7 +2036,7 @@ var PopupPic = function () {
             closable: false,
             icon: Ext.MessageBox.WARNING
         });
-    } 
+    }
 }
 //RENDER COLUMN PICTURES
 var cConFotos_Renderer = function (value, metadata, registro) {
