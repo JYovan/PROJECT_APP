@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+ 
 =======
 # Windows image file caches
 Thumbs.db
@@ -53,12 +52,7 @@ Temporary Items
 *.suo
 *.user
 *.userosscache
-*.sln.docstates
-<<<<<<< HEAD
-=======
-OSEF.ERP.APP/js/formaOrdenEstimacion.js
->>>>>>> origin/master
-=======
+*.sln.docstates 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -257,5 +251,7 @@ OSEF.INTELISIS.DL/obj/Debug/OSEF.INTELISIS.DL.csproj.FileListAbsolute.txt
 OSEF.INTELISIS.EL/obj/Debug/OSEF.INTELISIS.EL.csproj.FileListAbsolute.txt
 OSEF.LIBRARY.COMMON/obj/Debug/OSEF.LIBRARY.COMMON.csproj.FileListAbsolute.txt
 PruebaGantt/obj/Debug/PruebaGantt.csproj.FileListAbsolute.txt
-
->>>>>>> origin/master
+ 
+*.dll
+*.cache
+*.pdb
