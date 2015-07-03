@@ -1,22 +1,3 @@
--- Articulos (Borrar)
-:r c:\SqlServerScripts\Borrar\Articulos\web_spD_BorrarArticulo.sql
--- Articulos (Consultar)
-:r c:\SqlServerScripts\Consultar\Articulos\web_spS_ObtenerArticulos.sql
-:r c:\SqlServerScripts\Consultar\Articulos\web_spS_ObtenerArticuloPorID.sql
--- Articulos (Insertar)
-:r c:\SqlServerScripts\Insertar\Articulos\web_spI_InsertarArticulo.sql
--- Articulos (Modificar)
-:r c:\SqlServerScripts\Modificar\Articulos\web_spU_ActualizarArticulo.sql
------------------------------------------------------------------------------------
--- CapacidadesPagos (Borrar)
-:r c:\SqlServerScripts\Borrar\CapacidadesPagos\web_spD_BorrarCapacidadPagoPorSolicitudPrestamo.sql
--- CapacidadesPagos (Consultar)
-:r c:\SqlServerScripts\Consultar\CapacidadesPagos\web_spS_ObtenerCapacidadPagoPorSolicitudPrestamo.sql
--- CapacidadesPagos (Insertar)
-:r c:\SqlServerScripts\Insertar\CapacidadesPagos\web_spI_InsertarCapacidadPago.sql
--- CapacidadesPagos (Modificar)
-:r c:\SqlServerScripts\Modificar\CapacidadesPagos\web_spU_ActualizarCapacidadPago.sql
------------------------------------------------------------------------------------
 -- Categorias (Borrar)
 :r c:\SqlServerScripts\Borrar\Categorias\web_spD_BorrarCategoria.sql
 -- Categorias (Consultar)
@@ -27,16 +8,6 @@
 :r c:\SqlServerScripts\Insertar\Categorias\web_spI_InsertarCategoria.sql
 -- Categorias (Modificar)
 :r c:\SqlServerScripts\Modificar\Categorias\web_spU_ActualizarCategoria.sql
------------------------------------------------------------------------------------
----- CertificadosInversion (Borrar)
---:r c:\SqlServerScripts\Borrar\CertificadosInversion\web_spD_BorrarCertificadoInversion.sql
----- CertificadosInversion (Consultar)
---:r c:\SqlServerScripts\Consultar\CertificadosInversion\web_spS_ObtenerCertificadosInversion.sql
---:r c:\SqlServerScripts\Consultar\CertificadosInversion\web_spS_ObtenerCertificadoInversionPorID.sql
----- CertificadosInversion (Insertar)
---:r c:\SqlServerScripts\Insertar\CertificadosInversion\web_spI_InsertarCertificadoInversion.sql
----- CertificadosInversion (Modificar)
---:r c:\SqlServerScripts\Modificar\CertificadosInversion\web_spU_ActualizarCertificadoInversion.sql
 -----------------------------------------------------------------------------------
 -- Clientes (Borrar)
 :r c:\SqlServerScripts\Borrar\Clientes\web_spD_BorrarCliente.sql
@@ -72,17 +43,6 @@
 -- Colonias (Modificar)
 :r c:\SqlServerScripts\Modificar\Colonias\web_spU_ActualizarColonia.sql
 -----------------------------------------------------------------------------------
--- CuentasContables (Borrar)
-:r c:\SqlServerScripts\Borrar\CuentasContables\web_spD_BorrarCuentaContable.sql
--- CuentasContables (Consultar)
-:r c:\SqlServerScripts\Consultar\CuentasContables\web_spS_ObtenerCuentasContables.sql
-:r c:\SqlServerScripts\Consultar\CuentasContables\web_spS_ObtenerCuentaContablePorCuenta.sql
-:r c:\SqlServerScripts\Consultar\CuentasContables\web_spS_ObtenerCuentaContablePorRama.sql
--- CuentasContables (Insertar)
-:r c:\SqlServerScripts\Insertar\CuentasContables\web_spI_InsertarCuentaContable.sql
--- CuentasContables (Modificar)
-:r c:\SqlServerScripts\Modificar\CuentasContables\web_spU_ActualizarCuentaContable.sql
------------------------------------------------------------------------------------
 -- Estados (Borrar)
 :r c:\SqlServerScripts\Borrar\Estados\web_spD_BorrarEstado.sql
 -- Estados (Consultar)
@@ -92,37 +52,6 @@
 :r c:\SqlServerScripts\Insertar\Estados\web_spI_InsertarEstado.sql
 -- Estados (Modificar)
 :r c:\SqlServerScripts\Modificar\Estados\web_spU_ActualizarEstado.sql
------------------------------------------------------------------------------------
--- Finalidades (Borrar)
-:r c:\SqlServerScripts\Borrar\Finalidades\web_spD_BorrarFinalidad.sql
--- Finalidades (Consultar)
-:r c:\SqlServerScripts\Consultar\Finalidades\web_spS_ObtenerFinalidades.sql
-:r c:\SqlServerScripts\Consultar\Finalidades\web_spS_ObtenerFinalidadPorID.sql
--- Finalidades (Insertar)
-:r c:\SqlServerScripts\Insertar\Finalidades\web_spI_InsertarFinalidad.sql
--- Finalidades (Modificar)
-:r c:\SqlServerScripts\Modificar\Finalidades\web_spU_ActualizarFinalidad.sql
------------------------------------------------------------------------------------
--- GruposMenu (Borrar)
-:r c:\SqlServerScripts\Borrar\GruposMenu\web_spD_BorrarGrupoMenu.sql
--- GruposMenu (Consultar)
-:r c:\SqlServerScripts\Consultar\GruposMenu\web_spS_ObtenerGruposMenu.sql
-:r c:\SqlServerScripts\Consultar\GruposMenu\web_spS_ObtenerGrupoMenuPorID.sql
--- GruposMenu (Insertar)
-:r c:\SqlServerScripts\Insertar\GruposMenu\web_spI_InsertarGrupoMenu.sql
--- GruposMenu (Modificar)
-:r c:\SqlServerScripts\Modificar\GruposMenu\web_spU_ActualizarGrupoMenu.sql
------------------------------------------------------------------------------------
--- Menus (Borrar)
-:r c:\SqlServerScripts\Borrar\Menus\web_spD_BorrarMenu.sql
--- Menus (Consultar)
-:r c:\SqlServerScripts\Consultar\Menus\web_spS_ObtenerMenus.sql
-:r c:\SqlServerScripts\Consultar\Menus\web_spS_ObtenerMenuPorID.sql
-:r c:\SqlServerScripts\Consultar\Menus\web_spS_ObtenerMenusPorGrupoMenu.sql
--- Menus (Insertar)
-:r c:\SqlServerScripts\Insertar\Menus\web_spI_InsertarMenu.sql
--- Menus (Modificar)
-:r c:\SqlServerScripts\Modificar\Menus\web_spU_ActualizarMenu.sql
 -----------------------------------------------------------------------------------
 -- Municipios (Borrar)
 :r c:\SqlServerScripts\Borrar\Municipios\web_spD_BorrarMunicipio.sql
@@ -134,16 +63,6 @@
 :r c:\SqlServerScripts\Insertar\Municipios\web_spI_InsertarMunicipio.sql
 -- Municipios (Modificar)
 :r c:\SqlServerScripts\Modificar\Municipios\web_spU_ActualizarMunicipio.sql
------------------------------------------------------------------------------------
--- Profesiones (Borrar)
-:r c:\SqlServerScripts\Borrar\Profesiones\web_spD_BorrarProfesion.sql
--- Profesiones (Consultar)
-:r c:\SqlServerScripts\Consultar\Profesiones\web_spS_ObtenerProfesiones.sql
-:r c:\SqlServerScripts\Consultar\Profesiones\web_spS_ObtenerProfesionPorID.sql
--- Profesiones (Insertar)
-:r c:\SqlServerScripts\Insertar\Profesiones\web_spI_InsertarProfesion.sql
--- Profesiones (Modificar)
-:r c:\SqlServerScripts\Modificar\Profesiones\web_spU_ActualizarProfesion.sql
 -----------------------------------------------------------------------------------
 -- Proveedores (Borrar)
 :r c:\SqlServerScripts\Borrar\Proveedores\web_spD_BorrarProveedor.sql
@@ -180,16 +99,6 @@
 :r c:\SqlServerScripts\Modificar\RevisionesD\web_spU_ActualizarRevisionD.sql
 -- RevisionesD (Acción)
 :r c:\SqlServerScripts\Accion\RevisionesD\web_spI_InsertarRevisionD.sql
------------------------------------------------------------------------------------
----- SolicitudesPrestamos (Borrar)
---:r c:\SqlServerScripts\Borrar\SolicitudesPrestamos\web_spD_BorrarSolicitudPrestamo.sql
----- SolicitudesPrestamos (Consultar)
---:r c:\SqlServerScripts\Consultar\SolicitudesPrestamos\web_spS_ObtenerSolicitudesPrestamos.sql
---:r c:\SqlServerScripts\Consultar\SolicitudesPrestamos\web_spS_ObtenerSolicitudPrestamoPorID.sql
----- SolicitudesPrestamos (Insertar)
---:r c:\SqlServerScripts\Insertar\SolicitudesPrestamos\web_spI_InsertarSolicitudPrestamo.sql
----- SolicitudesPrestamos (Modificar)
---:r c:\SqlServerScripts\Modificar\SolicitudesPrestamos\web_spU_ActualizarSolicitudPrestamo.sql
 -----------------------------------------------------------------------------------
 -- SubCategorias (Borrar)
 :r c:\SqlServerScripts\Borrar\SubCategorias\web_spD_BorrarSubCategoria.sql
