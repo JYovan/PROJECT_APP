@@ -419,7 +419,6 @@
     <Content Include="js\buscaConceptoPreciarioGeneral.js" />
     <Content Include="js\buscaSucursales.js" />
     <Content Include="js\cambiarContrasena.js" />
-    <Content Include="js\certificadosInversiones.js" />
     <Content Include="js\clientes.js" />
     <Content Include="js\codigosfallas.js" />
     <Content Include="js\colonias.js" />
