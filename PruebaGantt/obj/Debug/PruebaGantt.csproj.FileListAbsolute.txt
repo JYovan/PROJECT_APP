@@ -10,3 +10,9 @@ C:\Users\Christian\Documents\GitHub\PROJECT_APP\PruebaGantt\bin\Ionic.Zip.dll
 C:\Users\Christian\Documents\GitHub\PROJECT_APP\PruebaGantt\bin\Ionic.Zip.xml
 C:\Users\Christian\Documents\GitHub\PROJECT_APP\PruebaGantt\obj\Debug\PruebaGantt.dll
 C:\Users\Christian\Documents\GitHub\PROJECT_APP\PruebaGantt\obj\Debug\PruebaGantt.pdb
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\PruebaGantt\bin\PruebaGantt.dll
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\PruebaGantt\bin\PruebaGantt.pdb
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\PruebaGantt\bin\Ionic.Zip.dll
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\PruebaGantt\bin\Ionic.Zip.xml
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\PruebaGantt\obj\Debug\PruebaGantt.dll
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\PruebaGantt\obj\Debug\PruebaGantt.pdb

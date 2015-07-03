@@ -17,3 +17,4 @@ C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\bin\Debug\OSEF.APP.E
 C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\bin\Debug\OSEF.APP.EL.pdb
 C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\bin\Debug\Ionic.Zip.dll
 C:\Users\Christian\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\bin\Debug\Ionic.Zip.xml
+C:\Users\Administrator\Documents\GitHub\PROJECT_APP\OSEF.APP.EL\obj\Debug\OSEF.APP.EL.csprojResolveAssemblyReference.cache
