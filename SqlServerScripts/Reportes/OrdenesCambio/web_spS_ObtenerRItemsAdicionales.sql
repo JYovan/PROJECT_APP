@@ -14,7 +14,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		Giovanni Flores
+-- Author:		Christian Medina
 -- Create date: 2015-04-16
 -- Description:	Obtiene los datos generales por ConceptoID
 -- =============================================
@@ -51,6 +51,7 @@ BEGIN
 		OED.ConceptoID,
 		--Datos de la sucursal
 		CONVERT(VARCHAR(4),S.CR) CR,S.Nombre Sucursal,S.InicioObra,S.FinObra,
+		s.TipoConcepto, s.TipoObra, s.EmpresaSupervisora,
 		--Datos del concepto
 		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,OED.Unidad,PGCAT.Descripcion DescripcionPreGenCat
 		--Encabezado del movimiento(No del reporte)
