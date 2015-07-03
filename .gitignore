@@ -1,3 +1,7 @@
+bin/*.dll
+**/bin/*.dll
+**/*/bin/*.dll
+**/**/*/bin/*.dll
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -250,4 +254,9 @@ OSEF.LIBRARY.COMMON/obj/Debug/OSEF.LIBRARY.COMMON.csproj.FileListAbsolute.txt
 PruebaGantt/obj/Debug/PruebaGantt.csproj.FileListAbsolute.txt
 *.pdb
 *.suo
+*.cache
+*.dll
+*.cache
+*.pdb
+*.dll
 *.cache
