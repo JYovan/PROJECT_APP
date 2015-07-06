@@ -1374,12 +1374,12 @@
                             ID="dfTotalSinRender"
                             runat="server"
 
-                            Hidden="true">
+                            Hidden="false">
                         </ext:DisplayField>
                         <ext:DisplayField
                             ID="dfTotal"
                             runat="server"
-                            Margins="0 0px 0 470px"
+                          
                             FieldLabel="Total"
                             Cls="total-field"
                            

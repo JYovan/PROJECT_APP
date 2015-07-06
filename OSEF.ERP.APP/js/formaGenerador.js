@@ -64,13 +64,14 @@ var sFormaGenerador_Load = function () {
 
     }
 
-    App.txtDescripcionCorta.setValue(App.sFormaGenerador.getAt(0).get('Descripcion').trim());
+  
 
     var tablero = window.parent.App.wEmergente.getBody().App.cmbMov.getValue();
     if (tablero.trim() == 'Mesa de reporte') {
         App.txtDescripcionCorta.setVisible(false);
         App.txtPlano.setVisible(false);
-    } else { 
+    } else {
+        App.txtDescripcionCorta.setValue(App.sFormaGenerador.getAt(0).get('Descripcion').trim());
        App.txtPlano.setValue(App.sFormaGenerador.getAt(0).get('Plano').trim());
     }
 

@@ -23,12 +23,12 @@ GO
 -- =============================================
 IF EXISTS (	SELECT name 
 			FROM sysobjects
-			WHERE  name = 'web_spS_ObtenerConceptosRevisados' AND
+			WHERE  name = 'web_spS_ObtenerReportesPorClasificacion' AND
 			TYPE = 'P')
-	DROP PROCEDURE web_spS_ObtenerConceptosRevisados
+	DROP PROCEDURE web_spS_ObtenerReportesPorClasificacion
 GO
 
-CREATE PROCEDURE web_spS_ObtenerConceptosRevisados
+CREATE PROCEDURE web_spS_ObtenerReportesPorClasificacion
 	-- Add the parameters for the stored procedure here
 		@CLASIFICACION VARCHAR(25)
 AS
@@ -38,55 +38,38 @@ IF (@CLASIFICACION = 'Todos')
 BEGIN
 SET @CLASIFICACION = ''
 END
-
-
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
     -- Insert statements for procedure here
-			SELECT 
+		SELECT 
 		--DATOS DEL REPORTE
-		OED.ConceptoID,
-		PGC.CLAVE, 
-		PGC.Descripcion,
-		OED.Precio,	
-
-		(SELECT SUM(OEDSQ.Cantidad) FROM OrdenesEstimacionesD OEDSQ 
-		JOIN OrdenesEstimaciones SOE
-		ON SOE.ID= OEDSQ.ID
-		AND OEDSQ.ConceptoID = OED.ConceptoID
-		AND SOE.Mov in('Mesa de reporte')  
-		AND SOE.MovEnLinea = 1
-		AND SOE.Estatus IN('CONCLUIDO') 
-	    AND SOE.Revisado=1
-	    AND SOE.CLASIFICACION LIKE '%'+@CLASIFICACION+'%' 
-		GROUP BY OEDSQ.ConceptoID
-		)  Cantidades,
-		(SELECT SUM(OEDSQ.Importe) FROM OrdenesEstimacionesD OEDSQ 
-		JOIN OrdenesEstimaciones SOE
-		ON SOE.ID= OEDSQ.ID
-		AND OEDSQ.ConceptoID = OED.ConceptoID
-		AND SOE.Mov in('Mesa de reporte')  
-		AND SOE.MovEnLinea = 1
-		AND SOE.Estatus IN('CONCLUIDO') 
-		AND SOE.Revisado=1
-		AND SOE.CLASIFICACION LIKE  '%'+@CLASIFICACION+'%'  
-		GROUP BY OEDSQ.ConceptoID
-	 )  Importes
-
+		OE.Reporte,
+		--Datos de la sucursal
+		S.Nombre Sucursal,
+		S.CR,
+		OE.Division,
+		--DATOS DEL REPORTE 2
+		OE.FechaOrigen,
+		OE.TrabajoRequerido,
+		OE.TrabajoRealizado,
+		OE.FechaLlegada,
+		OE.HoraLlegada,
+		OE.FechaFinActividad,
+		OE.HoraFinActividad,
+		OE.Clasificacion,
+		OE.ImporteTotal,OE.MovEnLinea, OE.Observaciones
 		FROM OrdenesEstimaciones OE
-		JOIN OrdenesEstimacionesD OED ON OE.ID = OED.ID
-		JOIN PreciariosGeneralesConceptos PGC ON PGC.ID = OED.ConceptoID 
+		-- Nos trameos los datos de la sucursal
+		LEFT JOIN Sucursales S
+		ON S.ID = OE.Sucursal 
 		WHERE 
 		OE.Mov in('Mesa de reporte')  
 		AND OE.MovEnLinea = 1
-		AND OE.Estatus IN('CONCLUIDO') 
-		AND oe.Revisado=1
-		AND OE.CLASIFICACION LIKE '%'+@CLASIFICACION+'%' 
-		GROUP BY 
-		OED.ConceptoID,
-		PGC.CLAVE, 
-		PGC.Descripcion,
-		OED.Precio ORDER BY OED.ConceptoID DESC;
+	 AND OE.Estatus IN('CONCLUIDO') 
+	 AND oe.Revisado=1
+	 AND OE.Facturado=0
+	AND OE.CLASIFICACION LIKE '%'+@CLASIFICACION+'%'
+	ORDER BY OE.Reporte  ASC
 END
 GO

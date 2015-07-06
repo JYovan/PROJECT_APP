@@ -1128,7 +1128,26 @@ var cImporte_Renderer = function (valor) {
 };
 
 
+var sConceptos_Load = function (avance, registro, index) {
+    var sum = 0;
+    App.sConceptos.each(function (record) {
+        sum += record.get('Importe');
+    });
+    var F = Ext.util.Format;
 
+    F.thousandSeparator = ',';
+    F.decimalSeparator = '.';
+
+//    var a2 = Math.floor(sum * 100) / 100;
+//    App.dfTotalSinRender.setValue(a2.toFixed(2));
+//    App.dfTotal.setValue(F.number(a2.toFixed(2), "$000,000.00"));
+
+
+    App.dfTotalSinRender.setValue(sum.toFixed(2));
+    App.dfTotal.setValue(F.number(sum.toFixed(2), "$000,000.00"));
+
+    
+}
 
 //Calular Importe cuando la columna de precio cambia
 var calcularImportePrecio_Change = function (component) {
@@ -1139,7 +1158,7 @@ var calcularImportePrecio_Change = function (component) {
     }
 
     var Importe = parseFloat(component.getValue() * parseFloat(valorCantidad))
-    App.sConceptos.getAt(indiceDetalle).set('Importe', Importe);
+    App.sConceptos.getAt(indiceDetalle).set('Importe', Importe.toFixed(2));
 }
 
 //Calcula el importe cuando cambia la cantidad
@@ -1151,7 +1170,7 @@ var calcularImporteCantidad_Change = function (component) {
     }
 
     var Importe = parseFloat(component.getValue() * parseFloat(valorPrecio))
-    App.sConceptos.getAt(indiceDetalle).set('Importe', Importe);
+    App.sConceptos.getAt(indiceDetalle).set('Importe', Importe.toFixed(2));
 }
 
 
@@ -1159,7 +1178,7 @@ var calcularImporteCantidad_Change = function (component) {
 var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) {
 
     var Importe = parseFloat(registro.get('Cantidad')) * parseFloat(registro.get('Precio'));
-    registro.set('Importe', Importe);
+    registro.set('Importe', Importe.toFixed(2));
 
 
 
@@ -1174,8 +1193,8 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
 
-    App.dfTotal.setValue(F.number(sum, "$000,000.00"));
-    App.dfTotalSinRender.setValue(F.number(sum, "000.00"));
+    App.dfTotalSinRender.setValue(sum.toFixed(2));
+    App.dfTotal.setValue(F.number(sum.toFixed(2), "$000,000.00"));
     ImporteFinal = sum;
 
 
@@ -1275,8 +1294,8 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
 
-    App.dfTotal.setValue(F.number(sum, "$000,000.00"));
-    App.dfTotalSinRender.setValue(F.number(sum, "000.00"));
+    App.dfTotalSinRender.setValue(sum.toFixed(2));
+    App.dfTotal.setValue(F.number(sum.toFixed(2), "$000,000.00"));
     ImporteFinal = sum;
 
 
@@ -1339,8 +1358,10 @@ var ccAcciones_Command = function (columna, comando, registro, fila, opciones) {
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
 
-    App.dfTotal.setValue(F.number(ImporteFinal, "$000,000.00"));
-    App.dfTotalSinRender.setValue(F.number(ImporteFinal, "000.00"));
+
+    App.dfTotalSinRender.setValue(sum.toFixed(2));
+    App.dfTotal.setValue(F.number(sum.toFixed(2), "$000,000.00"));
+
 
 
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') {
@@ -1362,19 +1383,7 @@ var ccAcciones_Command = function (columna, comando, registro, fila, opciones) {
 };
 
 
-var sConceptos_Load = function (avance, registro, index) {
-    var sum = 0;
-    App.sConceptos.each(function (record) {
-        sum += record.get('Importe');
-    });
-    var F = Ext.util.Format;
 
-    F.thousandSeparator = ',';
-    F.decimalSeparator = '.';
-
-    App.dfTotal.setValue(F.number(sum, "$000,000.00"));
-    App.dfTotalSinRender.setValue(F.number(sum, "000.00"));
-}
 
 
 
