@@ -472,10 +472,8 @@
     <Content Include="js\conceptos.js" />
     <Content Include="js\default.js" />
     <Content Include="js\estados.js" />
-    <Content Include="js\gruposMenu.js" />
     <Content Include="js\libs\jquery-2.0.3.min.js" />
     <Content Include="js\menu-usuario.js" />
-    <Content Include="js\menus.js" />
     <Content Include="js\municipios.js" />
     <Content Include="js\proveedores.js" />
     <Content Include="js\subcategorias.js" />

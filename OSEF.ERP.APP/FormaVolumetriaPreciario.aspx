@@ -67,7 +67,7 @@
             ID="fpVolumetriasPreciario"
             runat="server" 
             MonitorResize="true"
-            Height="545"
+            Height="575"
             Width="910"
             BodyStyle="background-color:#fff;">
             <TopBar>
@@ -305,7 +305,7 @@
                     runat="server" 
                     BodyPadding="5"
                     Width="900"
-                    Height="236" 
+                    Height="266" 
                     AutoScroll="false">
                     <Items>
                         <ext:FieldSet 
@@ -367,6 +367,45 @@
                                     </Items>  
                                 </ext:FieldContainer>
                                 <ext:FieldContainer
+                                        ID="fClientes"
+                                        runat="server"
+                                        LabelWidth="120"
+                                        Width="227" 
+                                        Height="25px"
+                                        FieldLabel="Cliente"
+                                        Layout="HBoxLayout">
+                                        <Items>
+                                            <ext:TextField 
+                                                ID="IdCliente" 
+                                                runat="server" 
+                                                Width="200" 
+                                                StyleSpec="margin-right: 3px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"> 
+                                                <RightButtons>
+                                                    <ext:Button 
+                                                    ID="btnBuscaCliente" 
+                                                    runat="server" 
+                                                    Icon="Find" 
+                                                    StandOut="true">
+                                                        <Listeners>
+                                                            <Click Fn="btnBuscar_Cliente" />
+                                                        </Listeners>
+                                                    </ext:Button>
+                                                </RightButtons>  
+                                             </ext:TextField> 
+                                             <ext:TextField
+                                             ID="txtCliente"
+                                             runat ="server"
+                                             Width="360"
+                                             StyleSpec="margin-right: 3px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"/> 
+                                        </Items>
+                                        </ext:FieldContainer>
+ 
+
+                                <ext:FieldContainer
                                     ID="fcPreciario"
                                     runat="server"
                                     FieldLabel="Preciario"
@@ -375,59 +414,6 @@
                                      Height="25"
                                     Layout="HBoxLayout">
                                     <Items>
-                                        <%--<ext:ComboBox
-                                            ID="cmbPreciario"
-                                            runat="server"
-                                            DisplayField="ID"
-                                            ValueField="ID"
-                                            Width="200"
-                                            Margins="0 3 0 0"
-                                            Cls="spanCustomCombo xEspacioCmbxCustom"
-                                            AllowBlank="false"
-                                            PageSize="10"
-                                            ForceSelection="true"
-                                            MatchFieldWidth="false"
-                                            QueryMode="Local"
-                                            TypeAhead="true">
-                                            <ListConfig ID="lcPreciario" runat="server" Width="350" Cls="xEspacioCmbxCustom">
-                                                <ItemTpl ID="itPreciario" runat="server">
-                                                    <Html>
-                                                        <div class="search-item">
-							                                <h3>{ID}</h3>
-                                                            <span>{Descripcion}</span>
-						                                </div>
-                                                    </Html>
-                                                </ItemTpl>
-                                            </ListConfig>
-                                            <Store>
-                                                <ext:Store
-                                                    ID="sPreciario"
-                                                    runat="server">
-                                                    <Model>
-                                                        <ext:Model
-                                                            ID="mPreciario"
-                                                            runat="server">
-                                                            <Fields>
-                                                                <ext:ModelField Name="ID" Type="String" />
-                                                                <ext:ModelField Name="Descripcion" Type="String" />
-                                                                <ext:ModelField Name="RSucursal" Type="Object" />
-                                                            </Fields>
-                                                        </ext:Model>                            
-                                                    </Model>
-                                                </ext:Store>
-                                            </Store>
-                                            <Listeners>
-                                                <Select Fn="cmbPreciario_Select" />
-                                                <Change Fn="cmbPreciario_Change" />
-                                            </Listeners>  
-                                            <DirectEvents>
-                                                <Select OnEvent="cmbPreciarios_Change"  Success="cmbPreciario_Change_Success" >
-                                                    <ExtraParams>
-                                                        <ext:Parameter Name="valor" Value="App.cmbPreciario.getValue()" Mode="Raw" />
-                                                    </ExtraParams>
-                                                </Select>
-                                            </DirectEvents>
-                                        </ext:ComboBox>--%> 
                                         <ext:TextField 
                                         ID="cmbPreciario" 
                                         runat="server" 
@@ -510,37 +496,7 @@
                                                 Cls="my-date-picker">
                                             </PickerOptions>
                                         </ext:DateField>
-                                         <ext:TextField 
-                                        ID="IdCliente" 
-                                        runat="server" 
-                                        Width="227" 
-                                        Height="25px"
-                                        StyleSpec="margin-right: 3px;  height:24px;"
-                                        AllowBlank="false" 
-                                        FieldLabel="Cliente"
-                                        ReadOnly="true"> 
-                                        <RightButtons>
-                                            <ext:Button 
-                                            ID="btnBuscaCliente" 
-                                            runat="server" 
-                                            Icon="Find" 
-                                            StandOut="true">
-                                                <Listeners>
-                                                    <Click Fn="btnBuscar_Cliente" />
-                                                </Listeners>
-                                            </ext:Button>
-                                        </RightButtons>  
-                                        <Listeners>  
-                                            <Change Fn="cmbPreciario_Change" />
-                                            </Listeners>  
-                                     </ext:TextField> 
-                                     <ext:TextField
-                                             ID="txtCliente"
-                                             runat ="server"
-                                             Width="130"
-                                             StyleSpec="margin-right: 3px;  height:24px;"
-                                                AllowBlank="false" 
-                                                ReadOnly="true"/> 
+                                       
 
                                     </Items>
                                 </ext:FieldContainer>

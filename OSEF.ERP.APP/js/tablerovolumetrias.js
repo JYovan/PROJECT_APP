@@ -4,7 +4,7 @@
 var imgbtnNuevo_Click = function () {
     Ext.util.Cookies.set('cookieEditarVolumetria', 'Nuevo');
     window.parent.App.wEmergente.load('FormaVolumetriaPreciario.aspx');
-    window.parent.App.wEmergente.setHeight(591.5);
+    window.parent.App.wEmergente.setHeight(621.5);
     window.parent.App.wEmergente.setWidth(930);
     window.parent.App.wEmergente.center();
     window.parent.App.wEmergente.setTitle('Nueva Volumetría');
@@ -15,7 +15,7 @@ var imgbtnNuevo_Click = function () {
 var imgbtnEditar_Click = function () {
     Ext.util.Cookies.set('cookieEditarVolumetria', App.gpVolumetrias.getSelectionModel().getSelection()[0].get('ID'));
     window.parent.App.wEmergente.load('FormaVolumetriaPreciario.aspx');
-    window.parent.App.wEmergente.setHeight(591.5);
+    window.parent.App.wEmergente.setHeight(621.5);
     window.parent.App.wEmergente.setWidth(930);
     window.parent.App.wEmergente.center();
     window.parent.App.wEmergente.setTitle('Editar Volumetría ' + Ext.util.Cookies.get('cookieEditarVolumetria'));
@@ -25,7 +25,7 @@ var imgbtnEditar_Click = function () {
 var gpVolumetrias_ItemDblClick = function (gridview, registro, gvhtml, index) {
     Ext.util.Cookies.set('cookieEditarVolumetria', App.gpVolumetrias.getSelectionModel().getSelection()[0].get('ID'));
     window.parent.App.wEmergente.load('FormaVolumetriaPreciario.aspx');
-    window.parent.App.wEmergente.setHeight(591.5);
+    window.parent.App.wEmergente.setHeight(621.5);
     window.parent.App.wEmergente.setWidth(930);
     window.parent.App.wEmergente.center();
     window.parent.App.wEmergente.setTitle('Editar Volumetría ' + Ext.util.Cookies.get('cookieEditarVolumetria'));

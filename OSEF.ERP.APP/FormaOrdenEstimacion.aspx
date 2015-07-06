@@ -429,6 +429,46 @@
                                                 </ext:TextField>                                            
                                             </Items>
                                         </ext:FieldContainer>
+
+                                        
+                                        <ext:FieldContainer
+                                        ID="fClientes"
+                                        runat="server"
+                                        LabelWidth="120"
+                                        Width="227" 
+                                        Height="25px"
+                                        FieldLabel="Cliente"
+                                        Layout="HBoxLayout">
+                                        <Items>
+                                            <ext:TextField 
+                                                ID="IdCliente" 
+                                                runat="server" 
+                                                Width="200" 
+                                                StyleSpec="margin-right: 3px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"> 
+                                                <RightButtons>
+                                                    <ext:Button 
+                                                    ID="btnBuscaCliente" 
+                                                    runat="server" 
+                                                    Icon="Find" 
+                                                    StandOut="true">
+                                                        <Listeners>
+                                                            <Click Fn="btnBuscar_Cliente" />
+                                                        </Listeners>
+                                                    </ext:Button>
+                                                </RightButtons>  
+                                             </ext:TextField> 
+                                             <ext:TextField
+                                             ID="txtCliente"
+                                             runat ="server"
+                                             Width="360"
+                                             StyleSpec="margin-right: 3px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"/> 
+                                        </Items>
+                                        </ext:FieldContainer>
+
                                         <ext:FieldContainer
                                             ID="fcSucursal"
                                             runat="server"
@@ -538,70 +578,25 @@
                                                 </ext:TextField>
                                             </Items>
                                         </ext:FieldContainer>
-                                        <ext:FieldContainer
-                                        ID="fClientes"
-                                        runat="server"
-                                        LabelWidth="120"
-                                        Width="227" 
-                                        Height="25px"
-                                        FieldLabel="Cliente"
-                                        Layout="HBoxLayout">
-                                        <Items>
-                                            <ext:TextField 
-                                                ID="IdCliente" 
-                                                runat="server" 
-                                                Width="200" 
-                                                StyleSpec="margin-right: 3px;  height:24px;"
-                                                AllowBlank="false" 
-                                                ReadOnly="true"> 
-                                                <RightButtons>
-                                                    <ext:Button 
-                                                    ID="btnBuscaCliente" 
-                                                    runat="server" 
-                                                    Icon="Find" 
-                                                    StandOut="true">
-                                                        <Listeners>
-                                                            <Click Fn="btnBuscar_Cliente" />
-                                                        </Listeners>
-                                                    </ext:Button>
-                                                </RightButtons>  
-                                             </ext:TextField> 
-                                             <ext:TextField
-                                             ID="txtCliente"
-                                             runat ="server"
-                                             Width="360"
-                                             StyleSpec="margin-right: 3px;  height:24px;"
-                                                AllowBlank="false" 
-                                                ReadOnly="true"/> 
-                                        </Items>
-                                        </ext:FieldContainer>
                                     </Items>
                                 </ext:FieldSet>
                                 <ext:FieldContainer
                                     ID="fcDescricpion"
                                     runat="server"
                                     AnchorHorizontal="100%" 
-                                    Height="120"
+                                    AutoScroll="true"
                                     Layout="ColumnLayout">
                                     <Items>
-                                        <ext:TextField 
-                                            ID="txtfClave" 
-                                            runat="server" 
-                                            Width="80" 
-                                            Disabled="true"
-                                            Text=""
-                                            Cls="xcustomtextAreaSinBorde">
-                                        </ext:TextField>
                                         <ext:TextArea
                                             ID="taDescripcion"
                                             runat="server"
                                             Disabled="true"
                                             LabelWidth="70"
                                             StyleSpec="margin-left: 0px;  margin-top:-5px;"
-                                            Text=""
+                                             Height="55"
                                             Cls="xcustomtextAreaSinBorde"
-                                            Height="110"
-                                            Width="808" >
+                                            AutoScroll="true"
+                                            Width="888" >
                                         </ext:TextArea>
                                     </Items>
                                 </ext:FieldContainer>
@@ -1374,7 +1369,7 @@
                             ID="dfTotalSinRender"
                             runat="server"
 
-                            Hidden="false">
+                            Hidden="true">
                         </ext:DisplayField>
                         <ext:DisplayField
                             ID="dfTotal"
@@ -1382,7 +1377,7 @@
                           
                             FieldLabel="Total"
                             Cls="total-field"
-                           
+                            Margins="0 0px 0 470px"
                             Width="290"
                             Text="">
                         </ext:DisplayField>

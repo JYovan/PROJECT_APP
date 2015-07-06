@@ -238,7 +238,7 @@ var sMov_Add = function (store, registros, index, eOpts) {
         App.cmbMov.select(registros[0].get('ID'));
         // App.cmbMov.setReadOnly(true);
         App.dfFechaEmision.setValue(d);
-        App.cmbPreciario.focus();
+        App.IdCliente.focus();
     }
 };
 
