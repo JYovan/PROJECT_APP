@@ -405,6 +405,7 @@
     <Content Include="images\linked.png" />
     <Content Include="images\logoBBVA.png" />
     <Content Include="images\pendiente.png" />
+    <Content Include="images\smiley_add.png" />
     <Content Include="images\twiter.png" />
     <Content Include="images\user-login.png" />
     <Content Include="images\youtube.png" />

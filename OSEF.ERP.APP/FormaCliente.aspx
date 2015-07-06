@@ -134,8 +134,16 @@
                                                         Icon="ImageAdd">
                                                         <Listeners>
                                                             <Change Fn="onFUCliente"></Change>
-                                                        </Listeners> 
+                                                        </Listeners>  
                                                         </ext:FileUploadField>
+                                                        <%--<ext:Image
+                                                        runat="server"
+                                                        AllowPan="true"
+                                                        Height="128px"
+                                                        Width="128px"
+                                                        ImageUrl="images/smiley_add.png" > 
+                                                        </ext:Image>--%>
+
                                                 </Items>
                                             </ext:FieldContainer>
                                             <ext:FieldContainer
