@@ -144,12 +144,12 @@ namespace OSEF.ERP.APP
                 string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" +oCliente.ID+"\\";
                 if (Directory.Exists(strDireccion))
                 {
-                    fuImagenCliente.PostedFile.SaveAs(Path.Combine(strDireccion + rlogo));
+                    fuImagenCliente.PostedFile.SaveAs(strDireccion + rlogo);
                 }
                 else
                 {
                     Directory.CreateDirectory(strDireccion);
-                    fuImagenCliente.PostedFile.SaveAs(Path.Combine(strDireccion + rlogo));
+                    fuImagenCliente.PostedFile.SaveAs(strDireccion + rlogo);
                 }
             }
                 //6. Mandar parametro (ID del Cliente)

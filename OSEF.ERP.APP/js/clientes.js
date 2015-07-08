@@ -131,8 +131,7 @@ function cargarEstilo() {
 }
 
 //Evento de clic del botón Nuevo
-var imgbtnNuevo_Click = function () {
-    console.log(App.gpClientes.getSelectionModel().getSelection()[0].get('ID'));
+var imgbtnNuevo_Click = function () { 
     Ext.util.Cookies.set('cookieCP', '');
     Ext.util.Cookies.set('cookieEditarCliente', 'Nuevo');
     window.parent.App.wSubModulo.load('FormaCliente.aspx');

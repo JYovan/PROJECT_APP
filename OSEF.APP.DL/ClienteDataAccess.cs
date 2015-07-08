@@ -86,7 +86,7 @@ namespace OSEF.APP.DL
                  
                 SqlParameter sqlpCodigoPostal = new SqlParameter();
                 sqlpCodigoPostal.ParameterName = "@CodigoPostal";
-                sqlpCodigoPostal.SqlDbType = SqlDbType.Int;
+                sqlpCodigoPostal.SqlDbType = SqlDbType.Char; 
                 sqlpCodigoPostal.Value = iCliente.CodigoPostal;
 
                 SqlParameter sqlpEntreCalles = new SqlParameter();
@@ -136,13 +136,13 @@ namespace OSEF.APP.DL
                 sqlcComando.Connection.Open();
 
                 //5. Ejecutar la instrucción INSERT que regresa un dato que es el ID
-                int result = Convert.ToInt32(sqlcComando.ExecuteScalar());
+                string result =Convert.ToString(sqlcComando.ExecuteScalar());
 
                 //6. Cerrar la conexión
                 sqlcComando.Connection.Close();
 
                 //7. Regresar el resultado
-                return sqlcComando.Parameters["@ID"].Value.ToString();
+                return result;
             }
             catch (Exception ex)
             {
