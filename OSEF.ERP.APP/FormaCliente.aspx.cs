@@ -141,7 +141,7 @@ namespace OSEF.ERP.APP
             string rlogo = fuImagenCliente.FileName;
             if (rlogo != null && !rlogo.Trim().Equals(""))
             {
-                string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" ;
+                string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" +oCliente.ID+"\\";
                 if (Directory.Exists(strDireccion))
                 {
                     fuImagenCliente.PostedFile.SaveAs(Path.Combine(strDireccion + rlogo));
