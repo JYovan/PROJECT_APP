@@ -18,7 +18,6 @@
 :r c:\SqlServerScripts\Insertar\Clientes\web_spI_InsertarCliente.sql
 -- Clientes (Modificar)
 :r c:\SqlServerScripts\Modificar\Clientes\web_spU_ActualizarCliente.sql
-:r c:\SqlServerScripts\Modificar\Clientes\web_spU_ActualizarClienteSolicitudPrestamo.sql
 -----------------------------------------------------------------------------------
 -- Conceptos (Borrar)
 :r c:\SqlServerScripts\Borrar\Conceptos\web_spD_BorrarConcepto.sql

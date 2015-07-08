@@ -14,13 +14,19 @@ var imgbtnNuevo_Click = function () {
 
 //Evento de click del botón Editar
 var imgbtnEditar_Click = function () {
-    Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Id')); 
+    Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Id'));
+
+    var cadenatitulo = ' - ' + App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Reporte') + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').Nombre + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').CR + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').Direccionzona;
+
     window.parent.App.wEmergente.load('FormaOrdenEstimacion.aspx');
     window.parent.App.wEmergente.setHeight(600);
     window.parent.App.wEmergente.setWidth(930);
     window.parent.App.wEmergente.center();
-    window.parent.App.wEmergente.setTitle('Editar Movimiento ' + Ext.util.Cookies.get('cookieEditarOrdenEstimacion'));
-    window.parent.App.wEmergente.show();  
+    window.parent.App.wEmergente.setTitle('Editar Movimiento s' + Ext.util.Cookies.get('cookieEditarOrdenEstimacion') + '   ' + cadenatitulo);
+    window.parent.App.wEmergente.show();
 };
 
 //Evento de click del botón Editar
@@ -35,12 +41,17 @@ var imgbtnFirmas_Click = function () {
 
 var gpOrdenEstimacion_ItemDblClick = function (gridview, registro, gvhtml, index) {
 
+    var cadenatitulo = ' - ' + App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Reporte') + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').Nombre + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').CR + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').Direccionzona;
+
     Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Id')); 
             window.parent.App.wEmergente.load('FormaOrdenEstimacion.aspx');
             window.parent.App.wEmergente.setHeight(600);
             window.parent.App.wEmergente.setWidth(930);
             window.parent.App.wEmergente.center();
-            window.parent.App.wEmergente.setTitle('Editar Movimiento ' + Ext.util.Cookies.get('cookieEditarOrdenEstimacion'));
+            window.parent.App.wEmergente.setTitle('Editar Movimiento ' + Ext.util.Cookies.get('cookieEditarOrdenEstimacion') + '   ' + cadenatitulo);
             window.parent.App.wEmergente.show(); 
 }
 

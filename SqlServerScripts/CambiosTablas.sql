@@ -176,10 +176,6 @@ ALTER TABLE dbo.Clientes DROP COLUMN EmpresaTelefono ;
 ALTER TABLE dbo.Clientes DROP COLUMN Puesto ;
 ALTER TABLE dbo.Clientes DROP COLUMN TipoSocio ;
 ALTER TABLE dbo.Clientes DROP COLUMN NumeroSocio ;
-
---Cambios Giovanni Flores 6 de Junio 2015
-ALTER TABLE dbo.Sucursales ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.Clientes(ID)
-
 --Cambios Giovanni Flores 7 de Junio 2015
 ALTER TABLE dbo.Clientes DROP COLUMN RFC;
 ALTER TABLE dbo.Clientes DROP COLUMN CURP;
@@ -195,6 +191,10 @@ ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Estado__4FD1D5C8;
 ALTER TABLE dbo.Clientes DROP COLUMN Estado; 
 ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Munici__50C5FA01; 
 ALTER TABLE dbo.Clientes DROP COLUMN Municipio; 
+
+
+--Cambios Giovanni Flores 8 de Junio 2015
+ALTER TABLE dbo.Sucursales ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.Clientes(ID)
 
   
 	 
