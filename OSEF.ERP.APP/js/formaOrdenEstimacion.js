@@ -431,6 +431,7 @@ var imgbtnAfectar_Click_Success = function (response, result) {
         Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
         App.cmbMov.setReadOnly(true);
         App.txtfSucursalCR.setDisabled(true);
+        App.IdCliente.setDisabled(true);
         App.txtfMovID.setValue(App.sOrdenEstimacion.getAt(0).get('MovID'));
         App.sbOrdenEstimacion.setText(App.sOrdenEstimacion.getAt(0).get('Estatus'));
 
@@ -471,6 +472,7 @@ var imgbtnAfectar_Click_Success = function (response, result) {
         Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
         App.cmbMov.setReadOnly(true);
         App.txtfSucursalCR.setDisabled(true);
+        App.IdCliente.setDisabled(true);
         App.dfFechaEmision.setReadOnly(true);
         App.txtfObservaciones.setReadOnly(true);
         App.txtfNoReporte.setReadOnly(true);
@@ -541,6 +543,7 @@ var imgbtnAfectar_Click_Success = function (response, result) {
 
         App.cmbMov.setReadOnly(true);
         App.txtfSucursalCR.setDisabled(true);
+        App.IdCliente.setDisabled(true);
         App.dfFechaEmision.setReadOnly(true);
         App.txtfObservaciones.setReadOnly(true);
         App.txtfNoReporte.setReadOnly(true);
@@ -643,7 +646,7 @@ var imgbtnCancelar_Click_Success = function (response, result) {
     App.tfHoraFinActividad.setReadOnly(true);
     App.cmbCuadrilla.setReadOnly(true);
     App.tHoraOrigen.setReadOnly(true);
-
+    App.IdCliente.setReadOnly(true);
     App.txtNoOrden.setReadOnly(true);
     App.txtReferenciaOrden.setReadOnly(true);
 
@@ -704,6 +707,9 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.txtfObservaciones.setDisabled(true);
         App.imgbtnImprimir.setDisabled(false);
         App.txtNoOrden.setReadOnly(true);
+
+        App.IdCliente.setDisabled(true);
+
     }
 
     //Si es orden de cambio concluida
@@ -739,6 +745,8 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.imgbtnCancelar.setDisabled(false);
         App.txtfObservaciones.setDisabled(true);
         App.imgbtnImprimir.setDisabled(false);
+
+        App.IdCliente.setDisabled(true);
     }
 
     //Si es Reporte
@@ -814,6 +822,9 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.imgbtnAfectar.setDisabled(false);
         App.imgbtnGuardar.setDisabled(true);
         App.imgbtnCancelar.setDisabled(false);
+
+        App.IdCliente.setDisabled(true);
+
     }
 
 
@@ -1019,6 +1030,8 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.imgbtnGuardar.setDisabled(true);
         App.imgbtnCancelar.setDisabled(true);
         App.imgbtnImprimir.setDisabled(false);
+
+        App.IdCliente.setDisabled(true);
     }
 
     //Valida el estatus para ver si permite seguir capturando o no
@@ -1047,6 +1060,9 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.txtfObservaciones.setDisabled(true);
         App.txtReferenciaOrden.setDisabled(true);
         App.chkBoxOrdenCompra.setVisible(false);
+
+        App.IdCliente.setDisabled(true);
+        App.txtCliente.setDisabled(true);
     }
 
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && registro[0].get('Estatus') == 'BORRADOR' || registro[0].get('Estatus') == '') {

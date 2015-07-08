@@ -17,7 +17,9 @@
                 window.parent.App.sOrdenEstimacion.getAt(0).set("Estatus", result.Estatus);
 
                 window.parent.App.cmbMov.setValue(window.parent.App.sOrdenEstimacion.getAt(0).get('Mov'));
-                window.parent.App.cmbMov.setReadOnly(false);
+                window.parent.App.cmbMov.setReadOnly(true);
+
+
                 window.parent.App.txtfMovID.setValue('');
                 window.parent.App.dfFechaEmision.setValue(window.parent.App.sOrdenEstimacion.getAt(0).get('FechaEmision'));
                 window.parent.App.sbOrdenEstimacion.setText(window.parent.App.sOrdenEstimacion.getAt(0).get('Estatus'));
@@ -71,9 +73,12 @@
 
 //Habilitar los controles de la FormaAvance
 function HabilitarControlesAvanzar() {
+
+
     window.parent.App.gpOrdenEstimacion.setDisabled(false);
     window.parent.App.dfFechaEmision.setDisabled(false);
     window.parent.App.txtfObservaciones.setDisabled(false);
+    window.parent.App.txtfObservaciones.setReadOnly(false);
     window.parent.App.imgbtnGuardar.setDisabled(false);
     window.parent.App.imgbtnBorrar.setDisabled(false);
     window.parent.App.chkAtendido.setReadOnly(false);
@@ -87,6 +92,9 @@ function HabilitarControlesAvanzar() {
     window.parent.App.nfDiasAtencion.setDisabled(false);
     window.parent.App.txtfReporta.setReadOnly(false);
     window.parent.App.txtfReporta.setDisabled(false);
+
+    window.parent.App.txtfNoReporte.setReadOnly(false);
+
     window.parent.App.txtfTrabajoRequerido.setReadOnly(false);
     window.parent.App.txtfTrabajoRequerido.setDisabled(false);
 

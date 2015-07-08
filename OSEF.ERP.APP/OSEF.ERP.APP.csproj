@@ -1211,7 +1211,6 @@
     <None Include="assets\font\IcoMoon.ttf" />
     <None Include="assets\font\IcoMoon.woff" />
     <Content Include="Plants.ashx" />
-    <None Include="fonts\IcoMoon.woff" />
     <None Include="fonts\weblysleekuil.ttf" />
     <None Include="fonts\weblysleekuisl.ttf" />
     <None Include="gantt-scheduler\resources\fonts\icomoon.eot" />

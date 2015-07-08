@@ -465,7 +465,7 @@
                                              Width="360"
                                              StyleSpec="margin-right: 3px;  height:24px;"
                                                 AllowBlank="false" 
-                                                ReadOnly="true"/> 
+                                                Disabled="true"/> 
                                         </Items>
                                         </ext:FieldContainer>
 
@@ -1070,7 +1070,7 @@
                                     ID="gpOrdenEstimacion"
                                     runat="server"
                                     Width="900"
-                                    Height="200"
+                                    Height="180"
                                     EnableColumnHide="false"
                                     EnableColumnMove="false">
                                     <Store>
