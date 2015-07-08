@@ -21,10 +21,12 @@ namespace OSEF.ERP.APP
                 if (str.Equals("Preciario"))
                 {
                     lSucursal = SucursalBusiness.ObtenerSucursalesDisponibles();
+                    
                 }
                 else
                 {
-                    lSucursal = SucursalBusiness.ObtenerSucursales();
+                    string strCliente = Cookies.GetCookie("cookieElijeSucursalID").Value != null ? Cookies.GetCookie("cookieElijeSucursalID").Value : "";
+                    lSucursal = SucursalBusiness.ObtenerSucursalesPorCliente(strCliente);
                 }
                 sBSucursales.DataSource = lSucursal;
                 sBSucursales.DataBind();
@@ -49,7 +51,8 @@ namespace OSEF.ERP.APP
             }
             else
             {
-                lSucursal = SucursalBusiness.ObtenerSucursales();
+                string strCliente = Cookies.GetCookie("cookieElijeSucursalID").Value != null ? Cookies.GetCookie("cookieElijeSucursalID").Value : "";
+                lSucursal = SucursalBusiness.ObtenerSucursalesPorCliente(strCliente);
             }
             sBSucursales.DataSource = lSucursal;
             sBSucursales.DataBind();

@@ -143,10 +143,10 @@
                                     </div>
                                 </a>
                                 
-                                <a class="tile square image" href="#" id="sucursal">
-                                    <img src="assets/img/sucursales.png" alt="Conceptos" />
+                                 <a class="tile square bg-color-purple" href="#" id="clientes">
+                                    <img src="assets/img/Menu-Clientes.png" alt="Clientes" />
                                     <div class="textover-wrapper transparent">
-                                        <div class="text2">Sucursales</div>
+                                        <div class="text2">Clientes</div>
                                     </div>
                                 </a>
                             </div>
@@ -155,12 +155,6 @@
                                    <img src="assets/img/conceptos.png" alt="Conceptos" />
                                     <div class="text-inner">
                                         <div class="text4">Conceptos</div>
-                                    </div>
-                                </a>
-                                 <a class="tile square bg-color-purple" href="#" id="clientes">
-                                    <img src="assets/img/Menu-Clientes.png" alt="Clientes" />
-                                    <div class="textover-wrapper transparent">
-                                        <div class="text2">Clientes</div>
                                     </div>
                                 </a>
                             </div>
