@@ -39,7 +39,7 @@ CREATE PROCEDURE web_spU_ActualizarClienteSolicitudPrestamo
 	@NoExterior				VARCHAR(10),
 	@NoInterior				VARCHAR(10),
 	@Colonia				CHAR(10),
-	@CodigoPostal			INT,
+	@CodigoPostal			CHAR(8),
 	@EntreCalles			VARCHAR(100),
 	@Estado					CHAR(2),
 	@Municipio				CHAR(4),

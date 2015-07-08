@@ -18,31 +18,18 @@ GO
 -- =============================================
 IF EXISTS (	SELECT name 
 			FROM sysobjects
-			WHERE  name = 'web_spU_ActualizarCliente' AND
+			WHERE  name = 'web_spS_ObtenerSucursalePorCliente' AND
 			TYPE = 'P')
-	DROP PROCEDURE web_spU_ActualizarCliente
+	DROP PROCEDURE web_spS_ObtenerSucursalePorCliente
 GO
 -- =============================================
 -- Author:		Orlando Esparza
--- Create date: Miercoles 07 de Enero de 2015
--- Description:	Actualizar un registro de Clientes por su ID
+-- Create date: Martes 18 de Noviembre de 2014
+-- Description:	Obtener todos los registros de Sucursales
 -- =============================================
-CREATE PROCEDURE web_spU_ActualizarCliente
+CREATE PROCEDURE web_spS_ObtenerSucursalePorCliente
 	-- Add the parameters for the stored procedure here
-	@ID						CHAR(8),
-	@Nombre					VARCHAR(50),
-	@APaterno				VARCHAR(50),
-	@AMaterno				VARCHAR(50),
-	@Correo					VARCHAR(100),
-	@Telefono				VARCHAR(15),
-	@TelefonoMovil			VARCHAR(19),
-	@Calle					VARCHAR(100),
-	@NoExterior				VARCHAR(10),
-	@NoInterior				VARCHAR(10), 
-	@CodigoPostal			CHAR(10),
-	@EntreCalles			VARCHAR(100), 
-	@Estatus				VARCHAR(20),
-	@RutaLogo				VARCHAR(500)
+	@Cliente	CHAR(8)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -50,23 +37,42 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-    UPDATE
-		Clientes
-	SET
-		Nombre = @Nombre,
-		APaterno = @APaterno,
-		AMaterno = @AMaterno, 
-		Correo = @Correo,
-		Telefono = @Telefono,
-		TelefonoMovil = @TelefonoMovil,
-		Calle = @Calle,
-		NoExterior = @NoExterior,
-		NoInterior = @NoInterior, 
-		CodigoPostal = @CodigoPostal,
-		EntreCalles = @EntreCalles, 
-		Estatus = @Estatus,
-		RutaLogo = @RutaLogo
-	WHERE
-		ID = @ID
+	SELECT
+		ID,
+		CR,
+		Nombre,
+		DireccionZona,
+		GerenteBBVANombre,
+		GerenteBBVAAPaterno,
+		GerenteBBVAAMaterno,
+		SupervisorNombre,
+		SupervisorAPaterno,
+		SupervisorAMaterno,
+		ProveedorEnergia,
+		Superficie,
+		CoordinadorNombre,
+		CoordinadorAPaterno,
+		CoordinadorAMaterno,
+		Calle,
+		EntreCalles,
+		NoExterior,
+		NoInterior,
+		CodigoPostal,
+		Colonia,
+		Estado,
+		Municipio,
+		Contratista,
+		InicioObra,
+		FinObra,
+		SemanasObra,
+		FechaAlta,
+		Estatus,
+		TipoConcepto,
+		EmpresaSupervisora,
+		TipoObra,
+		Cliente
+	FROM
+		Sucursales
+		WHERE Cliente = @Cliente;
 END
 GO

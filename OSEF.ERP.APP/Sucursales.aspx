@@ -36,13 +36,12 @@
             ID="gpSucursales"
             runat="server"
             Height="420"
-            Width="960"
-            Title="SUCURSALES"
+            Width="960" 
             EnableColumnHide="false"
             EnableColumnMove="false"
             Header="true"
             TitleAlign="Left"
-            StyleSpec="margin:0 auto; margin-top: 20px;">
+            StyleSpec="margin:0 auto;">
             <TopBar>
                 <ext:Toolbar ID="tbSucursales" runat="server">
                     <Items>

@@ -132,24 +132,30 @@ function cargarEstilo() {
 
 //Evento de clic del botón Nuevo
 var imgbtnNuevo_Click = function () {
+    console.log(App.gpClientes.getSelectionModel().getSelection()[0].get('ID'));
+    Ext.util.Cookies.set('cookieCP', '');
     Ext.util.Cookies.set('cookieEditarCliente', 'Nuevo');
-    window.parent.App.wEmergente.load('FormaCliente.aspx');
-    window.parent.App.wEmergente.setHeight(455);
-    window.parent.App.wEmergente.setWidth(830);
-    window.parent.App.wEmergente.center();
-    window.parent.App.wEmergente.setTitle('Nuevo cliente');
-    window.parent.App.wEmergente.show();
+    window.parent.App.wSubModulo.load('FormaCliente.aspx');
+    window.parent.App.wSubModulo.setHeight(455);
+    window.parent.App.wSubModulo.setWidth(830);
+    window.parent.App.wSubModulo.center();
+    window.parent.App.wSubModulo.setTitle('Nuevo cliente');
+    window.parent.App.wSubModulo.show();
 };
 
 //Evento de click del botón Editar
 var imgbtnEditar_Click = function () {
+    var idcp = App.gpClientes.getSelectionModel().getSelection()[0].get('RCodigoPostal');
+    if (idcp != null) {
+        Ext.util.Cookies.set('cookieCP', idcp.Id);
+    }
     Ext.util.Cookies.set('cookieEditarCliente', App.gpClientes.getSelectionModel().getSelection()[0].get('ID'));
-    window.parent.App.wEmergente.load('FormaCliente.aspx');
-    window.parent.App.wEmergente.setHeight(455);
-    window.parent.App.wEmergente.setWidth(830);
-    window.parent.App.wEmergente.center();
-    window.parent.App.wEmergente.setTitle('Editar cliente ' + Ext.util.Cookies.get('cookieEditarCliente'));
-    window.parent.App.wEmergente.show();
+    window.parent.App.wSubModulo.load('FormaCliente.aspx');
+    window.parent.App.wSubModulo.setHeight(455);
+    window.parent.App.wSubModulo.setWidth(830);
+    window.parent.App.wSubModulo.center();
+    window.parent.App.wSubModulo.setTitle('Editar cliente ' + Ext.util.Cookies.get('cookieEditarCliente'));
+    window.parent.App.wSubModulo.show();
 };
 
 //Acciones al hacer clic en un registro
@@ -334,95 +340,37 @@ var sCliente_Add = function (store, registro) {
     App.txtfNombre.setValue(registro[0].get('Nombre'));
     App.txtfAPaterno.setValue(registro[0].get('APaterno'));
     App.txtfAMaterno.setValue(registro[0].get('AMaterno'));
-    App.txtfRFC.setValue(registro[0].get('RFC'));
-    App.txtfCURP.setValue(registro[0].get('CURP'));
-    App.txtfEdad.setValue(registro[0].get('Edad') + ' años');
+    //    App.txtfRFC.setValue(registro[0].get('RFC'));
+    //    App.txtfCURP.setValue(registro[0].get('CURP'));
+    //    App.txtfEdad.setValue(registro[0].get('Edad') + ' años');
     App.txtfTelefono.setValue(registro[0].get('Telefono'));
     App.txtfTelefonoMovil.setValue(registro[0].get('TelefonoMovil'));
     App.txtfCorreo.setValue(registro[0].get('Correo'));
     App.txtfUsuario.setValue(registro[0].get('Usuario'));
 
-    App.cmbSexo.select(registro[0].get('Sexo'));
-    App.cmbEstadoCivil.select(registro[0].get('EstadoCivil'));
-    App.cmbProfesion.select(registro[0].get('Profesion'));
+    //    App.cmbSexo.select(registro[0].get('Sexo'));
+    //    App.cmbEstadoCivil.select(registro[0].get('EstadoCivil'));
+    //    App.cmbProfesion.select(registro[0].get('Profesion'));
     App.cmbEstatus.select(registro[0].get('Estatus'));
 
     App.dfFechaAlta.setValue(registro[0].get('FechaAlta'));
-    App.dfFechaNacimiento.setValue(registro[0].get('FechaNacimiento'));
+    //    App.dfFechaNacimiento.setValue(registro[0].get('FechaNacimiento'));
 
     //Segunda parte
     App.txtfCalle.setValue(registro[0].get('Calle'));
     App.txtfEntreCalles.setValue(registro[0].get('EntreCalles'));
     App.txtfNoExterior.setValue(registro[0].get('NoExterior'));
     App.txtfNoInterior.setValue(registro[0].get('NoInterior'));
-    App.txtfCodigoPostal.setValue(registro[0].get('CodigoPostal'));
 
-    App.cmbEstado.select(registro[0].get('Estado'));
+    if (registro[0].get('RCodigoPostal') != null) {
+        App.txtfCodigoPostal.setValue(registro[0].get('RCodigoPostal').Numero);
+        App.txtColonia.setValue(registro[0].get('RColonia').Descripcion);
+        App.txtEstado.setValue(registro[0].get('REstado').Descripcion);
+        App.txtMunicipio.setValue(registro[0].get('RMunicipio').Descripcion);
 
-    //Tercera parte
-//    App.txtfEmpresa.setValue(registro[0].get('Empresa'));
-//    App.txtfPuesto.setValue(registro[0].get('Puesto'));
-//    App.txtfEmpresaCalle.setValue(registro[0].get('EmpresaCalle'));
-//    App.txtfEmpresaEntreCalles.setValue(registro[0].get('EmpresaEntreCalles'));
-//    App.txtfEmpresaNoExterior.setValue(registro[0].get('EmpresaNoExterior'));
-//    App.txtfEmpresaNoInterior.setValue(registro[0].get('EmpresaNoInterior'));
-//    App.txtfEmpresaCodigoPostal.setValue(registro[0].get('EmpresaCodigoPostal'));
-//    App.txtfEmpresaTelefono.setValue(registro[0].get('EmpresaTelefono'));
-//    App.nfEmpresaTelefonoExt.setValue(registro[0].get('EmpresaTelefonoExt'));
-
-//    App.cmbEmpresaEstado.select(registro[0].get('EmpresaEstado'));
-
-//    //Asignar los Municipio
-    App.direct.AsignarMunicipio(registro[0].get('Estado'), {
-        //Si el proceso es correcto
-        success: function (result) {
-            App.cmbMunicipio.select(registro[0].get('Municipio'));
-        },
-
-        //Si existe un error
-        failure: function (errorMsg) {
-            Ext.Msg.alert('Error', errorMsg);
-        }
-    });
-
-//    //Asignar las Colonias
-    App.direct.AsignarColonia(registro[0].get('Municipio'), {
-        //Si el proceso es correcto
-        success: function (result) {
-            App.cmbColonia.select(registro[0].get('Colonia'));
-        },
-
-        //Si existe un error
-        failure: function (errorMsg) {
-            Ext.Msg.alert('Error', errorMsg);
-        }
-    });
-
-//    //Asignar los EmpresaMunicipios
-//    App.direct.AsignarEmpresaMunicipio(registro[0].get('EmpresaEstado'), {
-//        //Si el proceso es correcto
-//        success: function (result) {
-//            App.cmbEmpresaMunicipio.select(registro[0].get('EmpresaMunicipio'));
-//        },
-
-//        //Si existe un error
-//        failure: function (errorMsg) {
-//            Ext.Msg.alert('Error', errorMsg);
-//        }
-//    });
-
-//    //Asignar las EmpresaColonias
-//    App.direct.AsignarEmpresaColonia(registro[0].get('EmpresaMunicipio'), {
-//        //Si el proceso es correcto
-//        success: function (result) {
-//            App.cmbEmpresaColonia.select(registro[0].get('EmpresaColonia'));
-//        },
-
-//        //Si existe un error
-//        failure: function (errorMsg) {
-//            Ext.Msg.alert('Error', errorMsg);
-//        }
-//    });
+    }
+    App.txtFileName.setValue(registro[0].get('RutaLogo')); 
+    
 };
 
 //Valida para que empresa es y muestra campos segun la variable de cookie
@@ -513,6 +461,35 @@ var gpBuscaClientes_ItemDblClick = function (gridview, registro, gvhtml, index) 
 };
 
 
-var onFUCliente = function () {
-    console.log(App.fuImagenCliente);
+var onFUCliente = function (componente, valor) {
+    console.log(valor);
+    App.txtFileName.setValue(App.fuImagenCliente.getValue());
 }
+
+//Evento de clic del botón BuscarSucursal
+var btnBuscarSucursal_Click = function () {
+    Ext.util.Cookies.set('cookieElijeSucursal', "Cliente");
+    window.parent.App.wSubSubModulo.load('Sucursales.aspx'); 
+    window.parent.App.wSubSubModulo.setHeight(470);
+    window.parent.App.wSubSubModulo.setWidth(980);
+    window.parent.App.wSubSubModulo.center();
+    window.parent.App.wSubSubModulo.setTitle('BUSCAR UNA SUCURSAL');
+    window.parent.App.wSubSubModulo.show();
+};
+
+var imgbtnBuscar_Click = function () {
+    Ext.util.Cookies.set('cookieElijeCodigoPostal', 'Clientes');
+    var wssssm = window.parent.App.wSubSubSubModulo;
+    wssssm.load('FormaBuscaCodigosPostales.aspx');
+    wssssm.setHeight(350);
+    wssssm.setWidth(980);
+    wssssm.center();
+    wssssm.setTitle('BUSCAR CODIGO POSTAL');
+    wssssm.show();
+};
+
+//Asignar la descripción de la cuadrilla a esta columna
+var cCodigoPostal_Renderer = function (valor, columna, registro) { 
+    columna.style = "background-color: #A3CC52; color: #FFFFFF;";
+    return registro.get('RCodigoPostal').Numero;
+};

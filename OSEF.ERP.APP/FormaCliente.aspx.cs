@@ -25,62 +25,19 @@ namespace OSEF.ERP.APP
             if (!X.IsAjaxRequest)
             {
            
-                //3. Llenar el ComboBox de Estados
-                sEstados.DataSource = EstadoBusiness.ObtenerEstados();
-                sEstados.DataBind();
+                //3. Llenar el ComboBox de Estados 
+                string strcookieEditarCliente = Cookies.GetCookie("cookieEditarCliente").Value;
+                if (strcookieEditarCliente.Equals("Nuevo"))
+                {
+                    fbtnBuscarSucursal.Hidden = true;
+                }
+                else
+                {
+                    fbtnBuscarSucursal.Hidden = false;
+                }
             }
         }
-
-        /// <summary>
-        /// Evento que se lanza al seleccionar un estado
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void cmbEstado_Select(object sender, DirectEventArgs e)
-        {
-            //1. Obtener el valor seleccionado y obtener los municipios
-            string strEstado = e.ExtraParams["valor"];
-            sMunicipios.DataSource = MunicipioBusiness.ObtenerMunicipiosPorEstado(strEstado);
-            sMunicipios.DataBind();
-        }
-
-        /// <summary>
-        /// Evento que se lanza al seleccionar un municipio
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void cmbMunicipio_Select(object sender, DirectEventArgs e)
-        {
-            //1. Obtener el valor seleccionado y obtener los municipios
-            string strMunicipio = e.ExtraParams["valor"];
-            sColonias.DataSource = ColoniaBusiness.ObtenerColoniasPorMunicipio(strMunicipio);
-            sColonias.DataBind();
-        }
-
-        /// <summary>
-        /// Evento que se lanza al cargar el store de Municipios
-        /// </summary>
-        [DirectMethod]
-        public void AsignarMunicipio(string strEstado)
-        {
-            //1. Listar los municipio de acuerdo al Estado
-            sMunicipios.DataSource = MunicipioBusiness.ObtenerMunicipiosPorEstado(strEstado);
-            sMunicipios.DataBind();
-        }
-
-        /// <summary>
-        /// Evento que se lanza al carar el store de Colonias
-        /// </summary>
-        /// <param name="strMunicipio"></param>
-        [DirectMethod]
-        public void AsignarColonia(string strMunicipio)
-        {
-            //1. Listar las colonias de acuerdo al Municipio
-            sColonias.DataSource = ColoniaBusiness.ObtenerColoniasPorMunicipio(strMunicipio);
-            sColonias.DataBind();
-        }
-
-        
+          
         /// <summary>
         /// Evento de clic al botón de Guardar
         /// </summary>
@@ -88,20 +45,14 @@ namespace OSEF.ERP.APP
         /// <param name="e"></param>
         protected void imgbtnGuardar_Click(object sender, DirectEventArgs e)
         {
-            //1. Obtener datos de la Forma y saber si es edición o nuevo
-            string edad = e.ExtraParams["edad"];
-            byte bEdad = 0;
-
-            //2. Transformar la Edad a tomar solo los años
-            bEdad = Convert.ToByte(e.ExtraParams["edad"].Substring(0, e.ExtraParams["edad"].IndexOf(' ')));
+            //1. Obtener datos de la Forma y saber si es edición o nuevo 
 
             //3. Obtener los parametros de la Forma
             string strRegistro = e.ExtraParams["registro"];
             string strUsuario = e.ExtraParams["usuario"];
             string strcookieEditarCliente = Cookies.GetCookie("cookieEditarCliente").Value;
             Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strRegistro);
-            Cliente oCliente = new Cliente();
-            oCliente.Edad = bEdad; 
+            Cliente oCliente = new Cliente(); 
 
             //3. Por cada elemento del submit de la Forma detectar el campo y asignarlo al objeto correspondiente
             foreach (KeyValuePair<string, string> sd in dRegistro)
@@ -117,25 +68,7 @@ namespace OSEF.ERP.APP
                         break;
                     case "txtfAMaterno":
                         oCliente.AMaterno = sd.Value;
-                        break;
-                    case "txtfRFC":
-                        oCliente.RFC = sd.Value;
-                        break;
-                    case "txtfCURP":
-                        oCliente.CURP = sd.Value;
-                        break;
-                    case "dfFechaNacimiento":
-                        oCliente.FechaNacimiento = Convert.ToDateTime(sd.Value);
-                        break;
-                    case "cmbSexo":
-                        oCliente.Sexo = sd.Value;
-                        break;
-                    case "cmbEstadoCivil":
-                        oCliente.EstadoCivil = sd.Value;
-                        break;
-                    case "cmbProfesion":
-                        oCliente.Profesion = sd.Value;
-                        break;
+                        break; 
                     case "txtfCorreo":
                         oCliente.Correo = sd.Value;
                         break;
@@ -158,7 +91,7 @@ namespace OSEF.ERP.APP
                         oCliente.Colonia = sd.Value;
                         break;
                     case "txtfCodigoPostal":
-                        oCliente.CodigoPostal = Convert.ToInt32(sd.Value);
+                        oCliente.CodigoPostal = sd.Value;
                         break;
                     case "txtfEntreCalles":
                         oCliente.EntreCalles = sd.Value;
@@ -175,6 +108,7 @@ namespace OSEF.ERP.APP
                 }
             }
 
+            string logo = e.ExtraParams["logo"];
             //5. Complementar datos
             if (strcookieEditarCliente.Equals("Nuevo"))
             {
@@ -182,23 +116,44 @@ namespace OSEF.ERP.APP
                 oCliente.FechaAlta = DateTime.Now;
                 oCliente.Estatus = "ALTA";
                 oCliente.Usuario = oUsuario.ID;
-                oCliente.RutaLogo = fuImagenCliente.FileName;
+                oCliente.RutaLogo = logo != null || !logo.Equals("") ? logo : "";
+                string strCP = Cookies.GetCookie("cookieCP").Value;
+                if (!strCP.Trim().Equals(""))
+                {
+                    oCliente.RCodigoPostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(Cookies.GetCookie("cookieCP").Value);
+                    oCliente.CodigoPostal = oCliente.RCodigoPostal.Id;
+                }
                 oCliente.ID = ClienteBusiness.Insertar(oCliente);
             } else {
                 oCliente.ID = strcookieEditarCliente;
+                if (!logo.Equals(""))
+                {
+                    oCliente.RutaLogo = logo != null || !logo.Equals("") ? logo : "";
+                }
+                string strCP = Cookies.GetCookie("cookieCP").Value;
+                if (!strCP.Trim().Equals(""))
+                {
+                    oCliente.RCodigoPostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(Cookies.GetCookie("cookieCP").Value);
+                    oCliente.CodigoPostal = oCliente.RCodigoPostal.Id;
+                }
                 ClienteBusiness.Actualizar(oCliente);
             }
-
-            string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" + oCliente.ID + fuImagenCliente.FileName;
-            if (Directory.Exists(strDireccion))
+            string rlogo = fuImagenCliente.FileName;
+            if (rlogo != null && !rlogo.Trim().Equals(""))
             {
-                fuImagenCliente.PostedFile.SaveAs(strDireccion);
-            } else {
-                Directory.CreateDirectory(strDireccion);
-                fuImagenCliente.PostedFile.SaveAs(strDireccion);
+                string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" ;
+                if (Directory.Exists(strDireccion))
+                {
+                    fuImagenCliente.PostedFile.SaveAs(Path.Combine(strDireccion + rlogo));
+                }
+                else
+                {
+                    Directory.CreateDirectory(strDireccion);
+                    fuImagenCliente.PostedFile.SaveAs(Path.Combine(strDireccion + rlogo));
+                }
             }
-            //6. Mandar parametro (ID del Cliente)
-            e.ExtraParamsResponse.Add(new Ext.Net.Parameter("registro", oCliente.ID, ParameterMode.Value));
+                //6. Mandar parametro (ID del Cliente)
+                e.ExtraParamsResponse.Add(new Ext.Net.Parameter("registro", oCliente.ID, ParameterMode.Value)); 
         }
 
         /// <summary>
@@ -217,28 +172,24 @@ namespace OSEF.ERP.APP
                 ID = oCliente.ID,
                 Nombre = oCliente.Nombre,
                 APaterno = oCliente.APaterno,
-                AMaterno = oCliente.AMaterno,
-                RFC = oCliente.RFC,
-                CURP = oCliente.CURP,
-                FechaNacimiento = oCliente.FechaNacimiento,
-                Edad = oCliente.Edad,
-                Sexo = oCliente.Sexo,
-                EstadoCivil = oCliente.EstadoCivil,
-                Profesion = oCliente.Profesion,
+                AMaterno = oCliente.AMaterno, 
                 Correo = oCliente.Correo,
                 Telefono = oCliente.Telefono,
                 TelefonoMovil = oCliente.TelefonoMovil,
                 Calle = oCliente.Calle,
                 NoExterior = oCliente.NoExterior,
                 NoInterior = oCliente.NoInterior,
-                Colonia = oCliente.Colonia,
-                CodigoPostal = oCliente.CodigoPostal,
+
+                RCodigoPostal = oCliente.RCodigoPostal,
+                RColonia = oCliente.RColonia,
+                REstado = oCliente.REstado,
+                RMunicipio = oCliente.RMunicipio,
+                
                 EntreCalles = oCliente.EntreCalles,
-                Estado = oCliente.Estado,
-                Municipio = oCliente.Municipio,
                 Usuario = oCliente.Usuario,
                 FechaAlta = oCliente.FechaAlta,
-                Estatus = oCliente.Estatus
+                Estatus = oCliente.Estatus,
+                RutaLogo = oCliente.RutaLogo
             });
         }
     }

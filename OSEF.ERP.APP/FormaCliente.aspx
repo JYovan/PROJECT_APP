@@ -27,24 +27,19 @@
                         <ext:ModelField Name="Nombre" Type="String" />
                         <ext:ModelField Name="APaterno" Type="String" />
                         <ext:ModelField Name="AMaterno" Type="String" />
-                        <ext:ModelField Name="RFC" Type="String" />
-                        <ext:ModelField Name="CURP" Type="String" />
-                        <ext:ModelField Name="FechaNacimiento" Type="Date" />
-                        <ext:ModelField Name="Edad" Type="Int" />
-                        <ext:ModelField Name="Sexo" Type="String" />
-                        <ext:ModelField Name="EstadoCivil" Type="String" />
-                        <ext:ModelField Name="Profesion" Type="String" />
                         <ext:ModelField Name="Correo" Type="String" />
                         <ext:ModelField Name="Telefono" Type="String" />
                         <ext:ModelField Name="TelefonoMovil" Type="String" />
                         <ext:ModelField Name="Calle" Type="String" />
                         <ext:ModelField Name="NoExterior" Type="String" />
-                        <ext:ModelField Name="NoInterior" Type="String" />
-                        <ext:ModelField Name="Colonia" Type="String" />
-                        <ext:ModelField Name="CodigoPostal" Type="Int" />
-                        <ext:ModelField Name="EntreCalles" Type="String" />
-                        <ext:ModelField Name="Estado" Type="String" />
-                        <ext:ModelField Name="Municipio" Type="String" />
+                        <ext:ModelField Name="NoInterior" Type="String" /> 
+                        
+                        <ext:ModelField Name="RCodigoPostal" Type="Object" />
+                        <ext:ModelField Name="RColonia" Type="Object" />
+                        <ext:ModelField Name="REstado" Type="Object" />
+                        <ext:ModelField Name="RMunicipio" Type="Object" />
+
+                        <ext:ModelField Name="EntreCalles" Type="String" /> 
                         <ext:ModelField Name="Usuario" Type="String" />
                         <ext:ModelField Name="FechaAlta" Type="Date" />
                         <ext:ModelField Name="Estatus" Type="String" />
@@ -124,6 +119,17 @@
                                                         Height="25" 
                                                         Width="25">
                                                     </ext:ImageButton>--%>
+                                                    <ext:TextField
+                                                        ID="txtFileName"
+                                                        runat="server"
+                                                        Width="250"
+                                                        StyleSpec="margin-right: 6px;"
+                                                        AutoFocus="false"
+                                                        Disabled="true"
+                                                        MaxLength="8"
+                                                       Hidden="true"
+                                                        EnforceMaxLength="true">
+                                                    </ext:TextField>
                                                      
                                                     <ext:FileUploadField 
                                                         ID="fuImagenCliente" 
@@ -197,178 +203,6 @@
                                                             <Blur Handler="App.txtfAMaterno.setValue(App.txtfAMaterno.getValue().toUpperCase());" />
                                                         </Listeners>
                                                     </ext:TextField>
-                                                </Items>
-                                            </ext:FieldContainer>
-                                            <ext:FieldContainer 
-                                                ID="fcRFC" 
-                                                runat="server" 
-                                                FieldLabel="RFC"
-                                                LabelWidth="120" 
-                                                AnchorHorizontal="100%" 
-                                                Layout="ColumnLayout">
-                                                <Listeners>
-                                                    <BeforeRender Fn="fcRFCRender" />
-                                                </Listeners>
-                                                <Items>
-                                                    <ext:TextField
-                                                        ID="txtfRFC"
-                                                        runat="server"
-                                                        Width="250"
-                                                        StyleSpec="margin-right: 6px;"
-                                                        AllowBlank="true"
-                                                        MaxLength="15"
-                                                        EnforceMaxLength="true">
-                                                        <Listeners>
-                                                            <Blur Handler="App.txtfRFC.setValue(App.txtfRFC.getValue().toUpperCase());" />
-                                                        </Listeners>
-                                                    </ext:TextField>
-                                                    <ext:TextField
-                                                        ID="txtfCURP"
-                                                        runat="server"
-                                                        Width="402"
-                                                        AllowBlank="true"
-                                                        MaxLength="18"
-                                                        EnforceMaxLength="true"
-                                                        EmptyText="CURP">
-                                                        <Listeners>
-                                                            <Blur Handler="App.txtfCURP.setValue(App.txtfCURP.getValue().toUpperCase());" />
-                                                        </Listeners>
-                                                    </ext:TextField>
-                                                </Items>
-                                            </ext:FieldContainer>
-                                            <ext:FieldContainer 
-                                                ID="fcFechaNac" 
-                                                runat="server" 
-                                                LabelWidth="120" 
-                                                FieldLabel="Fecha Nacimiento" 
-                                                AnchorHorizontal="100%"
-                                                Layout="ColumnLayout">
-                                                <Listeners>
-                                                    <BeforeRender Fn="fcFechaNac_Render" />
-                                                </Listeners>
-                                                <Items>
-                                                    <ext:DateField
-                                                        ID="dfFechaNacimiento"
-                                                        runat="server"
-                                                        StyleSpec="margin-right: 6px;"
-                                                        Width="250"
-                                                        AllowBlank="false"
-                                                        Vtype="daterange"
-                                                        Note="Ejemplo: dd/mm/aaaa">
-                                                        <PickerOptions 
-                                                            ID="poFechaNacimiento"
-                                                            runat="server"
-                                                            Cls="my-date-picker">
-                                                        </PickerOptions>
-                                                        <Listeners>
-                                                            <Select Fn="CalcularFechaNacimiento" />
-                                                            <Blur Fn="CalcularFechaNacimiento" />
-                                                        </Listeners>
-                                                    </ext:DateField>
-                                                    <ext:TextField
-                                                        ID="txtfEdad"
-                                                        runat="server"
-                                                        Width="198"
-                                                        MaxLength="50"
-                                                        EnforceMaxLength="true"
-                                                        StyleSpec="margin-right: 6px;"
-                                                        Disabled="true"
-                                                        EmptyText="Edad">
-                                                    </ext:TextField>
-                                                    <ext:ComboBox
-                                                        ID="cmbSexo"
-                                                        runat="server"
-                                                        AllowBlank="false"
-                                                        Editable="false"
-                                                        Width="198"
-                                                        EmptyText="Sexo">
-                                                        <ListConfig ID="lcSexo" runat="server">
-                                                            <Listeners>
-                                                                <BeforeRender Fn="ListConfig_BeforeRender" />
-                                                            </Listeners>
-                                                        </ListConfig>
-                                                        <Listeners>
-                                                            <BeforeRender Fn="ComboBox_BeforeRender" />
-                                                        </Listeners>
-                                                        <Items>
-                                                            <ext:ListItem Index="0" Text="MASCULINO" Value="MASCULINO" />
-                                                            <ext:ListItem Index="1" Text="FEMENINO" Value="FEMENINO" />
-                                                        </Items>
-                                                    </ext:ComboBox>
-                                                </Items>
-                                            </ext:FieldContainer>
-                                            <ext:FieldContainer 
-                                                ID="fcCliente5" 
-                                                runat="server" 
-                                                HideMode="Display"
-                                                FieldLabel="Estado Civil"
-                                                LabelWidth="120" 
-                                                AnchorHorizontal="100%" 
-                                                Layout="ColumnLayout">
-                                                <Listeners>
-                                                    <BeforeRender Fn="fcEstadoCivilRender" />
-                                                </Listeners>
-                                                <Items>
-                                                    <ext:ComboBox
-                                                        ID="cmbEstadoCivil"
-                                                        runat="server"
-                                                        AllowBlank="false"
-                                                        Editable="false"
-                                                        Width="250"
-                                                        StyleSpec="margin-right: 6px;">
-                                                        <ListConfig ID="lcEstadoCivil" runat="server">
-                                                            <Listeners>
-                                                                <BeforeRender Fn="ListConfig_BeforeRender" />
-                                                            </Listeners>
-                                                        </ListConfig>
-                                                        <Listeners>
-                                                            <BeforeRender Fn="ComboBox_BeforeRender" />
-                                                        </Listeners>
-                                                        <Items>
-                                                            <ext:ListItem Index="0" Text="" Value="SOLTERO" />
-                                                            <ext:ListItem Index="1" Text="" Value="CASADO" />
-                                                            <ext:ListItem Index="2" Text="" Value="DIVORCIADO" />
-                                                            <ext:ListItem Index="3" Text="" Value="VIUDO" />
-                                                        </Items>
-                                                    </ext:ComboBox>
-                                                    <ext:ComboBox
-                                                        ID="cmbProfesion"
-                                                        runat="server"
-                                                        Width="402"
-                                                        AllowBlank="false"
-                                                        Editable="false"
-                                                        ValueField="ID"
-                                                        DisplayField="Descripcion"
-                                                        ForceSelection="true"
-                                                        QueryMode="Local"
-                                                        TypeAhead="true"
-                                                        FieldLabel="Profesión">
-                                                        <ListConfig ID="lcProfesion" runat="server">
-                                                            <Listeners>
-                                                                <BeforeRender Fn="ListConfig_BeforeRender" />
-                                                            </Listeners>
-                                                        </ListConfig>
-                                                        <Listeners>
-                                                            <BeforeRender Fn="ComboBox_BeforeRender" />
-                                                        </Listeners>
-                                                        <Store>
-                                                            <ext:Store
-                                                                ID="sProfesiones"
-                                                                runat="server">
-                                                                <Model>
-                                                                    <ext:Model
-                                                                        ID="mProfesiones"
-                                                                        runat="server"
-                                                                        IDProperty="ID">
-                                                                        <Fields>
-                                                                            <ext:ModelField Name="ID" Type="String" />
-                                                                            <ext:ModelField Name="Descripcion" Type="String" />
-                                                                        </Fields>
-                                                                    </ext:Model>
-                                                                </Model>
-                                                            </ext:Store>
-                                                        </Store>
-                                                    </ext:ComboBox>
                                                 </Items>
                                             </ext:FieldContainer>
                                             <ext:FieldContainer
@@ -503,7 +337,25 @@
                                                         FieldLabel="Usuario">
                                                     </ext:TextField>
                                                 </Items>
+                                            </ext:FieldContainer> 
+                                            
+                                            <ext:FieldContainer 
+                                                ID="fbtnBuscarSucursal" 
+                                                runat="server" 
+                                                FieldLabel="Sucursales"
+                                                LabelWidth="120" 
+                                                AnchorHorizontal="100%" 
+                                                Layout="ColumnLayout"
+                                                Disabled="false">
+                                                <Items>  
+                                                    <ext:LinkButton ID="btnBuscarSucursal" runat="server" Icon="Add" Text="Agregar Sucursal" ToggleGroup="Group1" >
+                                                        <Listeners>
+                                                            <Click Fn="btnBuscarSucursal_Click"></Click>
+                                                        </Listeners>
+                                                    </ext:LinkButton>
+                                                </Items>
                                             </ext:FieldContainer>
+
                                         </Items>
                                     </ext:Panel>
                                      <%--Terminado--%>
@@ -580,164 +432,64 @@
                                                         </Listeners>
                                                     </ext:TextField>
                                                 </Items>
-                                            </ext:FieldContainer>
-                                            <ext:FieldContainer 
-                                                ID="fcDireccion3" 
-                                                runat="server" 
-                                                LabelWidth="120"
-                                                FieldLabel="Código Postal"
-                                                AnchorHorizontal="100%" 
-                                                Layout="ColumnLayout">
-                                                <Items>
-                                                    <ext:TextField
-                                                        ID="txtfCodigoPostal"
-                                                        runat="server"
-                                                        Width="250"
-                                                        StyleSpec="margin-right: 6px;"
-                                                        MaxLength="5"
-                                                        EnforceMaxLength="true"
-                                                        AllowBlank="false">
-                                                        <Plugins>
-                                                            <ext:InputMask ID="imCodigoPostal" runat="server" Mask="ttttt">
-                                                                <MaskSymbols>
-                                                                    <ext:MaskSymbol Name="t" Regex="[0-9]" />
-                                                                </MaskSymbols>
-                                                            </ext:InputMask>
-                                                        </Plugins>
-                                                    </ext:TextField>
-                                                    <ext:ComboBox 
-                                                        ID="cmbEstado"
-                                                        runat="server"
-                                                        Width="402"
-                                                        FieldLabel="Estado"
-                                                        Editable="true"
-                                                        AllowBlank="false"
-                                                        DisplayField="Descripcion"
-                                                        ValueField="ID"
-                                                        MatchFieldWidth="true"
-                                                        ForceSelection="true"
-                                                        QueryMode="Local"
-                                                        TypeAhead="true">
-                                                        <ListConfig ID="lcEstado" runat="server">
+                                            </ext:FieldContainer> 
+                                            
+                                        <ext:FieldContainer ID="fCodigoPostalEstado" runat="server" LabelWidth="120" FieldLabel="Código Postal"
+                                            AnchorHorizontal="100%" Layout="ColumnLayout">
+                                            <Items>
+                                                <ext:TextField ID="txtfCodigoPostal" runat="server" 
+                                                        Width="250" MaxLength="100" StyleSpec="margin-right: 6px;"  
+                                                        EnforceMaxLength="true" AllowBlank="false" ReadOnly="true"> 
+                                                    <RightButtons>
+                                                        <ext:Button ID="Button1" runat="server" Icon="Find" StandOut="true">
                                                             <Listeners>
-                                                                <BeforeRender Fn="ListConfig_BeforeRender" />
+                                                                <Click Fn="imgbtnBuscar_Click" />
                                                             </Listeners>
-                                                        </ListConfig>
-                                                        <Listeners>
-                                                            <BeforeRender Fn="ComboBox_BeforeRender" />
-                                                        </Listeners>
-                                                        <Store>
-                                                            <ext:Store
-                                                                ID="sEstados"
-                                                                runat="server">
-                                                                <Model>
-                                                                    <ext:Model ID="mEstados" runat="server" IDProperty="ID">
-                                                                        <Fields>
-                                                                            <ext:ModelField Name="ID" Type="String" />
-                                                                            <ext:ModelField Name="Descripcion" Type="String" />
-                                                                        </Fields>
-                                                                    </ext:Model>
-                                                                </Model>
-                                                            </ext:Store>
-                                                        </Store>
-                                                        <DirectEvents>
-                                                            <Select OnEvent="cmbEstado_Select">
-                                                                <ExtraParams>
-                                                                    <ext:Parameter Name="valor" Value="App.cmbEstado.getValue()" Mode="Raw" />
-                                                                </ExtraParams>
-                                                            </Select>
-                                                        </DirectEvents>
-                                                    </ext:ComboBox>
-                                                </Items>
-                                            </ext:FieldContainer>
-                                            <ext:FieldContainer 
-                                                ID="fcDireccion4" 
-                                                runat="server"
-                                                LabelWidth="120"
-                                                FieldLabel="Municipio" 
-                                                Layout="ColumnLayout">
-                                                <Items>
-                                                    <ext:ComboBox
-                                                        ID="cmbMunicipio"
-                                                        runat="server"
-                                                        Width="250"
-                                                        StyleSpec="margin-right: 6px;"
-                                                        Editable="true"
-                                                        AllowBlank="false"
-                                                        DisplayField="Descripcion"
-                                                        ValueField="ID"
-                                                        MatchFieldWidth="true"
-                                                        ForceSelection="true"
-                                                        QueryMode="Local"
-                                                        TypeAhead="true">
-                                                        <ListConfig ID="lcMunicipio" runat="server">
-                                                            <Listeners>
-                                                                <BeforeRender Fn="ListConfig_BeforeRender" />
-                                                            </Listeners>
-                                                        </ListConfig>
-                                                        <Listeners>
-                                                            <BeforeRender Fn="ComboBox_BeforeRender" />
-                                                        </Listeners>
-                                                        <Store>
-                                                            <ext:Store
-                                                                ID="sMunicipios"
-                                                                runat="server">
-                                                                <Model>
-                                                                    <ext:Model ID="mMunicipios" runat="server" IDProperty="ID">
-                                                                        <Fields>
-                                                                            <ext:ModelField Name="ID" Type="String" />
-                                                                            <ext:ModelField Name="Descripcion" Type="String" />
-                                                                            <ext:ModelField Name="Estado" Type="String" />
-                                                                        </Fields>
-                                                                    </ext:Model>
-                                                                </Model>
-                                                            </ext:Store>
-                                                        </Store>
-                                                        <DirectEvents>
-                                                            <Change OnEvent="cmbMunicipio_Select">
-                                                                <ExtraParams>
-                                                                    <ext:Parameter Name="valor" Value="App.cmbMunicipio.getValue()" Mode="Raw" />
-                                                                </ExtraParams>
-                                                            </Change>
-                                                        </DirectEvents>
-                                                    </ext:ComboBox>
-                                                    <ext:ComboBox
-                                                        ID="cmbColonia"
-                                                        runat="server"
-                                                        FieldLabel="Colonia"
-                                                        Width="402"
-                                                        DisplayField="Descripcion"
-                                                        ValueField="ID"
-                                                        AllowBlank="true"
-                                                        Editable="true"
-                                                        MatchFieldWidth="true"
-                                                        ForceSelection="false"
-                                                        QueryMode="Local"
-                                                        TypeAhead="true">
-                                                        <Store>
-                                                            <ext:Store
-                                                                ID="sColonias"
-                                                                runat="server">
-                                                                <Model>
-                                                                    <ext:Model ID="mColonias" runat="server">
-                                                                        <Fields>
-                                                                            <ext:ModelField Name="ID" Type="String" />
-                                                                            <ext:ModelField Name="Descripcion" Type="String" />
-                                                                            <ext:ModelField Name="Estado" Type="String" />
-                                                                            <ext:ModelField Name="Municipio" Type="String" />
-                                                                            <ext:ModelField Name="REstado" Type="String" />
-                                                                            <ext:ModelField Name="RMunicipio" Type="String" />
-                                                                        </Fields>
-                                                                    </ext:Model>
-                                                                </Model>
-                                                                 <Sorters>
-                                                                    <ext:DataSorter Property="Descripcion" Direction="ASC" />
-                                                                </Sorters>
-                                                            </ext:Store>
-                                                        </Store>
-                                                    </ext:ComboBox>
-                                                </Items>
-                                            </ext:FieldContainer>
+                                                        </ext:Button>
+                                                    </RightButtons> 
+
+                                                </ext:TextField>
+                                                  <ext:TextField ID="txtEstado" runat="server" Width="402" StyleSpec="margin-right: 6px;"
+                                                    MaxLength="50" EnforceMaxLength="true" AllowBlank="true"  Disabled="true" FieldLabel="Estado"> 
+                                                    <Plugins>
+                                                        <ext:InputMask ID="InputMask1" runat="server" Mask="ttttt">
+                                                            <MaskSymbols>
+                                                                <ext:MaskSymbol Name="t" Regex="[a-zA-Z\s]" />
+                                                            </MaskSymbols>
+                                                        </ext:InputMask>
+                                                    </Plugins>
+
+                                                </ext:TextField>
+                                            </Items>
+                                        </ext:FieldContainer> 
+                                        <ext:FieldContainer ID="fMunicipioColonia" runat="server" LabelWidth="120" FieldLabel="Municipio"
+                                            AnchorHorizontal="100%" Layout="ColumnLayout">
+                                            <Items> 
+                                                  <ext:TextField ID="txtMunicipio" runat="server" Width="250" StyleSpec="margin-right: 6px;"
+                                                    MaxLength="50" EnforceMaxLength="true" AllowBlank="true"  Disabled="true"> 
+                                                    <Plugins>
+                                                        <ext:InputMask ID="InputMask2" runat="server" Mask="ttttt">
+                                                            <MaskSymbols>
+                                                                <ext:MaskSymbol Name="t" Regex="[a-zA-Z\s0-9]" />
+                                                            </MaskSymbols>
+                                                        </ext:InputMask>
+                                                    </Plugins>
+
+                                                </ext:TextField>
+                                                  <ext:TextField ID="txtColonia" runat="server" Width="402" StyleSpec="margin-right: 6px;"
+                                                    MaxLength="50" EnforceMaxLength="true" AllowBlank="true" FieldLabel="Colonia"  Disabled="true"> 
+                                                    <Plugins>
+                                                        <ext:InputMask ID="InputMask3" runat="server" Mask="ttttt">
+                                                            <MaskSymbols>
+                                                                <ext:MaskSymbol Name="t" Regex="[a-zA-Z0-9\s]" />
+                                                            </MaskSymbols>
+                                                        </ext:InputMask>
+                                                    </Plugins> 
+                                                </ext:TextField> 
+                                            </Items>
+                                        </ext:FieldContainer>
+                                        
+
                                         </Items>
                                     </ext:Panel>
                                 </Items>
@@ -770,7 +522,7 @@
                                         <EventMask ShowMask="true" Msg="Guardardo información..." MinDelay="1000" />
                                         <ExtraParams>
                                             <ext:Parameter Name="registro" Value="Ext.encode(this.up('form').getForm().getValues(false, false, false, true))" Mode="Raw" />
-                                            <ext:Parameter Name="edad" Value="App.txtfEdad.getValue()" Mode="Raw" />
+                                            <ext:Parameter Name="logo" Value="App.txtFileName.getValue()" Mode="Raw" />
                                             <ext:Parameter Name="usuario" Value="Ext.encode(window.parent.App.sUsuario.getRecordsValues())" Mode="Raw" />
                                         </ExtraParams>
                                     </Click>
@@ -787,7 +539,7 @@
                                 Height="50" 
                                 Width="50">
                                 <Listeners>
-                                    <Click Handler="window.parent.App.wEmergente.hide();" />
+                                    <Click Handler="window.parent.App.wSubModulo.hide();" />
                                 </Listeners>
                             </ext:ImageButton>
                         </Buttons>

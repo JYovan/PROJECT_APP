@@ -60,7 +60,8 @@ CREATE PROCEDURE web_spU_ActualizarSucursal
 	@Estatus				VARCHAR(50),
 	@TipoConcepto		VARCHAR(50),
 	@EmpresaSupervisora		VARCHAR(50),
-	@TipoObra		VARCHAR(50)
+	@TipoObra		VARCHAR(50),
+	@Cliente		CHAR(8)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -101,8 +102,8 @@ BEGIN
 		Estatus = @Estatus,
 		TipoConcepto = @TipoConcepto,
 		EmpresaSupervisora = @EmpresaSupervisora,
-		TipoObra = @TipoObra
-
+		TipoObra = @TipoObra,
+		Cliente = @Cliente
 	WHERE
 		ID = @ID
 END

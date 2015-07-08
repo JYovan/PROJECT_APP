@@ -120,6 +120,7 @@
                                 <ext:ModelField Name="Correo" Type="String" />
                                 <ext:ModelField Name="Telefono" Type="String" />
                                 <ext:ModelField Name="Estatus" Type="String" />
+                                <ext:ModelField Name="RCodigoPostal" Type="Object" />
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -147,20 +148,20 @@
                         Align="Left"
                         Width="280"
                         DataIndex="NombreCompleto" />
-                    <ext:DateColumn
+                    <%--<ext:DateColumn
                         ID="dcFechaNacimiento"
                         runat="server"
                         Text="NACIMIENTO"
                         Align="Center"
                         Width="100"
                         DataIndex="FechaNacimiento"
-                        Format="dd/MM/yyyy" />
+                        Format="dd/MM/yyyy" />--%>
                     <ext:Column
                         ID="cCorreo"
                         runat="server"
                         Text="CORREO"
                         Align="Left"
-                        Width="265"
+                        Width="250"
                         DataIndex="Correo" />
                       <ext:Column
                         ID="cTelefono"
@@ -169,6 +170,15 @@
                         Align="Center"
                         Width="115"
                         DataIndex="Telefono"/>
+                      <ext:Column
+                        ID="cCodigoPostal"
+                        runat="server"
+                        Text="CÓDIGO POSTAL"
+                        Align="Center"
+                        Width="115"
+                        DataIndex="RCodigoPostal">
+                        <Renderer Fn="cCodigoPostal_Renderer" />
+                      </ext:Column>
                       <ext:Column
                         ID="cEstatus"
                         runat="server"

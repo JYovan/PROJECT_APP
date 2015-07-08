@@ -116,6 +116,7 @@
 :r c:\SqlServerScripts\Borrar\Sucursales\web_spD_BorrarSucursal.sql
 -- Sucursales (Consultar)
 :r c:\SqlServerScripts\Consultar\Sucursales\web_spS_ObtenerSucursales.sql
+:r c:\SqlServerScripts\Consultar\Sucursales\web_spS_ObtenerSucursalePorCliente.sql
 :r c:\SqlServerScripts\Consultar\Sucursales\web_spS_ObtenerSucursalPorID.sql
 :r c:\SqlServerScripts\Consultar\Sucursales\web_spS_ObtenerSucursalesEnUso.sql
 :r c:\SqlServerScripts\Consultar\Sucursales\web_spS_ObtenerSucursalesEnRevisionesPorID.sql

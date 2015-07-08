@@ -87,7 +87,8 @@ namespace OSEF.AVANCES.SUCURSALES
                     RProvedor= oSucursal.RProvedor,
                     TipoConcepto = oSucursal.TipoConcepto,
                     EmpresaSupervisora = oSucursal.EmpresaSupervisora,
-                    TipoObra = oSucursal.TipoObra
+                    TipoObra = oSucursal.TipoObra,
+                    Cliente = oSucursal.Cliente
                 }); 
             }
         }
@@ -265,7 +266,12 @@ namespace OSEF.AVANCES.SUCURSALES
             }
             oSucursal.FinObra = Convert.ToDateTime(strFinObra);
             oSucursal.SemanasObra = Convert.ToInt16(strSemanasObra);
-            
+            string strcookieCliente = Cookies.GetCookie("cookieEditarCliente").Value != null || Cookies.GetCookie("cookieEditarCliente").Value.Length > 0 ? Cookies.GetCookie("cookieEditarCliente").Value : "";
+            oSucursal.Cliente = strcookieCliente;
+
+            if(strcookieCliente != null && !strcookieCliente.Equals("")){
+                oSucursal.Cliente = strcookieCliente;
+            }
             //4. Validar si es nuevo o es uno existente
             if (strcookieEditarSucursal.Equals("Nuevo"))
             {
@@ -277,19 +283,12 @@ namespace OSEF.AVANCES.SUCURSALES
                 {
                     var success = new JFunction { Fn = "imgbtnGuardar_Click_SuccessCR" };
                     X.Msg.Alert("Alerta", "<p align='center'>La sucursal ya se encuentra registrada con CR: <br/>" + oSucursal.CR + ".</p>", success).Show();
-
-
-                }
-                
-                else{
+                }else{
                     oSucursal.ID = SucursalBusiness.Insertar(oSucursal);
                     //6. Mandar mensaje con el código del proveedor
                     var success = new JFunction { Fn = "imgbtnGuardar_Click_Success" };
                     X.Msg.Alert("Registro completo", "<p align='center'>Sucursal registrada con ID: <br/>" + oSucursal.ID + ".</p>", success).Show();
-
                 }
-             
-
             }
             else
             {

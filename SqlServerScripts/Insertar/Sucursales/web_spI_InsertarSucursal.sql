@@ -60,7 +60,8 @@ CREATE PROCEDURE web_spI_InsertarSucursal
 	@Estatus				VARCHAR(50),
 	@TipoConcepto		VARCHAR(50),
 	@EmpresaSupervisora		VARCHAR(50),
-	@TipoObra		VARCHAR(50)
+	@TipoObra		VARCHAR(50),
+	@Cliente		CHAR(8)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -149,7 +150,8 @@ BEGIN
 				Estatus,
 				TipoConcepto,
 				EmpresaSupervisora,
-				TipoObra
+				TipoObra,
+				Cliente
 			)
 		VALUES (
 				@ID,
@@ -183,7 +185,8 @@ BEGIN
 				@Estatus,
 				@TipoConcepto,
 				@EmpresaSupervisora,
-				@TipoObra
+				@TipoObra,
+				@Cliente
 				)
 END
 GO

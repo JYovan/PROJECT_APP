@@ -78,23 +78,23 @@ var uploadError = function (item, file, errorCode, message) {
     updateRecord(file.id, 'Estatus', 'Error');
 
     switch (errorCode) {
-        case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
-            alert("Error Code: HTTP Error, File name: " + file.name + ", Message: " + message);
+        case SWFUpload.UPLOAD_ERROR.HTTP_ERROR: 
+            Ext.Msg.alert('Error', "Error Code: HTTP Error, File name: " + file.name + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
-            alert("Error Code: Upload Failed, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert('Error', "Error Code: Upload Failed, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.IO_ERROR:
-            alert("Error Code: IO Error, File name: " + file.name + ", Message: " + message);
+            Ext.Msg.alert('Error', "Error Code: IO Error, File name: " + file.name + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
-            alert("Error Code: Security Error, File name: " + file.name + ", Message: " + message);
+            Ext.Msg.alert('Error', "Error Code: Security Error, File name: " + file.name + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
-            alert("Error Code: Upload Limit Exceeded, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert('Error', "Error Code: Upload Limit Exceeded, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
-            alert("Error Code: File Validation Failed, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert('Error', "Error Code: File Validation Failed, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.FILE_CANCELLED:
             updateRecord(file.id, 'Estatus', 'Cancelado');
@@ -104,7 +104,7 @@ var uploadError = function (item, file, errorCode, message) {
             break;
         default:
             updateRecord(file.id, 'Estatus', "Unhandled Error: " + errorCode);
-            alert("Error Code: " + errorCode + ", File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert('Error', "Error Code: " + errorCode + ", File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
     }
 };
@@ -117,7 +117,7 @@ var fileSelectionError = function (item, file, errorCode, message) {
 
     switch (errorCode) {
         case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-            alert("Error Code: File too big, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert('Error', "Error Code: File too big, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
             alert("Error Code: Zero byte file, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);

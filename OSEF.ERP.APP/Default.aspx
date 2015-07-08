@@ -259,6 +259,116 @@
                 <LoadMask ShowMask="true" Msg="Cargando..." />
             </Loader>
         </ext:Window>
+        
+        <ext:Window 
+            ID="wPrincipal"
+            runat="server"
+            Icon="Application"
+            Hidden="true"
+            Modal="true"
+            Padding="5"
+            Resizable="true"
+            Region="Center"
+            XOnEsc="Ext.emptyFn">
+            <Loader ID="Loader6" runat="server" Mode="Frame" AutoLoad="false">
+                <LoadMask ShowMask="true" Msg="Cargando..." />
+            </Loader> 
+            <Listeners>
+                <Show Handler="this.resizer.disable();" Single="true" />
+            </Listeners>
+        </ext:Window>
+        
+        <ext:Window 
+            ID="wModulo"
+            runat="server"
+            Icon="Application"
+            Hidden="true"
+            Modal="true"
+            Padding="5"
+            Resizable="true"
+            Region="Center"
+            XOnEsc="Ext.emptyFn">
+            <Loader ID="Loader7" runat="server" Mode="Frame" AutoLoad="false">
+                <LoadMask ShowMask="true" Msg="Cargando..." />
+            </Loader> 
+            <Listeners>
+                <Show Handler="this.resizer.disable();" Single="true" />
+            </Listeners>
+        </ext:Window> 
+        
+        <ext:Window 
+            ID="wSubModulo"
+            runat="server"
+            Icon="Application"
+            Hidden="true"
+            Modal="true"
+            Padding="5"
+            Resizable="true"
+            Region="Center"
+            XOnEsc="Ext.emptyFn">
+            <Loader ID="Loader8" runat="server" Mode="Frame" AutoLoad="false">
+                <LoadMask ShowMask="true" Msg="Cargando..." />
+            </Loader> 
+            <Listeners>
+                <Show Handler="this.resizer.disable();" Single="true" />
+            </Listeners>
+        </ext:Window>
+        
+        <ext:Window 
+            ID="wSubSubModulo"
+            runat="server"
+            Icon="ApplicationDouble"
+            Hidden="true"
+            Modal="true"
+            Padding="5"
+            Resizable="true"
+            Region="Center"
+            XOnEsc="Ext.emptyFn">
+            <Loader ID="Loader9" runat="server" Mode="Frame" AutoLoad="false">
+                <LoadMask ShowMask="true" Msg="Cargando..." />
+            </Loader> 
+            <Listeners>
+                <Show Handler="this.resizer.disable();" Single="true" />
+            </Listeners>
+        </ext:Window>
+        
+        <ext:Window 
+            ID="wSubSubSubModulo"
+            runat="server"
+            Icon="ApplicationCascade"
+            Hidden="true"
+            Modal="true"
+            Padding="5"
+            Resizable="true"
+            Region="Center"
+            XOnEsc="Ext.emptyFn">
+            <Loader ID="Loader10" runat="server" Mode="Frame" AutoLoad="false">
+                <LoadMask ShowMask="true" Msg="Cargando..." />
+            </Loader> 
+            <Listeners>
+                <Show Handler="this.resizer.disable();" Single="true" />
+            </Listeners>
+        </ext:Window>
+
+        
+        <ext:Window 
+            ID="wSubSubSubSubModulo"
+            runat="server"
+            Icon="ApplicationCascade"
+            Hidden="true"
+            Modal="true"
+            Padding="5"
+            Resizable="true"
+            Region="Center"
+            XOnEsc="Ext.emptyFn">
+            <Loader ID="Loader11" runat="server" Mode="Frame" AutoLoad="false">
+                <LoadMask ShowMask="true" Msg="Cargando..." />
+            </Loader> 
+            <Listeners>
+                <Show Handler="this.resizer.disable();" Single="true" />
+            </Listeners>
+        </ext:Window>
+
     </form>
 </body>
 </html>

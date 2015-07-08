@@ -21,7 +21,8 @@ namespace OSEF.AVANCES.SUCURSALES
         {
             if (!X.IsAjaxRequest)
             {
-                List<Sucursal> lSucursal = SucursalBusiness.ObtenerSucursales();
+                string strcliente = Cookies.GetCookie("cookieEditarCliente").Value;
+                List<Sucursal> lSucursal = SucursalBusiness.ObtenerSucursalesPorCliente(strcliente);
                 sSucursales.DataSource = lSucursal;
                 sSucursales.DataBind();
 
@@ -36,7 +37,8 @@ namespace OSEF.AVANCES.SUCURSALES
         /// <param name="e"></param>
         protected void OnReadData_sSucursales(object sender, StoreReadDataEventArgs e)
         {
-            List<Sucursal> lSucursal = SucursalBusiness.ObtenerSucursales();
+            string strcliente = Cookies.GetCookie("cookieEditarCliente").Value;
+            List<Sucursal> lSucursal = SucursalBusiness.ObtenerSucursalesPorCliente(strcliente);
             sSucursales.DataSource = lSucursal;
             sSucursales.DataBind();
         }

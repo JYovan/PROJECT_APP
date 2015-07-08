@@ -68,7 +68,8 @@ BEGIN
 		s.Estatus,
 		s.TipoConcepto,
 		s.EmpresaSupervisora,
-		s.TipoObra
+		s.TipoObra,
+		s.Cliente
 	FROM
 		Sucursales s 
 		WHERE s.ID IN (SELECT oe.Sucursal FROM OrdenesEstimaciones oe WHERE oe.Mov = 'Orden de Cambio' OR oe.Mov = 'Orden de Compra');

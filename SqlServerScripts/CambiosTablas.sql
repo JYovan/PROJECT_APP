@@ -158,15 +158,16 @@ ALTER TABLE OrdenesEstimaciones ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES 
 ALTER TABLE Sucursales ADD TipoConcepto VARCHAR(50) NULL
 ALTER TABLE Sucursales ADD EmpresaSupervisora VARCHAR(50) NULL
 ALTER TABLE Sucursales ADD TipoObra VARCHAR(50) NULL
-
-
+ 
 --Cambios Giovanni Flores 3 de Junio 2015
 ALTER TABLE dbo.Clientes DROP COLUMN Empresa ;
 ALTER TABLE dbo.Clientes DROP COLUMN EmpresaCalle ;
 ALTER TABLE dbo.Clientes DROP COLUMN EmpresaNoExterior ;
 ALTER TABLE dbo.Clientes DROP COLUMN EmpresaNoInterior ;
 ALTER TABLE dbo.Clientes DROP COLUMN EmpresaColonia ;
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaEstado ;
+ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Empres__4DE98D56; 
+ALTER TABLE dbo.Clientes DROP COLUMN EmpresaEstado ; 
+ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Empres__4EDDB18F; 
 ALTER TABLE dbo.Clientes DROP COLUMN EmpresaMunicipio ;
 ALTER TABLE dbo.Clientes DROP COLUMN EmpresaCodigoPostal ;
 ALTER TABLE dbo.Clientes DROP COLUMN EmpresaEntreCalles ;
@@ -175,3 +176,25 @@ ALTER TABLE dbo.Clientes DROP COLUMN EmpresaTelefono ;
 ALTER TABLE dbo.Clientes DROP COLUMN Puesto ;
 ALTER TABLE dbo.Clientes DROP COLUMN TipoSocio ;
 ALTER TABLE dbo.Clientes DROP COLUMN NumeroSocio ;
+
+--Cambios Giovanni Flores 6 de Junio 2015
+ALTER TABLE dbo.Sucursales ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.Clientes(ID)
+
+--Cambios Giovanni Flores 7 de Junio 2015
+ALTER TABLE dbo.Clientes DROP COLUMN RFC;
+ALTER TABLE dbo.Clientes DROP COLUMN CURP;
+ALTER TABLE dbo.Clientes DROP COLUMN FechaNacimiento;
+ALTER TABLE dbo.Clientes DROP COLUMN Sexo;
+ALTER TABLE dbo.Clientes DROP COLUMN EstadoCivil;
+ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Profes__51BA1E3A; 
+ALTER TABLE dbo.Clientes DROP COLUMN Profesion;
+ALTER TABLE dbo.Clientes DROP COLUMN Edad;
+ALTER TABLE dbo.Clientes DROP COLUMN CodigoPostal; 
+ALTER TABLE dbo.Clientes ADD CodigoPostal CHAR(10) NULL FOREIGN KEY REFERENCES dbo.CodigosPostales(ID)
+ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Estado__4FD1D5C8; 
+ALTER TABLE dbo.Clientes DROP COLUMN Estado; 
+ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Munici__50C5FA01; 
+ALTER TABLE dbo.Clientes DROP COLUMN Municipio; 
+
+  
+	 

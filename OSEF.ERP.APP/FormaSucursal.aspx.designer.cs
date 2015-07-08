@@ -247,13 +247,13 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.TextField txtfNoInterior;
         
         /// <summary>
-        /// Control FieldContainerCPCol.
+        /// Control fCodigoPostalEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.FieldContainer FieldContainerCPCol;
+        protected global::Ext.Net.FieldContainer fCodigoPostalEstado;
         
         /// <summary>
         /// Control txtfCodigoPostal.
@@ -292,13 +292,13 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.InputMask InputMask1;
         
         /// <summary>
-        /// Control FieldContainer1.
+        /// Control fMunicipioColonia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.FieldContainer FieldContainer1;
+        protected global::Ext.Net.FieldContainer fMunicipioColonia;
         
         /// <summary>
         /// Control txtMunicipio.

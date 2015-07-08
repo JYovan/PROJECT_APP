@@ -103,13 +103,27 @@ var cColonia_Renderer = function (valor, columna, registro) {
 
 //Hacer doble clic sobre algun concepto del GridPanel
 var gpCP_ItemDblClick = function (gridview, registro, gvhtml, index) {
-    window.parent.App.wEmergente.getBody().App.txtfCodigoPostal.setValue(App.sCodigosPostales.getAt(index).get('Numero'))
-    Ext.util.Cookies.set('cookieCP', App.sCodigosPostales.getAt(index).get('Id'));
-    window.parent.App.wEmergente.getBody().App.txtEstado.setValue(App.sCodigosPostales.getAt(index).get('REstado').Descripcion);
-    Ext.util.Cookies.set('cookieEstado', App.sCodigosPostales.getAt(index).get('Estado'));
-    window.parent.App.wEmergente.getBody().App.txtMunicipio.setValue(App.sCodigosPostales.getAt(index).get('RMunicipio').Descripcion);
-    Ext.util.Cookies.set('cookieMunicipio', App.sCodigosPostales.getAt(index).get('Municipio'));
-    window.parent.App.wEmergente.getBody().App.txtColonia.setValue(App.sCodigosPostales.getAt(index).get('RColonia').Descripcion);
-    Ext.util.Cookies.set('cookieColonia', App.sCodigosPostales.getAt(index).get('Colonia'));
-    window.parent.App.wAyudaConcepto.hide();
+    if (Ext.util.Cookies.get('cookieElijeCodigoPostal') == 'Clientes') {
+        window.parent.App.wSubModulo.getBody().App.txtfCodigoPostal.setValue(App.sCodigosPostales.getAt(index).get('Numero'))
+        Ext.util.Cookies.set('cookieCP', App.sCodigosPostales.getAt(index).get('Id'));
+        window.parent.App.wSubModulo.getBody().App.txtEstado.setValue(App.sCodigosPostales.getAt(index).get('REstado').Descripcion);
+        Ext.util.Cookies.set('cookieEstado', App.sCodigosPostales.getAt(index).get('Estado'));
+        window.parent.App.wSubModulo.getBody().App.txtMunicipio.setValue(App.sCodigosPostales.getAt(index).get('RMunicipio').Descripcion);
+        Ext.util.Cookies.set('cookieMunicipio', App.sCodigosPostales.getAt(index).get('Municipio'));
+        window.parent.App.wSubModulo.getBody().App.txtColonia.setValue(App.sCodigosPostales.getAt(index).get('RColonia').Descripcion);
+        Ext.util.Cookies.set('cookieColonia', App.sCodigosPostales.getAt(index).get('Colonia'));
+        window.parent.App.wSubSubSubModulo.hide();
+    }
+    if (Ext.util.Cookies.get('cookieElijeCodigoPostal') == 'Sucursales') {
+        window.parent.App.wSubSubSubModulo.getBody().App.txtfCodigoPostal.setValue(App.sCodigosPostales.getAt(index).get('Numero'))
+        Ext.util.Cookies.set('cookieCP', App.sCodigosPostales.getAt(index).get('Id'));
+        window.parent.App.wSubSubSubModulo.getBody().App.txtEstado.setValue(App.sCodigosPostales.getAt(index).get('REstado').Descripcion);
+        Ext.util.Cookies.set('cookieEstado', App.sCodigosPostales.getAt(index).get('Estado'));
+        window.parent.App.wSubSubSubModulo.getBody().App.txtMunicipio.setValue(App.sCodigosPostales.getAt(index).get('RMunicipio').Descripcion);
+        Ext.util.Cookies.set('cookieMunicipio', App.sCodigosPostales.getAt(index).get('Municipio'));
+        window.parent.App.wSubSubSubModulo.getBody().App.txtColonia.setValue(App.sCodigosPostales.getAt(index).get('RColonia').Descripcion);
+        Ext.util.Cookies.set('cookieColonia', App.sCodigosPostales.getAt(index).get('Colonia'));
+        window.parent.App.wSubSubSubSubModulo.hide();
+    } 
+
 }

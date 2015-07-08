@@ -204,6 +204,11 @@ namespace OSEF.APP.DL
                 sqlpTipoObra.ParameterName = "@TipoObra";
                 sqlpTipoObra.SqlDbType = SqlDbType.VarChar;
                 sqlpTipoObra.Value = iSucursal.TipoObra;
+
+                SqlParameter sqlpCliente = new SqlParameter();
+                sqlpCliente.ParameterName = "@Cliente";
+                sqlpCliente.SqlDbType = SqlDbType.VarChar;
+                sqlpCliente.Value = iSucursal.Cliente;
                  
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
@@ -237,7 +242,8 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpEstatus);
                 sqlcComando.Parameters.Add(sqlpTipoConcepto);
                 sqlcComando.Parameters.Add(sqlpEmpresaSupervisora);
-                sqlcComando.Parameters.Add(sqlpTipoObra);
+                sqlcComando.Parameters.Add(sqlpTipoObra); 
+                sqlcComando.Parameters.Add(sqlpCliente); 
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
@@ -442,6 +448,11 @@ namespace OSEF.APP.DL
                 sqlpTipoObra.ParameterName = "@TipoObra";
                 sqlpTipoObra.SqlDbType = SqlDbType.VarChar;
                 sqlpTipoObra.Value = uSucursal.TipoObra;
+
+                SqlParameter sqlpCliente = new SqlParameter();
+                sqlpCliente.ParameterName = "@Cliente";
+                sqlpCliente.SqlDbType = SqlDbType.VarChar;
+                sqlpCliente.Value = uSucursal.Cliente;
                  
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
@@ -476,6 +487,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpTipoConcepto);
                 sqlcComando.Parameters.Add(sqlpEmpresaSupervisora);
                 sqlcComando.Parameters.Add(sqlpTipoObra);
+                sqlcComando.Parameters.Add(sqlpCliente);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
@@ -563,6 +575,52 @@ namespace OSEF.APP.DL
                 //2. Declarar los parametros
 
                 //3. Agregar los parametros al comando
+
+                //4. Abrir la conexión
+                sqlcComando.Connection.Open();
+
+                //5. Ejecutar la instrucción SELECT que regresa filas
+                SqlDataReader reader = sqlcComando.ExecuteReader();
+
+                //6. Asignar la lista de Clientes
+                List<Sucursal> result = LibraryGenerics<Sucursal>.ConvertDataSetToList(reader);
+
+                //7. Cerrar la conexión
+                sqlcComando.Connection.Close();
+
+                //8. Regresar el resultado
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error capa de datos (public static List<Sucursal> ObtenerSucursales()): " + ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Obtener todos los registros de Sucursales
+        /// </summary>
+        /// <returns></returns>
+        public static List<Sucursal> ObtenerSucursalesPorCliente(string cliente)
+        {
+            try
+            {
+                //1. Configurar la conexión y el tipo de comando
+                SqlConnection sqlcConectar = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+                SqlCommand sqlcComando = new SqlCommand();
+                sqlcComando.Connection = sqlcConectar;
+                sqlcComando.CommandType = CommandType.StoredProcedure;
+                sqlcComando.CommandText = "web_spS_ObtenerSucursalePorCliente";
+
+                //2. Declarar los parametros
+                SqlParameter sqlpID = new SqlParameter();
+                sqlpID.ParameterName = "@Cliente";
+                sqlpID.SqlDbType = SqlDbType.Char;
+                sqlpID.Value = cliente;
+
+                //3. Agregar los parametros al comando
+                sqlcComando.Parameters.Add(sqlpID);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

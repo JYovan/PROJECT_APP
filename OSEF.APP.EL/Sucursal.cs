@@ -51,6 +51,7 @@ namespace OSEF.APP.EL
         string tipoconcepto;
         string tipoobra;
         string empresasupervisora;
+        string cliente;
 
         #endregion
 
@@ -279,6 +280,13 @@ namespace OSEF.APP.EL
             get { return empresasupervisora; }
             set { empresasupervisora = value; }
         }
+
+        public string Cliente
+        {
+            get { return cliente; }
+            set { cliente = value; }
+        }
+
         #endregion
     }
 }

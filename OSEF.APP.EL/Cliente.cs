@@ -15,14 +15,7 @@ namespace OSEF.APP.EL
         string id;
         string nombre;
         string apaterno;
-        string amaterno;
-        string rfc;
-        string curp;
-        Nullable<DateTime> fechanacimiento;
-        byte edad;
-        string sexo;
-        string estadocivil;
-        string profesion;
+        string amaterno; 
         string correo;
         string telefono;
         string telefonomovil;
@@ -30,15 +23,20 @@ namespace OSEF.APP.EL
         string noexterior;
         string nointerior;
         string colonia;
-        int codigopostal;
+        string codigopostal;
         string entrecalles;
         string estado;
         string municipio;
+
         Nullable<DateTime> fechaalta;
         string estatus;
         string usuario;
         string rutalogo;
 
+        Estado restado;
+        Municipio rmunicipio;
+        Colonia rcolonia;
+        CodigoPostal rcodigopostal;
 
         #endregion
 
@@ -66,49 +64,7 @@ namespace OSEF.APP.EL
         {
             get { return amaterno; }
             set { amaterno = value; }
-        }
-
-        public string RFC
-        {
-            get { return rfc; }
-            set { rfc = value; }
-        }
-
-        public string CURP
-        {
-            get { return curp; }
-            set { curp = value; }
-        }
-
-        public Nullable<DateTime> FechaNacimiento
-        {
-            get { return fechanacimiento; }
-            set { fechanacimiento = value; }
-        }
-
-        public byte Edad
-        {
-            get { return edad; }
-            set { edad = value; }
-        }
-
-        public string Sexo
-        {
-            get { return sexo; }
-            set { sexo = value; }
-        }
-
-        public string EstadoCivil
-        {
-            get { return estadocivil; }
-            set { estadocivil = value; }
-        }
-
-        public string Profesion
-        {
-            get { return profesion; }
-            set { profesion = value; }
-        }
+        }  
 
         public string Correo
         {
@@ -152,7 +108,7 @@ namespace OSEF.APP.EL
             set { colonia = value; }
         }
 
-        public int CodigoPostal
+        public string CodigoPostal
         {
             get { return codigopostal; }
             set { codigopostal = value; }
@@ -200,7 +156,31 @@ namespace OSEF.APP.EL
             get { return rutalogo; }
             set { rutalogo = value; }
         }
-       
+
+
+        public Estado REstado
+        {
+            get { return restado; }
+            set { restado = value; }
+        }
+
+        public Municipio RMunicipio
+        {
+            get { return rmunicipio; }
+            set { rmunicipio = value; }
+        }
+
+        public Colonia RColonia
+        {
+            get { return rcolonia; }
+            set { rcolonia = value; }
+        }
+
+        public CodigoPostal RCodigoPostal
+        {
+            get { return rcodigopostal; }
+            set { rcodigopostal = value; }
+        }
 
         #endregion
     }

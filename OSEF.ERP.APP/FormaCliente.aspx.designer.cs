@@ -112,6 +112,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.TextField txtfID;
         
         /// <summary>
+        /// Control txtFileName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.TextField txtFileName;
+        
+        /// <summary>
         /// Control fuImagenCliente.
         /// </summary>
         /// <remarks>
@@ -155,114 +164,6 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.TextField txtfAMaterno;
-        
-        /// <summary>
-        /// Control fcRFC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.FieldContainer fcRFC;
-        
-        /// <summary>
-        /// Control txtfRFC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.TextField txtfRFC;
-        
-        /// <summary>
-        /// Control txtfCURP.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.TextField txtfCURP;
-        
-        /// <summary>
-        /// Control fcFechaNac.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.FieldContainer fcFechaNac;
-        
-        /// <summary>
-        /// Control dfFechaNacimiento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.DateField dfFechaNacimiento;
-        
-        /// <summary>
-        /// Control txtfEdad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.TextField txtfEdad;
-        
-        /// <summary>
-        /// Control cmbSexo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cmbSexo;
-        
-        /// <summary>
-        /// Control fcCliente5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.FieldContainer fcCliente5;
-        
-        /// <summary>
-        /// Control cmbEstadoCivil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cmbEstadoCivil;
-        
-        /// <summary>
-        /// Control cmbProfesion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cmbProfesion;
-        
-        /// <summary>
-        /// Control sProfesiones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.Store sProfesiones;
-        
-        /// <summary>
-        /// Control mProfesiones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.Model mProfesiones;
         
         /// <summary>
         /// Control fcCliente6.
@@ -382,6 +283,24 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.TextField txtfUsuario;
         
         /// <summary>
+        /// Control fbtnBuscarSucursal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.FieldContainer fbtnBuscarSucursal;
+        
+        /// <summary>
+        /// Control btnBuscarSucursal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.LinkButton btnBuscarSucursal;
+        
+        /// <summary>
         /// Control pDireccion.
         /// </summary>
         /// <remarks>
@@ -445,13 +364,13 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.TextField txtfNoInterior;
         
         /// <summary>
-        /// Control fcDireccion3.
+        /// Control fCodigoPostalEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.FieldContainer fcDireccion3;
+        protected global::Ext.Net.FieldContainer fCodigoPostalEstado;
         
         /// <summary>
         /// Control txtfCodigoPostal.
@@ -463,103 +382,76 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.TextField txtfCodigoPostal;
         
         /// <summary>
-        /// Control imCodigoPostal.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.InputMask imCodigoPostal;
+        protected global::Ext.Net.Button Button1;
         
         /// <summary>
-        /// Control cmbEstado.
+        /// Control txtEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cmbEstado;
+        protected global::Ext.Net.TextField txtEstado;
         
         /// <summary>
-        /// Control sEstados.
+        /// Control InputMask1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Store sEstados;
+        protected global::Ext.Net.InputMask InputMask1;
         
         /// <summary>
-        /// Control mEstados.
+        /// Control fMunicipioColonia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Model mEstados;
+        protected global::Ext.Net.FieldContainer fMunicipioColonia;
         
         /// <summary>
-        /// Control fcDireccion4.
+        /// Control txtMunicipio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.FieldContainer fcDireccion4;
+        protected global::Ext.Net.TextField txtMunicipio;
         
         /// <summary>
-        /// Control cmbMunicipio.
+        /// Control InputMask2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cmbMunicipio;
+        protected global::Ext.Net.InputMask InputMask2;
         
         /// <summary>
-        /// Control sMunicipios.
+        /// Control txtColonia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Store sMunicipios;
+        protected global::Ext.Net.TextField txtColonia;
         
         /// <summary>
-        /// Control mMunicipios.
+        /// Control InputMask3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Model mMunicipios;
-        
-        /// <summary>
-        /// Control cmbColonia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cmbColonia;
-        
-        /// <summary>
-        /// Control sColonias.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.Store sColonias;
-        
-        /// <summary>
-        /// Control mColonias.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.Model mColonias;
+        protected global::Ext.Net.InputMask InputMask3;
         
         /// <summary>
         /// Control sbSocios.

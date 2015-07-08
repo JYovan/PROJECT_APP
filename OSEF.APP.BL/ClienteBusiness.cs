@@ -58,7 +58,17 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static List<Cliente> ObtenerClientes()
         {
-            return ClienteDataAccess.ObtenerClientes();
+            List<Cliente> lc = ClienteDataAccess.ObtenerClientes();
+            foreach (Cliente c in lc) { 
+                if (c.CodigoPostal != null)
+                {
+                    c.RCodigoPostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(c.CodigoPostal);
+                    c.RColonia = ColoniaBusiness.ObtenerColoniaPorID(c.RCodigoPostal.Colonia);
+                    c.REstado = EstadoBusiness.ObtenerEstadoPorID(c.RCodigoPostal.Estado);
+                    c.RMunicipio = MunicipioBusiness.ObtenerMunicipioPorID(c.RCodigoPostal.Municipio);
+                }
+            }
+            return lc;
         }
 
         /// <summary>
@@ -68,7 +78,17 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static Cliente ObtenerClientePorID(string strID)
         {
-            return ClienteDataAccess.ObtenerClientePorID(strID);
+            Cliente c = ClienteDataAccess.ObtenerClientePorID(strID);
+            
+            if (c.CodigoPostal != null)
+            {
+                c.RCodigoPostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(c.CodigoPostal); 
+                c.RColonia = ColoniaBusiness.ObtenerColoniaPorID(c.RCodigoPostal.Colonia);
+                c.REstado = EstadoBusiness.ObtenerEstadoPorID(c.RCodigoPostal.Estado);
+                c.RMunicipio = MunicipioBusiness.ObtenerMunicipioPorID(c.RCodigoPostal.Municipio);
+            }
+            return c;
+
         }
 
         #endregion

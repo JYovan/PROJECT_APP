@@ -5,23 +5,25 @@ var imgbtnNuevo_Click = function () {
     Ext.util.Cookies.set('cookieMunicipio', '');
     Ext.util.Cookies.set('cookieColonia', '');
     Ext.util.Cookies.set('cookieEditarSucursal', 'Nuevo');
-    window.parent.App.wEmergente.load('FormaSucursal.aspx');
-    window.parent.App.wEmergente.setHeight(520);
-    window.parent.App.wEmergente.setWidth(800);
-    window.parent.App.wEmergente.center();
-    window.parent.App.wEmergente.setTitle('Nueva sucursal');
-    window.parent.App.wEmergente.show();
+    var wsssm = window.parent.App.wSubSubSubModulo;
+    wsssm.load('FormaSucursal.aspx');
+    wsssm.setHeight(520);
+    wsssm.setWidth(800);
+    wsssm.center();
+    wsssm.setTitle('Nueva sucursal');
+    wsssm.show();
 };
 
 //Evento que ocurre al dar clic en imgbtnGuardar
 var imgbtnGuardar_Click_Success = function () {
-    window.parent.App.wEmergente.hide();
-    window.parent.App.pCentro.getBody().App.sSucursales.reload();
+    window.parent.App.wSubSubSubModulo.hide();
+    //    window.parent.App.pCentro.getBody().App.sSucursales.reload();
+    window.parent.App.wSubSubModulo.getBody().App.sSucursales.reload();
+    
 };
 
 //Evento que ocurre al dar clic en imgbtnGuardar
-var imgbtnGuardar_Click_SuccessCR = function () {
- 
+var imgbtnGuardar_Click_SuccessCR = function () { 
 };
 
 //Evento de click del botón Editar
@@ -31,12 +33,13 @@ var imgbtnEditar_Click = function () {
     Ext.util.Cookies.set('cookieMunicipio', '');
     Ext.util.Cookies.set('cookieColonia', '');
     Ext.util.Cookies.set('cookieEditarSucursal', App.gpSucursales.getSelectionModel().getSelection()[0].get('ID'));
-    window.parent.App.wEmergente.load('FormaSucursal.aspx');
-    window.parent.App.wEmergente.setHeight(520);
-    window.parent.App.wEmergente.setWidth(800);
-    window.parent.App.wEmergente.center();
-    window.parent.App.wEmergente.setTitle('Editar sucursal ' + Ext.util.Cookies.get('cookieEditarSucursal'));
-    window.parent.App.wEmergente.show();
+    var wsssm = window.parent.App.wSubSubSubModulo;
+    wsssm.load('FormaSucursal.aspx');
+    wsssm.setHeight(520);
+    wsssm.setWidth(800);
+    wsssm.center();
+    wsssm.setTitle('Editar sucursal ' + Ext.util.Cookies.get('cookieEditarSucursal'));
+    wsssm.show();
 };
 
 
@@ -248,10 +251,13 @@ function validarFechaInicio(valor, evento, registro ) {
 
 //Evento de click del botón Buscar
 var imgbtnBuscar_Click = function () {
-    window.parent.App.wAyudaConcepto.load('FormaBuscaCodigosPostales.aspx');
-    window.parent.App.wAyudaConcepto.setHeight(350);
-    window.parent.App.wAyudaConcepto.setWidth(980);
-    window.parent.App.wAyudaConcepto.center();
-    window.parent.App.wAyudaConcepto.setTitle('BUSCAR CODIGO POSTAL');
-    window.parent.App.wAyudaConcepto.show();
+    Ext.util.Cookies.set('cookieElijeCodigoPostal', 'Sucursales');
+    var wssssm = window.parent.App.wSubSubSubSubModulo;
+    wssssm.load('FormaBuscaCodigosPostales.aspx');
+    wssssm.setHeight(350);
+    wssssm.setWidth(980);
+    wssssm.center();
+    wssssm.setTitle('BUSCAR CODIGO POSTAL');
+    wssssm.show();
 };
+ 

@@ -68,7 +68,8 @@ BEGIN
 		Estatus,
 		TipoConcepto,
 		EmpresaSupervisora,
-		TipoObra
+		TipoObra,
+		Cliente
 	FROM
 		Sucursales
 END

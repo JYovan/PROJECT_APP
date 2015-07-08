@@ -70,7 +70,8 @@ BEGIN
 		A.Estatus ,
 		A.TipoConcepto,
 		A.EmpresaSupervisora,
-		A.TipoObra
+		A.TipoObra,
+		A.Cliente
 	FROM 
 		Sucursales A 
 	WHERE NOT EXISTS(SELECT B.ID FROM Preciarios B  WHERE A.ID = B.Sucursal)

@@ -2112,3 +2112,20 @@ var btnBuscar_Cliente = function () {
     win.setTitle('BUSQUEDA DE CLIENTES');
     win.show();
 }
+var getRecordValues = function () {
+    var store = App.sOrdenEstimacion;
+    var records = store.getRecordsValues();
+    var encodedrecords;
+    var xudata = [];
+
+    if (records.length > 0 || records != null) {
+        for (i = 0; i < records.length; i++) {
+            xudata.push(records[i].data);
+        }
+        if (xudata.length > 0) {
+            return Ext.encode(xudata);
+        } else {
+            return 0;
+        }
+    }
+};
