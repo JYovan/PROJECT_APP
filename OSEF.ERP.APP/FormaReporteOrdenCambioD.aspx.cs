@@ -48,19 +48,9 @@ namespace OSEF.ERP.APP
                     adaptador.SelectCommand.Parameters.Add(@"IDMovimiento", SqlDbType.Int).Value = Convert.ToInt32(strID);
                     adaptador.Fill(dt);
 
-
-                    SqlCommand comando2 = new SqlCommand("web_spS_ObtenerGeneradorPorMovimiento", conn);
-                    SqlDataAdapter adaptador2 = new SqlDataAdapter(comando2);
-
-                    DataTable dt2 = new DataTable();
-                    adaptador2.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    adaptador2.SelectCommand.Parameters.Add(@"IDMovimiento", SqlDbType.Int).Value = Convert.ToInt32(strID);
-                    adaptador2.Fill(dt2);
-
                     ReportDocument reporteCroquis = new ReportDocument();
-                    reporteCroquis.Load(Server.MapPath("reportess/rCroquis.rpt"));
+                    reporteCroquis.Load(Server.MapPath("reportess/rCroquisOC.rpt"));
                     reporteCroquis.SetDataSource(dt);
-                    reporteCroquis.Subreports[0].SetDataSource(dt2);
                     reporteCroquis.SetParameterValue("elaboro", strElaboro);
                     reporteCroquis.SetParameterValue("reviso", strReviso);
                     reporteCroquis.SetParameterValue("autorizo", strAutorizo);
@@ -72,16 +62,16 @@ namespace OSEF.ERP.APP
                     if (Directory.Exists(strDireccion))
                     {
 
-                        reporteCroquis.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/OrdenesDeCambio/" + strID + "/rCroquis " + strID + ".pdf"));
-                        ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/OrdenesDeCambio/" + strID + "/rCroquis " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
+                        reporteCroquis.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/OrdenesDeCambio/" + strID + "/rCroquisOC " + strID + ".pdf"));
+                        ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/OrdenesDeCambio/" + strID + "/rCroquisOC " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                         // reporteFotos.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "rFotos " + strID);
 
                     }
                     else
                     {
                         Directory.CreateDirectory(strDireccion);
-                        reporteCroquis.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/OrdenesDeCambio/" + strID + "/rCroquis " + strID + ".pdf"));
-                        ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/OrdenesDeCambio/" + strID + "/rCroquis " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
+                        reporteCroquis.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/OrdenesDeCambio/" + strID + "/rCroquisOC " + strID + ".pdf"));
+                        ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/OrdenesDeCambio/" + strID + "/rCroquisOC " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                     }
 
 
@@ -128,7 +118,7 @@ namespace OSEF.ERP.APP
 
 
                             var reporteFotos = new ReportDocument();
-                            reporteFotos.Load(Server.MapPath("reportess/rFotos.rpt"));
+                            reporteFotos.Load(Server.MapPath("reportess/rFotosOC.rpt"));
                             reporteFotos.SetDataSource(dt);
                             reporteFotos.SetParameterValue("elaboro", strElaboro);
                             reporteFotos.SetParameterValue("reviso", strReviso);
@@ -315,6 +305,69 @@ namespace OSEF.ERP.APP
                     conn.Dispose();
                 }
         }
+
+
+
+        //Exporta a Excel el grid
+        protected void ExportarFin_Click(object sender, EventArgs e)
+        {
+
+            //Parametros del store procedure
+            string strID = Cookies.GetCookie("cookieEditarOrdenEstimacion").Value;
+
+
+            //1. Configurar la conexión y el tipo de comando
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+            try
+            {
+                SqlCommand comando = new SqlCommand("web_spS_ObtenerRCaratulaOC", conn);
+
+                SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+
+                DataTable dt = new DataTable();
+                adaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+                adaptador.SelectCommand.Parameters.Add(@"ID", SqlDbType.Int).Value = Convert.ToInt32(strID);
+                           
+                adaptador.Fill(dt);
+
+                ReportDocument reporteCuadrila = new ReportDocument();
+                reporteCuadrila.Load(Server.MapPath("reportess/PortadaOC.rpt"));
+                reporteCuadrila.SetDataSource(dt);
+
+
+
+                string strDireccion = Server.MapPath(" ") + "\\reportess\\OrdenesDeCambio\\" + strID;
+
+                //2. Validar si existe el directorio donde se guardaran
+                if (Directory.Exists(strDireccion))
+                {
+
+                    reporteCuadrila.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/OrdenesDeCambio/" + strID + "/rFin49 " + strID + ".pdf"));
+                    ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/OrdenesDeCambio/" + strID + "/rFin49 " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
+                    // reporteFotos.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "rFotos " + strID);
+
+                }
+                else
+                {
+                    Directory.CreateDirectory(strDireccion);
+                    reporteCuadrila.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/OrdenesDeCambio/" + strID + "/rFin49 " + strID + ".pdf"));
+                    ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/OrdenesDeCambio/" + strID + "/rFin49 " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+                conn.Dispose();
+            }
+        }
+
 
 
       

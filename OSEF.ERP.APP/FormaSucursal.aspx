@@ -291,7 +291,7 @@
                                                     runat="server" Width="200" Disabled="false" Editable="false" StyleSpec="margin-right: 6px;"> 
                                                     <Items>
                                                         <ext:ListItem Index="0" Text="LEND LEASE" Value="LEND LEASE" />
-                                                        <ext:ListItem Index="1" Text="JONES LAND LASALL" Value="JONES LAND LASALL" />
+                                                        <ext:ListItem Index="1" Text="JONES LANG LA SALLE" Value="JONES LANG LA SALLE" />
                                                     </Items>
                                                 </ext:ComboBox>  
                                                 <ext:ComboBox 

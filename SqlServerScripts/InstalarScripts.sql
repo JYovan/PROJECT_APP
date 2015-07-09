@@ -455,5 +455,6 @@
 :r c:\SqlServerScripts\Reportes\TableroReportes\web_spS_ObtenerReportesPorClasificacion.sql 
 -- Reporte Fin049 Ordenes de cambio
 :r c:\SqlServerScripts\Reportes\OrdenesCambio\web_spS_ObtenerRItemsAdicionales.sql
+:r c:\SqlServerScripts\Reportes\OrdenesCambio\web_spS_ObtenerRCaratulaOC.sql
 -----------------------------------------------------------------------------------
 

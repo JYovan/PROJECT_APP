@@ -67,6 +67,9 @@ namespace OSEF.AVANCES.SUCURSALES
             List<PreciarioConcepto> lDetallePreciario = JSON.Deserialize<List<PreciarioConcepto>>(strPreciarioDetalle);
             Preciario oPreciario = new Preciario();
 
+
+
+
             //3. Por cada elemento del submit de la Forma detectar el campo y asignarlo al objeto correspondiente
             foreach (KeyValuePair<string, string> sd in dRegistro)
             {
@@ -91,6 +94,10 @@ namespace OSEF.AVANCES.SUCURSALES
             //6. Validar si es nuevo o es uno existente
             if (strcookieEditarPreciario.Equals("Nuevo"))
             {
+                //Checar ticket de autenticación
+                UsuarioBusiness.checkValidSession(this);
+
+
                 //7. Traemeos el objeto de sesion para llenr el objeto con los datos de usuario
                 oPreciario.FechaAlta = DateTime.Now;
                 Usuario oUsuario = (Usuario)Session["Usuario"];

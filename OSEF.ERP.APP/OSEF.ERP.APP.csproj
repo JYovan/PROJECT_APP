@@ -200,6 +200,7 @@
     <Content Include="assets\img\controles\pdfNormal.png" />
     <Content Include="assets\img\controles\pdfOver.png" />
     <Content Include="assets\img\controles\pdfPressed.png" />
+    <Content Include="assets\img\controles\portada.png" />
     <Content Include="assets\img\controles\PRE.png" />
     <Content Include="assets\img\controles\PrimeroDisabled.png" />
     <Content Include="assets\img\controles\PrimeroNormal.png" />
@@ -1096,6 +1097,12 @@
       <DependentUpon>CPreciario.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="reportess\PortadaOC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PortadaOC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="reportess\rCaratulaDeEstimacion.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1112,6 +1119,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rCroquis.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportess\rCroquisOC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rCroquisOC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportess\rFotosOC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rFotosOC.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="reportess\rMantenimientosFacturador.cs">
@@ -1236,6 +1255,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CPreciario.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="reportess\PortadaOC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PortadaOC.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="reportess\rCaratulaDeEstimacion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rCaratulaDeEstimacion.cs</LastGenOutput>
@@ -1247,6 +1270,14 @@
     <EmbeddedResource Include="reportess\rCroquis.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rCroquis.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportess\rCroquisOC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rCroquisOC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportess\rFotosOC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rFotosOC.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="reportess\rMantenimientosFacturador.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

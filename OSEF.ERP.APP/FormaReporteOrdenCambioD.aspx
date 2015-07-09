@@ -57,6 +57,16 @@
                 <Content>
                 <div align="center">
                 <br />
+                 
+                <asp:ImageButton 
+                ID="imgbtnExportarPortada" 
+                runat="server" 
+                Height="30"
+                Width="30"
+                OnClick="ExportarFin_Click"                            
+               
+                class="imgs" 
+                ImageUrl="assets/img/controles/portada.png"/>
 
                 <asp:ImageButton 
                 ID="imgbtnGenerador" 

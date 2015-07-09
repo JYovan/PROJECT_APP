@@ -117,6 +117,8 @@ namespace OSEF.ERP.APP
                 //7. Traemeos el objeto de sesion para llenr el objeto con los datos de usuario
                 oPreciario.FechaAlta = DateTime.Now;
 
+                //Checar ticket de autenticación
+                UsuarioBusiness.checkValidSession(this);
 
                 Usuario oUsuario = (Usuario)Session["Usuario"];
                 oPreciario.Usuario = oUsuario.ID;
