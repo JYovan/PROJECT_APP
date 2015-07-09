@@ -79,6 +79,19 @@ namespace OSEF.APP.BL
         }
 
         /// <summary>
+        /// Método que obtiene todos los registros de Preciarios con estatus Activo
+        /// </summary>
+        /// <returns></returns>
+        public static List<Preciario> ObtenerPreciariosActivosPorCliente(string cliente)
+        {
+            List<Preciario> lPreciario = PreciarioDataAccess.ObtenerPreciariosActivosPorCliente(cliente);
+            foreach (Preciario sd in lPreciario)
+                sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
+
+            return lPreciario;
+        }
+
+        /// <summary>
         /// Obtener un registro de Preciario por su ID
         /// </summary>
         /// <param name="strID"></param>

@@ -932,12 +932,45 @@ var imgBtnPreciarioPrueba_Click_Success = function (response, result) {
 
 //Evento de click del botón Buscar
 var imgbtnBuscar_Click = function () {
-    window.parent.App.wAyudaConcepto.load('FormaBuscaPreciariosActivos.aspx');
-    window.parent.App.wAyudaConcepto.setHeight(340);
-    window.parent.App.wAyudaConcepto.setWidth(660);
-    window.parent.App.wAyudaConcepto.center();
-    window.parent.App.wAyudaConcepto.setTitle('Seleccionar preciarios');
-    window.parent.App.wAyudaConcepto.show();
+    if (App.IdCliente.getValue() != null && App.IdCliente.getValue().trim() !== "") {
+        App.direct.onLoadPreciarios(App.IdCliente.getValue(), {
+            success: function (result) {
+                if (result) {
+                    Ext.util.Cookies.set('cookieClienteID', App.IdCliente.getValue());
+                    window.parent.App.wAyudaConcepto.load('FormaBuscaPreciariosActivos.aspx');
+                    window.parent.App.wAyudaConcepto.setHeight(340);
+                    window.parent.App.wAyudaConcepto.setWidth(660);
+                    window.parent.App.wAyudaConcepto.center();
+                    window.parent.App.wAyudaConcepto.setTitle('SELECCIONAR PRECIARIO');
+                    window.parent.App.wAyudaConcepto.show();
+                } else {
+                    Ext.Msg.show({
+                        id: 'msgCliente',
+                        title: 'ATENCIÓN',
+                        msg: 'EL CLIENTE SELECCIONADO NO TIENE SUCURSALES.',
+                        buttons: Ext.MessageBox.OK,
+                        onEsc: Ext.emptyFn,
+                        closable: false,
+                        icon: Ext.MessageBox.WARNING
+                    });
+                }
+            }, 
+            failure: function (errorMsg) {
+                Ext.Msg.alert('Error', errorMsg);
+            }
+        });
+
+    } else {
+        Ext.Msg.show({
+            id: 'msgCliente',
+            title: 'ADVERTENCIA',
+            msg: 'DEBES DE ESCOGER EL CLIENTE.',
+            buttons: Ext.MessageBox.OK,
+            onEsc: Ext.emptyFn,
+            closable: false,
+            icon: Ext.MessageBox.WARNING
+        });
+    }
 };
 
 
@@ -965,4 +998,8 @@ var btnBuscar_Cliente = function () {
     win.center();
     win.setTitle('BUSQUEDA DE CLIENTES');
     win.show();
+}
+
+var onBuscar_Sucursal = function () { 
+    
 }

@@ -427,6 +427,15 @@
                                                 Text="ID"
                                                 Width="80"
                                                 DataIndex="Clave">
+                                                <Editor>
+                                                    <ext:TextField 
+                                                        ID="txtCLAVE"
+                                                        runat="server" >
+                                                        <Listeners>
+                                                            <Change Handler="this.setValue(this.getValue().toUpperCase());" />
+                                                        </Listeners>
+                                                    </ext:TextField>
+                                                </Editor>
                                             </ext:Column>
                                             <ext:Column
                                                 ID="cConcepto"

@@ -153,6 +153,7 @@
 :r c:\SqlServerScripts\Consultar\Preciarios\web_spS_ObtenerPreciariosPorSucursal.sql
 :r c:\SqlServerScripts\Consultar\Preciarios\web_spS_ObtenerPreciariosEnVolumetriasPorID.sql
 :r c:\SqlServerScripts\Consultar\Preciarios\web_spS_ObtenerPreciariosActivos.sql
+:r c:\SqlServerScripts\Consultar\Preciarios\web_spS_ObtenerPreciariosActivosPorCliente.sql
 -- Preciarios (Insertar)
 :r c:\SqlServerScripts\Insertar\Preciarios\web_spI_InsertarPreciario.sql
 -- Preciarios (Modificar)

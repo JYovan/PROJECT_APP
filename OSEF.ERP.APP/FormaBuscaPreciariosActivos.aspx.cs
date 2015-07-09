@@ -18,9 +18,21 @@ namespace OSEF.ERP.APP
         }
         protected void getPreciarios()
         {
-            List<Preciario> lPreciarios = PreciarioBusiness.ObtenerPreciariosActivos();
-            sPreciarios.DataSource = lPreciarios;
-            sPreciarios.DataBind();
+            string cliente = Cookies.GetCookie("cookieClienteID").Value;
+            var success = new JFunction { Fn = "onBuscar_Sucursal" };
+            if (cliente != null && !cliente.Trim().Equals(""))
+            {
+                List<Preciario> lPreciarios = PreciarioBusiness.ObtenerPreciariosActivosPorCliente(cliente);
+                if (lPreciarios.Count() > 0)
+                {
+                    sPreciarios.DataSource = lPreciarios;
+                    sPreciarios.DataBind();
+                }
+                else
+                {
+                    X.Msg.Alert("ATENCIÓN", "<p align='center'>EL CLIENTE: "+cliente+" ES INDEFINIDO.</p>", success).Show();
+                }
+            }
         }
         protected void OnReadData_sPreciarios(object sender, StoreReadDataEventArgs e)
         {

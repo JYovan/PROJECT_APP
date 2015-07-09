@@ -274,17 +274,17 @@ var ceFormaPreciarioGeneral_BeforeEdit = function (editor, context, opciones) {
 var sPreciarioGeneral_Load_Success = function () {
     if (Ext.util.Cookies.get('cookieEditarPreciarioGeneral') != 'Nuevo') {
 
-        App.direct.ObtenerUltimoConceptoAdicional({
-            success: function (result) {
-                App.sCarga.insert(App.sCarga.getCount(), { Clave: result }); 
-            }
-        });
+        //        App.direct.ObtenerUltimoConceptoAdicional({
+        //            success: function (result) {
+        App.sCarga.insert(App.sCarga.getCount(), {CLAVE:""});
+        //            }
+        //        });
     }
     else {
         var d = new Date();
         App.dfFechaEmision.setValue(d);
     }
-  
+
 };
 
 var ccAcciones_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
@@ -341,23 +341,24 @@ var ceFormaPreciarioGeneral_Edit = function (cellediting, columna, opciones) {
         if (registro.get('Descripcion').length != 0 && registro.get('Unidad').length != 0 && registro.get('Precio') != 0
         && registro.get('Categoria').length != 0 && registro.get('SubCategoria').length != 0 && registro.get('SubSubCategoria').length != 0) {
             //Insertar un nuevo registro 
-            var adc = 'ADC-';
-            if (registro.get('Clave') != null) {
-                var preclave = parseInt(registro.get('Clave').substring(4, 7));
-                var clave = String(preclave + 1);
-                console.log(registro.get('Clave').substring(4, 7));
-                if (clave >= 1 && clave <= 9) {
-                    clave = '00' + clave;
-                } else if (clave >= 10 && clave <= 99) {
-                    clave = '0' + clave;
-                } else if (clave.length >= 100 && clave <= 999) {
-                    clave = clave;
-                }
-                clave = adc.concat(clave);
+//            var adc = 'ADC-';
+//            if (registro.get('Clave') != null) {
+//                var preclave = parseInt(registro.get('Clave').substring(4, 7));
+//                var clave = String(preclave + 1);
+//                console.log(registro.get('Clave').substring(4, 7));
+//                if (clave >= 1 && clave <= 9) {
+//                    clave = '00' + clave;
+//                } else if (clave >= 10 && clave <= 99) {
+//                    clave = '0' + clave;
+//                } else if (clave.length >= 100 && clave <= 999) {
+//                    clave = clave;
+//                }
+//                clave = adc.concat(clave);
                 //Inserta la nueva clave adicional
-                App.sCarga.insert(App.sCarga.getCount(), { Clave: clave });
+//                App.sCarga.insert(App.sCarga.getCount(), { Clave: clave });
+                App.sCarga.insert(App.sCarga.getCount(), { Clave: "" });
                 App.gpPreciario.getView().refreshNode(App.sCarga.getCount() - 2);
-            }
+//            }
             //Validar si se habilita el boton de afectar 
             HabilitarGuardar();
         }

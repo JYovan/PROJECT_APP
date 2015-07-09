@@ -414,5 +414,20 @@ namespace OSEF.ERP.APP
             string strPreciarios = e.ExtraParams["preciario"];
             Session["preciario"] = strPreciarios;
         }
+
+        [DirectMethod]
+        public bool onLoadPreciarios(string cliente)
+        {
+            List<Preciario> lPreciarios = PreciarioBusiness.ObtenerPreciariosActivosPorCliente(cliente);
+            var success = new JFunction { Fn = "onBuscar_Sucursal" };
+            if (lPreciarios.Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
