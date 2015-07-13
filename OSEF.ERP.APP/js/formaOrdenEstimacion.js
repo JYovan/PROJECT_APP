@@ -2148,14 +2148,16 @@ var getRecordValues = function () {
     var store = App.sOrdenEstimacion;
     var records = store.getRecordsValues();
     var encodedrecords;
-    var xudata = [];
-
+    var xudata = []; 
     if (records.length > 0 || records != null) {
-        for (i = 0; i < records.length; i++) {
-            xudata.push(records[i].data);
+        var r = records[0];
+        for (var key in r) {
+            console.log(key, r[key]);
+            xudata.push('"'+key+'":'+r[key]);
         }
+        xudata.join(",");
         if (xudata.length > 0) {
-            return Ext.encode(xudata);
+            return records;
         } else {
             return 0;
         }
