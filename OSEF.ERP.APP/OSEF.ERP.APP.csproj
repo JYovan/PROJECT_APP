@@ -89,19 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="adjuntos\prueba.jpg" />
-    <Content Include="app.js" />
-    <Content Include="app\controller\Navigation.js" />
-    <Content Include="app\controller\Settings.js" />
-    <Content Include="app\model\Resource.js" />
-    <Content Include="app\store\TaskStore.js" />
-    <Content Include="app\view\Gantt.js" />
-    <Content Include="app\view\GanttToolbar.js" />
-    <Content Include="app\view\Navigation.js" />
-    <Content Include="app\view\ResourceHistogram.js" />
-    <Content Include="app\view\ResourceList.js" />
-    <Content Include="app\view\ResourceSchedule.js" />
-    <Content Include="app\view\Settings.js" />
-    <Content Include="app\view\Viewport.js" />
     <Content Include="assets\css\bootmetro-icons.css" />
     <Content Include="assets\css\bootmetro-responsive.css" />
     <Content Include="assets\css\bootmetro-ui-light.css" />
@@ -303,10 +290,8 @@
     <Content Include="css\xTreePanel.css" />
     <Content Include="css\xWindowPopup.css" />
     <Content Include="Cuadrillas.aspx" />
-    <Content Include="data.js" />
     <Content Include="Default.aspx" />
     <Content Include="Estados.aspx" />
-    <Content Include="examples-shared.js" />
     <Content Include="Excel.xsl" />
     <Content Include="ExploradorMesaDeReporte.aspx" />
     <Content Include="ExploradorPreciarioConceptos.aspx" />
@@ -367,33 +352,8 @@
     <Content Include="FormaSubirImagenesCliente.aspx" />
     <Content Include="FormaSubirImagenesOrdenEstimacion.aspx" />
     <Content Include="FormaSubirImagenesPreciario.aspx" />
-    <Content Include="FormaUsuario2.aspx" />
     <Content Include="FormaVolumetriaPreciario.aspx" />
-    <Content Include="gantt-scheduler.html" />
-    <Content Include="gantt-scheduler\app.js" />
-    <Content Include="gantt-scheduler\app\controller\Navigation.js" />
-    <Content Include="gantt-scheduler\app\controller\Settings.js" />
-    <Content Include="gantt-scheduler\app\model\Resource.js" />
-    <Content Include="gantt-scheduler\app\store\TaskStore.js" />
-    <Content Include="gantt-scheduler\app\view\Gantt.js" />
-    <Content Include="gantt-scheduler\app\view\GanttToolbar.js" />
-    <Content Include="gantt-scheduler\app\view\Navigation.js" />
-    <Content Include="gantt-scheduler\app\view\ResourceHistogram.js" />
-    <Content Include="gantt-scheduler\app\view\ResourceList.js" />
-    <Content Include="gantt-scheduler\app\view\ResourceSchedule.js" />
-    <Content Include="gantt-scheduler\app\view\Settings.js" />
-    <Content Include="gantt-scheduler\app\view\Viewport.js" />
-    <Content Include="gantt-scheduler\data.js" />
-    <Content Include="gantt-scheduler\data2.js" />
-    <Content Include="gantt-scheduler\gantt-scheduler.html" />
-    <Content Include="gantt-scheduler\license.txt" />
-    <Content Include="gantt-scheduler\lte-ie7.js" />
-    <Content Include="gantt-scheduler\resources\css\gantt-scheduler.css" />
-    <Content Include="gantt-scheduler\resources\css\style.css" />
-    <Content Include="gantt-scheduler\resources\fonts\icomoon.dev.svg" />
-    <Content Include="gantt-scheduler\resources\fonts\icomoon.svg" />
     <Content Include="Global.asax" />
-    <Content Include="gnt-all-debug.js" />
     <Content Include="Header.htm" />
     <Content Include="images\A&amp;R-Imagotipo ICONO.jpg" />
     <Content Include="images\banco.jpg" />
@@ -458,7 +418,6 @@
     <Content Include="js\tableroOrdenesEstimaciones.js" />
     <Content Include="js\volumetrias.js" />
     <Content Include="js\tablerovolumetrias.js" />
-    <Content Include="lte-ie7.js" />
     <Content Include="Menu.aspx" />
     <Content Include="OlvidasteContrasena.aspx" />
     <Content Include="FormaProveedor.aspx" />
@@ -493,43 +452,6 @@
     <Content Include="Previa.aspx" />
     <Content Include="Proveedores.aspx" />
     <Content Include="Clientes.aspx" />
-    <Content Include="resources\css\gantt-scheduler.css" />
-    <Content Include="resources\css\sch-all-crisp.css" />
-    <Content Include="resources\css\sch-all-debug.css" />
-    <Content Include="resources\css\sch-all-neptune.css" />
-    <Content Include="resources\css\sch-all.css" />
-    <Content Include="resources\css\sch-gantt-all.css" />
-    <Content Include="resources\css\sch-gantt-crisp-all.css" />
-    <Content Include="resources\css\sch-gantt-neptune-all.css" />
-    <Content Include="resources\css\style.css" />
-    <Content Include="resources\fonts\icomoon.dev.svg" />
-    <Content Include="resources\fonts\icomoon.svg" />
-    <Content Include="resources\images\1px.png" />
-    <Content Include="resources\images\add.png" />
-    <Content Include="resources\images\altrow.png" />
-    <Content Include="resources\images\close-icon.png" />
-    <Content Include="resources\images\column-header-bg.gif" />
-    <Content Include="resources\images\column-header-over-bg.gif" />
-    <Content Include="resources\images\column-weekend-header-bg.gif" />
-    <Content Include="resources\images\delete.gif" />
-    <Content Include="resources\images\dependencyterminal.png" />
-    <Content Include="resources\images\drop-no.gif" />
-    <Content Include="resources\images\drop-yes.gif" />
-    <Content Include="resources\images\edit.png" />
-    <Content Include="resources\images\invalid_line.gif" />
-    <Content Include="resources\images\overriddenDay.png" />
-    <Content Include="resources\images\overriddenWeekDay.png" />
-    <Content Include="resources\images\page-horizontal-icon.png" />
-    <Content Include="resources\images\page-vertical-icon.png" />
-    <Content Include="resources\images\pattern.png" />
-    <Content Include="resources\images\pdf-icon.png" />
-    <Content Include="resources\images\png-icon.png" />
-    <Content Include="resources\images\progressbar-handle.png" />
-    <Content Include="resources\images\resize-handle-hor.gif" />
-    <Content Include="resources\images\resize-handle-ver.gif" />
-    <Content Include="resources\images\transp-1px.png" />
-    <Content Include="resources\images\zonebg.png" />
-    <Content Include="sch-all-debug.js" />
     <Content Include="Subcategorias.aspx" />
     <Content Include="Sucursales.aspx" />
     <Content Include="Usuarios.aspx" />
@@ -545,8 +467,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\DataTabla.cs" />
-    <Compile Include="ActionExecutingContext.cs" />
     <Compile Include="Avances.aspx.cs">
       <DependentUpon>Avances.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -961,13 +881,6 @@
     <Compile Include="FormaSubirImagenesPreciario.aspx.designer.cs">
       <DependentUpon>FormaSubirImagenesPreciario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormaUsuario2.aspx.cs">
-      <DependentUpon>FormaUsuario2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FormaUsuario2.aspx.designer.cs">
-      <DependentUpon>FormaUsuario2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="FormaVolumetriaPreciario.aspx.cs">
       <DependentUpon>FormaVolumetriaPreciario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1232,16 +1145,8 @@
     <Content Include="Plants.ashx" />
     <None Include="fonts\weblysleekuil.ttf" />
     <None Include="fonts\weblysleekuisl.ttf" />
-    <None Include="gantt-scheduler\resources\fonts\icomoon.eot" />
-    <None Include="gantt-scheduler\resources\fonts\icomoon.ttf" />
-    <None Include="gantt-scheduler\resources\fonts\icomoon.woff" />
-    <None Include="gantt-scheduler\save_data.php" />
     <None Include="js\lib\jQuery\jquery-1.10.2.min.map" />
     <Content Include="packages.config" />
-    <None Include="resources\fonts\icomoon.eot" />
-    <None Include="resources\fonts\icomoon.ttf" />
-    <None Include="resources\fonts\icomoon.woff" />
-    <None Include="save_data.php" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

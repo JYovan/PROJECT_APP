@@ -17,8 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "COMMON", "COMMON", "{910AA5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSEF.LIBRARY.COMMON", "OSEF.LIBRARY.COMMON\OSEF.LIBRARY.COMMON.csproj", "{B924A0F9-EC2F-4C14-8014-CDDEFF7A6816}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaGantt", "PruebaGantt\PruebaGantt.csproj", "{F4E43F9B-3F27-422E-8DE7-EEA9082AF3AB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,10 +43,6 @@ Global
 		{B924A0F9-EC2F-4C14-8014-CDDEFF7A6816}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B924A0F9-EC2F-4C14-8014-CDDEFF7A6816}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B924A0F9-EC2F-4C14-8014-CDDEFF7A6816}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4E43F9B-3F27-422E-8DE7-EEA9082AF3AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4E43F9B-3F27-422E-8DE7-EEA9082AF3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4E43F9B-3F27-422E-8DE7-EEA9082AF3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4E43F9B-3F27-422E-8DE7-EEA9082AF3AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -70,7 +70,7 @@ namespace OSEF.AVANCES.SUCURSALES
                 }
                 catch (Exception ex)
                 {
-                 
+                    throw new Exception("Error al enviar correo (public string txtfEnviarCorreo_SpecialKey(string " + strIDCorreo + ")): " + ex.Message);
                 }
                 banderaValida = "1";
             }
