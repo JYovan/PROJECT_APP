@@ -151,7 +151,7 @@ namespace OSEF.APP.BL
             }
             catch (Exception ex)
             {
-
+                throw new Exception("Error capa de negocio ( public static void checkValidSession(Control c)): " + ex.Message);
             }
         }
 

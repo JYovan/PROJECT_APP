@@ -1268,8 +1268,8 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
                 }
             }
         } 
-    } 
 
+    } //else
 }
 
 //Evento que se lanza despues de editar una columna en PreciarioConceptoOrdenEstimacion
@@ -1321,6 +1321,11 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
             App.direct.obtenerImagenesPorConcepto();
         } 
     }
+}
+
+
+
+
     //Evento que se lanza despues de editar una columna en PreciarioConceptoOrdenEstimacion
     var cePreciarioConcepto_Edit = function (cellediting, columna) { 
 
