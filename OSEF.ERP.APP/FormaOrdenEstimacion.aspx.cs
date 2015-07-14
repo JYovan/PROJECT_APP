@@ -127,6 +127,7 @@ namespace OSEF.ERP.APP
                 //1. Obtener datos de la Forma y saber si es edición o nuevo
                 string strOrdenEstimacionForma = e.ExtraParams["OrdenEstimacionForma"];
                 string strOrdenEstimacion = e.ExtraParams["OrdenEstimacion"];
+                string strID = e.ExtraParams["IDOrdenEstimacion"];
                 string strOrdenEstimacionD = e.ExtraParams["OrdenEstimacionD"];
                 string strcookieEditarOrdenEstimacion = Cookies.GetCookie("cookieEditarOrdenEstimacion").Value;
                 string strSucursal = e.ExtraParams["Sucursal"];
@@ -137,8 +138,14 @@ namespace OSEF.ERP.APP
                 
                 //2. Serializar el encabezado y el detalle
                 Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strOrdenEstimacionForma);
-                OrdenEstimacion oFormaOrdenEstimacion = ObtenerObjetoDesdeForma(dRegistro);
-                OrdenEstimacion oOrdenEstimacion = JsonConvert.DeserializeObject<List<OrdenEstimacion>>(strOrdenEstimacion).FirstOrDefault();
+                OrdenEstimacion oFormaOrdenEstimacion = ObtenerObjetoDesdeForma(dRegistro); 
+             
+                OrdenEstimacion oOrdenEstimacion = null;
+                if (strID != "null")
+                {
+                    oOrdenEstimacion = OrdenEstimacionBusiness.ObtenerOrdenEstimacionPorID(Convert.ToInt32(strID));
+                } 
+            //OrdenEstimacion oOrdenEstimacion = JsonConvert.DeserializeObject<List<OrdenEstimacion>>(strOrdenEstimacion).FirstOrDefault();
                 List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(strOrdenEstimacionD);
 
                 //Si la fecha maxima viene nula se valida y si no se toma el parametro y se convierte a DateTime
@@ -189,14 +196,21 @@ namespace OSEF.ERP.APP
             string strMovimiento = e.ExtraParams["Movimiento"];
             string strOrdenEstimacionForma = e.ExtraParams["OrdenEstimacionForma"];
             string strOrdenEstimacion = e.ExtraParams["OrdenEstimacion"];
+            string strID = e.ExtraParams["IDOrdenEstimacion"];
             string strOrdenEstimacionD = e.ExtraParams["OrdenEstimacionD"];
             string strcookieEditarOrdenEstimacion = Cookies.GetCookie("cookieEditarOrdenEstimacion").Value;
             decimal diasAtencion = Convert.ToDecimal(e.ExtraParams["diasAtencion"]);
 
             //2. Serializar el encabezado y el detalle
             Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strOrdenEstimacionForma);
-            OrdenEstimacion oFormaOrdenEstimacion = ObtenerObjetoDesdeForma(dRegistro);
-            OrdenEstimacion oOrdenEstimacion = JsonConvert.DeserializeObject<List<OrdenEstimacion>>(strOrdenEstimacion).FirstOrDefault();
+            OrdenEstimacion oFormaOrdenEstimacion = ObtenerObjetoDesdeForma(dRegistro); 
+
+            OrdenEstimacion oOrdenEstimacion = null;
+            if (strID != "null")
+            {
+                oOrdenEstimacion = OrdenEstimacionBusiness.ObtenerOrdenEstimacionPorID(Convert.ToInt32(strID));
+            } 
+            //OrdenEstimacion oOrdenEstimacion = JsonConvert.DeserializeObject<List<OrdenEstimacion>>(strOrdenEstimacion).FirstOrDefault();
             List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(strOrdenEstimacionD);
 
             //3. Complementar datos y guardar o actualizar el movimiento

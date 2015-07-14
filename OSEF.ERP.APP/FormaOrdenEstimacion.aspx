@@ -141,7 +141,9 @@
                                     <EventMask ShowMask="true" Msg="Guardardo información..." />
                                     <ExtraParams>
                                         <ext:Parameter Name="OrdenEstimacionForma" Value="Ext.encode(this.up('form').getForm().getValues(false, false, false, true))" Mode="Raw" />
-                                        <ext:Parameter Name="OrdenEstimacion" Value="Ext.encode(#{sOrdenEstimacion}.getRecordsValues())" Mode="Raw" />
+                                        <%--<ext:Parameter Name="OrdenEstimacion" Value="Ext.encode(#{sOrdenEstimacion}.getRecordsValues())" Mode="Raw" />--%>
+                                        <ext:Parameter Name="OrdenEstimacion" Value="getRecordValues()" Mode="Raw" />
+                                        <ext:Parameter Name="IDOrdenEstimacion" Value="strID" Mode="Raw" />
                                         <ext:Parameter Name="OrdenEstimacionD" Value="Ext.encode(#{sConceptos}.getRecordsValues())" Mode="Raw" />
                                         <ext:Parameter Name="Sucursal" Value="App.txtfSucursalID.getValue()" Mode="Raw" />
                                         <ext:Parameter Name="diasAtencion" Value="App.nfDiasAtencion.getValue()" Mode="Raw" />
@@ -179,6 +181,7 @@
                                      <ExtraParams>
                                         <ext:Parameter Name="OrdenEstimacionForma" Value="Ext.encode(this.up('form').getForm().getValues(false, false, false, true))" Mode="Raw" />
                                          <ext:Parameter Name="OrdenEstimacion" Value="Ext.encode(#{sOrdenEstimacion}.getRecordsValues())" Mode="Raw" />
+                                        <ext:Parameter Name="IDOrdenEstimacion" Value="strID" Mode="Raw" />
                                         <ext:Parameter Name="OrdenEstimacionD" Value="Ext.encode(#{sConceptos}.getRecordsValues())" Mode="Raw" />
                                         <ext:Parameter Name="Movimiento" Value="App.cmbMov.getValue()" Mode="Raw" />
                                         <ext:Parameter Name="Sucursal" Value="App.txtfSucursalID.getValue()" Mode="Raw" />
