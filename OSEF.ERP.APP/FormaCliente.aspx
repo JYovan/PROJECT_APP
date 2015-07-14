@@ -5,10 +5,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
+     <link rel="stylesheet" href="css/login.css" />
+    <link rel="Stylesheet" href="css/customControls.css" />
+    <link rel="stylesheet" href="css/xMask.css" />
+    <link rel="stylesheet" href="css/xDatePicker.css" />
+    <link rel="stylesheet" href="css/xSplitButton.css" />
+    <link rel="stylesheet" href="css/xGridPanel.css" />
+    <link rel="stylesheet" href="css/xWindowPopup.css" />
+    <link rel="stylesheet" href="css/xTabPanel.css"/>
+    <link rel="stylesheet" href="css/xComboBox.css"/>
+    <link rel="stylesheet" href="css/xCustomChart.css"/>
+    <link rel="stylesheet" href="css/xIcons.css"/>
+    <link rel="stylesheet" href="css/xToolbar.css"/>
+    <link rel="stylesheet" href="css/xLabel.css"/>
+    <link rel="stylesheet" href="css/xTreePanel.css"/>
+    <link rel="stylesheet" href="css/xHiperlink.css"/>
+    <link rel="stylesheet" href="css/xTextField.css"/>
+    <link rel="stylesheet" href="css/xFieldSet.css"/>
+    <link rel="stylesheet" href="css/xPanel.css"/>
+    <link rel="stylesheet" href="css/xButton.css"/>
     <script type='text/javascript' src="js/clientes.js"></script>
-    <script type="text/javascript">
-        window.onload = cargarEstilo;
-    </script>
+    
 </head>
 <body class="xCustomBody">
     <form id="Form1" runat="server">
@@ -63,7 +80,7 @@
                     <ext:FormPanel 
                         ID="fpCliente" 
                         runat="server" 
-                        Height="404"
+                        Height="464"
                         DefaultButton="imgbtnGuardar"
                         MonitorResize="true">
                         <Items>
@@ -88,12 +105,9 @@
                                                 ID="fcID" 
                                                 runat="server" 
                                                 LabelWidth="120" 
-                                                FieldLabel="Socio" 
+                                                FieldLabel="Cliente" 
                                                 AnchorHorizontal="100%" 
                                                 Layout="ColumnLayout">
-                                                <Listeners>
-                                                    <BeforeRender Fn="fcIDRender" />
-                                                </Listeners>
                                                 <Items>
                                                     <ext:TextField
                                                         ID="txtfID"
@@ -105,20 +119,6 @@
                                                         MaxLength="8"
                                                         EnforceMaxLength="true">
                                                     </ext:TextField>
-                                                    <%--<ext:Label ID="lblAnexos" runat="server" Text="Adjuntar Anexos: " StyleSpec="margin-right: 6px;" Cls="xLabelCustomizado">
-                                                    </ext:Label>
-                                                    <ext:ImageButton 
-                                                        ID="imgbtnAnexos" 
-                                                        runat="server"
-                                                        StyleSpec="margin-top: -3px;"
-                                                        ImageUrl="assets/img/controles/adjuntoNormal.png"
-                                                        DisabledImageUrl="assets/img/controles/adjuntoDisabled.png" 
-                                                        OverImageUrl="assets/img/controles/adjuntoOver.png"
-                                                        PressedImageUrl="assets/img/controles/adjuntoPressed.png" 
-                                                        ToolTip="Anexos"
-                                                        Height="25" 
-                                                        Width="25">
-                                                    </ext:ImageButton>--%>
                                                     <ext:TextField
                                                         ID="txtFileName"
                                                         runat="server"
@@ -142,13 +142,6 @@
                                                             <Change Fn="onFUCliente"></Change>
                                                         </Listeners>  
                                                         </ext:FileUploadField>
-                                                        <%--<ext:Image
-                                                        runat="server"
-                                                        AllowPan="true"
-                                                        Height="128px"
-                                                        Width="128px"
-                                                        ImageUrl="images/smiley_add.png" > 
-                                                        </ext:Image>--%>
 
                                                 </Items>
                                             </ext:FieldContainer>
@@ -159,9 +152,6 @@
                                                 AnchorHorizontal="100%" 
                                                 Layout="ColumnLayout"
                                                 FieldLabel="Nombre(s)">
-                                                <Listeners>
-                                                    <BeforeRender Fn="fcNombre_Render" />
-                                                </Listeners>
                                                 <Items>
                                                     <ext:TextField
                                                         ID="txtfNombre"
@@ -280,15 +270,7 @@
                                                         FieldLabel="Estatus"
                                                         ValueField="ID"
                                                         DisplayField="Descripcion">
-                                                        <ListConfig ID="lcEstatus" runat="server">
-                                                            <Listeners>
-                                                                <BeforeRender Fn="ListConfig_BeforeRender" />
-                                                            </Listeners>
-                                                        </ListConfig>
-                                                        <Listeners>
-                                                            <BeforeRender Fn="ComboBox_BeforeRender" />
-                                                            <AfterRender Fn="cmbEstatus_AfterRender" />
-                                                        </Listeners>
+                                                     
                                                         <Store>
                                                             <ext:Store ID="sEstatus" runat="server">
                                                                 <Model>
@@ -356,6 +338,29 @@
                                                 </Items>
                                             </ext:FieldContainer>
 
+                                            <ext:FieldContainer 
+                                                ID="fcImagen" 
+                                                runat="server" 
+                                                FieldLabel="Logo Actual"
+                                                LabelWidth="120" 
+                                                AnchorHorizontal="100%" 
+                                                Layout="ColumnLayout"
+                                                Disabled="false">
+                                                <Items>  
+                                                    <ext:Image 
+                                                    ID="imgNormal"
+                                                    runat="server"
+                                                    StyleSpec="margin-right: 3px;"
+                                                    Height="90"
+                                                    Cls="img-resize"
+                                                    Width="200">
+                                                </ext:Image>
+                                                
+                                                </Items>
+                                              </ext:FieldContainer>
+
+
+                                              
                                         </Items>
                                     </ext:Panel>
                                      <%--Terminado--%>
