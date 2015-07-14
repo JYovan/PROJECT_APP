@@ -1207,12 +1207,7 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
     App.dfTotalSinRender.setValue(sum.toFixed(2));
     App.dfTotal.setValue(F.number(sum.toFixed(2), "$000,000.00"));
     ImporteFinal = sum;
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/master
+     
     if (indiceDetalle == 0) {
         if (App.cmbMov.getValue().trim() == "Orden de Cambio" || App.cmbMov.getValue().trim() == "Orden de Compra") {
 
@@ -1272,22 +1267,8 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
                     HabilitarAfectar();
                 }
             }
-        }
-
-
-    
-    }
-<<<<<<< HEAD
-=======
-
-
-   
-
-
-
-
-
-
+        } 
+    } 
 
 }
 
@@ -1338,8 +1319,7 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
             Ext.util.Cookies.set('cookieIDBorrarFotosOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
             Ext.util.Cookies.set('cookieConceptoFotosOrdenEstimacion', columna.originalValue);
             App.direct.obtenerImagenesPorConcepto();
-        }
->>>>>>> origin/master
+        } 
     }
     //Evento que se lanza despues de editar una columna en PreciarioConceptoOrdenEstimacion
     var cePreciarioConcepto_Edit = function (cellediting, columna) { 
