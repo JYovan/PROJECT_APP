@@ -124,21 +124,31 @@ namespace OSEF.ERP.APP
                     oCliente.CodigoPostal = oCliente.RCodigoPostal.Id;
                 }
                 oCliente.ID = ClienteBusiness.Insertar(oCliente);
-            } else {
+            } 
+            
+            else 
+            {
                 oCliente.ID = strcookieEditarCliente;
+                
                 if (!logo.Equals(""))
                 {
                     oCliente.RutaLogo = logo != null || !logo.Equals("") ? logo : "";
                 }
+                
                 string strCP = Cookies.GetCookie("cookieCP").Value;
+                
                 if (!strCP.Trim().Equals(""))
                 {
                     oCliente.RCodigoPostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(Cookies.GetCookie("cookieCP").Value);
                     oCliente.CodigoPostal = oCliente.RCodigoPostal.Id;
                 }
+                string strDireccion = "images\\clientes\\" + oCliente.ID + "\\";
+                imgNormal.ImageUrl = strDireccion + oCliente.RutaLogo;
+
                 ClienteBusiness.Actualizar(oCliente);
             }
             string rlogo = fuImagenCliente.FileName;
+
             if (rlogo != null && !rlogo.Trim().Equals(""))
             {
                 string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" +oCliente.ID+"\\";
@@ -165,8 +175,14 @@ namespace OSEF.ERP.APP
             //1. Obtener Cookie del Cliente
             string strcookieEditarCliente = Cookies.GetCookie("cookieEditarCliente").Value;
 
+
+          
+
             //2. Asignar el objeto del Cliente y llenar el Store sCliente
             Cliente oCliente = ClienteBusiness.ObtenerClientePorID(strcookieEditarCliente);
+
+            string strDireccion = "images\\clientes\\" + oCliente.ID + "\\";
+
             sCliente.Add(new
             {
                 ID = oCliente.ID,
@@ -189,8 +205,12 @@ namespace OSEF.ERP.APP
                 Usuario = oCliente.Usuario,
                 FechaAlta = oCliente.FechaAlta,
                 Estatus = oCliente.Estatus,
-                RutaLogo = oCliente.RutaLogo
+                RutaLogo = strDireccion+oCliente.RutaLogo
             });
+          
+
+
+            imgNormal.ImageUrl = strDireccion+oCliente.RutaLogo;
         }
     }
 }

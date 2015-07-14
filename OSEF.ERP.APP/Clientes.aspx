@@ -5,10 +5,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="Stylesheet" href="css/customControls.css" />
+    <link rel="stylesheet" href="css/xMask.css" />
+    <link rel="stylesheet" href="css/xDatePicker.css" />
+    <link rel="stylesheet" href="css/xSplitButton.css" />
+    <link rel="stylesheet" href="css/xGridPanel.css" />
+    <link rel="stylesheet" href="css/xWindowPopup.css" />
+    <link rel="stylesheet" href="css/xTabPanel.css"/>
+    <link rel="stylesheet" href="css/xComboBox.css"/>
+    <link rel="stylesheet" href="css/xCustomChart.css"/>
+    <link rel="stylesheet" href="css/xIcons.css"/>
+    <link rel="stylesheet" href="css/xToolbar.css"/>
+    <link rel="stylesheet" href="css/xLabel.css"/>
+    <link rel="stylesheet" href="css/xTreePanel.css"/>
+    <link rel="stylesheet" href="css/xHiperlink.css"/>
+    <link rel="stylesheet" href="css/xTextField.css"/>
+    <link rel="stylesheet" href="css/xFieldSet.css"/>
+    <link rel="stylesheet" href="css/xPanel.css"/>
+    <link rel="stylesheet" href="css/xButton.css"/>
     <script type='text/javascript' src="js/clientes.js"></script>
-    <script type="text/javascript">
-        window.onload = cargarEstilo;
-    </script>
+ 
 </head>
 <body class="xCustomBody">
     <form id="form1" runat="server">
@@ -19,15 +36,13 @@
             runat="server"
             Height="420"
             Width="960"
-            Title=""
+            Title="CLIENTES"
             EnableColumnHide="false"
             EnableColumnMove="false"
             Header="true"
             TitleAlign="Left"
             StyleSpec="margin:0 auto; margin-top: 20px;">
-            <Listeners>
-                <BeforeRender Fn="gpClientesRender"></BeforeRender>
-            </Listeners>
+       
             <TopBar>
                 <ext:Toolbar ID="tbClientes" runat="server">
                     <Items>
