@@ -14,8 +14,8 @@ namespace OSEF.APP.EL
         decimal cantidad;
         decimal utilizada;
         PreciarioConcepto rpreciarioconceptos;
+        string clave;
 
-  
        
         string fotos;
         #endregion
@@ -63,9 +63,12 @@ namespace OSEF.APP.EL
             set { rpreciarioconceptos = value; }
         }
 
-
-
-
+        public string Clave
+        {
+            get { return clave; }
+            set { clave = value; }
+        }
+  
         #endregion
 
     }

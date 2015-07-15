@@ -360,8 +360,7 @@ var sVolumetria_Add = function (avance, registro) {
         App.txtfDescripcionPreciario.setValue(registro[0].get('RPreciario').Descripcion);
         App.dfFechaEmision.setValue(registro[0].get('FechaEmision'));
         App.txtfObservaciones.setValue(registro[0].get('Observaciones'));
-        App.sbFormaVolumetriaDetalle.setText(registro[0].get('Estatus'));
-        console.log(registro[0]);
+        App.sbFormaVolumetriaDetalle.setText(registro[0].get('Estatus')); 
 
         if (registro[0].get('RCliente') != null) {
             App.IdCliente.setValue(registro[0].get('RCliente').ID);
@@ -496,7 +495,6 @@ var ccDimensiones_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
 //Evento que actualuza el importe total cuando se usa el generador
 var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) {
 
-    console.log(indiceDetalle);
     //Verificar si abajo de esta columna existe otra
     if (App.sConceptos.getAt(indiceDetalle + 1) == undefined) {
         //Verificar si toda la fila contiene datos
@@ -582,7 +580,7 @@ var ccConcepto_Command = function (columna, comando, registro, fila, opciones) {
     window.parent.App.wAyudaConcepto.show();
     //Asigno el indicie del renglon
     Ext.util.Cookies.set('cookieRenglonVolumetriaD', fila);
-    console.log(App.sVolumetria.getCount());
+//    console.log(App.sVolumetria.getCount());
     //Asignamos el id del preciario
 
     if (App.sVolumetria.getCount() != 0) {
@@ -1000,6 +998,14 @@ var btnBuscar_Cliente = function () {
     win.show();
 }
 
-var onBuscar_Sucursal = function () { 
-    
+var onBuscar_Sucursal = function () {
+
+}
+
+var strID = function () {
+    if (Ext.util.Cookies.get('cookieEditarVolumetria') === 'Nuevo') {
+        return null;
+    } else {
+        return App.sVolumetria.getAt(0).get('ID');
+    }
 }

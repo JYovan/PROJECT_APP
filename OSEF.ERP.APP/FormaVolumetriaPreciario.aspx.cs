@@ -39,7 +39,8 @@ namespace OSEF.ERP.APP
         {
             //1. Obtener datos de la Forma y saber si es edición o nuevo
             string strVolumetriaForma = e.ExtraParams["VolumetriaForma"];
-            string strVolumetria = e.ExtraParams["Volumetria"];
+            //string strVolumetria = e.ExtraParams["Volumetria"];
+            string strID = e.ExtraParams["IDVolumetria"];
             string strSucursal = e.ExtraParams["Sucursal"];
             string strVolumetriaD = e.ExtraParams["VolumetriaD"];
             string strcookieEditarVolumetria = Cookies.GetCookie("cookieEditarVolumetria").Value;
@@ -47,7 +48,12 @@ namespace OSEF.ERP.APP
             //2. Serializar el encabezado y el detalle
             Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strVolumetriaForma);
             Volumetria oFormaVolumetria = ObtenerObjetoDesdeForma(dRegistro, strSucursal);
-            Volumetria oVolumetria = JSON.Deserialize<List<Volumetria>>(strVolumetria).FirstOrDefault();
+            //Volumetria oVolumetria = JSON.Deserialize<List<Volumetria>>(strVolumetria).FirstOrDefault();
+            Volumetria oVolumetria = null;
+            if (!strID.Equals("null"))
+            {
+                oVolumetria = VolumetriaBusiness.ObtenerVolumetriaPorID(Convert.ToInt32(strID));
+            }
             List<VolumetriaD> lVolumetriaD = JSON.Deserialize<List<VolumetriaD>>(strVolumetriaD);
 
             //3. Guardar o Actuaizar el Movimiento
@@ -115,15 +121,21 @@ namespace OSEF.ERP.APP
         {
             //1. Obtener datos de la Forma y saber si es edición o nuevo
             string strVolumetriaForma = e.ExtraParams["VolumetriaForma"];
-            string strVolumetria = e.ExtraParams["Volumetria"];
+            //string strVolumetria = e.ExtraParams["Volumetria"];
+            string strID = e.ExtraParams["IDVolumetria"];
             string strSucursal = e.ExtraParams["sucursal"];
             string strVolumetriaD = e.ExtraParams["VolumetriaD"];
             string strcookieEditarVolumetria = Cookies.GetCookie("cookieEditarVolumetria").Value;
 
             //2. Serializar el encabezado y el detalle
             Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strVolumetriaForma);
-            Volumetria oVolumetriaForma = ObtenerObjetoDesdeForma(dRegistro,strSucursal);
-            Volumetria oVolumetria = JSON.Deserialize<List<Volumetria>>(strVolumetria).FirstOrDefault();
+            Volumetria oVolumetriaForma = ObtenerObjetoDesdeForma(dRegistro, strSucursal);
+            //Volumetria oVolumetria = JSON.Deserialize<List<Volumetria>>(strVolumetria).FirstOrDefault();
+            Volumetria oVolumetria = null;
+            if (!strID.Equals("null"))
+            {
+                oVolumetria = VolumetriaBusiness.ObtenerVolumetriaPorID(Convert.ToInt32(strID));
+            }
             List<VolumetriaD> lVolumetriaD = JSON.Deserialize<List<VolumetriaD>>(strVolumetriaD);
 
             //3. Guardar o Actuaizar el Movimiento

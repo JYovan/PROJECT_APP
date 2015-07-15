@@ -38,15 +38,15 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
-		Volumetria,
-		Renglon,
-		ConceptoID,
-		Cantidad,
-		Utilizada,
-		Fotos
+		vd.Volumetria,
+		vd.Renglon,
+		vd.ConceptoID,
+		vd.Cantidad,
+		vd.Utilizada,
+		vd.Fotos,
+		pc.CLAVE
 	FROM
-		VolumetriasD
-	WHERE
-		Volumetria = @Volumetria
+		VolumetriasD vd INNER JOIN dbo.PreciarioConceptos pc
+	ON vd.ConceptoID = pc.ID AND vd.Volumetria = @Volumetria
 END
 GO

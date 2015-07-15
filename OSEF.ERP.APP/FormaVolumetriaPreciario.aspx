@@ -120,7 +120,8 @@
                                     <EventMask ShowMask="true" Msg="Guardardo información..." />
                                     <ExtraParams>
                                         <ext:Parameter Name="VolumetriaForma" Value="Ext.encode(this.up('form').getForm().getValues(false, false, false, true))" Mode="Raw" />
-                                        <ext:Parameter Name="Volumetria" Value="Ext.encode(#{sVolumetria}.getRecordsValues())" Mode="Raw" />
+                                        <%--<ext:Parameter Name="Volumetria" Value="Ext.encode(#{sVolumetria}.getRecordsValues())" Mode="Raw" />--%>
+                                        <ext:Parameter Name="IDVolumetria" Value="strID" Mode="Raw" />
                                         <ext:Parameter Name="Sucursal" Value="App.txtfIDSucursal.getValue()" Mode="Raw" />
                                         <ext:Parameter Name="VolumetriaD" Value="Ext.encode(#{sConceptos}.getRecordsValues())" Mode="Raw" />
                                     </ExtraParams>
@@ -155,7 +156,8 @@
                                     <EventMask ShowMask="true" Msg="Afectando movimiento..." />
                                     <ExtraParams>
                                         <ext:Parameter Name="VolumetriaForma" Value="Ext.encode(this.up('form').getForm().getValues(false, false, false, true))" Mode="Raw" />
-                                        <ext:Parameter Name="Volumetria" Value="Ext.encode(#{sVolumetria}.getRecordsValues())" Mode="Raw" />
+                                        <%--<ext:Parameter Name="Volumetria" Value="Ext.encode(#{sVolumetria}.getRecordsValues())" Mode="Raw" />--%>
+                                        <ext:Parameter Name="IDVolumetria" Value="strID" Mode="Raw" />
                                         <ext:Parameter Name="sucursal" Value="App.txtfIDSucursal.getValue()" Mode="Raw" />
                                         <ext:Parameter Name="VolumetriaD" Value="Ext.encode(#{sConceptos}.getRecordsValues())" Mode="Raw" />
                                     </ExtraParams>
@@ -588,6 +590,7 @@
                                                         <ext:ModelField Name="Utilizada" Type="Float" />
                                                         <ext:ModelField Name="Fotos" Type="String" />
                                                         <ext:ModelField Name="RPreciarioConceptos" Type="Object" />
+                                                        <ext:ModelField Name="Clave" Type="String" />
                                                     </Fields>
                                                 </ext:Model>
                                             </Model>
@@ -620,9 +623,9 @@
                                             <ext:Column
                                                 ID="cIDPreciario"
                                                 runat="server"
-                                                Text="Concepto"
+                                                Text="Clave"
                                                 Width="205"
-                                                DataIndex="ConceptoID">
+                                                DataIndex="Clave">
                                             </ext:Column>
                                             <ext:CommandColumn
                                                 ID="ccConcepto"
