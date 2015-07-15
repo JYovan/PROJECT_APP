@@ -120,7 +120,7 @@
             <ext:Panel 
                 ID="pCentro"
                 runat="server"
-                Height="480"
+                Height="580"
                 Width="1280"
                 Region="Center"
                 StyleSpec="margin-left: 30px; margin-right: auto; margin-top:20px;"
@@ -140,11 +140,11 @@
             </ext:Panel>
         </div>
         <%-- Footer--%>
-        <div id="footer-menu">
+       <%-- <div id="footer-menu">
             <div id="creditos" class="creditos-menu" >
-                <p id="pcreditos">© 2014</p> 
+                <p id="pcreditos">© 2015</p> 
             </div>
-        </div>
+        </div>--%>
         <%-- Footer--%>
 
         <ext:Window 

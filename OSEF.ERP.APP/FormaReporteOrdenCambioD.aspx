@@ -105,6 +105,18 @@
                     Width="30"
                 ImageUrl="assets/img/controles/imagenes.png"/>
                     </div>
+                    <%--   OnClick="imgbtnTodo"--%>
+                    <div align="right">
+                <asp:ImageButton 
+                ID="imgbtnTodos" 
+                runat="server" 
+                class="imgs" 
+             OnClick="imgbtnTodo"
+                    Height="30"
+                    Width="30"
+                ImageUrl="assets/img/controles/bajar.png"/>
+                </div>
+
             </Content>
                     
             <Listeners>

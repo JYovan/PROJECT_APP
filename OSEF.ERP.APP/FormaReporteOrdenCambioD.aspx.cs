@@ -11,6 +11,7 @@ using System.Data;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System.IO;
+using Ionic.Zip;
 
 namespace OSEF.ERP.APP
 {
@@ -89,7 +90,6 @@ namespace OSEF.ERP.APP
 
         }
 
-
         protected void imgbtnExportarFotos_Click(object sender, EventArgs e)
         {
 
@@ -159,7 +159,6 @@ namespace OSEF.ERP.APP
                     conn.Dispose();
                 }
         }
-
 
         protected void imgbtnExportarFactura_Click(object sender, EventArgs e)
         {
@@ -233,7 +232,6 @@ namespace OSEF.ERP.APP
             
         }
 
-
         protected void imgbtnExportarGenerador_Click(object sender, EventArgs e)
         {
 
@@ -306,9 +304,6 @@ namespace OSEF.ERP.APP
                 }
         }
 
-
-
-        //Exporta a Excel el grid
         protected void ExportarFin_Click(object sender, EventArgs e)
         {
 
@@ -368,7 +363,64 @@ namespace OSEF.ERP.APP
             }
         }
 
+        protected void crearZip(string url, string rutaGuarda, string ID)
+        {
 
+            try
+            {
+                //Listamos los archivos que trae el directorio
+                DirectoryInfo directorySelected = new DirectoryInfo(url);
+                List<FileInfo> fi = new List<FileInfo>(directorySelected.GetFiles());
+                //Definimos le nombre que llevara nuestro archio comprimido
+                string fileName = "OC Mov. " + ID + ".zip";
+                //Limpiamos le stream
+                Response.Clear();
+                //Metenmos la lista de archivos que contiene el directorio en una lista de tipo string
+                List<string> lista = new List<string>();
+
+                foreach (FileInfo fileToString in fi)
+                {
+                    //Le concatenamos la ruta donde se va a leer el archivo
+                    lista.Add(rutaGuarda + fileToString.ToString());
+                }
+                //Creamos el archivo
+                Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
+                Response.ContentType = "application/x-zip-compressed";
+                //Llenamos le archivo con la lista
+                using (ZipFile zip = new ZipFile())
+                {
+                    zip.AddFiles(lista, ID);
+                    zip.Save(Response.OutputStream);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception("Error " + ex.Message);
+
+            }
+            finally
+            {
+                Response.End();
+                Response.Close();
+            }
+        }
+
+        protected void imgbtnTodo(object sender, EventArgs e)
+        {
+            string nOrden = Cookies.GetCookie("NOrden").Value;
+            if (nOrden != null)
+            {
+                imgbtnExportarFotos_Click(sender, e);
+                imgbtnExportarCroquis_Click(sender, e);
+                imgbtnExportarFactura_Click(sender, e);
+                imgbtnExportarGenerador_Click(sender, e);
+                ExportarFin_Click(sender, e);
+
+                crearZip(
+                    Server.MapPath(" ") + "\\reportess\\OrdenesDeCambio\\" + Cookies.GetCookie("cookieEditarOrdenEstimacion").Value,
+                    Server.MapPath(" ") + "\\reportess\\OrdenesDeCambio\\" + Cookies.GetCookie("cookieEditarOrdenEstimacion").Value + "\\", nOrden);
+            }
+        }
 
       
     }

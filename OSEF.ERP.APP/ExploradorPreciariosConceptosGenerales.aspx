@@ -160,7 +160,7 @@
                                 <ext:ModelField Name="Estatus" Type="String" />
                                 <ext:ModelField Name="ImporteTotal" Type="Float" />
                                 <ext:ModelField Name="Usuario" Type="String" />
-                               
+                               <ext:ModelField Name="NoOrden" Type="String" />
                             </Fields>
                         </ext:Model>
                     </Model>

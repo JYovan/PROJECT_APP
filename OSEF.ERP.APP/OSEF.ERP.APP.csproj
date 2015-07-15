@@ -92,9 +92,7 @@
     <Content Include="assets\css\bootmetro-icons.css" />
     <Content Include="assets\css\bootmetro-responsive.css" />
     <Content Include="assets\css\bootmetro-ui-light.css" />
-    <Content Include="assets\css\bootmetro2.css" />
     <Content Include="assets\css\bootmetro.css" />
-    <Content Include="assets\css\demo2.css" />
     <Content Include="assets\css\demo.css" />
     <Content Include="assets\font\icomoon.dev.svg" />
     <Content Include="assets\font\IcoMoon.svg" />

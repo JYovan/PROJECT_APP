@@ -183,31 +183,13 @@
         </div>
         <%-- Fin cuerpo--%>
         <%--  Footer--%>
-        <div id="footer">
+       <%-- <div id="footer">
             <div id="creditos" class="creditos">
                 <p>
                     © 2015 Osef Technology
                 </p>
-                <%-- Descomentar si se desean redes sociales e ir a login.css y despues 
-                       a la clase .footer y foter-menu y comentar las lineas de margin
-               
-                       <div id="social-login">
-                        <ul>
-                            <li ><a href="#">
-                    
-                                <img src="img/social/fb.png" alt="Facebook" class="imgs"  />
-                        
-                                </a></li>
-                            <li><a href="#">
-                                <img src="img/social/twiter.png" alt="Twitter" class="imgs"  /></a></li>
-                            <li><a href="#">
-                                <img src="img/social/youtube.png" alt="YouTube" class="imgs"  /></a></li>
-                            <li><a href="#">
-                                <img src="img/social/linked.png" alt="LinkedIn" class="imgs"  /></a></li>
-                        </ul>
-                    </div>--%>
             </div>
-        </div>
+        </div>--%>
         <%--  Footer--%>
 
     </form>
