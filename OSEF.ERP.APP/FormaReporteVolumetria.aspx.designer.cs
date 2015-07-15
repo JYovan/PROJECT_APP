@@ -58,24 +58,6 @@ namespace OSEF.ERP.APP {
         protected global::System.Web.UI.WebControls.ImageButton imgbtnPop;
         
         /// <summary>
-        /// Control imgbtnXLS.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgbtnXLS;
-        
-        /// <summary>
-        /// Control imgbtnPDF.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgbtnPDF;
-        
-        /// <summary>
         /// Control sbParametros1.
         /// </summary>
         /// <remarks>

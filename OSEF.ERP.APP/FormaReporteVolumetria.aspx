@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Previa.aspx.cs" Inherits="OSEF.ERP.APP.Previa" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormaReporteVolumetria.aspx.cs" Inherits="OSEF.ERP.APP.Previa" %>
 
 <%@ Register Assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
     Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
@@ -24,16 +24,16 @@
         <Content>
             <div align="center">
                 <br />
-                <asp:ImageButton ID="imgbtnPop" runat="server" OnClick="toPopUp" Height="30"
+                <asp:ImageButton ID="imgbtnPop" runat="server" OnClick="imgbtnExportarReporteVolumetrias_Click" Height="30"
                     Width="30" class="imgs" ImageUrl="assets/img/controles/vp.png" />
-                <asp:ImageButton ID="imgbtnXLS" runat="server" OnClick="toXls" Height="30"
+              <%--  <asp:ImageButton ID="imgbtnXLS" runat="server" OnClick="toXls" Height="30"
                     Width="30" class="imgs" ImageUrl="assets/img/controles/ExcelNormal.png" />
                 <asp:ImageButton ID="imgbtnPDF" runat="server" OnClick="toPDF" Height="30" Width="30"
-                    class="imgs" ImageUrl="assets/img/controles/pdfNormal.png" />
+                    class="imgs" ImageUrl="assets/img/controles/pdfNormal.png" />--%>
             </div>
         </Content>
         <BottomBar>
-            <ext:StatusBar ID="sbParametros1" runat="server" Cls="x-colorToolbar" Text="Selecciona un tipo de reporte" />
+            <ext:StatusBar ID="sbParametros1" runat="server" Cls="x-colorToolbar" Text="Clic en la imagen para imprimir" />
         </BottomBar>
     </ext:FormPanel>
     </form>

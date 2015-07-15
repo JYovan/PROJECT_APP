@@ -1981,14 +1981,11 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
 
     };
 
-    Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
 
+Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
     //Imagen Preview Normal
     var fufNormal_Change = function (event, control, txtReporte) {
-
-
-
-
+        
         if (txtReporte.length != 0) {
 
             var filePath = control.value;

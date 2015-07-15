@@ -39,8 +39,7 @@ namespace OSEF.ERP.APP
         {
        
            UsuarioBusiness.checkValidSession(this);
-            Cookies.Set("osefTheme", ConfigurationManager.AppSettings["osefTheme"].ToString(), DateTime.Now.AddDays(30), "/", null, false);
-             
+              
         }
 
 

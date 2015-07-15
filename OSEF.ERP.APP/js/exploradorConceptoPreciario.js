@@ -88,49 +88,20 @@ var cmbCantidadFiltro_Select = function (combobox, registro) {
 
 
 var gpExploradorConceptos_ItemClick = function (gridview, registro, gvhtml, index) {
-    window.parent.App.wEmergente.load('FormaPreciarioExplorador.aspx');
-    window.parent.App.wEmergente.setHeight(460);
-    window.parent.App.wEmergente.setWidth(600);
+    window.parent.App.wEmergente.load('FormaReporteVolumetria.aspx');
+    window.parent.App.wEmergente.setHeight(146);
+    window.parent.App.wEmergente.setWidth(300);
     window.parent.App.wEmergente.center();
-    window.parent.App.wEmergente.setTitle('Datos del concepto');
+    window.parent.App.wEmergente.setTitle('Imprimir volumetría concepto');
     window.parent.App.wEmergente.show();
 
     Ext.util.Cookies.set('cookiePreciario', registro.get('Preciario'));
     Ext.util.Cookies.set('cookieConceptoID', registro.get('ID'));
-    Ext.util.Cookies.set('cookieConcepto', registro.get('Clave'));
-    Ext.util.Cookies.set('cookieDescripcion', registro.get('Descripcion'));
-    Ext.util.Cookies.set('cookieImporteInicial', registro.get('Importe'));
-    Ext.util.Cookies.set('cookieImporteFinal', registro.get('Importefinal'));
-    Ext.util.Cookies.set('cookiePrecioInicial', registro.get('Costo'));
-    Ext.util.Cookies.set('cookieCantidadInicial', registro.get('Cantidad') + ' (' + registro.get('Unidad')+')');
-    Ext.util.Cookies.set('cookieCantidadFinal', registro.get('Utilizada') + ' (' + registro.get('Unidad') + ')');
 };
 
-//Evento lanzado al agregar un registro al store
-var sParametrosExporador_Add = function (concepto, registro) {
-
-
-};
-
-var sParametrosExporador_Load = function () {
-
-    var F = Ext.util.Format;
-    F.thousandSeparator = ',';
-    F.decimalSeparator = '.';
 
 
 
-    App.txtPreciario.setValue(Ext.util.Cookies.get('cookiePreciario'));
-    App.txtClave.setValue(Ext.util.Cookies.get('cookieConcepto'));
-    App.txtConceptoID.setValue(Ext.util.Cookies.get('cookieConceptoID'));
-    App.txtADescripcion.setValue(Ext.util.Cookies.get('cookieDescripcion'));
-    App.txtImporteInicial.setValue(F.number(Ext.util.Cookies.get('cookieImporteInicial'), "$000,000,000.00"));
-    App.txtImporteFinal.setValue(F.number(Ext.util.Cookies.get('cookieImporteFinal'), "$000,000,000.00"));
-    App.txtPrecioInicial.setValue(F.number(Ext.util.Cookies.get('cookiePrecioInicial'), "$000,000,000.00"));
-    App.txtCantidadInicial.setValue(Ext.util.Cookies.get('cookieCantidadInicial'));
-    App.txtCantidadUtilizada.setValue(Ext.util.Cookies.get('cookieCantidadFinal'));
-
-};
 
 
 var sPreciarioConcepto_Load = function () {
@@ -170,12 +141,3 @@ var txtCosto_renderer = function (valor) {
 };
 
 
-var imgbtnAceptarPreciarioExplorador = function () {
-    var w = window.parent.App.wReporte;
-    w.load('Previa.aspx');
-    w.setHeight(146);
-    w.setWidth(300);
-    w.center();
-    w.setTitle('Reporte del concepto');
-    w.show(); 
-}
