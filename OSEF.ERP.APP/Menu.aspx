@@ -160,12 +160,7 @@
                             </div>
                             <%--  Division Extra--%>
                             <div class="tile-column-span-2">
-                                <a class="tile square image bg-color-red" id="municipios" href="#">
-                                    <img src="assets/img/municipio.png" alt="Municipios" />
-                                    <div class="textover-wrapper transparent">
-                                        <div class="text2">Municipios</div>
-                                    </div>
-                                </a>
+                               
                                 <a class="tile square image" id="estados" href="#">
                                     <img src="assets/img/edos.png" alt="" />
                                     <div class="textover-wrapper transparent">
@@ -173,19 +168,20 @@
                                     </div>
                                 </a>
 
-                                 <a class="tile wide imagetext wideimage bg-color-darkgreen" id="preciarios" href="#">
-                                    <img src="assets/img/menu-preciarios.png" alt="Preciarios" />
+                                 <a class="tile square image bg-color-red" id="municipios" href="#">
+                                    <img src="assets/img/municipio.png" alt="Municipios" />
                                     <div class="textover-wrapper transparent">
-                                        <div class="text2">Preciarios</div>
+                                        <div class="text2">Municipios</div>
                                     </div>
                                 </a>
 
-                                <a class="tile square image bg-color-fucsia" id="colonias" href="#">
-                                    <img src="assets/img/menu-colonias.png" alt="" />
+                                 <a class="tile wide imagetext wideimage bg-color-darkgreen" id="preciarios" href="#">
+                                    <img src="assets/img/menu-preciarios.png" alt="Preciarios" />
                                     <div class="textover-wrapper transparent">
-                                        <div class="text2">Colonias</div>
+                                        <div class="text2">Preciarios Sucursales</div>
                                     </div>
-                                </a> 
+                                </a>
+
 
                                 <a class="tile square image bg-color-blueDark" id="cuadrillas" href="#">
                                     <img src="assets/img/menu-cuadrillas.png" alt="" />
@@ -194,24 +190,7 @@
                                     </div>
                                 </a>
 
-                            </div>
-                            <div class="tile-column-span-1">
-                                <a class="tile square image bg-color-yellow" id="codigospostales" href="#">
-                                    <img src="assets/img/postal.png" alt="Códigos Postales" />
-                                    <div class="textover-wrapper transparent">
-                                        <div class="text2">Códigos Postales</div>
-                                    </div>
-                                </a>
-                                
-                                
-                                   <a class="tile wide imagetext wideimage bg-color-green" id="preciariosGenerales" href="#">
-                                    <img src="assets/img/menu-preciariosG.png" alt="Preciarios" />
-                                    <div class="textover-wrapper transparent">
-                                        <div class="text2">Preciarios Generales</div>
-                                    </div>
-                                </a>
-
-                                <a class="tile square image bg-color-darken" id="CodigoFallas" href="#">
+                                 <a class="tile square image bg-color-darken" id="CodigoFallas" href="#">
                                     <img src="assets/img/menu-codigofalla.png" alt="" />
                                     <div class="textover-wrapper transparent">
                                         <div class="text2">Codigos PPTA</div>
@@ -219,6 +198,40 @@
                                 </a>
 
                             </div>
+                            <div class="tile-column-span-1">
+                                
+                                <a class="tile square image bg-color-fucsia" id="colonias" href="#">
+                                    <img src="assets/img/menu-colonias.png" alt="" />
+                                    <div class="textover-wrapper transparent">
+                                        <div class="text2">Colonias</div>
+                                    </div>
+                                </a> 
+                                
+                                
+                                   <a class="tile square imagetext image bg-color-green" id="preciariosGenerales" href="#">
+                                    <img src="assets/img/menu-preciariosG.png" alt="Preciarios" />
+                                    <div class="textover-wrapper transparent">
+                                        <div class="text2">Preciarios Generales</div>
+                                    </div>
+                                </a>
+
+                               
+
+                            </div>
+
+
+                            <div class="tile-column-span-1">
+                                <a class="tile square image bg-color-yellow" id="codigospostales" href="#">
+                                    <img src="assets/img/postal.png" alt="Códigos Postales" />
+                                    <div class="textover-wrapper transparent">
+                                        <div class="text2">Códigos Postales</div>
+                                    </div>
+                                </a>
+
+                            
+                            </div>
+
+
                         </div>
                         <!-- Fin tercera pagina Catálogos -->
 
@@ -226,7 +239,7 @@
                         <div class="panorama-section tile-span-4">
                             <h2>Configuración</h2>
 
-                            <div class="tile-column-span-2">
+                           <%-- <div class="tile-column-span-2">
                                 <a class="tile wide imagetext wideimage bg-color-red"  id="gruposMenu" href="#">
                                     <img src="assets/img/groupsMenu.png" alt="Grupos Menú" />
                                     <div class="textover-wrapper  transparent">
@@ -241,7 +254,7 @@
                                     </div>
                                 </a> 
                                                      
-                            </div>
+                            </div>--%>
 
                           
 
