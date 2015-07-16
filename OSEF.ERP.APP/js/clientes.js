@@ -64,15 +64,17 @@ var NombreCompleto_Convert = function (value, record) {
 
 //Método que se lanza despues de guardar un registro
 var imgbtnGuardar_Click_Success = function (response, result) {
+
+
     if (Ext.util.Cookies.get('cookieEditarCliente') === 'Nuevo') {
         Ext.Msg.show({
             id: 'msgNuevo',
             title: 'Registro nuevo',
-            msg: '<p align="center">Socio registrado con ID: ' + result.extraParamsResponse.registro + '.</p>',
+            msg: '<p align="center">Cliente registrado con éxito</p>',
             buttons: Ext.MessageBox.OK,
             onEsc: Ext.emptyFn,
             closable: false,
-            fn: function (btn) { window.parent.App.wEmergente.hide(); window.parent.App.pCentro.getBody().App.sClientes.reload(); },
+            fn: function (btn) { window.parent.App.wSubModulo.hide(); window.parent.App.pCentro.getBody().App.sClientes.reload(); },
             icon: Ext.MessageBox.INFO
         });
     }
@@ -80,11 +82,11 @@ var imgbtnGuardar_Click_Success = function (response, result) {
         Ext.Msg.show({
             id: 'msgActualizar',
             title: 'Actualizar registro',
-            msg: '<p align="center">Información actualizada ID: ' + result.extraParamsResponse.registro + '.</p>',
+            msg: '<p align="center">Cliente actualizado ID: ' + result.extraParamsResponse.registro + '.</p>',
             buttons: Ext.MessageBox.OK,
             onEsc: Ext.emptyFn,
             closable: false,
-            fn: function (btn) { window.parent.App.wEmergente.hide(); window.parent.App.pCentro.getBody().App.sClientes.reload(); },
+            fn: function (btn) { window.parent.App.wSubModulo.hide(); window.parent.App.pCentro.getBody().App.sClientes.reload(); },
             icon: Ext.MessageBox.INFO
         });
     }
@@ -141,6 +143,7 @@ var sCliente_Add = function (store, registro) {
         App.txtMunicipio.setValue(registro[0].get('RMunicipio').Descripcion);
 
     }
+
     App.txtFileName.setValue(registro[0].get('RutaLogo'));
 };
 

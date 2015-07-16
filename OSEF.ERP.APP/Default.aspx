@@ -120,7 +120,7 @@
             <ext:Panel 
                 ID="pCentro"
                 runat="server"
-                Height="580"
+                Height="480"
                 Width="1280"
                 Region="Center"
                 StyleSpec="margin-left: 30px; margin-right: auto; margin-top:20px;"

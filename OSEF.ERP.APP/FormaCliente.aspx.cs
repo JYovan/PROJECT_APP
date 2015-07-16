@@ -109,61 +109,107 @@ namespace OSEF.ERP.APP
             }
 
             string logo = e.ExtraParams["logo"];
+            string strImagen = fuImagenCliente.FileName;
+
+            //Cadena para mostrar en el display
+            string strDireccionDisplay;
+            UsuarioBusiness.checkValidSession(this);
             //5. Complementar datos
             if (strcookieEditarCliente.Equals("Nuevo"))
             {
+
                 Usuario oUsuario = (Usuario)Session["Usuario"];
                 oCliente.FechaAlta = DateTime.Now;
                 oCliente.Estatus = "ALTA";
                 oCliente.Usuario = oUsuario.ID;
+
+                //Si el logo viene vacio lo dejamos con ""
                 oCliente.RutaLogo = logo != null || !logo.Equals("") ? logo : "";
+
+                //Valida si el campo no esta vacio para poder insertarlo de lo contrario lo deja nulo
+                if (logo != null && !logo.Trim().Equals(""))
+                {
+                    string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" + oCliente.ID + "\\";
+                    if (Directory.Exists(strDireccion))
+                    {
+                        fuImagenCliente.PostedFile.SaveAs(strDireccion + logo);
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(strDireccion);
+                        fuImagenCliente.PostedFile.SaveAs(strDireccion + logo);
+                    }
+                }
+               
+
+                //Validamos que se inserte el id del codigo postal
                 string strCP = Cookies.GetCookie("cookieCP").Value;
+                //Si no esta vacio insertamos el cp
                 if (!strCP.Trim().Equals(""))
                 {
                     oCliente.RCodigoPostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(Cookies.GetCookie("cookieCP").Value);
                     oCliente.CodigoPostal = oCliente.RCodigoPostal.Id;
                 }
+
+                //Insertamos el cliente
                 oCliente.ID = ClienteBusiness.Insertar(oCliente);
+                //6. Mandar parametro (ID del Cliente)
+
             } 
-            
+            //Cuando actualizamo
             else 
             {
+                //Id del cliente
                 oCliente.ID = strcookieEditarCliente;
-                
-                if (!logo.Equals(""))
-                {
-                    oCliente.RutaLogo = logo != null || !logo.Equals("") ? logo : "";
-                }
-                
+                //Referencia de los valores iniciales
+                Cliente oClienteRef = ClienteBusiness.ObtenerClientePorID(strcookieEditarCliente);
+
+
+                //Se valida que el codigo postal no este vacio
                 string strCP = Cookies.GetCookie("cookieCP").Value;
-                
+
                 if (!strCP.Trim().Equals(""))
                 {
                     oCliente.RCodigoPostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(Cookies.GetCookie("cookieCP").Value);
                     oCliente.CodigoPostal = oCliente.RCodigoPostal.Id;
                 }
-                string strDireccion = "images\\clientes\\" + oCliente.ID + "\\";
-                imgNormal.ImageUrl = strDireccion + oCliente.RutaLogo;
+
+
+
+                //Si el upload file esta lleno cuando se actualiza se guarda la imagen en el directorio 
+                if (!strImagen.Equals(""))
+                {
+
+                    string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" + oCliente.ID + "\\";
+                    if (Directory.Exists(strDireccion))
+                    {
+                        fuImagenCliente.PostedFile.SaveAs(strDireccion + logo);
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(strDireccion);
+                        fuImagenCliente.PostedFile.SaveAs(strDireccion + logo);
+                    }
+                    //llenamos el objeto con la ruta
+                    oCliente.RutaLogo = logo;
+                    //Mostramos la imagen
+                    strDireccionDisplay = "images\\clientes\\" + oCliente.ID + "\\";
+                    imgNormal.ImageUrl = strDireccionDisplay + oCliente.RutaLogo;
+                }
+                    //Si no se escoge otra imagen se deja la que ya estaba
+                else {
+                    oCliente.RutaLogo = oClienteRef.RutaLogo;
+
+                    strDireccionDisplay = "images\\clientes\\" + oCliente.ID + "\\";
+                    imgNormal.ImageUrl = strDireccionDisplay + oClienteRef.RutaLogo;
+                }
 
                 ClienteBusiness.Actualizar(oCliente);
+                
             }
-            string rlogo = fuImagenCliente.FileName;
 
-            if (rlogo != null && !rlogo.Trim().Equals(""))
-            {
-                string strDireccion = Server.MapPath(" ") + "\\images\\clientes\\" +oCliente.ID+"\\";
-                if (Directory.Exists(strDireccion))
-                {
-                    fuImagenCliente.PostedFile.SaveAs(strDireccion + rlogo);
-                }
-                else
-                {
-                    Directory.CreateDirectory(strDireccion);
-                    fuImagenCliente.PostedFile.SaveAs(strDireccion + rlogo);
-                }
-            }
-                //6. Mandar parametro (ID del Cliente)
-                e.ExtraParamsResponse.Add(new Ext.Net.Parameter("registro", oCliente.ID, ParameterMode.Value)); 
+            e.ExtraParamsResponse.Add(new Ext.Net.Parameter("registro", oCliente.ID, ParameterMode.Value));
+           
         }
 
         /// <summary>
@@ -205,7 +251,7 @@ namespace OSEF.ERP.APP
                 Usuario = oCliente.Usuario,
                 FechaAlta = oCliente.FechaAlta,
                 Estatus = oCliente.Estatus,
-                RutaLogo = strDireccion+oCliente.RutaLogo
+                RutaLogo = oCliente.RutaLogo
             });
           
 
