@@ -36,8 +36,8 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;  
     -- Insert statements for procedure here
-	IF EXISTS(SELECT c.ID FROM Clientes c WHERE c.ID = @ID AND c.Estatus = 'ALTA')  
-	OR EXISTS(SELECT c.ID FROM Clientes c WHERE c.ID IN(SELECT s.Cliente FROM Sucursales s WHERE s.Cliente = @ID)) 
+	IF
+	 EXISTS(SELECT c.ID FROM Clientes c WHERE c.ID IN(SELECT s.Cliente FROM Sucursales s WHERE s.Cliente = @ID)) 
 	OR EXISTS(SELECT c.ID FROM Clientes c WHERE c.ID IN(SELECT v.Cliente FROM Volumetrias v WHERE v.Cliente = @ID)) 
 	OR EXISTS(SELECT c.ID FROM Clientes c WHERE c.ID IN(SELECT oe.Cliente FROM OrdenesEstimaciones oe WHERE oe.Cliente = @ID))
 	BEGIN 
