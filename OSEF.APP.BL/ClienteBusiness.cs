@@ -91,6 +91,29 @@ namespace OSEF.APP.BL
 
         }
 
+        /// <summary>
+        /// Valida un registro de Cliente por su ID
+        /// </summary>
+        /// <param name="strID"></param>
+        /// <returns></returns>
+        public static bool ValidarClienteEnUso(string strID)
+        {
+            return ClienteDataAccess.ValidarClienteEnUso(strID);
+        }
+
+        #endregion
+
+        #region Eliminar
+
+        /// <summary>
+        /// Método que elimina a un Cliente
+        /// </summary>
+        /// <param name="eCliente"></param>
+        /// <returns></returns>
+        public static int Eliminar(string eCliente)
+        {
+            return ClienteDataAccess.Eliminar(eCliente);
+        }
         #endregion
     }
 }

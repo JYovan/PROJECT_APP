@@ -199,3 +199,30 @@ var cCodigoPostal_Renderer = function (valor, columna, registro) {
     return registro.get('RCodigoPostal').Numero;
 };
 
+var imgbtn_EliminarCliente = function () {
+
+    var identificador = App.gpClientes.getSelectionModel().getSelection()[0].get('ID');
+    var indice = App.gpClientes.getStore().find('ID', identificador); 
+    var nombre = App.sClientes.getAt(indice).get('Nombre');
+    Ext.Msg.show({
+        id: 'msgEliminarCliente',
+        title: 'ADVERTENCIA',
+        msg: '¿Estás seguro de eliminar el cliente: ' + nombre + '? ',
+        buttons: Ext.MessageBox.YESNO,
+        onEsc: Ext.emptyFn,
+        closable: false,
+        fn: function (btn) {
+            if (btn === 'yes') {
+                App.direct.EliminarCliente(identificador);
+                App.gpClientes.getStore().reload();
+            }
+        },
+        icon: Ext.MessageBox.WARNING
+    });
+
+}
+
+
+var showResult = function () {
+
+}

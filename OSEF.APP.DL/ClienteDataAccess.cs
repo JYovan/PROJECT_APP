@@ -421,10 +421,10 @@ namespace OSEF.APP.DL
         #region Eliminar
 
         /// <summary>
-        /// Método que borrar algun Articulo por su ID
+        /// Método que borrar algun Cliente por su ID
         /// </summary>
         /// <param name="dID"></param>
-        public static int Borrar(string dID)
+        public static int Eliminar(string dID)
         {
             try
             {
@@ -433,13 +433,13 @@ namespace OSEF.APP.DL
                 SqlCommand sqlcComando = new SqlCommand();
                 sqlcComando.Connection = sqlcConectar;
                 sqlcComando.CommandType = CommandType.StoredProcedure;
-                sqlcComando.CommandText = "web_spD_BorrarArticulo";
+                sqlcComando.CommandText = "web_spD_BorrarCliente";
 
                 //2. Declarar los parametros
                 SqlParameter sqlpID = new SqlParameter();
                 sqlpID.ParameterName = "@ID";
                 sqlpID.SqlDbType = SqlDbType.Char;
-                sqlpID.Size = 2;
+                sqlpID.Size = 8;
                 sqlpID.Value = dID;
 
                 //3. Agregar los parametros al comando
@@ -459,7 +459,7 @@ namespace OSEF.APP.DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error capa de datos (public static int Borrar(Articulo " + dID + ")): " + ex.Message);
+                throw new Exception("Error capa de datos (public static int Borrar(Cliente " + dID + ")): " + ex.Message);
             }
         }
 
@@ -553,6 +553,52 @@ namespace OSEF.APP.DL
                 throw new Exception("Error capa de datos (public static Cliente ObtenerClientePorID(string " + strID + ")): " + ex.Message);
             }
         }
+
+
+
+        /// <summary>
+        /// Método que valida el cliente para su posible eliminación
+        /// </summary>
+        /// <param name="strCliente"></param> 
+        /// <returns></returns>
+        public static bool ValidarClienteEnUso(string strCliente)
+        {
+            try
+            {
+                //1. Configurar la conexión y el tipo de comando
+                SqlConnection sqlcConectar = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+                SqlCommand sqlcClienteComando = new SqlCommand();
+                sqlcClienteComando.Connection = sqlcConectar;
+                sqlcClienteComando.CommandType = CommandType.StoredProcedure;
+                sqlcClienteComando.CommandText = "web_spS_ValidarClienteEnUso";
+
+                //2. Declarar los parametros
+                SqlParameter sqlpCliente = new SqlParameter();
+                sqlpCliente.ParameterName = "@ID";
+                sqlpCliente.SqlDbType = SqlDbType.VarChar;
+                sqlpCliente.Value = strCliente;
+
+                //3. Agregar los parametros al comando
+                sqlcClienteComando.Parameters.Add(sqlpCliente);
+
+                //4. Abrir la conexión
+                sqlcClienteComando.Connection.Open();
+
+                //5. Ejecutar la instrucción SELECT que regresa un dato
+                bool result = Convert.ToBoolean(sqlcClienteComando.ExecuteScalar());
+
+                //6. Cerrar la conexión
+                sqlcClienteComando.Connection.Close();
+
+                //7. Regresar el resultado
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error capa de datos (ValidarClienteEnUso(string " + strCliente + ")): " + ex.Message);
+            }
+        }
+
 
         #endregion
     }

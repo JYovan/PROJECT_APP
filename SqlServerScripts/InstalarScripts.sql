@@ -14,6 +14,7 @@
 -- Clientes (Consultar)
 :r c:\SqlServerScripts\Consultar\Clientes\web_spS_ObtenerClientes.sql
 :r c:\SqlServerScripts\Consultar\Clientes\web_spS_ObtenerClientePorID.sql
+:r c:\SqlServerScripts\Consultar\Clientes\web_spS_ValidarClienteEnUso.sql
 -- Clientes (Insertar)
 :r c:\SqlServerScripts\Insertar\Clientes\web_spI_InsertarCliente.sql
 -- Clientes (Modificar)

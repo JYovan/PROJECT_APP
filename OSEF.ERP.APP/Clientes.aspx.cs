@@ -37,5 +37,19 @@ namespace OSEF.ERP.APP
             sClientes.DataSource = ClienteBusiness.ObtenerClientes();
             sClientes.DataBind();
         }
+
+        [DirectMethod] 
+        public void EliminarCliente(string strID) 
+        {
+            if (ClienteBusiness.ValidarClienteEnUso(strID))
+            {
+                ClienteBusiness.Eliminar(strID);
+                X.Msg.Alert("ATENCIÓN", "Cliente " + strID + " eliminado.", new JFunction { Fn = "showResult" }).Show(); 
+            }
+            else
+            {
+                X.Msg.Alert("Error", "El cliente no se puede eliminar, verifique sus dependencias: Reportes, Estimaciones, Volumetrias y Sucursales.", new JFunction { Fn = "showResult" }).Show();
+            }
+        }
     }
 }

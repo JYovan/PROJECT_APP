@@ -81,7 +81,11 @@
                             OverImageUrl="assets/img/controles/delete-over.png"
                             PressedImageUrl="assets/img/controles/delete-pressed.png"
                             Height="50"
-                            Width="50">
+                            Width="50"
+                            Disabled="true">
+                            <Listeners>
+                                <Click Fn="imgbtn_EliminarCliente" />
+                            </Listeners>
                         </ext:ImageButton>
                         <ext:ToolbarSpacer ID="tbsConceptos" runat="server" Width="500">
                         </ext:ToolbarSpacer>
