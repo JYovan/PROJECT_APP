@@ -72,6 +72,18 @@ namespace OSEF.APP.DL
                 sqlpTipoMantenimiento.SqlDbType = SqlDbType.Bit;
                 sqlpTipoMantenimiento.Value = iPreciario.TipoMantenimiento;
 
+                SqlParameter sqlpCliente = new SqlParameter();
+                sqlpCliente.ParameterName = "@Cliente";
+                sqlpCliente.SqlDbType = SqlDbType.Char;
+                sqlpCliente.Size = 8;
+                if (iPreciario.Cliente == null)
+                {
+                    sqlpCliente.Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlpCliente.Value = iPreciario.Cliente;
+                }
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpDescripcion);
@@ -81,6 +93,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpFechaAlta);
                 sqlcComando.Parameters.Add(sqlpTipoObra);
                 sqlcComando.Parameters.Add(sqlpTipoMantenimiento);
+                sqlcComando.Parameters.Add(sqlpCliente);
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
 
@@ -101,6 +114,7 @@ namespace OSEF.APP.DL
         }
 
         #endregion
+
         #region Modificar
 
         /// <summary>
@@ -132,10 +146,22 @@ namespace OSEF.APP.DL
                 sqlpDescripcion.SqlDbType = SqlDbType.VarChar;
                 sqlpDescripcion.Value = uPreciario.Descripcion;
 
-
+                SqlParameter sqlpCliente = new SqlParameter();
+                sqlpCliente.ParameterName = "@Cliente";
+                sqlpCliente.SqlDbType = SqlDbType.Char;
+                sqlpCliente.Size = 8;
+                if (uPreciario.Cliente == null)
+                {
+                    sqlpCliente.Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlpCliente.Value = uPreciario.Cliente;
+                }  
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpDescripcion);
+                sqlcComando.Parameters.Add(sqlpCliente);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
@@ -156,7 +182,6 @@ namespace OSEF.APP.DL
         }
 
         #endregion
-
 
         #region Eliminar
 
@@ -203,7 +228,6 @@ namespace OSEF.APP.DL
         }
 
         #endregion
-
 
         #region Consultar
 

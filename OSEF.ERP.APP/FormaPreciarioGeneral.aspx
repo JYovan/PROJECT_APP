@@ -57,6 +57,7 @@
                         <ext:ModelField Name="Estatus" Type="String" />
                         <ext:ModelField Name="Usuario" Type="String" />
                         <ext:ModelField Name="FechaAlta" Type="Date" />
+                        <ext:ModelField Name="Cliente" Type="String"/>
                     </Fields>
                 </ext:Model>
             </Model>
@@ -95,7 +96,7 @@
                             Width="30"
                             Disabled="true">
                             <DirectEvents>
-                                <Click OnEvent="imgbtnGuardar_Click">
+                                <Click OnEvent="imgbtnGuardar_Click" Success="App.imgbtnGuardar.setDisabled(false);">
                                     <EventMask ShowMask="true" Msg="Registrando información..." />
                                     <ExtraParams>
                                         <ext:Parameter Name="registro" Value="Ext.encode(this.up('form').getForm().getValues(false, false, false, true))" Mode="Raw" />
@@ -106,8 +107,7 @@
                                         <ext:Parameter Name="tipoMnto" Value="App.rMnto.getValue()" Mode="Raw" />
                                         <ext:Parameter Name="registrosnuevos" Value="getNewEncodedRecords()" Mode="Raw" />
                                         <ext:Parameter Name="registrosactualizados" Value="getUpdatedRecords()" Mode="Raw" />
-                                        <ext:Parameter Name="registroseliminados" Value="getRemovedRecords()" Mode="Raw" />
-
+                                        <ext:Parameter Name="registroseliminados" Value="getRemovedRecords()" Mode="Raw" /> 
                                     </ExtraParams>
                                 </Click>
                             </DirectEvents>
@@ -135,7 +135,7 @@
                     runat="server" 
                     BodyPadding="10"
                     Width="900"
-                    Height="154" 
+                    Height="184" 
                     AutoScroll="false">
                     <Items>
                         <ext:FieldContainer 
@@ -232,6 +232,7 @@
                                         <ext:ListItem Index="2" Text="BORRADOR" Value="BORRADOR" />
                                     </Items>
                                 </ext:ComboBox>
+
                             </Items>
                         </ext:FieldContainer>
                         <ext:FieldContainer
@@ -325,7 +326,7 @@
                                     ID="txtfBuscar"
                                     runat="server"
                                     Height="24"
-                                    StyleSpec="margin-top: 3px;"
+                                    StyleSpec="margin-top: 0px;"
                                     EmptyText="Buscar Clave/Concepto"
                                     Width="307">
                                     <Listeners>
@@ -349,6 +350,49 @@
 
                             </Items>
                         </ext:FieldContainer> 
+                         
+                         <ext:FieldContainer
+                                        ID="fClientes"
+                                        runat="server"
+                                        LabelWidth="120"
+                                        Width="500" 
+                                        Height="25px"
+                                        FieldLabel="Cliente"
+                                        Layout="HBoxLayout">
+                                        <Items>
+                                        
+                                <ext:TextField 
+                                                ID="IdCliente" 
+                                                runat="server" 
+                                                Width="150" 
+                                                StyleSpec="margin-right: 3px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"> 
+                                                <RightButtons>
+                                                    <ext:Button 
+                                                    ID="btnBuscaCliente" 
+                                                    runat="server" 
+                                                    Icon="Find" 
+                                                    StandOut="true">
+                                                        <Listeners>
+                                                            <Click Fn="btnBuscar_Cliente" />
+                                                         </Listeners>
+                                                    </ext:Button>
+                                                </RightButtons>  
+                                                <Listeners>
+                                                    <Change Handler="App.IdCliente.getValue().trim().length > 0 && App.sCarga.getCount() > 1 ? App.imgbtnGuardar.setDisabled(false):App.imgbtnGuardar.setDisabled(true);"/> 
+                                                </Listeners>
+                                             </ext:TextField> 
+                                             <ext:TextField
+                                             ID="txtCliente"
+                                             runat ="server"
+                                             Width="150"
+                                             StyleSpec="margin-right: 3px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"/> 
+                                        </Items>
+                                        </ext:FieldContainer>
+
                     </Items>
                 </ext:Panel>
                 <%--  DETALLE PRECIARIO--%>
@@ -362,7 +406,7 @@
                         <ext:FieldSet
                             ID="fsPreciario" 
                             runat="server" 
-                            Height="330" 
+                            Height="300" 
                             Title="Preciario"
                             DefaultAnchor="100%">
                             <Items>
@@ -370,7 +414,7 @@
                                     ID="gpPreciario"
                                     runat="server"
                                     Width="850"
-                                    Height="305">
+                                    Height="270">
                                     <Store>
                                         <ext:Store
                                             ID="sCarga"
