@@ -201,3 +201,6 @@ ALTER TABLE PreciariosGeneralesConceptos ALTER COLUMN CLAVE VARCHAR(50) NULL
   
 --Cambios Giovanni Flores 17 de Junio 2015
 ALTER TABLE PreciariosGenerales ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.Clientes(ID)
+
+--Cambios Giovanni Flores 17 de Junio 2015
+ALTER TABLE Preciarios ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.Clientes(ID)

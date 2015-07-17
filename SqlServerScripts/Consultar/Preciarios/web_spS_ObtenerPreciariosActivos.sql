@@ -23,9 +23,9 @@ IF EXISTS (	SELECT name
 	DROP PROCEDURE web_spS_ObtenerPreciariosActivos
 GO
 -- =============================================
--- Author:		Orlando Esparza
--- Create date: Martes 16 de Diciembre de 2014
--- Description:	Obtener todos los registros de Articulos
+-- Author:		Giovanni Flores
+-- Create date: Viernes 17 de Julio de 2015
+-- Description:	Obtener todos los registros de Preciarios Activos
 -- =============================================
 CREATE PROCEDURE web_spS_ObtenerPreciariosActivos
 	-- Add the parameters for the stored procedure here
@@ -43,7 +43,8 @@ BEGIN
 		FechaAlta,
 		Archivo,
 		Usuario,
-		Estatus
+		Estatus,
+		Cliente
 	FROM
 		Preciarios
 	WHERE 

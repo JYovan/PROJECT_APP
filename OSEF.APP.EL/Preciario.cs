@@ -18,6 +18,8 @@ namespace OSEF.APP.EL
         string archivo;
         string usuario;
         string estatus;
+        string cliente;
+
         DateTime fechaalta;
         
         Sucursal rsucursal;
@@ -81,6 +83,11 @@ namespace OSEF.APP.EL
             set { rpreciariocategorias = value; }
         }
 
+        public string Cliente
+        {
+            get { return cliente; }
+            set { cliente = value; }
+        }
         #endregion
     }
 }

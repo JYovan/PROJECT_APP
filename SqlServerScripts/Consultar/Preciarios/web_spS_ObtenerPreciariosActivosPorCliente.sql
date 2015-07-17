@@ -40,7 +40,7 @@ BEGIN
 	SELECT        dbo.Preciarios.ID, dbo.Preciarios.Descripcion, 
 				  dbo.Preciarios.Sucursal, dbo.Preciarios.FechaAlta, 
 				  dbo.Preciarios.Archivo, dbo.Preciarios.Usuario, 
-                  dbo.Preciarios.Estatus
+                  dbo.Preciarios.Estatus, dbo.Preciarios.Cliente
 	FROM          dbo.Preciarios INNER JOIN
                   dbo.Sucursales ON dbo.Preciarios.Sucursal = dbo.Sucursales.ID INNER JOIN
                   dbo.Clientes ON dbo.Sucursales.Cliente = dbo.Clientes.ID

@@ -41,6 +41,7 @@
                     <ext:ModelField Name="Usuario" Type="String" />
                     <ext:ModelField Name="FechaAlta" Type="Date" />
                     <ext:ModelField Name="RSucursal" Type="Object" />
+                    <ext:ModelField Name="Cliente" Type="String"/>
                 </Fields>
             </ext:Model>
         </Model>
@@ -91,7 +92,7 @@
             </ext:Toolbar>
         </TopBar>
         <Items>
-            <ext:Panel ID="pDatosGenerales" runat="server" BodyPadding="10" Width="900" Height="157"
+            <ext:Panel ID="pDatosGenerales" runat="server" BodyPadding="10" Width="900" Height="180"
                 AutoScroll="false">
                 <Items>
                     <ext:FieldContainer ID="fcID" runat="server" FieldLabel="ID" LabelWidth="120" AnchorHorizontal="100%"
@@ -199,14 +200,55 @@
                             </ext:TextField>
                         </Items>
                     </ext:FieldContainer>
+                    <ext:FieldContainer
+                                        ID="fClientes"
+                                        runat="server"
+                                        LabelWidth="120"
+                                        Width="550" 
+                                        Height="25px"
+                                        FieldLabel="Cliente"
+                                        Layout="HBoxLayout">
+                                        <Items>
+                                        
+                                <ext:TextField 
+                                                ID="IdCliente" 
+                                                runat="server" 
+                                                Width="200" 
+                                                StyleSpec="margin-right: 6px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"> 
+                                                <RightButtons>
+                                                    <ext:Button 
+                                                    ID="btnBuscaCliente" 
+                                                    runat="server" 
+                                                    Icon="Find" 
+                                                    StandOut="true">
+                                                        <Listeners>
+                                                            <Click Fn="btnBuscar_Cliente" />
+                                                         </Listeners>
+                                                    </ext:Button>
+                                                </RightButtons>  
+                                                <Listeners>
+                                                    <Change Handler="App.IdCliente.getValue().trim().length > 0 && App.sCarga.getCount() > 1 ? App.imgbtnGuardar.setDisabled(false):App.imgbtnGuardar.setDisabled(true);"/> 
+                                                </Listeners>
+                                             </ext:TextField> 
+                                             <ext:TextField
+                                             ID="txtCliente"
+                                             runat ="server"
+                                             Width="200"
+                                             StyleSpec="margin-right: 0px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"/> 
+                                        </Items>
+                                        </ext:FieldContainer>
                 </Items>
             </ext:Panel>
             <%--  DETALLE PRECIARIO--%>
             <ext:Panel ID="pPreciario" runat="server" BodyPadding="5" Width="900" AutoScroll="True">
                 <Items>
-                    <ext:FieldSet ID="fsPreciario" runat="server" Height="295" Title="Preciario" DefaultAnchor="100%">
+                    <ext:FieldSet ID="fsPreciario" runat="server" Height="275" Title="Preciario" DefaultAnchor="100%">
                         <Items>
-                            <ext:GridPanel ID="gpPreciario" runat="server" Width="850" Height="270">
+                            <ext:GridPanel ID="gpPreciario" runat="server" Width="850" Height="250">
                                 <Store>
                                     <ext:Store ID="sCarga" runat="server">
                                         <Model>

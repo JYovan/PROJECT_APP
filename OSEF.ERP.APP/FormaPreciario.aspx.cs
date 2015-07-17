@@ -84,7 +84,10 @@ namespace OSEF.AVANCES.SUCURSALES
                         break;
                     case "cmbEstatus":
                         oPreciario.Estatus = sd.Value;
-                        break;
+                        break; 
+                    case "IdCliente":
+                        oPreciario.Cliente = sd.Value;
+                        break; 
                 }
             }
 
@@ -222,7 +225,8 @@ namespace OSEF.AVANCES.SUCURSALES
                     Archivo = oPreciario.Archivo,
                     Estatus = oPreciario.Estatus,
                     FechaAlta = oPreciario.FechaAlta,
-                    Usuario = oPreciario.Usuario
+                    Usuario = oPreciario.Usuario,
+                    Cliente = oPreciario.Cliente
 
                 });
 
@@ -461,5 +465,22 @@ namespace OSEF.AVANCES.SUCURSALES
             return ldiferentes;
         }
 
+        /// <summary>
+        /// Evento que obtiene un Cliente
+        /// </summary> 
+        /// <returns></returns>
+        [DirectMethod]
+        public string ObtenerCliente(string strID)
+        {
+            Cliente c = ClienteBusiness.ObtenerClientePorID(strID);
+            if (c != null)
+            {
+                return c.Nombre;
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
 }
