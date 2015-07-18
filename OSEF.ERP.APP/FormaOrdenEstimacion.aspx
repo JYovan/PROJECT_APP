@@ -1376,13 +1376,13 @@
                         </ext:DisplayField>
                         <ext:DisplayField
                             ID="dfTotal"
-                            runat="server"
-                          
+                            runat="server" 
                             FieldLabel="Total"
                             Cls="total-field"
                             Margins="0 0px 0 470px"
                             Width="290"
                             Text="">
+
                         </ext:DisplayField>
                         <%-- Margins="0 0px 0 470px"--%>
                     </Items>
