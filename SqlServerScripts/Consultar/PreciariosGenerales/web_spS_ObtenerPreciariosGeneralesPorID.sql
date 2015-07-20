@@ -45,7 +45,8 @@ BEGIN
 		TipoObra,
 		TipoMantenimiento,
 		Usuario,
-		Estatus
+		Estatus,
+		Cliente
 	FROM
 		PreciariosGenerales
 	WHERE

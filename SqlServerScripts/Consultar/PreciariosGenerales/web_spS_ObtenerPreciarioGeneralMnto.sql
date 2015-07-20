@@ -23,8 +23,8 @@ IF EXISTS (	SELECT name
 	DROP PROCEDURE web_spS_ObtenerPreciarioGeneralMnto
 GO
 -- =============================================
--- Author:		Orlando Esparza
--- Create date: Martes 16 de Diciembre de 2014
+-- Author:		Giovanni Flores
+-- Create date: Viernes 17 de Junio de 2015
 -- Description:	Obtener todos los registros de Articulos
 -- =============================================
 CREATE PROCEDURE web_spS_ObtenerPreciarioGeneralMnto
@@ -44,7 +44,8 @@ BEGIN
 		TipoObra,
 		TipoMantenimiento,
 		Usuario,
-		Estatus
+		Estatus,
+		Cliente
 	FROM
 		PreciariosGenerales
 	WHERE 

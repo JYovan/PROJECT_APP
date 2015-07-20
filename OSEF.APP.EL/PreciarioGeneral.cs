@@ -21,6 +21,8 @@ namespace OSEF.APP.EL
         DateTime fechaalta;
         bool tipoobra;
         bool tipomantenimiento;
+        string cliente;
+
    
        
 
@@ -78,6 +80,11 @@ namespace OSEF.APP.EL
             set { tipomantenimiento = value; }
         }
 
+        public string Cliente
+        {
+            get { return cliente; }
+            set { cliente = value; }
+        }
         #endregion
 
 

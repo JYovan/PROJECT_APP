@@ -36,7 +36,8 @@ CREATE PROCEDURE web_spI_InsertarPreciarioGeneral
 	@TipoObra		BIT,
 	@TipoMantenimiento		BIT,
 	@Usuario		VARCHAR(50),
-	@FechaAlta		SMALLDATETIME
+	@FechaAlta		SMALLDATETIME,
+	@Cliente		CHAR(8)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -90,7 +91,8 @@ BEGIN
 			TipoMantenimiento,
 			TipoObra,
 			Usuario,
-			FechaAlta
+			FechaAlta,
+			Cliente
 		)
 	VALUES
 		(
@@ -101,7 +103,8 @@ BEGIN
 			@TipoMantenimiento,
 			@TipoObra,
 			@Usuario,
-			@FechaAlta
+			@FechaAlta,
+			@Cliente
 		)
 END
 GO

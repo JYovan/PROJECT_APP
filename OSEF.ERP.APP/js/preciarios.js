@@ -204,6 +204,41 @@ var sPreciario_Add = function (avance, registro) {
         App.dfFechaEmision.setValue(registro[0].get('FechaAlta'));
         App.txtfSucursalID.setValue(registro[0].get('Sucursal'));
 
+        if (registro[0].get('Cliente').trim().length > 0) {
+            //            console.log(registro[0].get('Cliente'));
+            App.direct.ObtenerCliente(registro[0].get('Cliente'), {
+                success: function (result) {
+                    //                    console.log(result);
+                    if (result != null && result.trim().length > 0) {
+                        App.IdCliente.setValue(registro[0].get('Cliente'));
+                        App.txtCliente.setValue(result);
+                    } else {
+                        Ext.Msg.show({
+                            id: 'msgCliente',
+                            title: 'Error en Cliente',
+                            msg: "No se ha podido obtener el cliente.",
+                            buttons: Ext.MessageBox.OK,
+                            onEsc: Ext.emptyFn,
+                            closable: false,
+                            icon: Ext.MessageBox.WARNING
+                        });
+                    }
+                },
+                failure: function (errorMessage) {
+                    Ext.Msg.show({
+                        id: 'msgClienteError',
+                        title: 'Error en Cliente',
+                        msg: "Ha ocurrido un error inesperado.",
+                        buttons: Ext.MessageBox.OK,
+                        onEsc: Ext.emptyFn,
+                        closable: false,
+                        icon: Ext.MessageBox.WARNING
+                    });
+                }
+            });
+        } else {
+            console.log(registro[0].get('Cliente').trim().length);
+        }
         //Deshabilita botones cuando se edita un movimiento al cargar el store
         App.cmbEstatus.setDisabled(false);
         App.txtfSucursalCR.setDisabled(true);
@@ -456,3 +491,13 @@ var cSucursal_Renderer = function (valor, columna, registro) {
         }
     }
 };
+
+var btnBuscar_Cliente = function () {
+    var win = window.parent.App.wAyudaConcepto;
+    win.load('FormaBuscaCliente.aspx');
+    win.setHeight(220);
+    win.setWidth(500);
+    win.center();
+    win.setTitle('BUSQUEDA DE CLIENTES');
+    win.show();
+}

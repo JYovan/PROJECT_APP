@@ -66,6 +66,18 @@ namespace OSEF.APP.DL
                 sqlpFechaAlta.SqlDbType = SqlDbType.SmallDateTime;
                 sqlpFechaAlta.Value = iPreciario.FechaAlta;
 
+                SqlParameter sqlpCliente = new SqlParameter();
+                sqlpCliente.ParameterName = "@Cliente";
+                sqlpCliente.SqlDbType = SqlDbType.Char;
+                sqlpCliente.Size = 8;
+                if (iPreciario.Cliente == null)
+                {
+                    sqlpCliente.Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlpCliente.Value = iPreciario.Cliente;
+                }
 
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
@@ -75,6 +87,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpEstatus);
                 sqlcComando.Parameters.Add(sqlpUsuario);
                 sqlcComando.Parameters.Add(sqlpFechaAlta);
+                sqlcComando.Parameters.Add(sqlpCliente);
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
 
@@ -142,12 +155,26 @@ namespace OSEF.APP.DL
                 sqlpEstatus.SqlDbType = SqlDbType.VarChar;
                 sqlpEstatus.Value = uPreciario.Estatus;
 
+                SqlParameter sqlpCliente = new SqlParameter();
+                sqlpCliente.ParameterName = "@Cliente";
+                sqlpCliente.SqlDbType = SqlDbType.Char;
+                sqlpCliente.Size = 8;
+                if (uPreciario.Cliente == null)
+                {
+                    sqlpCliente.Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlpCliente.Value = uPreciario.Cliente;
+                }
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpDescripcion);
                 sqlcComando.Parameters.Add(sqlpSucursal);
                 sqlcComando.Parameters.Add(sqlpArchivo);
                 sqlcComando.Parameters.Add(sqlpEstatus);
+                sqlcComando.Parameters.Add(sqlpCliente);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

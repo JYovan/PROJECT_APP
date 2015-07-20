@@ -44,7 +44,8 @@ BEGIN
 		FechaAlta,
 		Archivo,
 		Usuario,
-		Estatus
+		Estatus,
+		Cliente
 	FROM
 		Preciarios
 	WHERE

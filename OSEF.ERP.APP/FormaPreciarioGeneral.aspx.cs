@@ -105,12 +105,15 @@ namespace OSEF.ERP.APP
                     case "txtfDescripcion":
                         oPreciario.Descripcion = sd.Value;
                         break;
+                    case "IdCliente":
+                        oPreciario.Cliente = sd.Value;
+                        break; 
                 }
             }
 
             //5. Se toma el nombre del archivo de Excel que se está cargando
             oPreciario.Archivo = fufArchivoExcel.FileName;
-
+    
             //6. Validar si es nuevo o es uno existente
             if (strcookieEditarPreciario.Equals("Nuevo"))
             {
@@ -353,7 +356,8 @@ namespace OSEF.ERP.APP
                     FechaAlta = oPreciario.FechaAlta,
                     Usuario = oPreciario.Usuario,
                     TipoMantenimiento=oPreciario.TipoMantenimiento,
-                    TipoObra=oPreciario.TipoObra
+                    TipoObra=oPreciario.TipoObra,
+                    Cliente = oPreciario.Cliente
                 });
 
                 //4. Cargar el detalle del movimiento
@@ -675,6 +679,24 @@ namespace OSEF.ERP.APP
         public bool ObtenerConceptosEnUsoPorIDyClave(string ID, string clave)
         {
             return PreciarioGeneralConceptoBusiness.ObtenerConceptosEnUsoPorIDyClave(ID, clave);
+        }
+
+
+        /// <summary>
+        /// Evento que obtiene un Cliente
+        /// </summary> 
+        /// <returns></returns>
+        [DirectMethod]
+        public string ObtenerCliente(string strID)
+        {
+            Cliente c = ClienteBusiness.ObtenerClientePorID(strID);
+            if (c != null)
+            {
+                return c.Nombre;
+            }
+            else {
+                return "";
+            }
         }
 
         #endregion

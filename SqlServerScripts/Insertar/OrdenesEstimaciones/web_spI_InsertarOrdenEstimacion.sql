@@ -66,20 +66,19 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 --	DECLARE @Sucursal CHAR(10);
---SET @Sucursal = 'SUC0000002';
+--SET @Sucursal = 'SUC0000244';
 DECLARE @NoOrden CHAR(3);
 DECLARE @CR SMALLINT;
 SET @CR = (SELECT TOP(1) s.CR FROM Sucursales s WHERE s.ID = LTRIM(@Sucursal));
 SET @NoOrden = (SELECT TOP(1) oe.NoOrden +1 FROM OrdenesEstimaciones oe INNER JOIN Sucursales s 
 				ON oe.Sucursal = s.ID AND oe.Mov IN ('Orden de Cambio','Orden de Compra')
-				AND s.CR = @CR AND s.ID = @Sucursal ORDER BY oe.NoOrden DESC);
+				AND s.CR = @CR AND s.ID = @Sucursal AND oe.Estatus IN ('BORRADOR', 'CONCLUIDO') ORDER BY oe.NoOrden DESC);
 SET @NoOrden = (SELECT CASE
 	WHEN @NoOrden IS NULL THEN '001'
 	WHEN @NoOrden > 0 AND @NoOrden < 10 THEN '00'+@NoOrden
 	WHEN @NoOrden > 10 AND @NoOrden < 99 THEN '0'+@NoOrden 
 	WHEN @NoOrden > 99 AND @NoOrden < 999 THEN  @NoOrden 
-END NoOrden);
-
+END NoOrden); 
 		-- Insert statements for procedure here
 	INSERT INTO
 		OrdenesEstimaciones

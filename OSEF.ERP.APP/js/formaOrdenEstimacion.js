@@ -1131,21 +1131,21 @@ var cCantidad_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "000,000,000.00");
+    return F.number(valor, "000,000,000.000000");
 };
 
 var cPrecio_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "$000,000,000.00");
+    return F.number(valor, "$000,000,000.000000");
 };
 
 var cImporte_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "$000,000,000.00");
+    return F.number(valor, "$000,000,000.000000");
 };
 
 
@@ -1164,8 +1164,8 @@ var sConceptos_Load = function (avance, registro, index) {
 //    App.dfTotal.setValue(F.number(a2.toFixed(2), "$000,000.00"));
 
 
-    App.dfTotalSinRender.setValue(sum.toFixed(2));
-    App.dfTotal.setValue(F.number(sum.toFixed(2), "$000,000.00"));
+    App.dfTotalSinRender.setValue(sum.toFixed(6));
+    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
 
     
 }
@@ -1179,7 +1179,7 @@ var calcularImportePrecio_Change = function (component) {
     }
 
     var Importe = parseFloat(component.getValue() * parseFloat(valorCantidad))
-    App.sConceptos.getAt(indiceDetalle).set('Importe', Importe.toFixed(2));
+    App.sConceptos.getAt(indiceDetalle).set('Importe', Importe.toFixed(6));
 }
 
 //Calcula el importe cuando cambia la cantidad
@@ -1191,7 +1191,7 @@ var calcularImporteCantidad_Change = function (component) {
     }
 
     var Importe = parseFloat(component.getValue() * parseFloat(valorPrecio))
-    App.sConceptos.getAt(indiceDetalle).set('Importe', Importe.toFixed(2));
+    App.sConceptos.getAt(indiceDetalle).set('Importe', Importe.toFixed(6));
 }
 
 
@@ -1199,7 +1199,7 @@ var calcularImporteCantidad_Change = function (component) {
 var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) {
 
     var Importe = parseFloat(registro.get('Cantidad')) * parseFloat(registro.get('Precio'));
-    registro.set('Importe', Importe.toFixed(2));
+    registro.set('Importe', Importe.toFixed(6));
 
 
     var sum = 0;
@@ -1213,8 +1213,8 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
 
-    App.dfTotalSinRender.setValue(sum.toFixed(2));
-    App.dfTotal.setValue(F.number(sum.toFixed(2), "$000,000.00"));
+    App.dfTotalSinRender.setValue(sum.toFixed(6));
+    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
     ImporteFinal = sum;
      
     if (indiceDetalle == 0) {
@@ -1357,8 +1357,8 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
 
-    App.dfTotalSinRender.setValue(sum.toFixed(2));
-    App.dfTotal.setValue(F.number(sum.toFixed(2), "$000,000.00"));
+    App.dfTotalSinRender.setValue(sum.toFixed(6));
+    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
     ImporteFinal = sum; 
 };
 
@@ -1392,8 +1392,8 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
         F.decimalSeparator = '.';
 
 
-        App.dfTotalSinRender.setValue(sum.toFixed(2));
-        App.dfTotal.setValue(F.number(sum.toFixed(2), "$000,000.00"));
+        App.dfTotalSinRender.setValue(sum.toFixed(6));
+        App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
 
 
 

@@ -33,7 +33,8 @@ CREATE PROCEDURE web_spU_ActualizarPreciario
 	@Descripcion	VARCHAR(100),
 	@Sucursal		VARCHAR(50),
 	@Archivo		VARCHAR(50),
-	@Estatus		VARCHAR(20)
+	@Estatus		VARCHAR(20),
+	@Cliente		CHAR(8)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -48,8 +49,8 @@ BEGIN
 		Descripcion = @Descripcion,
 		Sucursal =@Sucursal,
 		Archivo = @Archivo,
-		Estatus = @Estatus
-		
+		Estatus = @Estatus,
+		Cliente = @Cliente
 	WHERE
 		ID = @ID
 END
