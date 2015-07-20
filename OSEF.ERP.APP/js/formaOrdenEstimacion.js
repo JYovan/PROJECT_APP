@@ -194,6 +194,10 @@ var sMov_Change = function (combo) {
         Ext.util.Cookies.set('cockieMovimientoCroquis', 'Orden');
 
         App.txtReferenciaOrden.setVisible(true);
+
+
+        Ext.getCmp('fcObservaciones').setFieldLabel('Justificación');
+
     }
     App.gpOrdenEstimacion.reconfigure();
 };

@@ -199,4 +199,5 @@ ALTER TABLE dbo.Sucursales ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.C
 --Cambios Giovanni Flores 9 de Junio 2015
 ALTER TABLE PreciariosGeneralesConceptos ALTER COLUMN CLAVE VARCHAR(50) NULL
   
-	 
+--Cambios Christian Medina 17/07/2015
+ALTER TABLE OrdenesEstimaciones ALTER COLUMN Observaciones VARCHAR(800) NULL	 

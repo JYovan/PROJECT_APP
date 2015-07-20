@@ -75,6 +75,7 @@ BEGIN
 		LEFT JOIN Colonias C
 		ON C.ID = S.Colonia
 		WHERE OE.Mov in ('Orden de Cambio')
+		AND OE.Estatus IN('CONCLUIDO','BORRADOR')
 		AND OE.Sucursal like @Sucursal
 		--WHERE OE.ID = @IDMovimiento
 END
