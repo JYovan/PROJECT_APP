@@ -199,10 +199,9 @@ ALTER TABLE dbo.Sucursales ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.C
 --Cambios Giovanni Flores 9 de Junio 2015
 ALTER TABLE PreciariosGeneralesConceptos ALTER COLUMN CLAVE VARCHAR(50) NULL
   
-<<<<<<< HEAD
 --Cambios Christian Medina 17/07/2015
 ALTER TABLE OrdenesEstimaciones ALTER COLUMN Observaciones VARCHAR(800) NULL	 
-=======
+
 --Cambios Giovanni Flores 17 de Junio 2015
 ALTER TABLE PreciariosGenerales ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.Clientes(ID)
 
@@ -215,4 +214,3 @@ ALTER TABLE OrdenesEstimacionesD ALTER COLUMN Importe DECIMAL(30,6) NOT NULL
 ALTER TABLE GeneradorOrdenEstimacionD ALTER COLUMN Cantidad DECIMAL(10,6) NOT NULL
 ALTER TABLE GeneradorOrdenEstimacionD ALTER COLUMN Total DECIMAL(10,6) NOT NULL 
 
->>>>>>> origin/master
