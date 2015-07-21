@@ -761,5 +761,44 @@ namespace OSEF.ERP.APP
 
             return 0;
         }
+        #region Directs
+
+
+        /// <summary>
+        /// Método para obtener la sucursal
+        /// </summary>
+        /// <param name="strID"></param>
+        [DirectMethod]
+        public static Sucursal ObtenerSucursalPorID(string strID)
+        {
+            Sucursal s = SucursalBusiness.ObtenerSucursalPorID(strID);
+            if (s != null)
+            {
+                return s;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Método para obtener el cliente
+        /// </summary>
+        /// <param name="strID"></param>
+        [DirectMethod]
+        public static Cliente ObtenerClientePorID(string strID)
+        {
+            Cliente c = ClienteBusiness.ObtenerClientePorID(strID);
+            if (c != null)
+            {
+                return c;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
     } 
 }
