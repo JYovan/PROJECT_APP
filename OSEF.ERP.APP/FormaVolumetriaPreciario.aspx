@@ -679,7 +679,7 @@
                                                         runat="server"
                                                         AllowDecimals="true"
                                                         AllowExponential="false"
-                                                        DecimalPrecision="2"
+                                                        DecimalPrecision="6"
                                                         DecimalSeparator="."
                                                         MaxLength="10"
                                                         EnforceMaxLength="true"

@@ -32,8 +32,8 @@ CREATE PROCEDURE web_spU_ActualizarVolumetriaD
 	@Volumetria	INT,
 	@Renglon	SMALLINT,
 	@ConceptoID	CHAR(10),
-	@Cantidad	DECIMAL(10,2),
-	@Utilizada	DECIMAL(10,2),
+	@Cantidad	DECIMAL(10,6),
+	@Utilizada	DECIMAL(10,6),
 	@Fotos		VARCHAR(200)
 AS
 BEGIN

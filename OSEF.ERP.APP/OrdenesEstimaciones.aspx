@@ -37,8 +37,8 @@
         <ext:GridPanel
             ID="gpOrdenesEstimaciones"
             runat="server"
-            Height="420"
-            Width="960"
+            Height="450"
+            Width="1120"
             Resizable="true"
             Title="REPORTES & ESTIMACIONES"
             EnableColumnHide="false"
@@ -87,7 +87,7 @@
                             Width="50"
                             Disabled="true">
                         </ext:ImageButton>
-                        <ext:ToolbarSpacer ID="tbsOrdenesCambio" runat="server" Width="250">
+                        <ext:ToolbarSpacer ID="tbsOrdenesCambio" runat="server" Width="370">
                         </ext:ToolbarSpacer>
                         <ext:Checkbox
                             ID="chkHistorial" 

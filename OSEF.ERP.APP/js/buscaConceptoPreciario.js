@@ -24,21 +24,22 @@ var gpConceptos_ItemDblClick = function (gridview, registro, gvhtml, index) {
 
     //Valida si se cambia otro concepto en un borrador para borrar las imagenes solo si el renglon ya tiene un cocnepto
     if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).get('ConceptoID') != '') {
-    //se guarda el concepto y el Id de la volumetria para mandar llamar al metodo del lado del servidor
+        //se guarda el concepto y el Id de la volumetria para mandar llamar al metodo del lado del servidor
         Ext.util.Cookies.set('cookieIDBorrarFotosVolumetria', window.parent.App.wEmergente.getBody().App.sVolumetria.getAt(0).get('ID'));
         Ext.util.Cookies.set('cookieConceptoFotosVolumetria', window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).get('ConceptoID'));
         //se manda llamar el metodo de lado del servidor
-         window.parent.App.wEmergente.getBody().App.direct.obtenerImagenesPorConcepto();
+        window.parent.App.wEmergente.getBody().App.direct.obtenerImagenesPorConcepto();
 
     }
 
     //valida en el doble click si el concept ya esta en store del detalle de volumetria
     if (window.parent.App.wEmergente.getBody().App.sConceptos.find('ConceptoID', App.sConceptosFiltrados.getAt(index).get('ID')) == -1) {
         //se actualiza el Store contenedor con datos del store del grid de ayuda
-        window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("RPreciarioConceptos", registro.data);
+//        console.log(registro);
+        window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Clave", App.sConceptosFiltrados.getAt(index).get('Clave'));
         window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("ConceptoID", App.sConceptosFiltrados.getAt(index).get('ID'));
         window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Cantidad", App.sConceptosFiltrados.getAt(index).get('Cantidad'));
-       
+
         window.parent.App.wAyudaConcepto.hide();
     }
 
@@ -60,6 +61,7 @@ var gpConceptos_ItemDblClick = function (gridview, registro, gvhtml, index) {
                 }
                 else {
                     if (btn === 'ok') {
+                        window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Clave", '');
                         window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("ConceptoID", '');
                         window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Cantidad", '');
 

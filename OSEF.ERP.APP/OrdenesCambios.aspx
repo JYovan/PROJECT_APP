@@ -19,7 +19,7 @@
             ID="gpOrdenesEstimaciones"
             runat="server"
             Height="420"
-            Width="960"
+            Width="1020"
             Title="ÓRDENES DE CAMBIO"
             EnableColumnHide="false"
             EnableColumnMove="false"
@@ -271,8 +271,8 @@
                         ID="cSucursal"
                         runat="server"
                         Text="SUCURSAL"
-                        Align="Left"
-                        Width="260"
+                        Align="Center"
+                        Width="360"
                         DataIndex="Sucursal">
                       <Renderer Fn="cSucursal_Renderer" />
                         <HeaderItems>
@@ -394,7 +394,7 @@
                         runat="server"
                         Text="USUARIO"
                         Align="Center"
-                        Width="135"
+                        Width="150"
                         DataIndex="Usuario">
                         <HeaderItems>
                              <ext:ComboBox
@@ -436,8 +436,7 @@
                                 </Listeners>
                             </ext:ComboBox>
                     
-                        </HeaderItems>
-                            
+                        </HeaderItems> 
                     </ext:Column>
                 </Columns>
             </ColumnModel>

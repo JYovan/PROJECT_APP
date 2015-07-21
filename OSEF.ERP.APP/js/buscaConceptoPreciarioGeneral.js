@@ -37,8 +37,8 @@ var gpConceptos_ItemDblClick = function (gridview, registro, gvhtml, index) {
 
     //valida en el doble click si el concept ya esta en store del detalle de volumetria
     if (winparent.App.sConceptos.find('ConceptoID', App.sConceptosFiltrados.getAt(index).get('ID')) == -1) {
-        //se actualiza el Store contenedor con datos del store del grid de ayuda 
-        winparent.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("RPreciarioConceptos", registro.data);
+        //se actualiza el Store contenedor con datos del store del grid de ayuda  
+        winparent.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("Clave", App.sConceptosFiltrados.getAt(index).get('Clave'));
         winparent.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("ConceptoID", App.sConceptosFiltrados.getAt(index).get('ID'));
         winparent.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("Unidad", App.sConceptosFiltrados.getAt(index).get('Unidad'));
         winparent.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("Precio", App.sConceptosFiltrados.getAt(index).get('Costo'));
@@ -64,6 +64,7 @@ var gpConceptos_ItemDblClick = function (gridview, registro, gvhtml, index) {
                 }
                 else {
                     if (btn === 'ok') {
+                        winparent.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Clave", '');
                         winparent.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("ConceptoID", '');
                         winparent.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("Unidad", '');
 
