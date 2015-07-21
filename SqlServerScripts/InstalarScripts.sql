@@ -240,6 +240,7 @@
 -- ImagenVolumetriaD (Borrar)
 :r c:\SqlServerScripts\Borrar\ImagenVolumetriaD\web_spD_BorrarImagenPorConceptoVolumetria.sql
 :r c:\SqlServerScripts\Borrar\ImagenVolumetriaD\web_spD_BorrarImagenPorVolumetria.sql
+:r c:\SqlServerScripts\Borrar\VolumetriasD\web_spD_BorrarImagenPorIDPorConceptoYPorNombre.sql
 ----------------------------------------------------------------------------------------
 --ReportesPreciario
 :r c:\SqlServerScripts\Reportes\web_spS_ObtenerCambiosPreciario.sql

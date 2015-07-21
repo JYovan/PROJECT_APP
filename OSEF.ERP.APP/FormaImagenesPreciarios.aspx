@@ -55,6 +55,37 @@
             });
 
         });
+
+        var onDelete_image = function (IdPreciarioConcepto, IdVolumetria, Nombre) {
+            Ext.Msg.show({
+                id: 'msgConceptoEliminar',
+                title: 'ADVERTENCIA',
+                msg: '¿ESTÁS SEGURO DE ELIMINAR ESTA IMAGEN: ' + Nombre + '? ',
+                buttons: Ext.MessageBox.YESNO,
+                onEsc: Ext.emptyFn,
+                closable: false,
+                fn: function (btn) {
+                    if (btn === 'yes') {
+                        App.direct.BorrarImagen(IdPreciarioConcepto, IdVolumetria, Nombre);
+                        App.sImagenesVolumetriasD.reload({
+                            callback: function () {
+                                App.direct.onLoadDataImages();
+                            }
+                        });
+                        console.log(window.parent.App.wEmergente.getBody());
+                        window.parent.App.wEmergente.getBody().App.sConceptos.reload({
+                            callback: function () {
+                                window.parent.App.wEmergente.getBody().App.direct.sVolumetria_Load();
+                            }
+                        });
+                    }
+                },
+                icon: Ext.MessageBox.WARNING
+            });
+        }
+            var showResult = function (btn) {
+                Ext.Msg.notify("Atención", "Imagen Eliminada");
+            };
 	</script>
 
     <ext:XScript runat="server">
@@ -107,12 +138,10 @@
                     <Tpl ID="Tpl1" runat="server">
                         <Html>
                             <tpl for=".">
-                                <div class="thumb-wrap" id="{Nombre}">
-
-                                
-
+                                <div class="thumb-wrap" id="{Nombre}"> 
                                     <div class="thumb"><a class="fancybox-effects-d" href="{Direccion}" title="{PreciarioConcepto}"><img src="{Direccion}" title="{Nombre}"></img></a></div>
-                                    <span class="x-editable">{Nombre}</span>
+                                    <span class="x-editable">{Nombre}<img src="assets/img/controles/delete.gif" style="cursor: pointer; margin-top:10px;" onclick="onDelete_image('{PreciarioConcepto}','{Volumetria}','{Nombre}');" title="Borrar"></img>
+                                    </span>
                                 </div>
                             </tpl>
                             <div class="x-clear"></div>

@@ -52,7 +52,7 @@ var abortUpload = function (btn) {
                 records;
 
     if (!selModel.hasSelection()) {
-        Ext.Msg.alert('Error', 'Please select an upload to cancel');
+        Ext.Msg.alert('Error', 'Por favor selecciona al menos un registro a cancelar');
         return true;
     }
 
@@ -65,7 +65,7 @@ var removeUpload = function (btn) {
                 records;
 
     if (!selModel.hasSelection()) {
-        Ext.Msg.alert('Error', 'Please select an upload to remove');
+        Ext.Msg.alert('Error', 'Por favor selecciona al menos un registro.');
         return true;
     }
 
@@ -111,16 +111,16 @@ var uploadError = function (item, file, errorCode, message) {
 
 var fileSelectionError = function (item, file, errorCode, message) {
     if (errorCode === SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED) {
-        alert("You have attempted to queue too many files.\n" + (message === 0 ? "You have reached the upload limit." : "You may select " + (message > 1 ? "up to " + message + " files." : "one file.")));
+        alert("Haz subido muchos archivos.\n" + (message === 0 ? "Haz alcanzado el limite." : "Podrias seleccionar " + (message > 1 ? "up to " + message + " archivos." : "one file.")));
         return;
     }
 
     switch (errorCode) {
         case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-            Ext.Msg.alert('Error', "Error Code: File too big, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert('Error', "Error Code: El archivo es demasiado grande: " + file.name + ", Tamaño: " + file.size + ", Mensaje: " + message);
             break;
         case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-            alert("Error Code: Zero byte file, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            alert("Error Code: Archivo vacio o ilegible: " + file.name + ", Tamaño: " + file.size + ", Mensaje: " + message);
             break;
         case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
             alert("Error Code: Invalid File Type, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
@@ -134,3 +134,12 @@ var fileSelectionError = function (item, file, errorCode, message) {
 var loadFailed = function () {
     alert("Something went wrong while loading SWFUpload. If this were a real application we'd clean up and then give you an alternative");
 };
+var onUploadImages = function () {
+    if (Ext.util.Cookies.get('cookieConceptoVolumetria') != null) {
+        window.parent.App.wEmergente.getBody().App.sConceptos.reload({
+            callback: function () {
+                window.parent.App.wEmergente.getBody().App.direct.sVolumetria_Load();
+            }
+        });
+    }
+}

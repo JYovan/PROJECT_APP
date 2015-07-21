@@ -34,8 +34,8 @@
         <ext:GridPanel
             ID="gpVolumetrias"
             runat="server"
-            Height="420"
-            Width="960"
+            Height="450"
+            Width="1100"
             Title="VOLUMETRIAS"
             EnableColumnHide="false"
             EnableColumnMove="false"
@@ -174,7 +174,7 @@
                         runat="server"
                         Text="SUCURSAL"
                         Align="Center"
-                        Width="230"
+                        Width="330"
                         DataIndex="Sucursal">
                         <Renderer Fn="cSucursal_Renderer" />
                     </ext:Column>
@@ -261,7 +261,7 @@
                         runat="server"
                         Text="PRECIARIO"
                         Align="Center"
-                        Width="155"
+                        Width="190"
                         DataIndex="Preciario">
                         <Renderer Fn="cPreciario_Renderer" />
                         <HeaderItems>

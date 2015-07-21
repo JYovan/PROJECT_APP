@@ -17,7 +17,7 @@ namespace OSEF.APP.EL
         string clave;
 
        
-        string fotos;
+        int fotos;
         #endregion
 
         #region propiedades
@@ -51,7 +51,7 @@ namespace OSEF.APP.EL
             set { utilizada = value; }
         }
 
-        public string Fotos
+        public int Fotos
         {
             get { return fotos; }
             set { fotos = value; }

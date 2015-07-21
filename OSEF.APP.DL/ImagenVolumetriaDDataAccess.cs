@@ -192,6 +192,62 @@ namespace OSEF.APP.DL
 
 
 
+
+        /// <summary>
+        /// Método que borra Imágenes por VolumetriaID, Concepto y nombre
+        /// </summary>
+        /// <param name="dID"></param>
+        public static int BorrarImagenesVolumetriaPorIDPorConceptoYPorNombre(int Volumetria, string PreciarioConcepto, string Nombre)
+        {
+            try
+            {
+                //1. Configurar la conexión y el tipo de comando
+                SqlConnection sqlcConectar = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+                SqlCommand sqlcComando = new SqlCommand();
+                sqlcComando.Connection = sqlcConectar;
+                sqlcComando.CommandType = CommandType.StoredProcedure;
+                sqlcComando.CommandText = "web_spD_BorrarImagenPorIDPorConceptoYPorNombre";
+
+                //2. Declarar los parametros
+                SqlParameter sqlpVolumetria = new SqlParameter();
+                sqlpVolumetria.ParameterName = "@Volumetria";
+                sqlpVolumetria.SqlDbType = SqlDbType.Int;
+                sqlpVolumetria.Value = Volumetria;
+
+                SqlParameter sqlpPreciarioConcepto = new SqlParameter();
+                sqlpPreciarioConcepto.ParameterName = "@PreciarioConcepto";
+                sqlpPreciarioConcepto.SqlDbType = SqlDbType.Char;
+                sqlpPreciarioConcepto.Size = 10;
+                sqlpPreciarioConcepto.Value = PreciarioConcepto;
+
+                SqlParameter sqlpNombreImagen = new SqlParameter();
+                sqlpNombreImagen.ParameterName = "@Nombre";
+                sqlpNombreImagen.SqlDbType = SqlDbType.VarChar;
+                sqlpNombreImagen.Value = Nombre;
+
+                //3. Agregar los parametros al comando
+                sqlcComando.Parameters.Add(sqlpVolumetria);
+                sqlcComando.Parameters.Add(sqlpPreciarioConcepto);
+                sqlcComando.Parameters.Add(sqlpNombreImagen);
+
+                //4. Abrir la conexión
+                sqlcComando.Connection.Open();
+
+                //5. Ejecutar la instrucción DELETE que no regresa filas
+                int result = sqlcComando.ExecuteNonQuery();
+
+                //6. Cerrar la conexión
+                sqlcComando.Connection.Close();
+
+                //7. Regresar el resultado
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error capa de datos (public static int BorrarImagenesVolumetriaPorIDPorConceptoYPorNombre(int Volumetria " + Volumetria + ", string "+PreciarioConcepto+", string "+Nombre+")): " + ex.Message);
+            }
+        }
+
         #endregion
 
 

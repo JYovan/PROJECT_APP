@@ -782,27 +782,28 @@ var gpPreciarioConceptos_ItemClick = function (gridview, registro, gvhtml, index
 //}
 
 var ccFotos_Command = function (column, nombre, registro, renglon, opciones) {
-  
-  //Valida que se escoja un concepto antes
+
+    //Valida que se escoja un concepto antes
     if (registro.get('ConceptoID') != '') {
 
         Ext.util.Cookies.set('cookieConceptoVolumetria', registro.get('ConceptoID'));
 
+        var w = window.parent.App.wSubSubSubModulo;
         if (nombre == 'cnCargarFotos') {
-            App.wEmergente.load('FormaSubirImagenesPreciario.aspx');
-            App.wEmergente.setHeight(350);
-            App.wEmergente.setWidth(600);
-            App.wEmergente.center();
-            App.wEmergente.setTitle('Cargar Fotografías');
-            App.wEmergente.show();
+            w.load('FormaSubirImagenesPreciario.aspx');
+            w.setHeight(350);
+            w.setWidth(600);
+            w.center();
+            w.setTitle('Cargar Fotografías');
+            w.show();
         }
         else {
-            App.wEmergente.load('FormaImagenesPreciarios.aspx');
-            App.wEmergente.setHeight(530);
-            App.wEmergente.setWidth(680);
-            App.wEmergente.center();
-            App.wEmergente.setTitle('Visualizar Fotografías');
-            App.wEmergente.show();
+            w.load('FormaImagenesPreciarios.aspx');
+            w.setHeight(530);
+            w.setWidth(680);
+            w.center();
+            w.setTitle('Visualizar Fotografías');
+            w.show();
         }
 
 
@@ -1006,5 +1007,17 @@ var strID = function () {
         return null;
     } else {
         return App.sVolumetria.getAt(0).get('ID');
+    }
+}
+var cRenderer_Clave = function (value, metadata, registro) {
+    return registro.get('RPreciarioConceptos').Clave;
+};
+var cCheckFotos_Renderer = function (value, metadata, registro) { 
+    if (registro.get('Fotos') > 0 && registro.get('ConceptoID').trim().length > 0) {
+        metadata.style = "background-color: #669900; color: #fff;";
+    } else {
+        if (registro.get('ConceptoID').trim().length > 1) {
+            metadata.style = "background-color: #CC0000; color: #fff;";
+        }
     }
 }

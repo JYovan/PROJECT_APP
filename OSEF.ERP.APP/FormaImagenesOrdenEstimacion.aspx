@@ -81,7 +81,7 @@
                 icon: Ext.MessageBox.WARNING
             });
             var showResult = function (btn) {
-                Ext.Msg.notify("Button Click", "You clicked the " + btn + " button");
+                Ext.Msg.notify("Resultado", "You clicked the " + btn + " button");
             };
         };
 	</script>

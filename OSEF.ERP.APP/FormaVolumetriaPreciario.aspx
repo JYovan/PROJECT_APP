@@ -583,6 +583,7 @@
                                                         <ext:ModelField Name="Fotos" Type="String" />
                                                         <ext:ModelField Name="RPreciarioConceptos" Type="Object" />
                                                         <ext:ModelField Name="Clave" Type="String" />
+                                                        <ext:ModelField Name="Fotos" Type="Int" />
                                                     </Fields>
                                                 </ext:Model>
                                             </Model>
@@ -613,12 +614,14 @@
                                                 </Listeners>
                                             </ext:CommandColumn>
                                             <ext:Column
-                                                ID="cIDPreciario"
+                                                ID="cIDPreciario" 
                                                 runat="server"
-                                                Text="Clave"
-                                                Width="205"
-                                                DataIndex="Clave">
-                                            </ext:Column>
+                                                Text="CLAVE"
+                                                Width="105"
+                                                DataIndex="RPreciarioConceptos">
+                                                <Renderer Fn="cRenderer_Clave"></Renderer>
+                                            </ext:Column> 
+
                                             <ext:CommandColumn
                                                 ID="ccConcepto"
                                                 runat="server" 
@@ -713,6 +716,7 @@
                                                 <Listeners>
                                                     <Command Fn="ccFotos_Command" />
                                                 </Listeners>
+                                                <Renderer Fn="cCheckFotos_Renderer" />
                                             </ext:CommandColumn>
                                         </Columns>
                                     </ColumnModel>
