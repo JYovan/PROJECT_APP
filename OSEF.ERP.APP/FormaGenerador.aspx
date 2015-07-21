@@ -185,8 +185,6 @@
                                 </ext:TextField>
                             </Editor>
                         </ext:Column>
-
-
                         <ext:Column
                             ID="ncEje"
                             runat="server"
@@ -204,8 +202,6 @@
                                 </ext:TextField>
                             </Editor>
                         </ext:Column>
-
-
                         <ext:Column ID="cColumnaContenedora" runat="server" Text="LOCALIZACIÓN">
                         <Columns>
                         <ext:Column

@@ -137,7 +137,7 @@
                                 <div class="thumb-wrap" id="{Nombre}">
                                     <div class="thumb"><a class="fancybox-effects-d" href="{Direccion}" title="{Concepto}"><img src="{Direccion}" title="{Nombre}"></img></a></div>
                                     <span class="x-editable">{Nombre} 
-                                    <img src="resources/images/delete.gif" style="cursor: pointer; margin-top:10px;" onclick="onDelete_image('{Concepto}','{MovID}','{Nombre}');" title="Borrar"></img>
+                                    <img src="assets/img/controles/delete.gif" style="cursor: pointer; margin-top:10px;" onclick="onDelete_image('{Concepto}','{MovID}','{Nombre}');" title="Borrar"></img>
                                     </span>
                                 </div>
                             </tpl>

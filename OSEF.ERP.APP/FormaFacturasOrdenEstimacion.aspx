@@ -140,7 +140,7 @@
                                         </a>
                                     </div>
                                     <span class="x-editable">{Nombre} 
-                                        <img src="resources/images/delete.gif" style="margin-top:10px" onclick="onDelete_image('{Concepto}','{MovID}','{Nombre}');" title="Borrar"></img>
+                                        <img src="assets/img/controles/delete.gif" style="margin-top:10px" onclick="onDelete_image('{Concepto}','{MovID}','{Nombre}');" title="Borrar"></img>
                                     </span>
                                 </div>    
                             </tpl>

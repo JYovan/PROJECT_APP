@@ -134,6 +134,7 @@
     <Content Include="assets\img\controles\delete-normal.png" />
     <Content Include="assets\img\controles\delete-over.png" />
     <Content Include="assets\img\controles\delete-pressed.png" />
+    <Content Include="assets\img\controles\delete.gif" />
     <Content Include="assets\img\controles\delete.png" />
     <Content Include="assets\img\controles\edit-disable.png" />
     <Content Include="assets\img\controles\edit-normal.png" />
