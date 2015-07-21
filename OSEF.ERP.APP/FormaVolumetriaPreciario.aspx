@@ -581,7 +581,6 @@
                                                         <ext:ModelField Name="Cantidad" Type="Float" />
                                                         <ext:ModelField Name="Utilizada" Type="Float" />
                                                         <ext:ModelField Name="Fotos" Type="String" />
-                                                        <ext:ModelField Name="RPreciarioConceptos" Type="Object" />
                                                         <ext:ModelField Name="Clave" Type="String" />
                                                         <ext:ModelField Name="Fotos" Type="Int" />
                                                     </Fields>
@@ -618,8 +617,7 @@
                                                 runat="server"
                                                 Text="CLAVE"
                                                 Width="105"
-                                                DataIndex="RPreciarioConceptos">
-                                                <Renderer Fn="cRenderer_Clave"></Renderer>
+                                                DataIndex="Clave"> 
                                             </ext:Column> 
 
                                             <ext:CommandColumn

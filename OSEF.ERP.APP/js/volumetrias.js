@@ -743,9 +743,28 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
 //Trae la descripcion al displayfield
 var gpPreciarioConceptos_ItemClick = function (gridview, registro, gvhtml, index) {
 
-    App.taDescripcion.setValue(registro.get('RPreciarioConceptos').Descripcion);
+    getDescripcion(registro);
+
 };
 
+
+var getDescripcion = function (r) {
+    var concepto = r.data.ConceptoID;
+    if (concepto != null && concepto.trim().length > 0) {
+        App.direct.ObtenerPreciarioConceptoPorID(concepto, {
+            success: function (result) {
+                if (result) {
+                    App.taDescripcion.setValue(result.Descripcion);
+                }
+            },
+            failure: function (errorMsg) {
+                Ext.Msg.alert('Error', errorMsg);
+            }
+        });
+    } else {
+        console.log(r);
+    }
+};
 ////Evento que pondra la cantidad según el concepto obtenido
 //var cmbConcepto_Select = function (combobox, registro) {
 //    //Ayuda para traer lo que trae toda la funcion como parámetro
@@ -976,6 +995,7 @@ var imgbtnBuscar_Click = function () {
 var obetenerRenglon_Select = function (a, registro, c) {
 
     indiceDetalle = registro.internalId;
+    getDescripcion(registro); 
 
     //    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sOrdenEstimacion.getAt(0).get('Estatus') == 'CONCLUIDO'
     //            && App.sOrdenEstimacion.getAt(0).get('Mov').trim() == "Orden de Cambio") {
@@ -1009,8 +1029,8 @@ var strID = function () {
         return App.sVolumetria.getAt(0).get('ID');
     }
 }
-var cRenderer_Clave = function (value, metadata, registro) {
-    return registro.get('RPreciarioConceptos').Clave;
+var cRenderer_Clave = function (value, metadata, registro) { 
+    return registro.data.Clave;
 };
 var cCheckFotos_Renderer = function (value, metadata, registro) { 
     if (registro.get('Fotos') > 0 && registro.get('ConceptoID').trim().length > 0) {

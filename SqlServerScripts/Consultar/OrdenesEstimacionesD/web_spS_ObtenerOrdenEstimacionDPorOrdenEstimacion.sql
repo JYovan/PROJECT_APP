@@ -49,9 +49,10 @@ SELECT
 	OED.Moneda,
 	(SELECT COUNT(*) FROM ImagenesOrdenEstimacionD IOED WHERE IOED.MovID = @ID AND IOED.Concepto = OED.ConceptoID) Fotos, 
 	(SELECT COUNT(*) FROM CroquisOrdenEstimacionD COED WHERE COED.MovID = @ID AND COED.Concepto = OED.ConceptoID) Croquis, 
-	(SELECT COUNT(*) FROM FacturasOrdenEstimacionD FOED WHERE FOED.MovID = @ID AND FOED.Concepto = OED.ConceptoID) Facturas
-	FROM OrdenesEstimacionesD OED
-	WHERE OED.ID = @ID
+	(SELECT COUNT(*) FROM FacturasOrdenEstimacionD FOED WHERE FOED.MovID = @ID AND FOED.Concepto = OED.ConceptoID) Facturas,
+	pc.CLAVE Clave
+	FROM OrdenesEstimacionesD OED INNER JOIN dbo.PreciarioConceptos pc 
+	ON OED.ID = @ID AND  OED.ConceptoID = pc.ID 
 	GROUP BY 
 		OED.ID, oed.Renglon,
 		OED.ConceptoID,		
@@ -60,7 +61,8 @@ SELECT
 		OED.Precio,
 		OED.Importe,		
 		OED.IntExt,
-		OED.Moneda
+		OED.Moneda,
+		pc.CLAVE
 	ORDER BY OED.Renglon ASC;
 
 END

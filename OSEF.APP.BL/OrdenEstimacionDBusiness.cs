@@ -75,10 +75,7 @@ namespace OSEF.APP.BL
         {
 
             List<OrdenEstimacionD> OrdenEstimacionD = OrdenEstimacionDDataAccess.ObtenerOrdenEstimacionDPorOrdenEstimacion(iID);
-
-            foreach (OrdenEstimacionD sd in OrdenEstimacionD)
-                sd.RPreciarioConceptos = PreciarioGeneralConceptoBusiness.ObtenerPreciarioGeneralConceptoPorID(sd.ConceptoID);
-
+             
             return OrdenEstimacionD;
 
         }
@@ -93,8 +90,8 @@ namespace OSEF.APP.BL
 
             List<OrdenEstimacionD> OrdenEstimacionD = OrdenEstimacionDDataAccess.ObtenerOrdenEstimacionDPorOrigen(iID);
 
-            foreach (OrdenEstimacionD sd in OrdenEstimacionD)
-                sd.RPreciarioConceptos = PreciarioGeneralConceptoBusiness.ObtenerPreciarioGeneralConceptoPorID(sd.ConceptoID);
+            //foreach (OrdenEstimacionD sd in OrdenEstimacionD)
+            //    sd.RPreciarioConceptos = PreciarioGeneralConceptoBusiness.ObtenerPreciarioGeneralConceptoPorID(sd.ConceptoID);
 
             return OrdenEstimacionD;
 
@@ -114,7 +111,7 @@ namespace OSEF.APP.BL
             foreach (OrdenEstimacionD sd in OrdenEstimacionD)
                
             {
-                sd.RPreciarioConceptos = PreciarioGeneralConceptoBusiness.ObtenerPreciarioGeneralConceptoPorID(sd.ConceptoID);
+                //sd.RPreciarioConceptos = PreciarioGeneralConceptoBusiness.ObtenerPreciarioGeneralConceptoPorID(sd.ConceptoID);
                 sd.RMovimiento = OrdenEstimacionBusiness.ObtenerOrdenEstimacionPorID(sd.Id);
             }
             return OrdenEstimacionD;

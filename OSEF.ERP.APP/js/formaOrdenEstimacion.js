@@ -1400,17 +1400,32 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
 
 
     //Trae la descripcion al displayfield
-    var gpOrdenEstimacion_ItemClick = function (gridview, registro, gvhtml, index) {
+var gpOrdenEstimacion_ItemClick = function (gridview, registro, gvhtml, index) {
 
-        indiceDetalle = index;
-        App.taDescripcion.setValue(registro.get('RPreciarioConceptos').Descripcion);
-    };
+    indiceDetalle = index;
+    getDescripcion(registro);
+};
 
+var getDescripcion = function (r) {
+    var concepto = r.data.ConceptoID;
+    if (concepto != null && concepto.trim().length > 0) {
+        App.direct.ObtenerPreciarioConceptoPorID(concepto, {
+            success: function (result) {
+                if (result) {
+                    App.taDescripcion.setValue(result.Descripcion);
+                }
+            },
+            failure: function (errorMsg) {
+                Ext.Msg.alert('Error', errorMsg);
+            }
+        });
+    }
+};
 
     //Obtner el indice del grid panel del detalle y desplegar informacion
     var obetenerRenglon_Select = function (a, registro, c) {
         indiceDetalle = registro.internalId;
-        App.taDescripcion.setValue(registro.get('RPreciarioConceptos').Descripcion);
+        getDescripcion(registro); 
     } 
     //Evento de la columna de acciones
     var ccAcciones_Command = function (columna, comando, registro, fila, opciones) {
@@ -2165,8 +2180,8 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
             App.cmbMov.setValue('Orden de Cambio');
         }
     }
-    var cRenderer_Clave = function (value, metadata, registro) {
-        return registro.get('RPreciarioConceptos').Clave;
+    var cRenderer_Clave = function (value, metadata, registro) { 
+        return registro.data.Clave;
     };
 
     var btnBuscar_Cliente = function () {

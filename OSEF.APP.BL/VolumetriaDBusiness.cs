@@ -76,10 +76,7 @@ namespace OSEF.APP.BL
       
 
             List<VolumetriaD> oVolumetriaD = VolumetriaDDataAccess.ObtenerVolumetriaDPorVolumetria(iVolumetria);
-
-            foreach (VolumetriaD sd in oVolumetriaD)
-                sd.RPreciarioConceptos = PreciarioConceptoBusiness.ObtenerPreciarioConceptoPorID(sd.ConceptoID);
-
+             
             return oVolumetriaD;
 
            // return VolumetriaDDataAccess.ObtenerVolumetriaDPorVolumetria(iVolumetria);

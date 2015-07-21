@@ -1095,7 +1095,7 @@
                                                         <ext:ModelField Name="Precio" Type="Float" />
                                                         <ext:ModelField Name="Importe" Type="Float" />
                                                         <ext:ModelField Name="IntExt" Type="String" />
-                                                        <ext:ModelField Name="RPreciarioConceptos" Type="Object" />
+                                                        <ext:ModelField Name="Clave" Type="String" />
                                                         <ext:ModelField Name="Moneda" Type="String" />
                                                         <ext:ModelField Name="Fotos" Type="Int" />
                                                         <ext:ModelField Name="Croquis" Type="Int" />
@@ -1132,9 +1132,9 @@
                                             <ext:Column
                                                 ID="cIDPreciario"
                                                 runat="server"
-                                                Text="CLAVE"
+                                                Text="Clave"
                                                 Width="105"
-                                                DataIndex="RPreciarioConceptos">
+                                                DataIndex="Clave"> 
                                                 <Renderer Fn="cRenderer_Clave"></Renderer>
                                             </ext:Column> 
                                             <ext:CommandColumn

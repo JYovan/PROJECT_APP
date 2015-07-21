@@ -12,8 +12,7 @@ namespace OSEF.APP.EL
         short renglon;
         string conceptoID;
         decimal cantidad;
-        decimal utilizada;
-        PreciarioConcepto rpreciarioconceptos;
+        decimal utilizada; 
         string clave;
 
        
@@ -56,13 +55,7 @@ namespace OSEF.APP.EL
             get { return fotos; }
             set { fotos = value; }
         }
-
-        public PreciarioConcepto RPreciarioConceptos
-        {
-            get { return rpreciarioconceptos; }
-            set { rpreciarioconceptos = value; }
-        }
-
+         
         public string Clave
         {
             get { return clave; }

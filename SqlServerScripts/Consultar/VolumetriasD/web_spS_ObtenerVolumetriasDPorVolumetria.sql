@@ -44,7 +44,7 @@ BEGIN
 		vd.Cantidad,
 		vd.Utilizada, 	
 		(SELECT COUNT(*) FROM ImagenesVolumetriasD IVD WHERE IVD.Volumetria = @Volumetria AND IVD.PreciarioConcepto = vd.ConceptoID) Fotos,
-		pc.CLAVE
+		pc.CLAVE Clave
 	FROM
 		VolumetriasD vd INNER JOIN dbo.PreciarioConceptos pc
 	ON vd.ConceptoID = pc.ID AND vd.Volumetria = @Volumetria

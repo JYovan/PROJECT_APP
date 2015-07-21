@@ -25,7 +25,7 @@ namespace OSEF.APP.EL
         int croquis;
         int facturas;
 
-        PreciarioGeneralConcepto rpreciarioconceptos;
+        string clave;
         OrdenEstimacion rmovimiento;
 
         string intext;
@@ -80,10 +80,10 @@ namespace OSEF.APP.EL
             set { importe = value; }
         }
 
-        public PreciarioGeneralConcepto RPreciarioConceptos
+        public string Clave
         {
-            get { return rpreciarioconceptos; }
-            set { rpreciarioconceptos = value; }
+            get { return clave; }
+            set { clave = value; }
         }
 
         public OrdenEstimacion RMovimiento
