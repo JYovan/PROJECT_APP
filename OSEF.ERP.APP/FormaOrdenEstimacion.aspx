@@ -573,7 +573,7 @@
                                                     runat="server" 
                                                     Width="563" 
                                                     Margins="0 3 0 0"
-                                                    MaxLength="200"
+                                                    MaxLength="800"
                                                     EnforceMaxLength="true">
                                                      <Listeners>
                                                         <Blur Handler="this.setValue(this.getValue().toUpperCase());" />
@@ -1181,6 +1181,7 @@
                                                 runat="server"
                                                 Align="Center"
                                                 Text="Cantidad"
+                                                
                                                 DataIndex="Cantidad"
                                                 Width="80">
                                                 <Renderer Fn="cCantidad_Renderer" /> 
@@ -1223,7 +1224,7 @@
                                                         runat="server"
                                                         AllowDecimals="true"
                                                         AllowExponential="false"
-                                                        DecimalPrecision="2"
+                                                        DecimalPrecision="6"
                                                         DecimalSeparator="."
                                                         MaxLength="10"
                                                         EnforceMaxLength="true"

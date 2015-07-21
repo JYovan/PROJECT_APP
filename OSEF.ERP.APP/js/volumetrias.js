@@ -21,7 +21,6 @@ var imgbtnFormaNuevo_Click = function () {
     App.txtfSucursalNombre.setValue('');
     App.txtfObservaciones.setValue('');
     App.dfFechaEmision.setValue(d);
-    App.txtfClave.setValue('');
     App.taDescripcion.setValue(''); 
     App.IdCliente.setValue('');
     App.txtCliente.setValue('');
@@ -743,7 +742,7 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
 
 //Trae la descripcion al displayfield
 var gpPreciarioConceptos_ItemClick = function (gridview, registro, gvhtml, index) {
-    App.txtfClave.setValue(registro.get('RPreciarioConceptos').Clave);
+
     App.taDescripcion.setValue(registro.get('RPreciarioConceptos').Descripcion);
 };
 

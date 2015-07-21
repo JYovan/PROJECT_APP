@@ -33,7 +33,7 @@ CREATE PROCEDURE web_spU_ActualizarOrdenEstimacion
 	@Mov			CHAR(50),
 	@MovID			CHAR(10),
 	@Sucursal		CHAR(10),
-	@Observaciones	VARCHAR(200),
+	@Observaciones	VARCHAR(800),
 	@Estatus		VARCHAR(10),
 	@Origen			VARCHAR(30),
 	@OrigenID		VARCHAR(30),

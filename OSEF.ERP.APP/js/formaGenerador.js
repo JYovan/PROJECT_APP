@@ -85,7 +85,7 @@ var sFormaGenerador_Load = function () {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue(F.number(sum, "000,000,000.0000"));
+    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
 };
 
@@ -94,35 +94,35 @@ var nfLargo_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "000,000,000.0000");
+    return F.number(valor, "000,000,000.000000");
 };
 
 var nfAncho_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "000,000,000.0000");
+    return F.number(valor, "000,000,000.000000");
 };
 
 var nfAlto_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "000,000,000.0000");
+    return F.number(valor, "000,000,000.000000");
 };
 
 var nfCantidad_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "000,000,000.0000");
+    return F.number(valor, "000,000,000.000000");
 };
 
 var ncTotal_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "000,000,000.0000");
+    return F.number(valor, "000,000,000.000000");
 };
 
 
@@ -173,7 +173,7 @@ var ccAcciones_Command = function (columna, comando, registro, fila, opciones) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue('' + F.number(ImporteFinal, "000,000,000.0000"));
+    App.dfTotal.setValue('' + F.number(ImporteFinal, "000,000,000.000000"));
     ImporteFinal = ImporteFinal;
 
 };
@@ -211,7 +211,7 @@ var calcularTotalLargo_Change = function (component) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue('' + F.number(sum, "000,000,000.0000"));
+    App.dfTotal.setValue('' + F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
 }
 
@@ -245,7 +245,7 @@ var calcularTotalAncho_Change = function (component) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue(F.number(sum, "000,000,000.0000"));
+    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
 }
 
@@ -280,7 +280,7 @@ var calcularTotalAlto_Change = function (component) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue(F.number(sum, "000,000,000.0000"));
+    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
 
 }
@@ -314,7 +314,7 @@ var calcularTotalCantidad_Change = function (component) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue(F.number(sum, "000,000,000.0000"));
+    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
     HabilitarGuardar();
 }

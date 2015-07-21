@@ -87,13 +87,13 @@ namespace OSEF.APP.DL
                 sqlpCantidad.SqlDbType = SqlDbType.Decimal;
                 sqlpCantidad.Value = iGeneradorOrdenEstimacionD.Cantidad;
                 sqlpCantidad.Precision = 10;
-                sqlpCantidad.Scale = 2;
+                sqlpCantidad.Scale = 6;
 
                 SqlParameter sqlpTotal = new SqlParameter();
                 sqlpTotal.ParameterName = "@Total";
                 sqlpTotal.SqlDbType = SqlDbType.Decimal;
                 sqlpTotal.Precision = 10;
-                sqlpTotal.Scale = 2;
+                sqlpTotal.Scale = 6;
                 sqlpTotal.Value = iGeneradorOrdenEstimacionD.Total;
 
                 SqlParameter sqlpPlano = new SqlParameter();

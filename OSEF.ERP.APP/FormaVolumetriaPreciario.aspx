@@ -528,14 +528,6 @@
                             AnchorHorizontal="100%" 
                             Layout="ColumnLayout">
                             <Items>
-                                <ext:TextField 
-                                    ID="txtfClave" 
-                                    runat="server" 
-                                    Width="80" 
-                                    Disabled="true"
-                                    Text=""
-                                    Cls="xcustomtextAreaSinBorde">
-                                </ext:TextField>
                                 <ext:TextArea
                                     ID="taDescripcion"
                                     runat="server"

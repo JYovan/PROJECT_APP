@@ -34,7 +34,7 @@ CREATE PROCEDURE web_spI_InsertarOrdenEstimacion
 	@MovID			VARCHAR(10),
 	@Sucursal		CHAR(10),
 	@FechaEmision	SMALLDATETIME,
-	@Observaciones	VARCHAR(200),
+	@Observaciones	VARCHAR(800),
 	@Estatus		VARCHAR(20),
 	@Usuario		VARCHAR(50),
 	@Origen			VARCHAR(50),

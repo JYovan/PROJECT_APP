@@ -214,3 +214,8 @@ ALTER TABLE OrdenesEstimacionesD ALTER COLUMN Importe DECIMAL(30,6) NOT NULL
 ALTER TABLE GeneradorOrdenEstimacionD ALTER COLUMN Cantidad DECIMAL(10,6) NOT NULL
 ALTER TABLE GeneradorOrdenEstimacionD ALTER COLUMN Total DECIMAL(10,6) NOT NULL 
 
+
+--Cambios Christian MEdina 20 de Julio 2015
+ALTER TABLE GeneradorOrdenEstimacionD ALTER COLUMN Largo DECIMAL(10,6) NOT NULL
+ALTER TABLE GeneradorOrdenEstimacionD ALTER COLUMN Ancho DECIMAL(10,6) NOT NULL 
+ALTER TABLE GeneradorOrdenEstimacionD ALTER COLUMN Alto DECIMAL(10,6) NOT NULL 

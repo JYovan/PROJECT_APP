@@ -32,10 +32,10 @@ CREATE PROCEDURE web_spI_InsertarOrdenEstimacionD
 	@ID			INT,
 	@Renglon	SMALLINT,
 	@ConceptoID	CHAR(10),
-	@Cantidad	DECIMAL(10, 2),
+	@Cantidad	DECIMAL(10, 6),
 	@Unidad		VARCHAR(30),
-	@Precio		DECIMAL(20, 2),
-	@Importe	DECIMAL(20, 2),
+	@Precio		DECIMAL(20, 6),
+	@Importe	DECIMAL(20, 6),
 	@IntExt		VARCHAR(30),
 	@Moneda		VARCHAR(10)
 AS

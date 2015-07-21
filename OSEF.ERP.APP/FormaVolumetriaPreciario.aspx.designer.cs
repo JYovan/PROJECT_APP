@@ -409,15 +409,6 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.FieldContainer fcDescricpion;
         
         /// <summary>
-        /// Control txtfClave.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.TextField txtfClave;
-        
-        /// <summary>
         /// Control taDescripcion.
         /// </summary>
         /// <remarks>

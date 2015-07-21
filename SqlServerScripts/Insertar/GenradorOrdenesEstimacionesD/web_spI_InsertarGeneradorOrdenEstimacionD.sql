@@ -36,11 +36,11 @@ CREATE PROCEDURE web_spI_InsertarGeneradorOrdenEstimacionD
 	@EntreEje1			VARCHAR(50),
 	@EntreEje2			VARCHAR(50),
 	@Area				VARCHAR(500),
-	@Largo				DECIMAL(10,2),
-	@Ancho				DECIMAL(10,2),
-	@Alto				DECIMAL(10,2),
-	@Cantidad			DECIMAL(10,2),
-	@Total				DECIMAL(10,2),
+	@Largo				DECIMAL(10,6),
+	@Ancho				DECIMAL(10,6),
+	@Alto				DECIMAL(10,6),
+	@Cantidad			DECIMAL(10,6),
+	@Total				DECIMAL(10,6),
 	@Plano				CHAR(20)
 AS
 BEGIN
