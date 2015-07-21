@@ -441,5 +441,23 @@ namespace OSEF.ERP.APP
                 return false;
             }
         }
+
+        /// <summary>
+        /// Método para obtener el PreciarioConcepto
+        /// </summary>
+        /// <param name="strID"></param>
+        [DirectMethod]
+        public static PreciarioConcepto ObtenerPreciarioConceptoPorID(string strID)
+        {
+            PreciarioConcepto pc = PreciarioConceptoBusiness.ObtenerPreciarioConceptoPorID(strID);
+            if (pc != null)
+            {
+                return pc;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
