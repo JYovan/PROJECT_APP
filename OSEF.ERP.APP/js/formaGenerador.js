@@ -288,6 +288,9 @@ var calcularTotalAlto_Change = function (component) {
 //Calular Total cuando la columnas cambian
 var calcularTotalCantidad_Change = function (component) {
 
+
+    
+
     var valorLargo = App.sFormaGenerador.getAt(indiceDetalle).data.Largo;
     var valorAncho = App.sFormaGenerador.getAt(indiceDetalle).data.Ancho;
     var valorAlto = App.sFormaGenerador.getAt(indiceDetalle).data.Alto;
@@ -316,9 +319,14 @@ var calcularTotalCantidad_Change = function (component) {
     F.decimalSeparator = '.';
     App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
-    HabilitarGuardar();
+    
 }
 
+
+var cantidad_Blur = function () {
+
+    HabilitarGuardar();
+}
 
 //Obtner el indice del grid panel del detalle
 var obetenerRenglon_Select = function (gridview, registro, index) {
@@ -346,6 +354,7 @@ function HabilitarGuardar() {
                     && App.sFormaGenerador.getAt(0).get('Total') != 0) {
 
                     App.imgbtnAceptar.setDisabled(false);
+                    
                 }
             }
             else 

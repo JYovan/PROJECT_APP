@@ -349,7 +349,8 @@
                                     MinValue="-999999999"
                                     Step="1">
                                     <Listeners>
-                                        <Blur Fn="calcularTotalCantidad_Change"></Blur> 
+                                        <Change Fn="calcularTotalCantidad_Change"></Change> 
+                                        <Blur Fn="cantidad_Blur"></Blur>
                                     </Listeners>
                                 </ext:NumberField>
                             </Editor>
