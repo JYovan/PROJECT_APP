@@ -233,12 +233,12 @@ var gpUsuarios_ItemClick = function () {
 
 //Lanzar algun comando de la lista de opciones
 var ccOpciones_Command = function (opciones, comando, registro, indice) {
-    if (comando == 'AccesoMenus') {
+    if (comando == 'AccesoModulos') {
         window.parent.App.wEmergente.load('FormaAccesoMenus.aspx');
         window.parent.App.wEmergente.setHeight(351);
         window.parent.App.wEmergente.setWidth(520);
         window.parent.App.wEmergente.center();
-        window.parent.App.wEmergente.setTitle('Accesos a menus del usuario: ' + registro.data.ID);
+        window.parent.App.wEmergente.setTitle('Accesos a modulos: ' + registro.data.ID);
         window.parent.App.wEmergente.show();
     }
     else if (comando == 'AccesoSucursales') {

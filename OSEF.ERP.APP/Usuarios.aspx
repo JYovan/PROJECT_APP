@@ -35,8 +35,8 @@
         <ext:GridPanel
             ID="gpUsuarios"
             runat="server"
-            Height="420"
-            Width="1000"
+            Height="460"
+            Width="990"
             Title="USUARIOS"
             EnableColumnHide="false"
             EnableColumnMove="false"
@@ -90,7 +90,7 @@
                                 <Click Fn="imgbtnBorrar_Click" />
                             </Listeners>
                         </ext:ImageButton>
-                        <ext:ToolbarSpacer ID="tbsUsuario" runat="server" Width="540">
+                        <ext:ToolbarSpacer ID="tbsUsuario" runat="server" Width="535">
                         </ext:ToolbarSpacer>
                         <ext:ImageButton
                             ID="imgbtnActualizar"
@@ -174,7 +174,7 @@
                                 <Menu EnableScrolling="false">
                                     <Items>
                                         <ext:MenuCommand CommandName="Bloquear" Text="Bloquear" Icon="ArrowRight" />
-                                        <ext:MenuCommand CommandName="AccesoMenus" Text="Acceso menus" Icon="ArrowRight" />
+                                        <ext:MenuCommand CommandName="AccesoModulos" Text="Acceso Modulos" Icon="ArrowRight" />
                                         <ext:MenuCommand CommandName="AccesoSucursales" Text="Acceso sucursales" Icon="ArrowRight" />
                                         <ext:MenuCommand CommandName="CambiarContrasena" Text="Cambiar contraseña" Icon="ArrowRight" />
                                     </Items>

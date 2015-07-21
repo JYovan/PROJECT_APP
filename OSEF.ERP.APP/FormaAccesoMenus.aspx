@@ -46,18 +46,31 @@
                     ToTitle="Asignados"
                     Cls="x-custom-form-item x-customPanelHeader x-btnCustomDefaultOver x-btnCustomDefault"
                     >
-                    <Items>
-                        <ext:ListItem Text="Acceso 1" Value="1" />
-                        <ext:ListItem Text="Acceso 2" Value="2" />
-                        <ext:ListItem Text="Acceso 3" Value="3" />
-                        <ext:ListItem Text="Acceso 4" Value="4" />
-                        <ext:ListItem Text="Acceso 5" Value="5" />
-                    </Items>
-                    <SelectedItems>
-                        <ext:ListItem Value="3" />
-                        <ext:ListItem Value="4" />
-                        <ext:ListItem Value="5" />
-                    </SelectedItems>
+                    <Items> 
+                        <ext:ListItem Text="Avances" Value="Avances" />
+                        <ext:ListItem Text="Categorias" Value="Categorias" />
+                        <ext:ListItem Text="Clientes" Value="Clientes"/>
+                        <ext:ListItem Text="Codigos Postales" Value="Codigos Postales"/>
+                        <ext:ListItem Text="Codigos PPTA" Value="Códigos PPTA"/>
+                        <ext:ListItem Text="Colonia" Value="Colonia"/>
+                        <ext:ListItem Text="Conceptos" Value="Conceptos"/>
+                        <ext:ListItem Text="Cuadrillas" Value="Cuadrillas"/>
+                        <ext:ListItem Text="Estados" Value="Estados"/>
+                        <ext:ListItem Text="Explorador Mesa de Reporte" Value="Explorador Mesa de Reporte"/>
+                        <ext:ListItem Text="Explorador Ordenes de Cambio" Value="Explorador Ordenes de Cambio" />
+                        <ext:ListItem Text="Explorador Preciario Concepto Volumetrias" Value="Explorador Preciario Concepto Volumetrias" />
+                        <ext:ListItem Text="Monitor" Value="Monitor" />
+                        <ext:ListItem Text="Municipios" Value="Municipios" />
+                        <ext:ListItem Text="Ordenes de cambio" Value="Ordenes de cambio"/>
+                        <ext:ListItem Text="Preciarios Generales" Value="Preciarios Generales" />
+                        <ext:ListItem Text="Preciarios Sucursales" Value="Preciarios Sucursales"/>
+                        <ext:ListItem Text="Proveedores" Value="Proveedores" />
+                        <ext:ListItem Text="Reportes y Estimaciones" Value="Reportes y Estimaciones" />
+                        <ext:ListItem Text="SubCategorias" Value="SubCategorias" />
+                        <ext:ListItem Text="Usuarios" Value="Usuarios" />
+                        <ext:ListItem Text="Visual Gantt" Value="Visual Gantt" />
+                        <ext:ListItem Text="Volumetrias" Value="Volumetrias" /> 
+                    </Items> 
                 </ext:ItemSelector>
             </Items>
             <DockedItems>

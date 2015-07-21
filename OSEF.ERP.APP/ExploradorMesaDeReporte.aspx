@@ -34,8 +34,8 @@
         <ext:GridPanel
             ID="gpExploradorMesaDeReporte"
             runat="server"
-            Height="420"
-            Width="1000"           
+            Height="460"
+            Width="1150"           
             Title="EXPLORADOR MESA DE REPORTE"
             EnableColumnHide="false"
             EnableColumnMove="false"
@@ -230,7 +230,7 @@
                             AutoFocus="true"
                             EmptyText="BUSCAR POR ASUNTO"
                             StyleSpec="margin-top: 0px;"
-                            Width="150">
+                            Width="250">
                             <Listeners>
                                 <Change Fn="txtBuscar_Change" />
                             </Listeners>
