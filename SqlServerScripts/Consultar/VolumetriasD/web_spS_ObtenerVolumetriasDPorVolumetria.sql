@@ -48,5 +48,13 @@ BEGIN
 	FROM
 		VolumetriasD vd INNER JOIN dbo.PreciarioConceptos pc
 	ON vd.ConceptoID = pc.ID AND vd.Volumetria = @Volumetria
+	GROUP BY 
+		vd.Volumetria,
+		vd.Renglon,
+		vd.ConceptoID,
+		vd.Cantidad,
+		vd.Utilizada,
+		pc.CLAVE
+	ORDER BY vd.Renglon ASC;
 END
 GO

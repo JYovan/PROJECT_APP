@@ -137,3 +137,12 @@ var loadFailed = function () {
 };
 
 
+var onUploadImages = function () {
+    if (Ext.util.Cookies.get('cookieConceptoOrdenEstimacion') != null) {
+        window.parent.App.wEmergente.getBody().App.sConceptos.reload({
+            callback: function () {
+                window.parent.App.wEmergente.getBody().App.direct.sOrdenMantenimiento_Load();
+            }
+        });
+    }
+}

@@ -128,7 +128,7 @@
                             runat="server"
                             Text="Iniciar"
                             Icon="Tick"
-                            Handler="#{muSubirImagenesOrdenEstimacion}.startUpload();" > 
+                            Handler="#{muSubirImagenesOrdenEstimacion}.startUpload(); onUploadImages();" > 
                            
                             </ext:Button>
                         <ext:Button
