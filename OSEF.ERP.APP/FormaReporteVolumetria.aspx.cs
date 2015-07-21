@@ -71,7 +71,8 @@ namespace OSEF.ERP.APP
                             reporte.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf"));
                             ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                         }
-
+                        reporte.Dispose();
+                        reporte.Close();
                     } // end using adaptador
                 } // end using comando
 
@@ -123,7 +124,8 @@ namespace OSEF.ERP.APP
             reporte.Load(Server.MapPath("reportess/" + namereport + ".rpt"));
             reporte.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/" + strClave + ".pdf"));
             ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/" + strClave + ".pdf',null,'height=700,width=660');popup.focus();", true);
-
+            reporte.Dispose();
+            reporte.Close();
         }
     }
 }

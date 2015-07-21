@@ -63,7 +63,8 @@ namespace OSEF.ERP.APP
                 reporteCuadrila.Load(Server.MapPath("reportess/rMantenimientosFacturador.rpt"));
                 reporteCuadrila.SetDataSource(dt); 
                 reporteCuadrila.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.Excel, Response, true, "Reportes Mantenimiento " + parametro);
-
+                reporteCuadrila.Close();
+                reporteCuadrila.Dispose();
             }
             catch (Exception ex)
             {

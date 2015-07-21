@@ -132,7 +132,8 @@ namespace OSEF.ERP.APP
                         reporteCroquis.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Estimaciones/" + strID + "/rCroquis " + strID + ".pdf"));
                         ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Estimaciones/" + strID + "/rCroquis " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                     }
-
+                    reporteCroquis.Dispose();
+                    reporteCroquis.Close();
 
                 }
                 catch (Exception ex)
@@ -202,7 +203,8 @@ namespace OSEF.ERP.APP
                                 reporteFotos.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Estimaciones/" + strID + "/rFotos " + strID + ".pdf"));
                                 ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Estimaciones/" + strID + "/rFotos " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                             }
-
+                            reporteFotos.Dispose();
+                            reporteFotos.Close();
                         } // end using adaptador
                     } // end using comando
 
@@ -274,8 +276,8 @@ namespace OSEF.ERP.APP
                                 reporteFacturas.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Estimaciones/" + strID + "/rNotaDeBitacora " + strID + ".pdf"));
                                 ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Estimaciones/" + strID + "/rNotaDeBitacora " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                             }
-
-
+                            reporteFacturas.Dispose();
+                            reporteFacturas.Close();
 
                         } // end using adaptador
                     } // end using comando
@@ -351,7 +353,8 @@ namespace OSEF.ERP.APP
                                 reporteGenerador.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Estimaciones/" + strID + "/rNumerosGeneradores " + strID + ".pdf"));
                                 ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Estimaciones/" + strID + "/rNumerosGeneradores " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                             }
-
+                            reporteGenerador.Dispose();
+                            reporteGenerador.Close();
                         } // end using adaptador
                     } // end using comando
 
@@ -425,7 +428,8 @@ namespace OSEF.ERP.APP
                                 reporteEstimaciones.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Estimaciones/" + strID + "/rCaratulaDeEstimacion " + strID + ".pdf"));
                                 ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Estimaciones/" + strID + "/rCaratulaDeEstimacion " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                             }
-
+                            reporteEstimaciones.Dispose();
+                            reporteEstimaciones.Close();
                         } // end using adaptador
                     } // end using comando
 
@@ -496,7 +500,8 @@ namespace OSEF.ERP.APP
                                 reporteEstimaciones.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Estimaciones/" + strID + "/rResumenPartidas " + strID + ".pdf"));
                                 ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Estimaciones/" + strID + "/rResumenPartidas " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                             }
-
+                            reporteEstimaciones.Dispose();
+                            reporteEstimaciones.Close();
                         } // end using adaptador
                     } // end using comando
 
@@ -559,7 +564,8 @@ namespace OSEF.ERP.APP
                                 reporteEstimaciones.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Estimaciones/" + strID + "/rPresupuesto " + strID + ".pdf"));
                                 ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Estimaciones/" + strID + "/rPresupuesto " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
                             }
-
+                            reporteEstimaciones.Dispose();
+                            reporteEstimaciones.Close();
                         } // end using adaptador
                     } // end using comando
 
