@@ -16,14 +16,14 @@ namespace OSEF.ERP.APP.reportess {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class AutItemAdicioYOFueCatPreCat : ReportClass {
+    public class ResumenOCPrecios : ReportClass {
         
-        public AutItemAdicioYOFueCatPreCat() {
+        public ResumenOCPrecios() {
         }
         
         public override string ResourceName {
             get {
-                return "AutItemAdicioYOFueCatPreCat.rpt";
+                return "ResumenOCPrecios.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace OSEF.ERP.APP.reportess {
         
         public override string FullResourceName {
             get {
-                return "OSEF.ERP.APP.reportess.AutItemAdicioYOFueCatPreCat.rpt";
+                return "OSEF.ERP.APP.reportess.ResumenOCPrecios.rpt";
             }
             set {
                 // Do nothing
@@ -114,9 +114,9 @@ namespace OSEF.ERP.APP.reportess {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedAutItemAdicioYOFueCatPreCat : Component, ICachedReport {
+    public class CachedResumenOCPrecios : Component, ICachedReport {
         
-        public CachedAutItemAdicioYOFueCatPreCat() {
+        public CachedResumenOCPrecios() {
         }
         
         [Browsable(false)]
@@ -153,7 +153,7 @@ namespace OSEF.ERP.APP.reportess {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            AutItemAdicioYOFueCatPreCat rpt = new AutItemAdicioYOFueCatPreCat();
+            ResumenOCPrecios rpt = new ResumenOCPrecios();
             rpt.Site = this.Site;
             return rpt;
         }

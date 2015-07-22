@@ -89,7 +89,15 @@ var txtBuscar_Change = function (textfield, newValue, oldValue, e) {
     //App.sCarga.getSelectionModel().deselectAll();
   
 };
- 
+
+
+//Hacer la busqueda de información
+var txtIdCliente_Change = function (textfield) {
+
+    //Valida si se habilita el boton de guardar
+    HabilitarGuardar();
+};
+
 //Renglones nuevos
 var getRowClass = function (record) {
 
@@ -182,12 +190,12 @@ var sPreciario_Add = function (avance, registro) {
                 }
             });
         } else {
-            console.log(registro[0].get('Cliente').trim().length);
+           
         }
 
         //Deshabilita botones cuando se edita un movimiento al cargar el store
         App.cmbEstatus.setDisabled(false);
-        App.cmbEstatus.setDisabled(true);
+     
         App.nfHoja.setDisabled(true);
         App.btnCargar.setDisabled(true);
         App.rObra.setDisabled(true);
@@ -416,7 +424,7 @@ function HabilitarGuardar() {
     }
 
     //Valida que todos los controles del encabezado obligatorios estén llenos
-    if (FileUploadValue != "" && App.txtfDescripcion.getValue() != "" && App.sCarga.getCount() != 0) {
+    if (FileUploadValue != "" && App.txtfDescripcion.getValue() != "" && App.sCarga.getCount() != 0 && App.IdCliente.getValue() != "") {
         if (App.rObra.getValue() == true || App.rMnto.getValue() == true) {
            App.imgbtnGuardar.setDisabled(false);
         }

@@ -53,7 +53,8 @@ BEGIN
 		CONVERT(VARCHAR(4),S.CR) CR,S.Nombre Sucursal,S.InicioObra,S.FinObra,
 		s.TipoConcepto, s.TipoObra, s.EmpresaSupervisora,
 		--Datos del concepto
-		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,OED.Unidad,PGCAT.Descripcion DescripcionPreGenCat
+		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,
+		OED.Unidad,OED.Precio,PGCAT.Descripcion DescripcionPreGenCat
 		--Encabezado del movimiento(No del reporte)
 		FROM OrdenesEstimaciones OE
 		--Detalle del movimiento

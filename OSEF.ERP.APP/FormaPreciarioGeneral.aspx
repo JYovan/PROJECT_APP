@@ -119,7 +119,7 @@
                             DisabledImageUrl="assets/img/controles/CancelarDisabled.png"
                             OverImageUrl="assets/img/controles/CancelarOver.png"
                             PressedImageUrl="assets/img/controles/CancelarPressed.png"
-                            ToolTip="Cancelar Movimiento"
+                            ToolTip="Cancelar"
                             Height="30"
                             Width="30">
                             <Listeners>
@@ -170,6 +170,47 @@
                                 </ext:TextField>
                             </Items>
                         </ext:FieldContainer>
+                         <ext:FieldContainer
+                                        ID="fClientes"
+                                        runat="server"
+                                        LabelWidth="120"
+                                        Width="800" 
+                                        Height="25px"
+                                        FieldLabel="Cliente"
+                                        Layout="HBoxLayout">
+                                        <Items>
+                                        
+                                <ext:TextField 
+                                                ID="IdCliente" 
+                                                runat="server" 
+                                                Width="200" 
+                                                StyleSpec="margin-right: 6px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"> 
+                                                <RightButtons>
+                                                    <ext:Button 
+                                                    ID="btnBuscaCliente" 
+                                                    runat="server" 
+                                                    Icon="Find" 
+                                                    StandOut="true">
+                                                        <Listeners>
+                                                            <Click Fn="btnBuscar_Cliente" />
+                                                         </Listeners>
+                                                    </ext:Button>
+                                                </RightButtons>  
+                                                <Listeners>
+                                                    <Change Fn="txtIdCliente_Change"/> 
+                                                </Listeners>
+                                             </ext:TextField> 
+                                             <ext:TextField
+                                             ID="txtCliente"
+                                             runat ="server"
+                                             Width="360"
+                                             StyleSpec="margin-right: 3px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"/> 
+                                        </Items>
+                                        </ext:FieldContainer>
                         <ext:FieldContainer 
                             ID="fcTipoPreciario" 
                             runat="server"
@@ -351,47 +392,7 @@
                             </Items>
                         </ext:FieldContainer> 
                          
-                         <ext:FieldContainer
-                                        ID="fClientes"
-                                        runat="server"
-                                        LabelWidth="120"
-                                        Width="500" 
-                                        Height="25px"
-                                        FieldLabel="Cliente"
-                                        Layout="HBoxLayout">
-                                        <Items>
-                                        
-                                <ext:TextField 
-                                                ID="IdCliente" 
-                                                runat="server" 
-                                                Width="150" 
-                                                StyleSpec="margin-right: 3px;  height:24px;"
-                                                AllowBlank="false" 
-                                                ReadOnly="true"> 
-                                                <RightButtons>
-                                                    <ext:Button 
-                                                    ID="btnBuscaCliente" 
-                                                    runat="server" 
-                                                    Icon="Find" 
-                                                    StandOut="true">
-                                                        <Listeners>
-                                                            <Click Fn="btnBuscar_Cliente" />
-                                                         </Listeners>
-                                                    </ext:Button>
-                                                </RightButtons>  
-                                                <Listeners>
-                                                    <Change Handler="App.IdCliente.getValue().trim().length > 0 && App.sCarga.getCount() > 1 ? App.imgbtnGuardar.setDisabled(false):App.imgbtnGuardar.setDisabled(true);"/> 
-                                                </Listeners>
-                                             </ext:TextField> 
-                                             <ext:TextField
-                                             ID="txtCliente"
-                                             runat ="server"
-                                             Width="150"
-                                             StyleSpec="margin-right: 3px;  height:24px;"
-                                                AllowBlank="false" 
-                                                ReadOnly="true"/> 
-                                        </Items>
-                                        </ext:FieldContainer>
+                        
 
                     </Items>
                 </ext:Panel>

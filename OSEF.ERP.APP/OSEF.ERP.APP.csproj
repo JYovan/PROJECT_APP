@@ -988,10 +988,10 @@
     <Compile Include="Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="reportess\AutItemAdicioYOFueCatPreCat.cs">
+    <Compile Include="reportess\ResumenOC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AutItemAdicioYOFueCatPreCat.rpt</DependentUpon>
+      <DependentUpon>ResumenOC.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="reportess\CPreciario.cs">
@@ -1028,6 +1028,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rCroquisOC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportess\ResumenOCPrecios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResumenOCPrecios.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="reportess\rFotosOC.cs">
@@ -1142,9 +1148,9 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="reportess\AutItemAdicioYOFueCatPreCat.rpt">
+    <EmbeddedResource Include="reportess\ResumenOC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>AutItemAdicioYOFueCatPreCat.cs</LastGenOutput>
+      <LastGenOutput>ResumenOC.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="reportess\CPreciario.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1169,6 +1175,10 @@
     <EmbeddedResource Include="reportess\rCroquisOC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rCroquisOC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportess\ResumenOCPrecios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ResumenOCPrecios.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="reportess\rFotosOC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

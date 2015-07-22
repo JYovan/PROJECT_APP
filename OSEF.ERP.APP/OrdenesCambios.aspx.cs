@@ -76,12 +76,15 @@ namespace OSEF.ERP.APP
 
 
                 ReportDocument reporteCuadrila = new ReportDocument();
-                reporteCuadrila.Load(Server.MapPath("reportess/AutItemAdicioYOFueCatPreCat.rpt"));
+                reporteCuadrila.Load(Server.MapPath("reportess/ResumenOC.rpt"));
                 reporteCuadrila.SetDataSource(dt);
 
 
-                reporteCuadrila.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "Fin 049" + sucursal);
+                reporteCuadrila.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "Resumen de OC: " + sucursal);
 
+
+                reporteCuadrila.Close();
+                reporteCuadrila.Dispose();
 
             }
             catch (Exception ex)
@@ -93,6 +96,7 @@ namespace OSEF.ERP.APP
                 if (conn.State != ConnectionState.Closed)
                     conn.Close();
                 conn.Dispose();
+                
             }
         }
 

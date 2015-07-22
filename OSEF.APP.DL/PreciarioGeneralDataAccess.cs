@@ -157,12 +157,19 @@ namespace OSEF.APP.DL
                 else
                 {
                     sqlpCliente.Value = uPreciario.Cliente;
-                }  
+                }
+
+
+                SqlParameter sqlpEstatus = new SqlParameter();
+                sqlpEstatus.ParameterName = "@Estatus";
+                sqlpEstatus.SqlDbType = SqlDbType.VarChar;
+                sqlpEstatus.Value = uPreciario.Estatus;
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpDescripcion);
                 sqlcComando.Parameters.Add(sqlpCliente);
-
+                sqlcComando.Parameters.Add(sqlpEstatus);
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
 
