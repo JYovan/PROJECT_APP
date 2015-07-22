@@ -120,7 +120,7 @@
                                 </Store>
                             </ext:ComboBox>
 
-                        <ext:ToolbarSpacer ID="tbsOrdenesCambio" runat="server" Width="70">
+                        <ext:ToolbarSpacer ID="tbsOrdenesCambio" runat="server" Width="80">
                         </ext:ToolbarSpacer>
 
                           
@@ -129,6 +129,14 @@
                                 ID="cCorreoEnviado"
                                 runat="server">
                                  <Content>
+                                 <asp:ImageButton 
+                                        ID="imgbtnResExcel" 
+                                        runat="server" 
+                                        Height="50"
+                                        Width="50"
+                                        OnClick="ExportExcel"
+                                        class="imgs" 
+                                        ImageUrl="assets/img/controles/ExcelNormal.png"/>
                                      <asp:ImageButton 
                                         ID="imgbtnFin" 
                                         runat="server" 

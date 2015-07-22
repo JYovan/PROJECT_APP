@@ -80,11 +80,13 @@ namespace OSEF.ERP.APP
                 reporteCuadrila.SetDataSource(dt);
 
 
+
                 reporteCuadrila.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "Resumen de OC: " + sucursal);
 
 
                 reporteCuadrila.Close();
                 reporteCuadrila.Dispose();
+
 
             }
             catch (Exception ex)
@@ -97,6 +99,52 @@ namespace OSEF.ERP.APP
                     conn.Close();
                 conn.Dispose();
                 
+            }
+        }
+
+
+        //Exporta a Excel el grid
+        protected void ExportExcel(object sender, EventArgs e)
+        {
+
+            string sucursal = cmbSucursal.Value.ToString();
+
+
+            //1. Configurar la conexión y el tipo de comando
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+            try
+            {
+                SqlCommand comando = new SqlCommand("web_spS_ObtenerRItemsAdicionales", conn);
+
+                SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+
+                DataTable dt = new DataTable();
+                adaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+                adaptador.SelectCommand.Parameters.Add(@"Sucursal", SqlDbType.Char).Value = sucursal;
+                adaptador.Fill(dt);
+
+
+                ReportDocument reporteResumenExcel = new ReportDocument();
+                reporteResumenExcel.Load(Server.MapPath("reportess/ResumenOCPrecios.rpt"));
+                reporteResumenExcel.SetDataSource(dt);
+
+                reporteResumenExcel.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.Excel, Response, true, "Resumen de OC: " + sucursal);
+
+                reporteResumenExcel.Close();
+                reporteResumenExcel.Dispose();
+
+
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+                conn.Dispose();
+
             }
         }
 
