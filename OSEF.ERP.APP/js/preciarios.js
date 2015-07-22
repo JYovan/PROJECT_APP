@@ -476,13 +476,25 @@ var sCarga_Load = function (avance, registro, index) {
 //Evento de clic del botón BuscarSucursal
 var btnBuscarSucursal_Click = function () {
     Ext.util.Cookies.set('cookieElijeSucursal', "Preciario");
-    window.parent.App.wAyudaConcepto.load('FormaBuscaSucursal.aspx');
-
-    window.parent.App.wAyudaConcepto.setHeight(370);
-    window.parent.App.wAyudaConcepto.setWidth(720); 
-    window.parent.App.wAyudaConcepto.center();
-    window.parent.App.wAyudaConcepto.setTitle('Seleccionar Sucursal'); 
-    window.parent.App.wAyudaConcepto.show();
+    if (App.IdCliente.getValue() != null && App.IdCliente.getValue().toString().trim() !== "") {
+        Ext.util.Cookies.set('cookieElijeSucursalID', App.IdCliente.getValue()); 
+        window.parent.App.wAyudaConcepto.load('FormaBuscaSucursal.aspx');
+        window.parent.App.wAyudaConcepto.setHeight(370);
+        window.parent.App.wAyudaConcepto.setWidth(720);
+        window.parent.App.wAyudaConcepto.center();
+        window.parent.App.wAyudaConcepto.setTitle('Seleccionar Sucursal');
+        window.parent.App.wAyudaConcepto.show();
+    } else {
+        Ext.Msg.show({
+            id: 'msgOrdenesEstimacionesCliente',
+            title: 'ATENCIÓN',
+            msg: '<p align="center">DEBES DE ELEGIR UN CLIENTE.</p>',
+            buttons: Ext.MessageBox.OK,
+            onEsc: Ext.emptyFn,
+            closable: false,
+            icon: Ext.MessageBox.WARNING
+        });
+    }
 };
 
 
@@ -502,7 +514,7 @@ var cSucursal_Renderer = function (valor, columna, registro) {
 var btnBuscar_Cliente = function () {
     var win = window.parent.App.wAyudaConcepto;
     win.load('FormaBuscaCliente.aspx');
-    win.setHeight(220);
+    win.setHeight(400);
     win.setWidth(500);
     win.center();
     win.setTitle('BUSQUEDA DE CLIENTES');

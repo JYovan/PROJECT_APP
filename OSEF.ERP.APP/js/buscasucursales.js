@@ -44,3 +44,7 @@ var sBSucursales_DataChanged = function () {
         App.gpSucursales.columns[2].setWidth(280);
     }
 };
+var onZeroBranch = function () {
+   
+
+};

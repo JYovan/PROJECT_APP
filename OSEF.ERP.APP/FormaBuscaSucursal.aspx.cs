@@ -18,18 +18,23 @@ namespace OSEF.ERP.APP
             {
                 string str = Cookies.GetCookie("cookieElijeSucursal").Value != null ? Cookies.GetCookie("cookieElijeSucursal").Value : "";
                 List<Sucursal> lSucursal;
-                if (str.Equals("Preciario"))
-                {
-                    lSucursal = SucursalBusiness.ObtenerSucursalesDisponibles();
-                    
-                }
-                else
-                {
+                //if (str.Equals("Preciario"))
+                //{
+                //    lSucursal = SucursalBusiness.ObtenerSucursalesPorCliente(strCliente);
+                //}
+                //else
+                //{
                     string strCliente = Cookies.GetCookie("cookieElijeSucursalID").Value != null ? Cookies.GetCookie("cookieElijeSucursalID").Value : "";
                     lSucursal = SucursalBusiness.ObtenerSucursalesPorCliente(strCliente);
-                }
-                sBSucursales.DataSource = lSucursal;
-                sBSucursales.DataBind();
+                //}
+                    if (lSucursal.Count() > 0)
+                    {
+                        sBSucursales.DataSource = lSucursal;
+                        sBSucursales.DataBind();
+                    }
+                    else {
+                        X.Msg.Alert("ATENCIÓN", "EL CLIENTE NO TIENE NINGUNA SUCURSAL ASIGNADA.", new JFunction { Fn = "onZeroBranch()" }).Show();
+                    }
 
                 rmSucursales.RegisterIcon(Icon.Delete);
             }

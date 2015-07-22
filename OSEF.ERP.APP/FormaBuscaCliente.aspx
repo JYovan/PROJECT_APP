@@ -33,7 +33,7 @@
         <ext:GridPanel
             ID="gpClientes"
             runat="server"
-            Height="170"
+            Height="350"
             Width="550"
             Title=""
             EnableColumnHide="false"
