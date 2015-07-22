@@ -51,7 +51,7 @@ SELECT
 	(SELECT COUNT(*) FROM CroquisOrdenEstimacionD COED WHERE COED.MovID = @ID AND COED.Concepto = OED.ConceptoID) Croquis, 
 	(SELECT COUNT(*) FROM FacturasOrdenEstimacionD FOED WHERE FOED.MovID = @ID AND FOED.Concepto = OED.ConceptoID) Facturas,
 	pc.CLAVE Clave
-	FROM OrdenesEstimacionesD OED INNER JOIN dbo.PreciarioConceptos pc 
+	FROM OrdenesEstimacionesD OED INNER JOIN dbo.PreciariosGeneralesConceptos pc 
 	ON OED.ID = @ID AND  OED.ConceptoID = pc.ID 
 	GROUP BY 
 		OED.ID, oed.Renglon,
