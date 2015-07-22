@@ -806,9 +806,9 @@ namespace OSEF.ERP.APP
         /// </summary>
         /// <param name="strID"></param>
         [DirectMethod]
-        public static PreciarioConcepto ObtenerPreciarioConceptoPorID(string strID)
+        public static PreciarioGeneralConcepto ObtenerPreciarioConceptoPorID(string strID)
         {
-            PreciarioConcepto pc = PreciarioConceptoBusiness.ObtenerPreciarioConceptoPorID(strID);
+            PreciarioGeneralConcepto pc = PreciarioGeneralConceptoBusiness.ObtenerPreciarioGeneralConceptoPorID(strID);
             if (pc != null)
             {
                 return pc;

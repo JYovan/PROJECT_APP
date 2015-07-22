@@ -24,27 +24,37 @@ namespace OSEF.ERP.APP
                 if (mov.Equals("Mnto"))
                 {
                     PreciarioGeneral oPreciarioGeneral = PreciarioGeneralBusiness.ObtenerPreciarioGeneralTipoMnto();
-                    idPReciario = oPreciarioGeneral.ID;
+                    if (oPreciarioGeneral != null)
+                    {
+                        idPReciario = oPreciarioGeneral.ID;
 
-                   // Cookies.Set("preciarioGeneral", idPReciario, DateTime.Now.AddDays(30), "/", null, false);
-                    Session["preciarioG"] = idPReciario;
-                    //2. Cargar Categorias
-                    sCategoria.DataSource = PreciarioGeneralCategoriaBusiness.ObtenerPreciarioGeneralCategoriaPorPreciario(idPReciario);
-                    sCategoria.DataBind();
-
+                        // Cookies.Set("preciarioGeneral", idPReciario, DateTime.Now.AddDays(30), "/", null, false);
+                        Session["preciarioG"] = idPReciario;
+                        //2. Cargar Categorias
+                        sCategoria.DataSource = PreciarioGeneralCategoriaBusiness.ObtenerPreciarioGeneralCategoriaPorPreciario(idPReciario);
+                        sCategoria.DataBind();
+                    }
+                    else {
+                        X.Msg.Alert("ATENCIÓN", "NO EXISTE NINGÚN PRECIARIO ACTIVO.", new JFunction { Fn = "showResult(false)" }).Show();
+                    }
                 }
                 if (mov.Equals("Obra"))
                 {
                     PreciarioGeneral oPreciarioGeneral = PreciarioGeneralBusiness.ObtenerPreciarioGeneralTipoObra();
-                    idPReciario = oPreciarioGeneral.ID;
+                    if (oPreciarioGeneral != null)
+                    {
+                        idPReciario = oPreciarioGeneral.ID;
 
-                   // Cookies.Set("preciarioGeneral", idPReciario, DateTime.Now.AddDays(30), "/", null, false);
-                    Session["preciarioG"] = idPReciario;
-                    //2. Cargar Categorias
-                    sCategoria.DataSource = PreciarioGeneralCategoriaBusiness.ObtenerPreciarioGeneralCategoriaPorPreciario(idPReciario);
-                    sCategoria.DataBind();
+                        // Cookies.Set("preciarioGeneral", idPReciario, DateTime.Now.AddDays(30), "/", null, false);
+                        Session["preciarioG"] = idPReciario;
+                        //2. Cargar Categorias
+                        sCategoria.DataSource = PreciarioGeneralCategoriaBusiness.ObtenerPreciarioGeneralCategoriaPorPreciario(idPReciario);
+                        sCategoria.DataBind();
 
-
+                    }
+                    else {
+                        X.Msg.Alert("ATENCIÓN", "NO EXISTE NINGÚN PRECIARIO ACTIVO.", new JFunction { Fn = "showResult(false)" }).Show();
+                    }
                 }
 
             }
@@ -89,11 +99,17 @@ namespace OSEF.ERP.APP
             string strCategoria = e.ExtraParams["categoria"].Equals("null") ? string.Empty : e.ExtraParams["categoria"];
             string strSubCategoria = e.ExtraParams["subcategoria"].Equals("null") ? string.Empty : e.ExtraParams["subcategoria"];
             string strSubSubCategoria = e.ExtraParams["subsubcategoria"].Equals("null") ? string.Empty : e.ExtraParams["subsubcategoria"];
-            string preciario = Session["preciarioG"].ToString();
+            if (Session["preciarioG"] != null)
+            {
+                string preciario = Session["preciarioG"].ToString();
 
-            sConceptosFiltrados.DataSource = PreciarioGeneralConceptoBusiness.ObtenerPreciarioConceptoFiltro(preciario, strCategoria, strSubCategoria, strSubSubCategoria);
-            sConceptosFiltrados.DataBind();
-        }
-
+                sConceptosFiltrados.DataSource = PreciarioGeneralConceptoBusiness.ObtenerPreciarioConceptoFiltro(preciario, strCategoria, strSubCategoria, strSubSubCategoria);
+                sConceptosFiltrados.DataBind();
+            }
+            else
+            {
+                X.Msg.Alert("ATENCIÓN", "NO EXISTE NINGÚN PRECIARIO ACTIVO EN OBRA.", new JFunction { Fn = "showResult(false)" }).Show();
+            }
+        } 
     }
 }
