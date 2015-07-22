@@ -108,7 +108,7 @@ namespace OSEF.ERP.APP
             }
             else
             {
-                X.Msg.Alert("ATENCIÓN", "NO EXISTE NINGÚN PRECIARIO ACTIVO EN OBRA.", new JFunction { Fn = "showResult(false)" }).Show();
+                X.Msg.Alert("ATENCIÓN", "NO EXISTE NINGÚN PRECIARIO ACTIVO", new JFunction { Fn = "showResult(false)" }).Show();
             }
         } 
     }
