@@ -113,6 +113,47 @@
                             </ext:TextField>
                         </Items>
                     </ext:FieldContainer>
+                     <ext:FieldContainer
+                                        ID="fClientes"
+                                        runat="server"
+                                        LabelWidth="120"
+                                        Width="750" 
+                                        Height="25px"
+                                        FieldLabel="Cliente"
+                                        Layout="HBoxLayout">
+                                        <Items>
+                                        
+                                <ext:TextField 
+                                                ID="IdCliente" 
+                                                runat="server" 
+                                                Width="200" 
+                                                StyleSpec="margin-right: 6px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"> 
+                                                <RightButtons>
+                                                    <ext:Button 
+                                                    ID="btnBuscaCliente" 
+                                                    runat="server" 
+                                                    Icon="Find" 
+                                                    StandOut="true">
+                                                        <Listeners>
+                                                            <Click Fn="btnBuscar_Cliente" />
+                                                         </Listeners>
+                                                    </ext:Button>
+                                                </RightButtons>  
+                                                <Listeners>
+                                                    <Change Fn="txtfClienteID_Change"/> 
+                                                </Listeners>
+                                             </ext:TextField> 
+                                             <ext:TextField
+                                             ID="txtCliente"
+                                             runat ="server"
+                                             Width="360"
+                                             StyleSpec="margin-right: 0px;  height:24px;"
+                                                AllowBlank="false" 
+                                                ReadOnly="true"/> 
+                                        </Items>
+                                        </ext:FieldContainer>
                     <ext:FieldContainer ID="FieldContainerCPCol" runat="server" LabelWidth="120" FieldLabel="Sucursal"
                         AnchorHorizontal="100%" Layout="ColumnLayout">
                         <Items>
@@ -200,47 +241,7 @@
                             </ext:TextField>
                         </Items>
                     </ext:FieldContainer>
-                    <ext:FieldContainer
-                                        ID="fClientes"
-                                        runat="server"
-                                        LabelWidth="120"
-                                        Width="550" 
-                                        Height="25px"
-                                        FieldLabel="Cliente"
-                                        Layout="HBoxLayout">
-                                        <Items>
-                                        
-                                <ext:TextField 
-                                                ID="IdCliente" 
-                                                runat="server" 
-                                                Width="200" 
-                                                StyleSpec="margin-right: 6px;  height:24px;"
-                                                AllowBlank="false" 
-                                                ReadOnly="true"> 
-                                                <RightButtons>
-                                                    <ext:Button 
-                                                    ID="btnBuscaCliente" 
-                                                    runat="server" 
-                                                    Icon="Find" 
-                                                    StandOut="true">
-                                                        <Listeners>
-                                                            <Click Fn="btnBuscar_Cliente" />
-                                                         </Listeners>
-                                                    </ext:Button>
-                                                </RightButtons>  
-                                                <Listeners>
-                                                    <Change Handler="App.IdCliente.getValue().trim().length > 0 && App.sCarga.getCount() > 1 ? App.imgbtnGuardar.setDisabled(false):App.imgbtnGuardar.setDisabled(true);"/> 
-                                                </Listeners>
-                                             </ext:TextField> 
-                                             <ext:TextField
-                                             ID="txtCliente"
-                                             runat ="server"
-                                             Width="200"
-                                             StyleSpec="margin-right: 0px;  height:24px;"
-                                                AllowBlank="false" 
-                                                ReadOnly="true"/> 
-                                        </Items>
-                                        </ext:FieldContainer>
+                   
                 </Items>
             </ext:Panel>
             <%--  DETALLE PRECIARIO--%>

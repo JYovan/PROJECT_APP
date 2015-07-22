@@ -103,7 +103,7 @@ var CheckExtension = function (FileUploadField1, file) {
     //alert("Extensión inválida, sólo archivos con extensión:\n\n" + validFilesTypes.join(", "));
     }
     HabilitarGuardar();
-    return isValidFile;
+    return isValidFileHabilitarGuardar
 };
 
 //Cambio en los datos del tablero
@@ -159,6 +159,13 @@ var cmbSucursal_Change = function (combobox, valorNuevo, viejoValor) {
     //Validar si se habilita Guardar
     HabilitarGuardar();
 };
+
+//Evento que se lanza al poner algun caracter en el control del cliente
+var txtfClienteID_Change = function () {
+
+    HabilitarGuardar();
+};
+
 
 //Evento que se lanza al poner algun caracter en el control de la Sucursal
 var txtfSucursalID_Change = function () {
@@ -309,7 +316,7 @@ function HabilitarGuardar() {
     }
 
     //Valida que todos los controles del encabezado obligatorios estén llenos
-     if (App.txtfSucursalCR.getValue() != "" && FileUploadValue != "" && App.txtfDescripcion.getValue() != "" && App.sCarga.getCount() != 0) {
+     if (App.txtfSucursalCR.getValue() != "" && FileUploadValue != "" && App.txtfDescripcion.getValue() != "" && App.sCarga.getCount() != 0 && App.IdCliente.getValue() != "") {
         App.imgbtnGuardar.setDisabled(false);
     }
     else 
