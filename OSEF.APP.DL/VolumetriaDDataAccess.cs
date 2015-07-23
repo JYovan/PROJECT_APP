@@ -58,14 +58,14 @@ namespace OSEF.APP.DL
                 sqlpCantidad.ParameterName = "@Cantidad";
                 sqlpCantidad.SqlDbType = SqlDbType.Decimal;
                 sqlpCantidad.Precision = 10;
-                sqlpCantidad.Scale = 2;
+                sqlpCantidad.Scale = 3;
                 sqlpCantidad.Value = iVolumetriaD.Cantidad;
 
                 SqlParameter sqlpUtilizada = new SqlParameter();
                 sqlpUtilizada.ParameterName = "@Utilizada";
                 sqlpUtilizada.SqlDbType = SqlDbType.Decimal;
                 sqlpUtilizada.Precision = 10;
-                sqlpUtilizada.Scale = 2;
+                sqlpUtilizada.Scale = 3;
                 sqlpUtilizada.Value = iVolumetriaD.Utilizada;
 
              
@@ -142,7 +142,7 @@ namespace OSEF.APP.DL
                 sqlpCantidad.ParameterName = "@Cantidad";
                 sqlpCantidad.SqlDbType = SqlDbType.Decimal;
                 sqlpCantidad.Precision = 10;
-                sqlpCantidad.Scale = 2;
+                sqlpCantidad.Scale = 3;
                 sqlpCantidad.Value = uVolumetriaD.Cantidad;
 
 
@@ -150,7 +150,7 @@ namespace OSEF.APP.DL
                 sqlpUtilizada.ParameterName = "@Utilizada";
                 sqlpUtilizada.SqlDbType = SqlDbType.Decimal;
                 sqlpUtilizada.Precision = 10;
-                sqlpUtilizada.Scale = 2;
+                sqlpUtilizada.Scale = 3;
                 sqlpUtilizada.Value = uVolumetriaD.Utilizada;
 
                 SqlParameter sqlpFotos = new SqlParameter();

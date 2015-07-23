@@ -69,17 +69,23 @@ namespace OSEF.APP.DL
 
                 SqlParameter sqlpLargo = new SqlParameter();
                 sqlpLargo.ParameterName = "@Largo";
-                sqlpLargo.SqlDbType = SqlDbType.Float;
+                sqlpLargo.SqlDbType = SqlDbType.Decimal;
+                sqlpLargo.Precision = 10;
+                sqlpLargo.Scale = 3;
                 sqlpLargo.Value = iGeneradorVolumetriaD.Largo;
 
                 SqlParameter sqlpAncho = new SqlParameter();
                 sqlpAncho.ParameterName = "@Ancho";
-                sqlpAncho.SqlDbType = SqlDbType.Float;
+                sqlpAncho.SqlDbType = SqlDbType.Decimal;
+                sqlpAncho.Precision = 10;
+                sqlpAncho.Scale = 3;
                 sqlpAncho.Value = iGeneradorVolumetriaD.Ancho;
 
                 SqlParameter sqlpAlto = new SqlParameter();
                 sqlpAlto.ParameterName = "@Alto";
-                sqlpAlto.SqlDbType = SqlDbType.Float;
+                sqlpAlto.SqlDbType = SqlDbType.Decimal;
+                sqlpAlto.Precision = 10;
+                sqlpAlto.Scale = 3;
                 sqlpAlto.Value = iGeneradorVolumetriaD.Alto;
 
                 SqlParameter sqlpCantidad = new SqlParameter();
@@ -87,13 +93,13 @@ namespace OSEF.APP.DL
                 sqlpCantidad.SqlDbType = SqlDbType.Decimal;
                 sqlpCantidad.Value = iGeneradorVolumetriaD.Cantidad;
                 sqlpCantidad.Precision = 10;
-                sqlpCantidad.Scale = 2;
+                sqlpCantidad.Scale = 3;
 
                 SqlParameter sqlpTotal = new SqlParameter();
                 sqlpTotal.ParameterName = "@Total";
                 sqlpTotal.SqlDbType = SqlDbType.Decimal;
                 sqlpTotal.Precision = 10;
-                sqlpTotal.Scale = 2;
+                sqlpTotal.Scale = 3;
                 sqlpTotal.Value = iGeneradorVolumetriaD.Total;
 
 
