@@ -62,3 +62,12 @@ opacity: .5;
 filter: alpha(opacity=30);
 opacity: .8;
 }
+
+.x-theme-neptune .x-gecko .x-form-text {
+    padding: 4px 6px 2px;
+}
+
+.x-field-buttons-body {
+    padding: 0px !important;
+ 
+}
