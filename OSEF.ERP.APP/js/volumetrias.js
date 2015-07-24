@@ -293,6 +293,8 @@ var sVolumetria_Load = function () {
 
 //Evento lanzado al agregar un registro al store
 var sVolumetria_Add = function (avance, registro) {
+
+//    console.log(App.sConceptos.getCount());
     //Valida el estatus para ver si permite seguir capturando o no
     if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && registro[0].get('Estatus') == 'CONCLUIDO') {
         App.cmbMov.setValue(registro[0].get('Mov'));
@@ -319,6 +321,7 @@ var sVolumetria_Add = function (avance, registro) {
         App.txtfObservaciones.setDisabled(false);
         App.IdCliente.setDisabled(true);
         App.txtCliente.setDisabled(true);
+        document.getElementById('imgbtnResExcel').disabled = false;
     }
 
     //Valida el estatus para ver si permite seguir capturando o no
@@ -348,6 +351,7 @@ var sVolumetria_Add = function (avance, registro) {
         App.txtfObservaciones.setDisabled(false);
         App.IdCliente.setDisabled(true);
         App.txtCliente.setDisabled(true);
+        document.getElementById('imgbtnResExcel').disabled = false;
     }
 
     if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && registro[0].get('Estatus') == 'BORRADOR' || registro[0].get('Estatus') == '') {
@@ -359,20 +363,31 @@ var sVolumetria_Add = function (avance, registro) {
         App.txtfDescripcionPreciario.setValue(registro[0].get('RPreciario').Descripcion);
         App.dfFechaEmision.setValue(registro[0].get('FechaEmision'));
         App.txtfObservaciones.setValue(registro[0].get('Observaciones'));
-        App.sbFormaVolumetriaDetalle.setText(registro[0].get('Estatus')); 
+        App.sbFormaVolumetriaDetalle.setText(registro[0].get('Estatus'));
 
         if (registro[0].get('RCliente') != null) {
             App.IdCliente.setValue(registro[0].get('RCliente').ID);
             App.txtCliente.setValue(registro[0].get('RCliente').Nombre);
         }
         //Agregar una fila para seguir capturando
-        var renglonAnterior = App.sConceptos.getAt(App.sConceptos.getCount() - 1).get('Renglon') + 1;
-        App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: renglonAnterior });
+        var storeDetalle = App.sConceptos.getAt(App.sConceptos.getCount() - 1);
+        if (storeDetalle != undefined && storeDetalle.get('ConceptoID').length != 0 && storeDetalle.get('Cantidad') != 0 && storeDetalle.get('Precio') != 0) {
+            var renglonAnterior = App.sConceptos.getAt(App.sConceptos.getCount() - 1).get('Renglon') + 1;
+            App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: renglonAnterior });
+        } 
+//        console.log('Borrador');
+//        console.log(storeDetalle);
+        if(storeDetalle == undefined){
+            App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: 0 });
+        }
         App.imgbtnBorrar.setDisabled(false);
+        document.getElementById('imgbtnResExcel').disabled = false;
+        //Validar si se habilita Guardar
+        HabilitarGuardar();
         HabilitarAfectar();
         HabilitarAfectarFin();
 
-   
+
         Ext.util.Cookies.set('cookiePreciario', registro[0].get('Preciario'));
 
     }
@@ -399,6 +414,7 @@ var sVolumetria_Add = function (avance, registro) {
         App.imgbtnAfectar.setDisabled(true);
         App.imgbtnGuardar.setDisabled(true);
         App.imgbtnCancelar.setDisabled(false);
+        document.getElementById('imgbtnResExcel').disabled = false;
         App.gpVolumetriaDetalle.removeAll();
     }
 };
@@ -497,21 +513,23 @@ var ccDimensiones_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
 
 //Evento que actualuza el importe total cuando se usa el generador
 var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) {
+    var storeDetalle = App.sConceptos.getAt(App.sConceptos.getCount() - 1);
+    if (storeDetalle != undefined && storeDetalle.get('ConceptoID').length != 0 && storeDetalle.get('Cantidad') != 0 && storeDetalle.get('Precio') != 0) {
+        //Verificar si abajo de esta columna existe otra
+        if (App.sConceptos.getAt(indiceDetalle + 1) == undefined) {
+            //Verificar si toda la fila contiene datos
+            if (registro.get('ConceptoID').length != 0 && registro.get('Utilizada') != 0) {
+                //Obtener el Renglon anterior
 
-    //Verificar si abajo de esta columna existe otra
-    if (App.sConceptos.getAt(indiceDetalle + 1) == undefined) {
-        //Verificar si toda la fila contiene datos
-        if (registro.get('ConceptoID').length != 0 && registro.get('Utilizada') != 0) {
-            //Obtener el Renglon anterior
-
-            var renglonAnterior = App.sConceptos.getAt(indiceDetalle).get('Renglon') + 1;
-            //Insertar un nuevo registro
-            App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: renglonAnterior });
-            //Actualiza el renglon anterior pintando el botón de borrar
-            App.gpVolumetriaDetalle.getView().refreshNode(App.sConceptos.getCount() - 2);
-            //Validar si se habilita el boton de afectar
-            HabilitarAfectar();
-        }
+                var renglonAnterior = App.sConceptos.getAt(indiceDetalle).get('Renglon') + 1;
+                //Insertar un nuevo registro
+                App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: renglonAnterior });
+                //Actualiza el renglon anterior pintando el botón de borrar
+                App.gpVolumetriaDetalle.getView().refreshNode(App.sConceptos.getCount() - 2);
+                //Validar si se habilita el boton de afectar
+                HabilitarAfectar();
+            }
+        } 
     }
 
 }

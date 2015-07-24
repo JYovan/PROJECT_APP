@@ -196,9 +196,10 @@
                                  <Content>
                                  <asp:ImageButton 
                                         ID="imgbtnResExcel" 
-                                        runat="server" 
+                                        runat="server"  
                                         Height="30"
                                         Width="30"
+                                        Enabled="false"
                                         OnClick="imgbtnVistaPreviaReporteVolumetrias_Click"
                                         class="imgs" 
                                        ImageUrl="assets/img/controles/vp.png"/>
