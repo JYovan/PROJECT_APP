@@ -973,12 +973,6 @@
     <Compile Include="FormaReporteVolumetria.aspx.designer.cs">
       <DependentUpon>FormaReporteVolumetria.aspx</DependentUpon>
     </Compile>
-    <Compile Include="reportess\CPreciarioV.cs">
-      <DependentUpon>CPreciarioV.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedores.aspx.cs">
       <DependentUpon>Proveedores.aspx</DependentUpon>
@@ -1158,10 +1152,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="reportess\CPreciarioV.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CPreciarioV.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="reportess\ResumenOC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ResumenOC.cs</LastGenOutput>
