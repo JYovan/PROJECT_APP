@@ -188,7 +188,26 @@
                             Width="30"
                             Disabled="true"> 
                         </ext:ImageButton>
-                        <ext:ImageButton
+
+
+                             <ext:Container
+                                ID="cCorreoEnviado"
+                                runat="server">
+                                 <Content>
+                                 <asp:ImageButton 
+                                        ID="imgbtnResExcel" 
+                                        runat="server" 
+                                        Height="30"
+                                        Width="30"
+                                        OnClick="imgbtnVistaPreviaReporteVolumetrias_Click"
+                                        class="imgs" 
+                                       ImageUrl="assets/img/controles/vp.png"/>
+                                   
+                                </Content>
+                            </ext:Container>
+
+
+                       <%-- <ext:ImageButton
                             ID="imgbtnPreview"
                             runat="server"
                             ImageUrl="assets/img/controles/vp.png" 
@@ -196,10 +215,7 @@
                             Height="30"
                             Width="30"
                             Disabled="false">
-                            <Listeners>
-                                <Click Fn="imgbtnImprimir_Click"></Click>
-                            </Listeners>
-                        </ext:ImageButton>
+                        </ext:ImageButton>--%>
                         <ext:ToolbarSpacer
                             ID="tbsPrimerEspacio"
                             runat="server"

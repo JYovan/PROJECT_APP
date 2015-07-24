@@ -468,16 +468,17 @@ namespace OSEF.ERP.APP
 
 
         #region VistaPrevia
-        
-        [DirectMethod]
-        public void imgbtnVistaPreviaReporteVolumetrias_Click(string preciario, string volumetria)
+
+        protected void imgbtnVistaPreviaReporteVolumetrias_Click(object sender, EventArgs e)
         {
 
             //Parametros del store procedure
-            string strID = volumetria;
-            string strPreciario = preciario;
+            string strID = Cookies.GetCookie("cookieEditarVolumetria").Value;
+            string strPreciario = Cookies.GetCookie("cookiePreciario").Value;
 
+      
 
+        
 
             string path = AppDomain.CurrentDomain.BaseDirectory;
             //1. Configurar la conexión y el tipo de comando
@@ -498,7 +499,7 @@ namespace OSEF.ERP.APP
                         var reporte = new ReportDocument();
                         reporte.Load(Server.MapPath("reportess/CPreciarioV.rpt"));
                         reporte.SetDataSource(dt);
-                     
+                        reporte.SetParameterValue("path", path);
                       
                         string strDireccion = Server.MapPath(" ") + "\\reportess\\Volumetrias\\" + strID;
 

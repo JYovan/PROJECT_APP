@@ -371,6 +371,10 @@ var sVolumetria_Add = function (avance, registro) {
         App.imgbtnBorrar.setDisabled(false);
         HabilitarAfectar();
         HabilitarAfectarFin();
+
+   
+        Ext.util.Cookies.set('cookiePreciario', registro[0].get('Preciario'));
+
     }
 
     if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && registro[0].get('Estatus') == 'CONCLUIDO'
@@ -1039,28 +1043,5 @@ var cCheckFotos_Renderer = function (value, metadata, registro) {
         if (registro.get('ConceptoID').trim().length > 1) {
             metadata.style = "background-color: #CC0000; color: #fff;";
         }
-    }
-}
-
-var imgbtnImprimir_Click = function () {
-    if (App.IdCliente.getValue().trim().length > 0 && App.cmbPreciario.getValue().trim().length > 0 && App.txtfIDSucursal.getValue().trim().length > 0) {
-        App.direct.imgbtnVistaPreviaReporteVolumetrias_Click(App.cmbPreciario.getValue(), Ext.util.Cookies.get('cookieEditarVolumetria'), {
-            success: function (result) { 
-                    console.log(result); 
-            },
-            failure: function (errorMsg) {
-                Ext.Msg.alert('Error', errorMsg);
-            }
-        });
-    } else {
-        Ext.Msg.show({
-            id: 'msgOrdenesEstimacionesCliente',
-            title: 'ATENCIÓN',
-            msg: 'HACEN FALTA DATOS IMPORTANTES: CLIENTE, PRECIARIO Ó SUCURSAL.',
-            buttons: Ext.MessageBox.OK,
-            onEsc: Ext.emptyFn,
-            closable: false,
-            icon: Ext.MessageBox.WARNING
-        });
     }
 }

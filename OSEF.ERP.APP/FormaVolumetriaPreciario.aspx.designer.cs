@@ -130,13 +130,22 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.ImageButton imgbtnImprimir;
         
         /// <summary>
-        /// Control imgbtnPreview.
+        /// Control cCorreoEnviado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ImageButton imgbtnPreview;
+        protected global::Ext.Net.Container cCorreoEnviado;
+        
+        /// <summary>
+        /// Control imgbtnResExcel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnResExcel;
         
         /// <summary>
         /// Control tbsPrimerEspacio.
