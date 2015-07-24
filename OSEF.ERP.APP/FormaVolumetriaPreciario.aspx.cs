@@ -506,10 +506,10 @@ namespace OSEF.ERP.APP
                         //2. Validar si existe el directorio donde se guardaran
                         if (Directory.Exists(strDireccion))
                         {
-                            //reporte.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf"));
+                            reporte.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf"));
 
-                            //ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
-                            reporte.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "Resumen de OC: ");
+                            ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
+                           // reporte.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "Resumen de OC: ");
 
                         }
                         else

@@ -988,6 +988,12 @@
     <Compile Include="Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="reportess\CPreciarioV.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CPreciarioV.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="reportess\ResumenOC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
