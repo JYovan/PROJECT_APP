@@ -41,7 +41,7 @@
             <DirectEvents>
                 <Load OnEvent="sUsuario_Load" Success="sUsuario_Load_Success" />
             </DirectEvents>
-        </ext:Store>
+        </ext:Store>e
 
         <div id="wrap">
             <!-- Header -->

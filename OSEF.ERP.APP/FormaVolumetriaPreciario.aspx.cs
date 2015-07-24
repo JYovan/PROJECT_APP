@@ -9,6 +9,11 @@ using OSEF.APP.BL;
 using OSEF.APP.EL;
 using System.IO;
 using Newtonsoft.Json;
+using System.Data.SqlClient;
+using System.Data;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System.Configuration;
 
 namespace OSEF.ERP.APP
 {
@@ -459,5 +464,78 @@ namespace OSEF.ERP.APP
                 return null;
             }
         }
+
+
+
+        #region VistaPrevia
+        
+        [DirectMethod]
+        public void imgbtnVistaPreviaReporteVolumetrias_Click(string preciario, string volumetria)
+        {
+
+            //Parametros del store procedure
+            string strID = volumetria;
+            string strPreciario = preciario;
+
+
+
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            //1. Configurar la conexión y el tipo de comando
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+            try
+            {
+                using (var comando = new SqlCommand("web_spS_ObtenerCambiosPreciarioPorVolumetria", conn))
+                {
+                    using (var adaptador = new SqlDataAdapter(comando))
+                    {
+                        DataTable dt = new DataTable();
+                        adaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+                        adaptador.SelectCommand.Parameters.Add(@"idpreciario", SqlDbType.NVarChar).Value = strPreciario;
+                        adaptador.SelectCommand.Parameters.Add(@"Volumetria", SqlDbType.Int).Value = Convert.ToInt32(strID);
+                        adaptador.Fill(dt);
+
+
+                        var reporte = new ReportDocument();
+                        reporte.Load(Server.MapPath("reportess/CPreciarioV.rpt"));
+                        reporte.SetDataSource(dt);
+                     
+                      
+                        string strDireccion = Server.MapPath(" ") + "\\reportess\\Volumetrias\\" + strID;
+
+                        //2. Validar si existe el directorio donde se guardaran
+                        if (Directory.Exists(strDireccion))
+                        {
+                            //reporte.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf"));
+
+                            //ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
+                            reporte.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "Resumen de OC: ");
+
+                        }
+                        else
+                        {
+                            Directory.CreateDirectory(strDireccion);
+                            reporte.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf"));
+                            ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Volumetrias/" + strID + "/Volumetria " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
+                        }
+                        reporte.Dispose();
+                        reporte.Close();
+                    } // end using adaptador
+                } // end using comando
+
+            }
+
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        #endregion
     }
 }

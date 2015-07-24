@@ -104,14 +104,8 @@ var imgbtnImprimir_Click = function () {
         window.parent.App.wGenerador.center();
         window.parent.App.wGenerador.setTitle('Reporte del Movimiento: ' + Ext.util.Cookies.get('cookieEditarOrdenEstimacion'));
         window.parent.App.wGenerador.show();
-
-    }   
-    
-    
-    
-    else {
+        } else {
         Ext.util.Cookies.set('NOrden', App.txtfSucursalCR.getValue()+'-'+App.txtNoOrden.getValue());
-
         window.parent.App.wGenerador.load('FormaReporteOrdenCambioD.aspx');
         window.parent.App.wGenerador.setHeight(160);
         window.parent.App.wGenerador.setWidth(590);

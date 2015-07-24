@@ -186,12 +186,24 @@
                             ToolTip="Imprimir"
                             Height="30"
                             Width="30"
-                            Disabled="true">
+                            Disabled="true"> 
+                        </ext:ImageButton>
+                        <ext:ImageButton
+                            ID="imgbtnPreview"
+                            runat="server"
+                            ImageUrl="assets/img/controles/vp.png" 
+                            ToolTip="Imprimir"
+                            Height="30"
+                            Width="30"
+                            Disabled="false">
+                            <Listeners>
+                                <Click Fn="imgbtnImprimir_Click"></Click>
+                            </Listeners>
                         </ext:ImageButton>
                         <ext:ToolbarSpacer
                             ID="tbsPrimerEspacio"
                             runat="server"
-                            Width="190">
+                            Width="170">
                         </ext:ToolbarSpacer>
                         <ext:ImageButton
                             ID="imgbtnBorrar"

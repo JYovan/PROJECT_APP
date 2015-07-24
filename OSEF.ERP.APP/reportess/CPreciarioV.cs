@@ -16,14 +16,14 @@ namespace OSEF.ERP.APP.reportess {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CPreciario : ReportClass {
+    public class CPreciarioV : ReportClass {
         
-        public CPreciario() {
+        public CPreciarioV() {
         }
         
         public override string ResourceName {
             get {
-                return "CPreciario.rpt";
+                return "CPreciarioV.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace OSEF.ERP.APP.reportess {
         
         public override string FullResourceName {
             get {
-                return "OSEF.ERP.APP.reportess.CPreciario.rpt";
+                return "OSEF.ERP.APP.reportess.CPreciarioV.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace OSEF.ERP.APP.reportess {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace OSEF.ERP.APP.reportess {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,9 +82,25 @@ namespace OSEF.ERP.APP.reportess {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[6];
             }
         }
         
@@ -95,12 +111,28 @@ namespace OSEF.ERP.APP.reportess {
                 return this.DataDefinition.ParameterFields[0];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_idpreciario {
+            get {
+                return this.DataDefinition.ParameterFields[1];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Volumetria {
+            get {
+                return this.DataDefinition.ParameterFields[2];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCPreciario : Component, ICachedReport {
+    public class CachedCPreciarioV : Component, ICachedReport {
         
-        public CachedCPreciario() {
+        public CachedCPreciarioV() {
         }
         
         [Browsable(false)]
@@ -137,7 +169,7 @@ namespace OSEF.ERP.APP.reportess {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CPreciario rpt = new CPreciario();
+            CPreciarioV rpt = new CPreciarioV();
             rpt.Site = this.Site;
             return rpt;
         }

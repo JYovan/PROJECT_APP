@@ -460,4 +460,7 @@
 :r c:\SqlServerScripts\Reportes\OrdenesCambio\web_spS_ObtenerRItemsAdicionales.sql
 :r c:\SqlServerScripts\Reportes\OrdenesCambio\web_spS_ObtenerRCaratulaOC.sql
 -----------------------------------------------------------------------------------
+-- Reporte Volumetria
+:r c:\SqlServerScripts\Reportes\web_spS_ObtenerCambiosPreciarioPorVolumetria.sql 
+-----------------------------------------------------------------------------------
 

@@ -593,7 +593,7 @@ var cCantidad_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "000,000,000.00");
+    return F.number(valor, "000,000,000.000");
 };
 
 //Darle formato a la columna de Cantidad
@@ -601,7 +601,7 @@ var cUtilizada_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "000,000,000.00");
+    return F.number(valor, "000,000,000.000");
 };
 
 //Ocultar el último renglon
@@ -1039,5 +1039,28 @@ var cCheckFotos_Renderer = function (value, metadata, registro) {
         if (registro.get('ConceptoID').trim().length > 1) {
             metadata.style = "background-color: #CC0000; color: #fff;";
         }
+    }
+}
+
+var imgbtnImprimir_Click = function () {
+    if (App.IdCliente.getValue().trim().length > 0 && App.cmbPreciario.getValue().trim().length > 0 && App.txtfIDSucursal.getValue().trim().length > 0) {
+        App.direct.imgbtnVistaPreviaReporteVolumetrias_Click(App.cmbPreciario.getValue(), Ext.util.Cookies.get('cookieEditarVolumetria'), {
+            success: function (result) { 
+                    console.log(result); 
+            },
+            failure: function (errorMsg) {
+                Ext.Msg.alert('Error', errorMsg);
+            }
+        });
+    } else {
+        Ext.Msg.show({
+            id: 'msgOrdenesEstimacionesCliente',
+            title: 'ATENCIÓN',
+            msg: 'HACEN FALTA DATOS IMPORTANTES: CLIENTE, PRECIARIO Ó SUCURSAL.',
+            buttons: Ext.MessageBox.OK,
+            onEsc: Ext.emptyFn,
+            closable: false,
+            icon: Ext.MessageBox.WARNING
+        });
     }
 }
