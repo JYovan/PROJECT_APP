@@ -992,12 +992,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CPreciarioV.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reportess\CPreciarioV1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CPreciarioV.rpt</DependentUpon>
     </Compile>
     <Compile Include="reportess\ResumenOC.cs">
       <AutoGen>True</AutoGen>
@@ -1165,7 +1159,7 @@
   <ItemGroup>
     <EmbeddedResource Include="reportess\CPreciarioV.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CPreciarioV1.cs</LastGenOutput>
+      <LastGenOutput>CPreciarioV.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="reportess\ResumenOC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
