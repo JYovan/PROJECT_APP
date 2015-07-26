@@ -41,8 +41,8 @@ BEGIN
 		Modulo,
 		Orden,
 		Descripcion,
-		Categoria,
-		SubCategoria,
+		CategoriaIdRaw as Categoria,
+		SubCategoriaIdRaw as SubCategoria,
 		FechaAlta,
 		Estatus
 	FROM

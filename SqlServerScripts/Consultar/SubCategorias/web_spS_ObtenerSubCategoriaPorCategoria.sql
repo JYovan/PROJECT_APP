@@ -38,13 +38,13 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
-		ID,
+		Id,
 		Orden,
 		Descripcion,
-		Categoria
+		CategoriaIdRaw as Categoria
 	FROM
 		SubCategorias
 	WHERE
-		Categoria = @Categoria
+		CategoriaIdRaw = @Categoria
 END
 GO

@@ -82,12 +82,12 @@ BEGIN
 		INSERT INTO
 			Conceptos
 			(
-				ID,
+				Id,
 				Modulo,
 				Orden,
 				Descripcion,
-				Categoria,
-				SubCategoria,
+				CategoriaIdRaw,
+				SubCategoriaIdRaw,
 				FechaAlta,
 				Estatus)
 		VALUES (

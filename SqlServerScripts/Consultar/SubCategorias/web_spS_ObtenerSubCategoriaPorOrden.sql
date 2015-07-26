@@ -38,10 +38,10 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
-		ID,
+		Id,
 		Orden,
 		Descripcion,
-		Categoria
+		CategoriaIdRaw as Categoria
 	FROM
 		SubCategorias
 	WHERE

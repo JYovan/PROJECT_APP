@@ -74,10 +74,10 @@ BEGIN
 		INSERT INTO
 			SubCategorias
 			(
-				ID,
+				Id,
 				Orden,
 				Descripcion,
-				Categoria)
+				CategoriaIdRaw)
 		VALUES (
 				@ID,
 				@Orden,

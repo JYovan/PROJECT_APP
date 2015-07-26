@@ -50,11 +50,11 @@ BEGIN
 		Modulo = @Modulo,
 		Orden = @Orden,
 		Descripcion = @Descripcion,
-		Categoria = @Categoria,
-		SubCategoria = @SubCategoria,
+		CategoriaIdRaw = @Categoria,
+		SubCategoriaIdRaw = @SubCategoria,
 		FechaAlta = @FechaAlta,
 		Estatus = @Estatus
 	WHERE
-		ID = @ID
+		Id = @ID
 END
 GO

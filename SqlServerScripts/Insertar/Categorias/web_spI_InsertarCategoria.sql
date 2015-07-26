@@ -73,7 +73,7 @@ BEGIN
 		INSERT INTO
 			Categorias
 			(
-				ID,
+				Id,
 				Orden,
 				Descripcion)
 		VALUES (

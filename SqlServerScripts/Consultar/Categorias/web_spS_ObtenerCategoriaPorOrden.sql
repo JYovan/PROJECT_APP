@@ -38,7 +38,7 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
-		ID,
+		Id,
 		Orden,
 		Descripcion
 	FROM

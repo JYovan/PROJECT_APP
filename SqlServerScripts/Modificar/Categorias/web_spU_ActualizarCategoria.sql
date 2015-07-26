@@ -45,6 +45,6 @@ BEGIN
 		Orden = @Orden,
 		Descripcion = @Descripcion
 	WHERE
-		ID = @ID
+		Id = @ID
 END
 GO

@@ -45,8 +45,8 @@ BEGIN
 	SET
 		Orden = @Orden,
 		Descripcion = @Descripcion,
-		Categoria = @Categoria
+		CategoriaIdRaw = @Categoria
 	WHERE
-		ID = @ID
+		Id = @ID
 END
 GO
