@@ -104,18 +104,9 @@ namespace OSEF.ERP.APP
 
             //3. Guardar o Actuaizar el Movimiento
             string strAccion = GuardarMovimiento(ref oFormaVolumetria, oVolumetria, lVolumetriaD);
-
-            var success = new JFunction { Fn = "onResult_From_Direct" };
+             
             //4. Validar que efecto realizará para Guardar o Afectar
-            switch (strAccion)
-            {
-                case "insertar":
-                    X.Msg.Alert("ATENCIÓN", "<p align='center'>MOVIMIENTO GUARDADO</p>", success).Show();
-                    break;
-                case "modificar": 
-                    X.Msg.Alert("ATENCIÓN", "<p align='center'>MOVIMIENTO ACTUALIZADO</p>", success).Show();
-                    break;
-            }
+             
 
         }
         
