@@ -11,6 +11,3 @@ var Password_SpecialKey_Success = function (response, result) {
     }
 };
 
-$(document).ready(function () {
-    $("#pcreditos").html("© " + new Date().getFullYear() + " Osef Technology");
-});
