@@ -346,9 +346,24 @@ function HabilitarGuardar() {
     }
 }
 
+var IDVolumetria = function () {
+    if (Ext.util.Cookies.get('cookieEditarVolumetria') === 'Nuevo') {
+        return null;
+    } else {
+        return window.parent.App.wEmergente.getBody().App.sVolumetria.getAt(0).get('ID');
+    }
+}
 
 var imgbtnAceptar_Click = function () {
+    var wp = window.parent.App.wEmergente.getBody();
 
-    window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Utilizada", parseFloat(ImporteFinal));
+    var strVolumetriaForma = Ext.encode(wp.App.fpVolumetriasPreciario.getForm().getValues());
+    var strSucursal = wp.App.txtfIDSucursal.getValue();
+    var strVolumetriaD = Ext.encode(wp.App.sConceptos.getRecordsValues());
+    var strID = IDVolumetria();
+
+    wp.App.direct.imgbtnGuardarDirect_Click(strVolumetriaForma, strID, strSucursal, strVolumetriaD);
+
+    wp.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Utilizada", parseFloat(ImporteFinal));
     window.parent.App.wGenerador.hide();
 }

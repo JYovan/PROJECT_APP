@@ -1064,3 +1064,6 @@ var cCheckFotos_Renderer = function (value, metadata, registro) {
         }
     }
 }
+var onResult_From_Direct = function () { 
+
+}

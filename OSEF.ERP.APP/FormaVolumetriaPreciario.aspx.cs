@@ -75,7 +75,52 @@ namespace OSEF.ERP.APP
                     break;
             }
         }
+
+
+
+
+
+        /// <summary>
+        /// Evento de clic del botón Guardar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        [DirectMethod]
+        public void imgbtnGuardarDirect_Click(string strVolumetriaForma, string strID, string strSucursal, string strVolumetriaD)
+        {
+            //1. Obtener datos de la Forma y saber si es edición o nuevo  
+            string strcookieEditarVolumetria = Cookies.GetCookie("cookieEditarVolumetria").Value;
+
+            //2. Serializar el encabezado y el detalle
+            Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strVolumetriaForma);
+            Volumetria oFormaVolumetria = ObtenerObjetoDesdeForma(dRegistro, strSucursal);
+            //Volumetria oVolumetria = JSON.Deserialize<List<Volumetria>>(strVolumetria).FirstOrDefault();
+            Volumetria oVolumetria = null;
+            if (!strID.Equals("null"))
+            {
+                oVolumetria = VolumetriaBusiness.ObtenerVolumetriaPorID(Convert.ToInt32(strID));
+            }
+            List<VolumetriaD> lVolumetriaD = JSON.Deserialize<List<VolumetriaD>>(strVolumetriaD);
+
+            //3. Guardar o Actuaizar el Movimiento
+            string strAccion = GuardarMovimiento(ref oFormaVolumetria, oVolumetria, lVolumetriaD);
+
+            var success = new JFunction { Fn = "onResult_From_Direct" };
+            //4. Validar que efecto realizará para Guardar o Afectar
+            switch (strAccion)
+            {
+                case "insertar":
+                    X.Msg.Alert("ATENCIÓN", "<p align='center'>MOVIMIENTO GUARDADO</p>", success).Show();
+                    break;
+                case "modificar": 
+                    X.Msg.Alert("ATENCIÓN", "<p align='center'>MOVIMIENTO ACTUALIZADO</p>", success).Show();
+                    break;
+            }
+
+        }
         
+
+
         /// <summary>
         /// Evento que se lanza al cargar el store
         /// </summary>
@@ -328,10 +373,13 @@ namespace OSEF.ERP.APP
             //else
             //{
                 //e.ExtraParamsResponse.Add(new Ext.Net.Parameter("existe", "false", ParameterMode.Raw));
+            if (strPreciarios != null & !strPreciarios.Trim().Equals(""))
+            {
                 Preciario oPreciario = PreciarioBusiness.ObtenerPreciarioPorID(strPreciarios);
                 //sPreciarioConcepto.DataSource = PreciarioConceptoBusiness.ObtenerPreciarioConceptoPorPreciario(strPreciarios);
                 //sPreciarioConcepto.DataBind();
-            //}
+                //}
+            }
         }
 
         /// <summary>
@@ -465,7 +513,13 @@ namespace OSEF.ERP.APP
             }
         }
 
+        [DirectMethod]
+        public void PDirect(string strID)
+        {
+            var success = new JFunction { Fn = "onResult_From_Direct" };
+            X.Msg.Alert("ATENCIÓN", "<p align='center'>EVENTO DESDE UN DIRECT CHILD: "+strID+"</p>", success).Show();
 
+        }
 
         #region VistaPrevia
 
