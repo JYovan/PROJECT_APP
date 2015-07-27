@@ -87,7 +87,7 @@
 
                        
 
-                        <ext:ToolbarSpacer ID="tbsVolumetrias" runat="server" Width="490">
+                        <ext:ToolbarSpacer ID="tbsVolumetrias" runat="server" Width="600">
                         </ext:ToolbarSpacer>
 
 

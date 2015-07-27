@@ -31,7 +31,7 @@ CREATE PROCEDURE web_spI_InsertarImagenVolumetriaD
 	-- Add the parameters for the stored procedure here
 	@Volumetria			INT,
 	@PreciarioConcepto	CHAR(10),
-	@Nombre				VARCHAR(50),
+	@Nombre				VARCHAR(500),
 	@Direccion			VARCHAR(500),
 	@Usuario			VARCHAR(50),
 	@FechaAlta			SMALLDATETIME

@@ -91,7 +91,7 @@
     <ext:XScript runat="server">
         <script>
             var prepareData = function (data) {
-                data.Nombre = Ext.util.Format.ellipsis(data.Nombre, 50);
+                data.Nombre = Ext.util.Format.ellipsis(data.Nombre, 500);
                 return data;
             };
         </script>

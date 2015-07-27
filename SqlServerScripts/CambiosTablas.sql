@@ -218,3 +218,6 @@ ALTER TABLE GeneradorVolumetriaD ALTER COLUMN Alto DECIMAL(10,3) NOT NULL
 
 ALTER TABLE GeneradorVolumetriaD ALTER COLUMN Cantidad DECIMAL(10,3) NOT NULL
 ALTER TABLE GeneradorVolumetriaD ALTER COLUMN Total DECIMAL(10,3) NOT NULL 
+
+--Cambios Giovanni Flores 27 de Julio 2015
+ALTER TABLE ImagenesVolumetriasD ALTER COLUMN Nombre VARCHAR(500) NOT NULL
