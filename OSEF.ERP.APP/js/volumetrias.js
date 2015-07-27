@@ -57,7 +57,7 @@ var imgbtnGuardar_Click_Success = function (response, result) {
 
         //2. Activa el boton de borrar movimiento
         App.imgbtnBorrar.setDisabled(false);
-
+        App.cmbMov.setReadOnly(true);
         //3. Actualiza al estatus BORRADOR de la captura
         App.sbFormaVolumetriaDetalle.setText(App.sVolumetria.getAt(0).get('Estatus'));
 
@@ -381,6 +381,7 @@ var sVolumetria_Add = function (avance, registro) {
             App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: 0 });
         }
         App.imgbtnBorrar.setDisabled(false);
+        App.cmbMov.setReadOnly(true);
         document.getElementById('imgbtnResExcel').disabled = false;
         //Validar si se habilita Guardar
         HabilitarGuardar();
