@@ -139,6 +139,14 @@ namespace OSEF.APP.BL
                 sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
 
             }
+
+            foreach (OrdenEstimacion sd in lOrdenesEstimacionesConcluidos)
+            {
+                if (sd.Cliente != null)
+                {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                }
+            }
             return lOrdenesEstimacionesConcluidos;
         }
 

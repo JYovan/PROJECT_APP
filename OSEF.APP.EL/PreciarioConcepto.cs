@@ -29,7 +29,8 @@ namespace OSEF.APP.EL
         string estatus;
         DateTime fechaalta;
         string tipo;
-
+        string cliente;
+        Cliente rcliente;
         PreciarioCategoria rcategoria;
         PreciarioSubCategoria rsubcategoria;
         PreciarioSubSubCategoria rsubsubcategoria;
@@ -158,9 +159,17 @@ namespace OSEF.APP.EL
             set { rsubsubcategoria = value; }
         }
 
+        public string Cliente
+        {
+            get { return cliente; }
+            set { cliente = value; }
+        }
 
-
-
+        public Cliente RCliente
+        {
+            get { return rcliente; }
+            set { rcliente = value; }
+        }
         #endregion
     }
 }

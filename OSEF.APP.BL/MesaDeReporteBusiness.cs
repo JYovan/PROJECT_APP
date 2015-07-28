@@ -88,6 +88,12 @@ namespace OSEF.APP.BL
                 sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
 
             }
+            foreach (MesaDeReporte sd in lMesaDeReportesConcluidos)
+            {
+                if (sd.Cliente != null) {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                }
+            }
             return lMesaDeReportesConcluidos;
         }
 
@@ -106,6 +112,13 @@ namespace OSEF.APP.BL
                 sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
 
             }
+            foreach (MesaDeReporte sd in lMesaDeReportesConcluidos)
+            {
+                if (sd.Cliente != null)
+                {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                }
+            }
             return lMesaDeReportesConcluidos;
         }
 
@@ -119,7 +132,7 @@ namespace OSEF.APP.BL
             //1. Inicializar objeto, complementarlo con la Sucursal
             MesaDeReporte oMesaDeReporte = MesaDeReporteDataAccess.ObtenerMesaDeReporteaPorID(iID);
             oMesaDeReporte.RSucursal = SucursalBusiness.ObtenerSucursalPorID(oMesaDeReporte.Sucursal);
-
+            
             return oMesaDeReporte;
         }
 

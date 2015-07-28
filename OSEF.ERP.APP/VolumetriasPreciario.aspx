@@ -176,7 +176,7 @@
                         runat="server"
                         Text="SUCURSAL"
                         Align="Center"
-                        Width="330"
+                        Width="230"
                         DataIndex="Sucursal">
                         <Renderer Fn="cSucursal_Renderer" />
                     </ext:Column>
@@ -230,7 +230,7 @@
                         runat="server"
                         Text="ESTATUS"
                         Align="Center"
-                        Width="150"
+                        Width="120"
                         DataIndex="Estatus">
                         <HeaderItems>
                             <ext:ComboBox

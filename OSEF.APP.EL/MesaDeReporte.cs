@@ -47,7 +47,8 @@ namespace OSEF.APP.EL
         string clasificacion;
         bool revisado;
         string facturamantenimiento;
-
+        string cliente;
+        Cliente rcliente;
         #endregion
 
         #region Propiedades
@@ -245,7 +246,18 @@ namespace OSEF.APP.EL
             get { return facturamantenimiento; }
             set { facturamantenimiento = value; }
         }
-         
+
+        public string Cliente
+        {
+            get { return cliente; }
+            set { cliente = value; }
+        }
+
+        public Cliente RCliente
+        {
+            get { return rcliente; }
+            set { rcliente = value; }
+        }
         #endregion
     }
 }

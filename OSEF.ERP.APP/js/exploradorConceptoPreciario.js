@@ -138,6 +138,15 @@ var txtCosto_renderer = function (valor) {
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
     return F.number(valor, "$000,000,000.00");
-};
+}; 
 
-
+//Regresar el nombre del cliente
+var cCliente_Renderer = function (valor, metaData, registro) {
+    console.log(registro);
+    var r = registro.get('RCliente');
+    if (r.Nombre != null) {
+        return r.Nombre;
+    } else {
+        return '';
+    }
+};  

@@ -275,6 +275,8 @@
                                 <ext:ModelField Name="Clasificacion" Type="String" />
                                 <ext:ModelField Name="Revisado" Type="Boolean" />
                                 <ext:ModelField Name="FacturaMantenimiento" Type="String" />
+                                <ext:ModelField Name="Cliente" Type="String" />
+                                <ext:ModelField Name="RCliente" Type="Object" />
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -548,7 +550,16 @@
                         </HeaderItems>
                     
                     </ext:Column>
-
+                    
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
+                    </ext:Column>
                 </Columns>
             </ColumnModel>
             <Listeners>

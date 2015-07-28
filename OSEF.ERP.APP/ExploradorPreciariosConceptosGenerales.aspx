@@ -145,8 +145,7 @@
                 <ext:Store
                     ID="sOrdenesEstimaciones"
                     runat="server"
-                   OnReadData="OnReadData_sOrdenesEstimaciones"
-                    >
+                   OnReadData="OnReadData_sOrdenesEstimaciones">
                     <Model>
                         <ext:Model ID="mOrdenesEstimaciones" runat="server">
                             <Fields>
@@ -161,6 +160,8 @@
                                 <ext:ModelField Name="ImporteTotal" Type="Float" />
                                 <ext:ModelField Name="Usuario" Type="String" />
                                <ext:ModelField Name="NoOrden" Type="String" />
+                                <ext:ModelField Name="Cliente" Type="String" />
+                                <ext:ModelField Name="RCliente" Type="Object" />
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -174,7 +175,15 @@
             </Store>
 
             <ColumnModel>
-                <Columns>
+                <Columns> 
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        DataIndex="Cliente">
+                    </ext:Column>
                     <ext:Column 
                         ID="cMovimiento"
                         runat="server"
@@ -195,7 +204,7 @@
                         </HeaderItems>
                         <Renderer Fn="cMov_Renderer" />
                     </ext:Column>
-                     <ext:DateColumn
+                    <ext:DateColumn
                         ID="dcFechaEmision"
                         runat="server"
                         Text="EMITIDO"
@@ -240,7 +249,7 @@
                             </ext:ComboBox>
                         </HeaderItems>
                     </ext:DateColumn>
-                     <ext:Column
+                    <ext:Column
                         ID="cSucursal"
                         runat="server"
                         Text="SUCURSAL"
@@ -249,7 +258,6 @@
                         DataIndex="Sucursal">
                       <Renderer Fn="cSucursal_Renderer" />
                     </ext:Column>
-                    
                     <ext:Column
                         ID="cAsunto"
                         runat="server"
@@ -258,7 +266,6 @@
                         Width="300"
                         DataIndex="Observaciones">
                     </ext:Column>
-                    
                     <ext:Column
                         ID="cTotal"
                         runat="server"
@@ -268,7 +275,7 @@
                         DataIndex="ImporteTotal">
                         <Renderer Fn="cImporte_renderer"></Renderer>
                     </ext:Column>
-                   <ext:Column
+                    <ext:Column
                         ID="cUsuario"
                         runat="server"
                         Text="USUARIO"

@@ -51,8 +51,7 @@
             <TopBar>
                 <ext:Toolbar ID="tbVolumetrias" runat="server">
                     <Items>
-
-                    <ext:ComboBox
+                                <ext:ComboBox
                         ID="cmbPreciario"
                         runat="server"
                         DisplayField="ID"
@@ -107,7 +106,7 @@
                             </DirectEvents>
                                                                    
                     </ext:ComboBox>
-                            <ext:ComboBox
+                                <ext:ComboBox
                                 ID="cmbCategoria"
                                 runat="server"
                                 Width="175"
@@ -293,7 +292,9 @@
                                 <ext:ModelField Name="Tipo" Type="String" />
                                 <ext:ModelField Name="RCategoria" Type="Object" />
                                 <ext:ModelField Name="RSubcategoria" Type="Object" />
-                                <ext:ModelField Name="RSubsubcategoria" Type="Object" />
+                                <ext:ModelField Name="RSubsubcategoria" Type="Object" /> 
+                                <ext:ModelField Name="Cliente" Type="String" />
+                                <ext:ModelField Name="RCliente" Type="Object" />
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -309,6 +310,15 @@
 
             <ColumnModel>
                 <Columns>
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
+                    </ext:Column>
                     <ext:Column 
                         ID="cClave"
                         runat="server"

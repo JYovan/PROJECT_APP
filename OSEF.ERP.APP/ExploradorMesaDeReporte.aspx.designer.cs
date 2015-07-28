@@ -391,6 +391,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.Model mUsuarios;
         
         /// <summary>
+        /// Control cCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Column cCliente;
+        
+        /// <summary>
         /// Control gvExploradorMesaDeReporte.
         /// </summary>
         /// <remarks>

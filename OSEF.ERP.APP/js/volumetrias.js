@@ -80,6 +80,7 @@ var imgbtnGuardar_Click_Success = function (response, result) {
         //console.log(App.ccFotos.getMenuItems());
     }
     else {
+        window.parent.App.pCentro.getBody().App.sVolumetrias.reload();
         Ext.Msg.show({
             id: 'msgVolumetria',
             title: 'ACTUALIZAR',
@@ -89,6 +90,7 @@ var imgbtnGuardar_Click_Success = function (response, result) {
             closable: false,
             icon: Ext.MessageBox.INFO
         });
+        
     }
 };
 

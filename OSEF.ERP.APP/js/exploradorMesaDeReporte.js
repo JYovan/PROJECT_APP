@@ -365,3 +365,11 @@ var txtFacturaMantenimiento_Change = function (textfield, newValue, oldValue, e)
     }]);
     App.gpExploradorMesaDeReporte.getSelectionModel().deselectAll();
 };
+
+//Regresar el nombre del cliente
+var cCliente_Renderer = function (valor, metaData, registro) {
+    var r = registro.get('RCliente').Nombre;
+    if (r != null) {
+        return registro.get('RCliente').Nombre;
+    }
+}; 

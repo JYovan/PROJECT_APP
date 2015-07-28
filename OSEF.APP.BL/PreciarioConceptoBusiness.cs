@@ -68,7 +68,16 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static List<PreciarioConcepto> ObtenerPreciarioConceptoFiltro(string strPreciario, string strCategoria, string strSubCategoria, string strSubsubCategoria)
         {
-            return PreciarioConceptosDataAccess.ObtenerPreciarioConceptoFiltro(strPreciario, strCategoria,strSubCategoria,strSubsubCategoria);
+            List<PreciarioConcepto> lpc = PreciarioConceptosDataAccess.ObtenerPreciarioConceptoFiltro(strPreciario, strCategoria,strSubCategoria,strSubsubCategoria);
+
+            foreach (PreciarioConcepto sd in lpc)
+            {
+                if (sd.Cliente != null)
+                {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                } 
+            }
+            return lpc;
         }
 
         /// <summary>
