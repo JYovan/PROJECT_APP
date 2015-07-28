@@ -7,24 +7,6 @@ $(document).ready(function () {
     });
 
 
-//    $("#avances").click(function (event) {
-//        $("#contenedor").fadeOut(timer, function () {
-//            parent.App.imgbtnRegresar.show();
-//            //            parent.App.lblRegresar.show();
-//            parent.App.pCentro.getLoader().load('Avances.aspx');
-//        });
-//    });
-
-
-    parent.App.direct.getData({
-        success: function (result) {
-            $("#avances").attr("href", 'http://programaobra.ibuho.mx/');
-        },
-        failure: function (errorMsg) {
-            Ext.Msg.alert('Error', errorMsg);
-        }
-    });
-   
 
     $("#usuarios").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -154,13 +136,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#gantt").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Principal2.aspx');
-        });
-    });
+   
 
     $("#exploradorPreciarioConcepto").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -234,12 +210,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#eRegistro").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            parent.App.pCentro.getLoader().load('ExploradorRegistroConaproch.aspx');
-        });
-    });
+
 
     parent.App.direct.getData({
         success: function (result) {
@@ -252,6 +223,33 @@ $(document).ready(function () {
     });
 
 
+        $("#avances").click(function (event) {
+            $("#contenedor").fadeOut(timer, function () {
+                parent.App.imgbtnRegresar.show();
+                //            parent.App.lblRegresar.show();
+                parent.App.pCentro.getLoader().load('Avances.aspx');
+            });
+        });
+
+
+//        $("#gantt").click(function (event) {
+//            $("#contenedor").fadeOut(timer, function () {
+//                parent.App.imgbtnRegresar.show();
+//                //            parent.App.lblRegresar.show();
+//                parent.App.pCentro.getLoader().load('Principal2.aspx');
+//            });
+//        });
+
+
+    parent.App.direct.getData({
+        success: function (result) {
+            $("#gantt").attr("href", 'http://programaobra.ibuho.mx/' + '?txtUsr=' + result.Nombre + '&txtPwd=' + result.Contrasena);
+        },
+        failure: function (errorMsg) {
+            Ext.Msg.alert('Error', errorMsg);
+        }
+    });
+   
 
 
 });

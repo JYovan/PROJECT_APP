@@ -27,14 +27,14 @@
                         <div class="panorama-section">
                             <h2>Programa</h2>
                             <div class="tile-column-span-2">
-                                 <a class="tile widepeek" id="avances" href="" target="_blank">
+                                 <a class="tile widepeek" id="avances" href="#">
                                     <div class="tile wide image">
                                         <img src="assets/img/revisiones.png" alt="Revisiones" />
                                         <div class="text-header">Avances</div>
                                     </div>
                                 </a>
 
-                             <a class="tile square image bg-color-yellow" id="gantt" href="#" >
+                             <a class="tile square image bg-color-yellow" id="gantt" href="" target="_blank" >
                                     <img src="assets/img/menu-gantt.png" alt="Gantt" />
                                     <div class="textover-wrapper transparent">
                                         <div class="text2">Visual Gantt</div>
