@@ -222,14 +222,14 @@ $(document).ready(function () {
         }
     });
 
-
-        $("#avances").click(function (event) {
-            $("#contenedor").fadeOut(timer, function () {
-                parent.App.imgbtnRegresar.show();
-                //            parent.App.lblRegresar.show();
-                parent.App.pCentro.getLoader().load('Avances.aspx');
-            });
-        });
+    // Por el moemnto no estará disponible
+//        $("#avances").click(function (event) {
+//            $("#contenedor").fadeOut(timer, function () {
+//                parent.App.imgbtnRegresar.show();
+//                //            parent.App.lblRegresar.show();
+//                parent.App.pCentro.getLoader().load('Avances.aspx');
+//            });
+//        });
 
 
 //        $("#gantt").click(function (event) {
