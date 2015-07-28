@@ -6,37 +6,25 @@ $(document).ready(function () {
         parent.App.pCentro.getLoader().load('Menu.aspx');
     });
 
-    //Abrir tablero de ahorros Caja Popular Hidrocalida
-    $("#ahorros").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            parent.App.pCentro.getLoader().load('tAhorros.aspx');
-        });
-    });
 
-    $("#avances").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Avances.aspx');
-        });
-    });
+//    $("#avances").click(function (event) {
+//        $("#contenedor").fadeOut(timer, function () {
+//            parent.App.imgbtnRegresar.show();
+//            //            parent.App.lblRegresar.show();
+//            parent.App.pCentro.getLoader().load('Avances.aspx');
+//        });
+//    });
 
-    $("#gruposMenu").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('GruposMenu.aspx');
-        });
-    });
 
-    $("#gruposMenu2").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('GruposMenu2.aspx');
-        });
+    parent.App.direct.getData({
+        success: function (result) {
+            $("#avances").attr("href", 'http://programaobra.ibuho.mx/');
+        },
+        failure: function (errorMsg) {
+            Ext.Msg.alert('Error', errorMsg);
+        }
     });
+   
 
     $("#usuarios").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -46,29 +34,6 @@ $(document).ready(function () {
         });
     });
 
-    $("#usuarios2").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Usuarios2.aspx');
-        });
-    });
-
-    $("#menus").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Menus.aspx');
-        });
-    });
-
-    $("#menus2").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Menus2.aspx');
-        });
-    });
 
     $("#articulos").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -78,21 +43,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#profesiones").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Profesiones.aspx');
-        });
-    });
-
-    $("#finalidades").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Finalidades.aspx');
-        });
-    });
+ 
 
     $("#sucursal").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -110,21 +61,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#conceptos2").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Conceptos2.aspx');
-        });
-    });
-
-    $("#cuentascontables").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('CuentasContables.aspx');
-        });
-    });
+  
 
     $("#categorias").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -158,14 +95,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#estados2").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Estados2.aspx');
-        });
-    });
-
+ 
     $("#municipios").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
             parent.App.imgbtnRegresar.show();
@@ -174,14 +104,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#municipios2").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('Municipios2.aspx');
-        });
-    });
-
+  
     $("#colonias").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
             parent.App.imgbtnRegresar.show();
@@ -197,14 +120,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#codigospostales2").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            //            parent.App.lblRegresar.show();
-            parent.App.pCentro.getLoader().load('CodigosPostales2.aspx');
-        });
-    });
-
+  
     $("#socios").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
             parent.App.imgbtnRegresar.show();
@@ -271,20 +187,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#solicitudesPrestamos").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            parent.App.pCentro.getLoader().load('SolicitudesPrestamos.aspx');
-        });
-    });
-
-    $("#certificadosInversiones").click(function (event) {
-        $("#contenedor").fadeOut(timer, function () {
-            parent.App.imgbtnRegresar.show();
-            parent.App.pCentro.getLoader().load('CertificadosInversiones.aspx');
-        });
-    });
-
+ 
     $("#OrdenesEstimaciones").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
             parent.App.imgbtnRegresar.show();
@@ -347,5 +250,8 @@ $(document).ready(function () {
             Ext.Msg.alert('Error', errorMsg);
         }
     });
+
+
+
 
 });

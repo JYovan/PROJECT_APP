@@ -27,7 +27,7 @@
                         <div class="panorama-section">
                             <h2>Programa</h2>
                             <div class="tile-column-span-2">
-                                 <a class="tile widepeek" href="#" id="avances">
+                                 <a class="tile widepeek" id="avances" href="" target="_blank">
                                     <div class="tile wide image">
                                         <img src="assets/img/revisiones.png" alt="Revisiones" />
                                         <div class="text-header">Avances</div>
