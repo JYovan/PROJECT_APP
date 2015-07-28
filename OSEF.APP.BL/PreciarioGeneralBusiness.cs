@@ -56,8 +56,14 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static List<PreciarioGeneral> ObtenerPreciariosGenerales()
         {
-            return PreciarioGeneralDataAccess.ObtenerPreciariosGenerales();
-           
+            List<PreciarioGeneral> lp = PreciarioGeneralDataAccess.ObtenerPreciariosGenerales();
+            foreach(PreciarioGeneral sd in lp){
+                if (sd.Cliente != null)
+                {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                }
+            }
+            return lp; 
         }
 
 

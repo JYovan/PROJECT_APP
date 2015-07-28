@@ -65,13 +65,22 @@ namespace OSEF.APP.BL
             foreach (Volumetria sd in lVolumetrias)
             {
                 sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
-             
+
             }
             //2. Complementarlas con preciario
             foreach (Volumetria sd in lVolumetrias)
             {
                 sd.RPreciario = PreciarioBusiness.ObtenerPreciarioPorID(sd.Preciario);
-                
+
+            }
+
+            //2. Complementarlas con preciario
+            foreach (Volumetria sd in lVolumetrias)
+            {
+                if (sd.Cliente != null)
+                {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                }
             }
             return lVolumetrias;
         }

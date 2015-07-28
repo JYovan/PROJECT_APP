@@ -109,8 +109,24 @@ namespace OSEF.ERP.APP
              
 
         }
-        
 
+
+        /// Evento que vuelve a leer los datos para ser cargados al store
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void sConceptos_OnReadData(object sender, StoreReadDataEventArgs e)
+        {
+            //Obtener la cookie al cargar
+            string strcookieEditarVolumetria = Cookies.GetCookie("cookieEditarVolumetria").Value;
+            if (!strcookieEditarVolumetria.Equals("Nuevo"))
+            {
+                Volumetria oVolumetria = VolumetriaBusiness.ObtenerVolumetriaPorID(Convert.ToInt32(strcookieEditarVolumetria));
+                sConceptos.DataSource = VolumetriaDBusiness.ObtenerVolumetriaDPorVolumetria(oVolumetria.ID);
+                sConceptos.DataBind();
+            }
+
+        }
 
         /// <summary>
         /// Evento que se lanza al cargar el store

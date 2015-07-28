@@ -19,6 +19,7 @@ namespace OSEF.APP.EL
         string usuario;
         string estatus;
         string cliente;
+        Cliente rcliente;
 
         DateTime fechaalta;
         
@@ -87,6 +88,11 @@ namespace OSEF.APP.EL
         {
             get { return cliente; }
             set { cliente = value; }
+        }
+        public Cliente RCliente
+        {
+            get { return rcliente; }
+            set { rcliente = value; }
         }
         #endregion
     }

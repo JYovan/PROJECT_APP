@@ -155,4 +155,9 @@ var cSucursal_Renderer = function (valor, metaData, registro) {
 //Regresar el nombre del preciario
 var cPreciario_Renderer = function (valor, metaData, registro) {
     return registro.get('RPreciario').Descripcion;
+};
+
+//Regresar el nombre del cliente
+var cCliente_Renderer = function (valor, metaData, registro) {
+    return registro.get('RCliente').Nombre;
 }; 

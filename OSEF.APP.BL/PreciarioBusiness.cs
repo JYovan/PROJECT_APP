@@ -59,8 +59,14 @@ namespace OSEF.APP.BL
         {
             List<Preciario> lPreciario = PreciarioDataAccess.ObtenerPreciarios();
             foreach (Preciario sd in lPreciario)
+            {
                 sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
-
+            }
+            foreach (Preciario sd in lPreciario) {
+                if (sd.Cliente != null) {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                }
+            }
             return lPreciario;
         }
 

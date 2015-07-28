@@ -168,8 +168,7 @@
                 <ext:Store
                     ID="sOrdenesEstimaciones"
                     runat="server"
-                     OnReadData="OnReadData_sOrdenesEstimaciones"
-                    >
+                     OnReadData="OnReadData_sOrdenesEstimaciones">
                     <Model>
                         <ext:Model ID="mOrdenesEstimaciones" runat="server">
                             <Fields>
@@ -199,6 +198,8 @@
                                  <ext:ModelField Name="RutaImagen" Type="String" />
                                  <ext:ModelField Name="Atendido" Type="String" />
                                  <ext:ModelField Name="NoOrden" Type="String" />
+                                 <ext:ModelField Name="Cliente" Type="String" />
+                                 <ext:ModelField Name="RCliente" Type="Object" />
                                  <ext:ModelField Name="Clasificacion" Type="String" />
                             </Fields>
                         </ext:Model>
@@ -621,6 +622,16 @@
                             </ext:ComboBox>
                         </HeaderItems> 
                     </ext:Column> 
+                    
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
+                    </ext:Column>
                 </Columns>
             </ColumnModel>
             <Listeners>

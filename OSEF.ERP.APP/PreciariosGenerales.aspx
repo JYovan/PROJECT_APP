@@ -229,6 +229,8 @@
                                 <ext:ModelField Name="FechaAlta" Type="Date" />
                                 <ext:ModelField Name="Estatus" Type="String" />
                                 <ext:ModelField Name="Usuario" Type="String" />
+                                <ext:ModelField Name="Cliente" Type="String" />
+                                <ext:ModelField Name="RCliente" Type="Object" />
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -255,7 +257,7 @@
                         runat="server"
                         Text="NOMBRE"
                         Align="Center"
-                        Width="310"
+                        Width="250"
                         DataIndex="Descripcion">
                     </ext:Column>
                     <ext:DateColumn
@@ -264,7 +266,7 @@
                         Text="FECHA"
                         Align="Center"
                         Format="dd/mm/yyyy"
-                        Width="170"
+                        Width="150"
                         DataIndex="FechaAlta">
                     </ext:DateColumn>
                     <ext:Column
@@ -272,7 +274,7 @@
                         runat="server"
                         Text="ESTATUS"
                         Align="Center"
-                        Width="170"
+                        Width="120"
                         DataIndex="Estatus">
                         <HeaderItems>
                             <ext:ComboBox
@@ -303,6 +305,15 @@
                         Align="Center"
                         Width="170"
                         DataIndex="Usuario">
+                    </ext:Column>
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
                     </ext:Column>
                 </Columns>
             </ColumnModel>

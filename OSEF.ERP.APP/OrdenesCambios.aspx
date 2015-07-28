@@ -212,6 +212,8 @@
                                 <ext:ModelField Name="Observaciones" Type="String" />
                                 <ext:ModelField Name="TrabajoRequerido" Type="String" />
                                  <ext:ModelField Name="NoOrden" Type="String" />
+                                 <ext:ModelField Name="Cliente" Type="String" />
+                                 <ext:ModelField Name="RCliente" Type="Object" />
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -254,8 +256,7 @@
                             </ext:ComboBox>
                         </HeaderItems> 
                     </ext:Column>
-                    
-                      <ext:Column
+                    <ext:Column
                         ID="cNoOrden"
                         runat="server"
                         Text="No.Orden"
@@ -274,8 +275,7 @@
                             </ext:TextField>
                         </HeaderItems>
                     </ext:Column>
-
-                    <ext:Column
+                                      <ext:Column
                         ID="cSucursal"
                         runat="server"
                         Text="SUCURSAL"
@@ -445,6 +445,16 @@
                             </ext:ComboBox>
                     
                         </HeaderItems> 
+                    </ext:Column>
+                    
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
                     </ext:Column>
                 </Columns>
             </ColumnModel>

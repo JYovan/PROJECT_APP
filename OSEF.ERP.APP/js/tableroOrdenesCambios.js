@@ -295,3 +295,11 @@ var cNoOrden_Renderer = function (valor, columna, registro) {
         return registro.get('RSucursal').CR +'-'+ registro.get('NoOrden');
     }
 };
+
+//Regresar el nombre del cliente
+var cCliente_Renderer = function (valor, metaData, registro) {
+    var r = registro.get('RCliente').Nombre;
+    if (r != null) {
+        return registro.get('RCliente').Nombre;
+    }  
+}; 

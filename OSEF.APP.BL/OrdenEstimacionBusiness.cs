@@ -68,6 +68,17 @@ namespace OSEF.APP.BL
                 sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
                 sd.RCuadrilla = CuadrillaBusiness.ObtenerCuadrillaPorID(sd.Cuadrilla);
             }
+
+            foreach (OrdenEstimacion sd in lOrdenesEstimaciones)
+            {
+                if (sd.Cliente != null)
+                {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                }
+                else {
+                    sd.RCliente = null;
+                }
+            }
             return lOrdenesEstimaciones;
         }
 
@@ -104,6 +115,11 @@ namespace OSEF.APP.BL
             foreach (OrdenEstimacion sd in lOrdenesEstimaciones)
             {
                 sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
+            }
+            foreach (OrdenEstimacion sd in lOrdenesEstimaciones) {
+                if (sd.Cliente != null) {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                }
             }
             return lOrdenesEstimaciones;
         }

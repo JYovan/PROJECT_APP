@@ -520,3 +520,10 @@ var btnBuscar_Cliente = function () {
     win.setTitle('BUSQUEDA DE CLIENTES');
     win.show();
 }
+//Regresar el nombre del cliente
+var cCliente_Renderer = function (valor, metaData, registro) {
+    var r = registro.get('RCliente').Nombre;
+    if (r != null) {
+        return registro.get('RCliente').Nombre;
+    }
+}; 

@@ -22,9 +22,8 @@ namespace OSEF.APP.EL
         bool tipoobra;
         bool tipomantenimiento;
         string cliente;
+        Cliente rcliente;
 
-   
-       
 
         #endregion
 
@@ -85,6 +84,13 @@ namespace OSEF.APP.EL
             get { return cliente; }
             set { cliente = value; }
         }
+        public Cliente RCliente
+        {
+            get { return rcliente; }
+            set { rcliente = value; }
+        }
+   
+       
         #endregion
 
 

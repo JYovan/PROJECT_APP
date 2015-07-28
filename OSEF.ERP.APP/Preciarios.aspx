@@ -202,6 +202,8 @@
                                 <ext:ModelField Name="RSucursal" Type="Object" />
                                 <ext:ModelField Name="Estatus" Type="String" />
                                 <ext:ModelField Name="Usuario" Type="String" />
+                                <ext:ModelField Name="Cliente" Type="String" />
+                                <ext:ModelField Name="RCliente" Type="Object" />
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -279,7 +281,7 @@
                         runat="server"
                         Text="ESTATUS"
                         Align="Left"
-                        Width="280"
+                        Width="150"
                         DataIndex="Estatus">
                         <HeaderItems>
                             <ext:ComboBox
@@ -302,6 +304,15 @@
                                 </Listeners>
                             </ext:ComboBox>
                         </HeaderItems>
+                    </ext:Column>
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
                     </ext:Column>
                 </Columns>
             </ColumnModel>
