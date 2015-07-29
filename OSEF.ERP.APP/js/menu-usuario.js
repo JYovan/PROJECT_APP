@@ -243,7 +243,7 @@ $(document).ready(function () {
 
     parent.App.direct.getData({
         success: function (result) {
-            $("#gantt").attr("href", 'http://programaobra.ibuho.mx/' + '?txtUsr=' + result.Nombre + '&txtPwd=' + result.Contrasena);
+            $("#gantt").attr("href", 'http://programaobra.ibuho.mx/index.html' + '?txtUsr=' + result.Nombre + '&txtPwd=' + result.Contrasena);
         },
         failure: function (errorMsg) {
             Ext.Msg.alert('Error', errorMsg);
