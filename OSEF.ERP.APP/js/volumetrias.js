@@ -323,7 +323,7 @@ var sVolumetria_Add = function (avance, registro) {
         App.txtfObservaciones.setDisabled(false);
         App.IdCliente.setDisabled(true);
         App.txtCliente.setDisabled(true);
-        document.getElementById('imgbtnResExcel').disabled = false;
+        document.getElementById('imgbtnVistaPrevia').disabled = false;
     }
 
     //Valida el estatus para ver si permite seguir capturando o no
@@ -353,7 +353,7 @@ var sVolumetria_Add = function (avance, registro) {
         App.txtfObservaciones.setDisabled(false);
         App.IdCliente.setDisabled(true);
         App.txtCliente.setDisabled(true);
-        document.getElementById('imgbtnResExcel').disabled = false;
+        document.getElementById('imgbtnVistaPrevia').disabled = false;
     }
 
     if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && registro[0].get('Estatus') == 'BORRADOR' || registro[0].get('Estatus') == '') {
@@ -384,7 +384,7 @@ var sVolumetria_Add = function (avance, registro) {
         }
         App.imgbtnBorrar.setDisabled(false);
         App.cmbMov.setReadOnly(true);
-        document.getElementById('imgbtnResExcel').disabled = false;
+        document.getElementById('imgbtnVistaPrevia').disabled = false;
         //Validar si se habilita Guardar
         HabilitarGuardar();
         HabilitarAfectar();
@@ -417,7 +417,7 @@ var sVolumetria_Add = function (avance, registro) {
         App.imgbtnAfectar.setDisabled(true);
         App.imgbtnGuardar.setDisabled(true);
         App.imgbtnCancelar.setDisabled(false);
-        document.getElementById('imgbtnResExcel').disabled = false;
+        document.getElementById('imgbtnVistaPrevia').disabled = false;
         App.gpVolumetriaDetalle.removeAll();
     }
 };

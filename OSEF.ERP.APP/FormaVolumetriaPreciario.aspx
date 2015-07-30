@@ -591,6 +591,7 @@
                                     <Store>
                                         <ext:Store
                                             ID="sConceptos"
+                                            OnReadData="sConceptos_OnReadData"
                                             runat="server">
                                             <Model>
                                                 <ext:Model 

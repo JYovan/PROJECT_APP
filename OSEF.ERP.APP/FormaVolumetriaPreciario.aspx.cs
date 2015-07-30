@@ -86,28 +86,20 @@ namespace OSEF.ERP.APP
         /// <param name="sender"></param>
         /// <param name="e"></param>
         [DirectMethod]
-        public void imgbtnGuardarDirect_Click(string strVolumetriaForma, string strID, string strSucursal, string strVolumetriaD)
+        public void imgbtnGuardarDirect_Click(string strID, string strVolumetriaD)
         {
             //1. Obtener datos de la Forma y saber si es edición o nuevo  
             string strcookieEditarVolumetria = Cookies.GetCookie("cookieEditarVolumetria").Value;
 
-            //2. Serializar el encabezado y el detalle
-            Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strVolumetriaForma);
-            Volumetria oFormaVolumetria = ObtenerObjetoDesdeForma(dRegistro, strSucursal);
+            //2. Serializar el encabezado y el detalle 
             //Volumetria oVolumetria = JSON.Deserialize<List<Volumetria>>(strVolumetria).FirstOrDefault();
             Volumetria oVolumetria = null;
             if (!strID.Equals("null"))
             {
                 oVolumetria = VolumetriaBusiness.ObtenerVolumetriaPorID(Convert.ToInt32(strID));
-            }
-            List<VolumetriaD> lVolumetriaD = JSON.Deserialize<List<VolumetriaD>>(strVolumetriaD);
-
-            //3. Guardar o Actuaizar el Movimiento
-            string strAccion = GuardarMovimiento(ref oFormaVolumetria, oVolumetria, lVolumetriaD);
-             
-            //4. Validar que efecto realizará para Guardar o Afectar
-             
-
+                List<VolumetriaD> lVolumetriaD = JSON.Deserialize<List<VolumetriaD>>(strVolumetriaD);
+                GuardarDetalleVolumetria(lVolumetriaD, oVolumetria);
+            } 
         }
 
 

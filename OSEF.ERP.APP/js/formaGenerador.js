@@ -423,7 +423,7 @@ var imgbtnAceptar_Click = function () {
 
     window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("Cantidad", parseFloat(ImporteFinal));
    
-    wp.App.direct.imgbtnGuardarDirect_Click(strOrdenEstimacionForma, strOrdenEstimacion, strID(), strOrdenEstimacionD, strSucursal, strDiasAtencion, strFechaMaxima,
+    wp.App.direct.imgbtnGuardarDirect_Click(strID(), strOrdenEstimacionD, 
                  {
                      success: function () {
                          wp.App.sConceptos.reload({
