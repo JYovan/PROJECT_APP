@@ -38,7 +38,7 @@
             <ext:Toolbar ID="Toolbar1" runat="server">
                 <Items>
                     <ext:TreePanel ID="tpCodigosPostales" runat="server" Width="270" Height="265" Icon="BookOpen"
-                        AutoScroll="true" Header="false" Cls="x-CustomTreePanel">
+                        AutoScroll="true" Header="false" Cls="x-CustomTreePanel" StyleSpec="">
                         <Listeners>
                             <BeforeLoad Fn="tpCodigosPostales_BeforeLoad" />
                         </Listeners>

@@ -420,8 +420,9 @@ var imgbtnAceptar_Click = function () {
     var strSucursal = wp.App.txtfSucursalID.getValue();
     var strDiasAtencion = wp.App.nfDiasAtencion.getValue();
     var strFechaMaxima = wp.App.dfFechaMaxima.getValue();
+
     window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("Cantidad", parseFloat(ImporteFinal));
-    
+   
     wp.App.direct.imgbtnGuardarDirect_Click(strOrdenEstimacionForma, strOrdenEstimacion, strID(), strOrdenEstimacionD, strSucursal, strDiasAtencion, strFechaMaxima,
                  {
                      success: function () {
@@ -440,9 +441,9 @@ var imgbtnAceptar_Click = function () {
                      },
                      failure: function (errorMsg) {
                          Ext.Msg.alert('Error', errorMsg);
-                     } 
+                     }
                  }
-    ); 
+    );
     window.parent.App.wGenerador.hide();
 } 
 var txtDescripcion_Corta_SpecialKey = function (field, eventArgs) { 

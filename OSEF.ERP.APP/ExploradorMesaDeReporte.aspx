@@ -45,9 +45,7 @@
             <TopBar>
                 <ext:Toolbar ID="tbPreciarios" runat="server">
                     <Items>
-                     
-
-                        <ext:ComboBox
+                    <ext:ComboBox
                                 ID="cmbSucursal"
                                 runat="server"
                                 LabelWidth="70"
@@ -163,6 +161,7 @@
                                     ImageUrl="assets/img/controles/fact.png"
                                     OverImageUrl="" 
                                     PressedImageUrl=""
+                                    ToolTip="Revisar"
                                     Height="22px"
                                     Width="22px">    
                                     <DirectEvents>
@@ -180,6 +179,7 @@
                                     runat="server"
                                     ImageUrl="assets/img/controles/factred.png"
                                     Height="22px"
+                                    ToolTip="Facturar"
                                     Width="22px">
                                     <%--<DirectEvents>
                                         <Click OnEvent="setFacturar">
@@ -192,17 +192,17 @@
                                     <Listeners> 
                                         <Click Fn="onBilledRecords"></Click>
                                     </Listeners>
-                                </ext:ImageButton>
-                                <ext:Checkbox
-                                    ID="chkHistorialFacturado" 
-                                    runat="server"
-                                    Name="chkHistorialFacturado"
-                                    FieldLabel="Facturado" 
-                                    Checked="false">
-                                    <Listeners> 
-                                        <Change Handler="chkHistorialFacturado_Change()"></Change>
-                                    </Listeners>
-                                </ext:Checkbox> 
+                                </ext:ImageButton> 
+                                    <ext:Checkbox
+                                        ID="chkHistorialFacturado" 
+                                        runat="server"
+                                        Name="chkHistorialFacturado"
+                                    FieldLabel="Historial Facturado" 
+                                        Checked="false">
+                                        <Listeners> 
+                                            <Change Handler="chkHistorialFacturado_Change()"></Change>
+                                        </Listeners>
+                                    </ext:Checkbox>  
                                 <%--<ext:ImageButton
                                     ID="ImageButton1"
                                     runat="server"
@@ -222,7 +222,7 @@
                         <ext:ToolbarSpacer 
                         runat="server" 
                         ID="ToolbarSpacer1" 
-                        Width="5"> 
+                        Width="50"> 
                         </ext:ToolbarSpacer>
                         <ext:TextField 
                             ID="txtfBuscar"

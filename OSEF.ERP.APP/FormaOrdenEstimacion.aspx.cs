@@ -195,7 +195,7 @@ namespace OSEF.ERP.APP
         /// <param name="e"></param>
         [DirectMethod]
         public void imgbtnGuardarDirect_Click(string strOrdenEstimacionForma, string strOrdenEstimacion, string strID, string strOrdenEstimacionD,
-            string strSucursal, string strDiasAtencion, string strFechaMaxima)
+            string strSucursal, string strDiasAtencion, DateTime strFechaMaxima)
         {
 
             //1. Obtener datos de la Forma y saber si es edición o nuevo

@@ -28,8 +28,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <ext:ResourceManager ID="rmFormaVolumetriaPreciario" runat="server" HideInDesign="true" />
-    
+        <ext:ResourceManager ID="rmFormaVolumetriaPreciario" runat="server" HideInDesign="true" /> 
         <ext:Store
             ID="sVolumetria"
             runat="server">
@@ -61,8 +60,7 @@
                 <Load Fn="sVolumetria_Load" />
                 <Add Fn="sVolumetria_Add" />
             </Listeners>
-        </ext:Store>
-
+        </ext:Store> 
         <ext:FormPanel
             ID="fpVolumetriasPreciario"
             runat="server" 
@@ -187,27 +185,23 @@
                             Height="30"
                             Width="30"
                             Disabled="true"> 
-                        </ext:ImageButton>
-
-
-                             <ext:Container
-                                ID="cCorreoEnviado"
-                                runat="server">
-                                 <Content>
-                                 <asp:ImageButton 
-                                        ID="imgbtnResExcel" 
-                                        runat="server"  
-                                        Height="30"
-                                        Width="30"
-                                        Enabled="false"
-                                        OnClick="imgbtnVistaPreviaReporteVolumetrias_Click"
-                                        class="imgs" 
-                                       ImageUrl="assets/img/controles/vp.png"/>
-                                   
-                                </Content>
-                            </ext:Container>
-
-
+                        </ext:ImageButton> 
+                        <ext:Container
+                        ID="cVistaPrevia"
+                        runat="server">
+                            <Content>
+                            <asp:ImageButton 
+                                ID="imgbtnVistaPrevia" 
+                                runat="server"  
+                                Height="30"
+                                Width="30"
+                                ToolTip="Vista previa del reporte"
+                                Enabled="false"
+                                OnClick="imgbtnVistaPreviaReporteVolumetrias_Click"
+                                class="imgs" 
+                                ImageUrl="assets/img/controles/vp.png"/> 
+                        </Content>
+                    </ext:Container> 
                        <%-- <ext:ImageButton
                             ID="imgbtnPreview"
                             runat="server"
@@ -393,8 +387,6 @@
                                             Width="110"
                                             Margins="0 3 0 0"
                                             Disabled="true" />
-                                            
-                                       
                                     </Items>  
                                 </ext:FieldContainer>
                                 <ext:FieldContainer
@@ -418,6 +410,7 @@
                                                     ID="btnBuscaCliente" 
                                                     runat="server" 
                                                     Icon="Find" 
+                                                    ToolTip="Buscar Cliente"
                                                     StandOut="true">
                                                         <Listeners>
                                                             <Click Fn="btnBuscar_Cliente" />
@@ -457,6 +450,7 @@
                                                         ID="btnBuscarPreciario" 
                                                         runat="server" 
                                                         Icon="Find" 
+                                                        ToolTip="Buscar Preciario"
                                                         StandOut="true">
                                                             <Listeners>
                                                                 <Click Fn="imgbtnBuscar_Click" />
@@ -791,8 +785,7 @@
                 Cls="x-colorToolbar" 
                 Text="SIN AFECTAR" />
             </BottomBar>
-        </ext:FormPanel>
-
+        </ext:FormPanel> 
         <ext:Window 
             ID="wEmergente"
             runat="server"

@@ -43,8 +43,11 @@ BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-	SET @Cantidad = (SELECT god.Total FROM GeneradorOrdenEstimacionD god WHERE god.MovID = @ID AND god.ConceptoID = @ConceptoID);
-		SET @Importe = (@Cantidad * @Precio);
+	--DECLARE @MovID VARCHAR(10);
+	--SET @MovID = (SELECT oe.MovID FROM OrdenesEstimaciones oe WHERE oe.ID = @ID);
+	SET @Cantidad = (SELECT SUM(god.Total) FROM GeneradorOrdenEstimacionD god WHERE god.MovID = @ID AND god.ConceptoID = @ConceptoID);
+	SET @Importe = (@Cantidad * @Precio);
+	 
 		-- Insert statements for procedure here
 		INSERT INTO
 			OrdenesEstimacionesD

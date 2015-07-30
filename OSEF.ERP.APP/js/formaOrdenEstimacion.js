@@ -2223,17 +2223,15 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
         }  
     }
     var onChangeValues = function () { 
-        if (App.sOrdenEstimacion.getCount() != 0) {
-//            console.log("publicando...");
+
+        if (App.sOrdenEstimacion.getCount() != 0) { 
             var strOrdenEstimacionForma = Ext.encode(App.fpOrdenEstimacion.getForm().getValues());
             var strOrdenEstimacion = getRecordValues();
             var strOrdenEstimacionD = Ext.encode(App.sConceptos.getRecordsValues());
 
             var strSucursal = App.txtfSucursalID.getValue();
             var strDiasAtencion = App.nfDiasAtencion.getValue();
-            var strFechaMaxima = App.dfFechaMaxima.getValue();
-
-
+            var strFechaMaxima = App.dfFechaMaxima.getValue(); 
             App.direct.imgbtnGuardarDirect_Click(
     strOrdenEstimacionForma, strOrdenEstimacion, strID(),
     strOrdenEstimacionD, strSucursal, strDiasAtencion, strFechaMaxima);
