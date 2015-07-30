@@ -1210,6 +1210,8 @@ var calcularImportePrecio_Change = function (component) {
 
     var Importe = parseFloat(component.getValue() * parseFloat(valorCantidad))
     App.sConceptos.getAt(indiceDetalle).set('Importe', Importe.toFixed(6));
+//    console.log("Calculo el change de importe");
+
 }
 
 //Calcula el importe cuando cambia la cantidad
@@ -1222,6 +1224,7 @@ var calcularImporteCantidad_Change = function (component) {
 
     var Importe = parseFloat(component.getValue() * parseFloat(valorPrecio))
     App.sConceptos.getAt(indiceDetalle).set('Importe', Importe.toFixed(6));
+//    console.log("calculando el change importe cantidad...");
 }
 
 
@@ -1366,16 +1369,16 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
 
 
     //Evento que se lanza despues de editar una columna en PreciarioConceptoOrdenEstimacion
-    var cePreciarioConcepto_Edit = function (cellediting, columna) { 
+var cePreciarioConcepto_Edit = function (cellediting, columna) {
 
-        //Valida que el movimiento sea diferente de nuevo y que la columna en la que se obtenga el valor original seal la unica que se mande al metodo del lado del servidor
-        if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') {
-            if (columna.field == 'ConceptoID') {
-                Ext.util.Cookies.set('cookieIDBorrarFotosOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
-                Ext.util.Cookies.set('cookieConceptoFotosOrdenEstimacion', columna.originalValue);
-                App.direct.obtenerImagenesPorConcepto();
-            }
-        }  
+    //Valida que el movimiento sea diferente de nuevo y que la columna en la que se obtenga el valor original seal la unica que se mande al metodo del lado del servidor
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') {
+        if (columna.field == 'ConceptoID') {
+            Ext.util.Cookies.set('cookieIDBorrarFotosOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
+            Ext.util.Cookies.set('cookieConceptoFotosOrdenEstimacion', columna.originalValue);
+            App.direct.obtenerImagenesPorConcepto();
+        }
+    }
     var sum = 0;
     App.sConceptos.each(function (record) {
 
@@ -1912,6 +1915,7 @@ var getDescripcion = function (r) {
         window.parent.App.wAyudaConcepto.show();
         //Asigno el indicie del renglon
         Ext.util.Cookies.set('cookieRenglonOrdenEstimacionD', fila);
+
     };
 
 
@@ -2217,4 +2221,22 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
         } else {
             return App.sOrdenEstimacion.getAt(0).get('ID');
         }  
+    }
+    var onChangeValues = function () { 
+        if (App.sOrdenEstimacion.getCount() != 0) {
+//            console.log("publicando...");
+            var strOrdenEstimacionForma = Ext.encode(App.fpOrdenEstimacion.getForm().getValues());
+            var strOrdenEstimacion = getRecordValues();
+            var strOrdenEstimacionD = Ext.encode(App.sConceptos.getRecordsValues());
+
+            var strSucursal = App.txtfSucursalID.getValue();
+            var strDiasAtencion = App.nfDiasAtencion.getValue();
+            var strFechaMaxima = App.dfFechaMaxima.getValue();
+
+
+            App.direct.imgbtnGuardarDirect_Click(
+    strOrdenEstimacionForma, strOrdenEstimacion, strID(),
+    strOrdenEstimacionD, strSucursal, strDiasAtencion, strFechaMaxima);
+//            console.log("datos publicados"); 
+        }
     }

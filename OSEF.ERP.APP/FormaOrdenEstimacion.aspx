@@ -1078,7 +1078,7 @@
                                     EnableColumnMove="false">
                                     <Store>
                                         <ext:Store
-                                            ID="sConceptos"
+                                            ID="sConceptos" 
                                             OnReadData="sConceptos_OnReadData"
                                             runat="server">
                                             <Model>
@@ -1180,11 +1180,28 @@
                                                 ID="cCantidad"
                                                 runat="server"
                                                 Align="Center"
-                                                Text="Cantidad"
-                                                
+                                                Text="Cantidad" 
                                                 DataIndex="Cantidad"
                                                 Width="80">
                                                 <Renderer Fn="cCantidad_Renderer" /> 
+                                                <Editor>
+                                                    <ext:NumberField 
+                                                        ID="ncCantidad"
+                                                        runat="server"
+                                                        AllowDecimals="true"
+                                                        AllowExponential="false"
+                                                        DecimalPrecision="6"
+                                                        DecimalSeparator="."
+                                                        MaxLength="10"
+                                                        EnforceMaxLength="true"
+                                                        MaxValue="999999999"
+                                                        MinValue="0"
+                                                        Step="1">
+                                                        <Listeners>
+                                                            <Change Fn="calcularImportePrecio_Change"></Change>
+                                                        </Listeners>
+                                                    </ext:NumberField>
+                                                </Editor>
                                             </ext:NumberColumn>
                                             <ext:CommandColumn
                                                 ID="ccGenerador"
@@ -1200,6 +1217,7 @@
                                                 </Commands>
                                                 <Listeners>
                                                     <Command Fn="ccGenerador_Command" />
+
                                                 </Listeners>
                                             </ext:CommandColumn>
                                             <ext:Column
@@ -1232,7 +1250,7 @@
                                                         MinValue="0"
                                                         Step="1">
                                                         <Listeners>
-                                                            <Change Fn="calcularImportePrecio_Change"></Change>
+                                                            <Change Fn="onChangeValues"></Change>
                                                         </Listeners>
                                                     </ext:NumberField>
                                                 </Editor>
@@ -1241,7 +1259,8 @@
                                                 ID="cMoneda"
                                                 runat="server"
                                                 Align="Center"
-                                                Width="50"
+                                                Width="70"
+                                                Text="Moneda"
                                                 DataIndex="Moneda">
                                             </ext:Column>
                                             <ext:NumberColumn
@@ -1350,7 +1369,7 @@
                                             runat="server"
                                             StripeRows="true">
                                         </ext:GridView>
-                                    </View>
+                                    </View> 
                                     <Listeners>
                                         <Select Fn="obetenerRenglon_Select"></Select>
                                     </Listeners>

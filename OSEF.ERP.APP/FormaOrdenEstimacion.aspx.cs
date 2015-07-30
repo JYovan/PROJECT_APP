@@ -123,68 +123,143 @@ namespace OSEF.ERP.APP
         [DirectMethod]
         protected void imgbtnGuardar_Click(object sender, DirectEventArgs e)
         {
-            
-                //1. Obtener datos de la Forma y saber si es edición o nuevo
-                string strOrdenEstimacionForma = e.ExtraParams["OrdenEstimacionForma"];
-                string strOrdenEstimacion = e.ExtraParams["OrdenEstimacion"];
-                string strID = e.ExtraParams["IDOrdenEstimacion"];
-                string strOrdenEstimacionD = e.ExtraParams["OrdenEstimacionD"];
-                string strcookieEditarOrdenEstimacion = Cookies.GetCookie("cookieEditarOrdenEstimacion").Value;
-                string strSucursal = e.ExtraParams["Sucursal"];
-                string strDiasAtencion = e.ExtraParams["diasAtencion"];
-                string strFechaMaxima = e.ExtraParams["fechaMaxima"];
-                //Convertir a decimal los dias de atencion
-                decimal diasAtencion = Convert.ToDecimal(strDiasAtencion);
-                
-                //2. Serializar el encabezado y el detalle
-                Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strOrdenEstimacionForma);
-                OrdenEstimacion oFormaOrdenEstimacion = ObtenerObjetoDesdeForma(dRegistro); 
-             
-                OrdenEstimacion oOrdenEstimacion = null;
-                if (strID != "null")
-                {
-                    oOrdenEstimacion = OrdenEstimacionBusiness.ObtenerOrdenEstimacionPorID(Convert.ToInt32(strID));
-                } 
+
+            //1. Obtener datos de la Forma y saber si es edición o nuevo
+            string strOrdenEstimacionForma = e.ExtraParams["OrdenEstimacionForma"];
+            string strOrdenEstimacion = e.ExtraParams["OrdenEstimacion"];
+            string strID = e.ExtraParams["IDOrdenEstimacion"];
+            string strOrdenEstimacionD = e.ExtraParams["OrdenEstimacionD"];
+            string strcookieEditarOrdenEstimacion = Cookies.GetCookie("cookieEditarOrdenEstimacion").Value;
+            string strSucursal = e.ExtraParams["Sucursal"];
+            string strDiasAtencion = e.ExtraParams["diasAtencion"];
+            string strFechaMaxima = e.ExtraParams["fechaMaxima"];
+            //Convertir a decimal los dias de atencion
+            decimal diasAtencion = Convert.ToDecimal(strDiasAtencion);
+
+            //2. Serializar el encabezado y el detalle
+            Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strOrdenEstimacionForma);
+            OrdenEstimacion oFormaOrdenEstimacion = ObtenerObjetoDesdeForma(dRegistro);
+
+            OrdenEstimacion oOrdenEstimacion = null;
+            if (strID != "null")
+            {
+                oOrdenEstimacion = OrdenEstimacionBusiness.ObtenerOrdenEstimacionPorID(Convert.ToInt32(strID));
+            }
             //OrdenEstimacion oOrdenEstimacion = JsonConvert.DeserializeObject<List<OrdenEstimacion>>(strOrdenEstimacion).FirstOrDefault();
-                List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(strOrdenEstimacionD);
+            List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(strOrdenEstimacionD);
 
-                //Si la fecha maxima viene nula se valida y si no se toma el parametro y se convierte a DateTime
-                if (strFechaMaxima.Equals("") || strFechaMaxima.Equals("null"))
-                {
-                    oFormaOrdenEstimacion.FechaMaximaAtencion = null;
-                }
+            //Si la fecha maxima viene nula se valida y si no se toma el parametro y se convierte a DateTime
+            if (strFechaMaxima.Equals("") || strFechaMaxima.Equals("null"))
+            {
+                oFormaOrdenEstimacion.FechaMaximaAtencion = null;
+            }
 
-                else {
-                    DateTime fechaMaxima = Convert.ToDateTime(strFechaMaxima);
-                    oFormaOrdenEstimacion.FechaMaximaAtencion = fechaMaxima;
-                }
+            else
+            {
+                DateTime fechaMaxima = Convert.ToDateTime(strFechaMaxima);
+                oFormaOrdenEstimacion.FechaMaximaAtencion = fechaMaxima;
+            }
 
 
-                //Se verifica que los dias no vengan en nulos
-                if (strDiasAtencion.Equals("1") || strDiasAtencion.Equals("null"))
-                {
-                    oFormaOrdenEstimacion.DiasAtencion = 0;
-                }
-                else {
-                    oFormaOrdenEstimacion.DiasAtencion = diasAtencion;
-                }
-                //3. Guardar o Actuaizar el Movimiento
-               
-                
-                string strAccion = GuardarMovimiento(ref oFormaOrdenEstimacion, oOrdenEstimacion, lOrdenEstimacionD);
+            //Se verifica que los dias no vengan en nulos
+            if (strDiasAtencion.Equals("1") || strDiasAtencion.Equals("null"))
+            {
+                oFormaOrdenEstimacion.DiasAtencion = 0;
+            }
+            else
+            {
+                oFormaOrdenEstimacion.DiasAtencion = diasAtencion;
+            }
+            //3. Guardar o Actuaizar el Movimiento
 
-                //4. Validar que efecto realizará para Guardar o Afectar
-                switch (strAccion)
-                {
-                    case "insertar":
-                        e.ExtraParamsResponse.Add(new Ext.Net.Parameter("accion", "insertar", ParameterMode.Value));
-                        break;
-                    case "modificar":
-                        e.ExtraParamsResponse.Add(new Ext.Net.Parameter("accion", "modificar", ParameterMode.Value));
-                        break;
-                } 
+
+            string strAccion = GuardarMovimiento(ref oFormaOrdenEstimacion, oOrdenEstimacion, lOrdenEstimacionD);
+
+            //4. Validar que efecto realizará para Guardar o Afectar
+            switch (strAccion)
+            {
+                case "insertar":
+                    e.ExtraParamsResponse.Add(new Ext.Net.Parameter("accion", "insertar", ParameterMode.Value));
+                    break;
+                case "modificar":
+                    e.ExtraParamsResponse.Add(new Ext.Net.Parameter("accion", "modificar", ParameterMode.Value));
+                    break;
+            }
         }
 
+
+        /// <summary>
+        /// Evento de clic del botón Guardar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        [DirectMethod]
+        public void imgbtnGuardarDirect_Click(string strOrdenEstimacionForma, string strOrdenEstimacion, string strID, string strOrdenEstimacionD,
+            string strSucursal, string strDiasAtencion, string strFechaMaxima)
+        {
+
+            //1. Obtener datos de la Forma y saber si es edición o nuevo
+            //string strOrdenEstimacionForma = e.ExtraParams["OrdenEstimacionForma"];
+            //string strOrdenEstimacion = e.ExtraParams["OrdenEstimacion"];
+            //string strID = e.ExtraParams["IDOrdenEstimacion"];
+            //string strOrdenEstimacionD = e.ExtraParams["OrdenEstimacionD"];
+            string strcookieEditarOrdenEstimacion = Cookies.GetCookie("cookieEditarOrdenEstimacion").Value;
+            //string strSucursal = e.ExtraParams["Sucursal"];
+            //string strDiasAtencion = e.ExtraParams["diasAtencion"];
+            //string strFechaMaxima = e.ExtraParams["fechaMaxima"];
+            //Convertir a decimal los dias de atencion
+            decimal diasAtencion = Convert.ToDecimal(strDiasAtencion);
+
+            //2. Serializar el encabezado y el detalle
+            Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strOrdenEstimacionForma);
+            OrdenEstimacion oFormaOrdenEstimacion = ObtenerObjetoDesdeForma(dRegistro);
+
+            OrdenEstimacion oOrdenEstimacion = null;
+            if (strID != "null")
+            {
+                oOrdenEstimacion = OrdenEstimacionBusiness.ObtenerOrdenEstimacionPorID(Convert.ToInt32(strID));
+            }
+            //OrdenEstimacion oOrdenEstimacion = JsonConvert.DeserializeObject<List<OrdenEstimacion>>(strOrdenEstimacion).FirstOrDefault();
+            List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(strOrdenEstimacionD);
+
+            //Si la fecha maxima viene nula se valida y si no se toma el parametro y se convierte a DateTime
+            if (strFechaMaxima.Equals("") || strFechaMaxima.Equals("null"))
+            {
+                oFormaOrdenEstimacion.FechaMaximaAtencion = null;
+            }
+
+            else
+            {
+                DateTime fechaMaxima = Convert.ToDateTime(strFechaMaxima);
+                oFormaOrdenEstimacion.FechaMaximaAtencion = fechaMaxima;
+            }
+
+
+            //Se verifica que los dias no vengan en nulos
+            if (strDiasAtencion.Equals("1") || strDiasAtencion.Equals("null"))
+            {
+                oFormaOrdenEstimacion.DiasAtencion = 0;
+            }
+            else
+            {
+                oFormaOrdenEstimacion.DiasAtencion = diasAtencion;
+            }
+            //3. Guardar o Actuaizar el Movimiento
+
+
+            string strAccion = GuardarMovimiento(ref oFormaOrdenEstimacion, oOrdenEstimacion, lOrdenEstimacionD);
+
+            //4. Validar que efecto realizará para Guardar o Afectar
+            switch (strAccion)
+            {
+                case "insertar":
+                    //e.ExtraParamsResponse.Add(new Ext.Net.Parameter("accion", "insertar", ParameterMode.Value));
+                    break;
+                case "modificar":
+                    //e.ExtraParamsResponse.Add(new Ext.Net.Parameter("accion", "modificar", ParameterMode.Value));
+                    break;
+            }
+        }
         /// <summary>
         /// Evento de clic del botón Afectar
         /// </summary>
@@ -311,7 +386,7 @@ namespace OSEF.ERP.APP
                         break;
                  
                     case "dfFechaLlegada":
-                        if (sd.Value == null)
+                        if (sd.Value == null || sd.Value.Equals(""))
                             oOrdenEstimacionForma.FechaLlegada = null;
                         else
                             oOrdenEstimacionForma.FechaLlegada = Convert.ToDateTime(sd.Value);
@@ -323,7 +398,7 @@ namespace OSEF.ERP.APP
                              oOrdenEstimacionForma.HoraLlegada = Convert.ToDateTime(sd.Value);
                         break;
                     case "dfFechaFinActividad":
-                        if (sd.Value == null)
+                        if (sd.Value == null || sd.Value.Equals(""))
                             oOrdenEstimacionForma.FechaFinActividad = null;
                         else
                             oOrdenEstimacionForma.FechaFinActividad = Convert.ToDateTime(sd.Value);

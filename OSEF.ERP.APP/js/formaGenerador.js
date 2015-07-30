@@ -381,26 +381,71 @@ function HabilitarGuardar() {
 }
 
 
+var strID = function () {
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') === 'Nuevo') {
+        return null;
+    } else {
+        return window.parent.App.wEmergente.getBody().App.sOrdenEstimacion.getAt(0).get('ID');
+    }
+}
+var getRecordValues = function () {
+    var store = window.parent.App.wEmergente.getBody().App.sOrdenEstimacion;
+    var records = store.getRecordsValues();
+    var encodedrecords;
+    var xudata = [], data = [];
+    if (records.length > 0 || records != null) {
+        var r = records[0];
+        for (var key in r) {
+            //                console.log(key, r[key]);
+            xudata.push('"' + key + '":' + r[key]);
+            data[key] = r[key];
+        }
+        xudata.join(",");
+        var ext = Ext.encode(records);
+        if (xudata.length > 0) {
+            return ext;
+        } else {
+            return 0;
+        }
+    }
+}
 var imgbtnAceptar_Click = function () {
 
+    var wp = window.parent.App.wEmergente.getBody();
 
+    var strOrdenEstimacionForma = Ext.encode(wp.App.fpOrdenEstimacion.getForm().getValues());
+    var strOrdenEstimacion = getRecordValues();
+    var strOrdenEstimacionD = Ext.encode(wp.App.sConceptos.getRecordsValues());
+
+    var strSucursal = wp.App.txtfSucursalID.getValue();
+    var strDiasAtencion = wp.App.nfDiasAtencion.getValue();
+    var strFechaMaxima = wp.App.dfFechaMaxima.getValue();
     window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("Cantidad", parseFloat(ImporteFinal));
+    
+    wp.App.direct.imgbtnGuardarDirect_Click(strOrdenEstimacionForma, strOrdenEstimacion, strID(), strOrdenEstimacionD, strSucursal, strDiasAtencion, strFechaMaxima,
+                 {
+                     success: function () {
+                         wp.App.sConceptos.reload({
+                             callback: function () {
+                                 if (wp.App.sConceptos.getCount() > 0) {
+                                     //Obtener el Renglon anterior
+                                     var auxRenglonAnterior = wp.App.sConceptos.getCount() - 1;
+                                     var renglonAnterior = wp.App.sConceptos.getAt(auxRenglonAnterior).get('Renglon') + 1;
+                                     wp.App.sConceptos.insert(wp.App.sConceptos.getCount(), { Renglon: renglonAnterior });
+                                 } else {
+                                     wp.App.sConceptos.insert(wp.App.sConceptos.getCount(), { Renglon: 1 });
+                                 }
+                             }
+                         });
+                     },
+                     failure: function (errorMsg) {
+                         Ext.Msg.alert('Error', errorMsg);
+                     } 
+                 }
+    ); 
     window.parent.App.wGenerador.hide();
-}
-
-
-
-
-var txtDescripcion_Corta_SpecialKey = function (field, eventArgs) {
-
-
-
-    if (eventArgs.getKey() == eventArgs.ENTER) {
-
-      
-
+} 
+var txtDescripcion_Corta_SpecialKey = function (field, eventArgs) { 
+    if (eventArgs.getKey() == eventArgs.ENTER) { 
     }
-
-
-
 };

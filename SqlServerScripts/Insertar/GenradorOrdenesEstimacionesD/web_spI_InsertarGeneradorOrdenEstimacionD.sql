@@ -81,6 +81,9 @@ BEGIN
 			@Cantidad,
 			@Total,			
 			@Plano	
-		)
+		); 
+		UPDATE OrdenesEstimacionesD
+		SET Cantidad = @Cantidad
+		WHERE ID = @ID AND ConceptoID = @Concepto;
 END
 GO

@@ -456,7 +456,7 @@ namespace OSEF.APP.DL
                 SqlParameter sqlpCodigoFalla = new SqlParameter();
                 sqlpCodigoFalla.ParameterName = "@CodigoFalla";
                 sqlpCodigoFalla.SqlDbType = SqlDbType.VarChar;
-                if (uOrdenEstimacion.CodigoFalla == null)
+                if (uOrdenEstimacion.CodigoFalla == null || uOrdenEstimacion.CodigoFalla.Trim().Equals(""))
                     sqlpCodigoFalla.Value = DBNull.Value;
                 else
                     sqlpCodigoFalla.Value = uOrdenEstimacion.CodigoFalla;
@@ -498,7 +498,7 @@ namespace OSEF.APP.DL
                 SqlParameter sqlpCuadrilla = new SqlParameter();
                 sqlpCuadrilla.ParameterName = "@Cuadrilla";
                 sqlpCuadrilla.SqlDbType = SqlDbType.VarChar;
-                if (uOrdenEstimacion.Cuadrilla == null)
+                if (uOrdenEstimacion.Cuadrilla == null || uOrdenEstimacion.Cuadrilla.Trim().Equals(""))
                     sqlpCuadrilla.Value = DBNull.Value;
                 else
                     sqlpCuadrilla.Value = uOrdenEstimacion.Cuadrilla;
