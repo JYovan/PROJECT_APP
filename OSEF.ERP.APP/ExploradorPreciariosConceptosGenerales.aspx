@@ -175,15 +175,7 @@
             </Store>
 
             <ColumnModel>
-                <Columns> 
-                    <ext:Column
-                        ID="cCliente"
-                        runat="server"
-                        Text="CLIENTE"
-                        Align="Center"
-                        Width="150"
-                        DataIndex="Cliente">
-                    </ext:Column>
+                <Columns>
                     <ext:Column 
                         ID="cMovimiento"
                         runat="server"
@@ -249,6 +241,16 @@
                             </ext:ComboBox>
                         </HeaderItems>
                     </ext:DateColumn>
+                     
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
+                    </ext:Column>
                     <ext:Column
                         ID="cSucursal"
                         runat="server"

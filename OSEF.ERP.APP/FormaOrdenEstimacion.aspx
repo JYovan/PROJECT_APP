@@ -1059,7 +1059,7 @@
                     ID="pDetalle"
                     runat="server"
                     BodyPadding="5"
-                    Width="900"
+                    Width="908"
                     AutoScroll="True">
                     <Items>
                         <ext:FieldSet
@@ -1133,7 +1133,7 @@
                                                 ID="cIDPreciario"
                                                 runat="server"
                                                 Text="Clave"
-                                                Width="105"
+                                                Width="75"
                                                 DataIndex="Clave"> 
                                                 <Renderer Fn="cRenderer_Clave"></Renderer>
                                             </ext:Column> 
@@ -1182,7 +1182,7 @@
                                                 Align="Center"
                                                 Text="Cantidad" 
                                                 DataIndex="Cantidad"
-                                                Width="80">
+                                                Width="90">
                                                 <Renderer Fn="cCantidad_Renderer" /> 
                                                
                                             </ext:NumberColumn>
@@ -1217,7 +1217,7 @@
                                                 Align="Center"
                                                 Text="Precio"
                                                 DataIndex="Precio"
-                                                Width="80">
+                                                Width="90">
                                                 <Renderer Fn="cPrecio_Renderer" />
                                                 <Editor>
                                                     <ext:NumberField 
@@ -1242,7 +1242,7 @@
                                                 ID="cMoneda"
                                                 runat="server"
                                                 Align="Center"
-                                                Width="70"
+                                                Width="65"
                                                 Text="Moneda"
                                                 DataIndex="Moneda">
                                             </ext:Column>

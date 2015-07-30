@@ -157,3 +157,13 @@ var cmbSucursal_Change = function (combobox, valorNuevo, viejoValor) {
 
 
 };
+
+
+//Regresar el nombre del cliente
+var cCliente_Renderer = function (valor, metaData, registro) {
+    var r = registro.get('RCliente').Nombre;
+
+    if (r != null && r.trim() != '') {
+        return registro.get('RCliente').Nombre;
+    }
+}; 

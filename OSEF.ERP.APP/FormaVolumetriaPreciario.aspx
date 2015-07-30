@@ -666,28 +666,11 @@
                                                 Align="Center"
                                                 Text="Cantidad"
                                                 DataIndex="Cantidad"
-                                                Width="150">
+                                                Width="120">
                                                 <Renderer Fn="cCantidad_Renderer" />
                                             </ext:NumberColumn>
 
-                                            <ext:CommandColumn
-                                                ID="ccGenerador"
-                                                runat="server"
-                                                Width="25">
-                                                <PrepareToolbar Fn="ccDimensiones_PrepareToolbar" />
-                                                <Commands>
-                                               
-                                                    <ext:GridCommand
-                                                        Icon="ApplicationOsxAdd"
-                                                        CommandName="Agregar">
-                                                        <ToolTip Text="Generador" />
-                                                    </ext:GridCommand>
-                                                      <ext:CommandSpacer Width="60"></ext:CommandSpacer>
-                                                </Commands>
-                                                <Listeners>
-                                                    <Command Fn="ccGenerador_Command" />
-                                                </Listeners>
-                                            </ext:CommandColumn>
+                                           
 
                                             <ext:NumberColumn 
                                                 ID="cUtilizada"
@@ -695,7 +678,7 @@
                                                 Align="Center"
                                                 Text="Utlizada"
                                                 DataIndex="Utilizada"
-                                                Width="150">
+                                                Width="120">
                                                   <Renderer Fn="cUtilizada_Renderer" />
                                                 <Editor>
                                                     <ext:NumberField 
@@ -714,7 +697,32 @@
                                                 </Editor>
                                             </ext:NumberColumn>
 
+                                             <ext:CommandColumn
+                                                ID="ccGenerador"
+                                                runat="server"
+                                                Width="25">
+                                                <PrepareToolbar Fn="ccDimensiones_PrepareToolbar" />
+                                                <Commands>
+                                               
+                                                    <ext:GridCommand
+                                                        Icon="ApplicationOsxAdd"
+                                                        CommandName="Agregar">
+                                                        <ToolTip Text="Generador" />
+                                                    </ext:GridCommand>
+                                                      <ext:CommandSpacer Width="60"></ext:CommandSpacer>
+                                                </Commands>
+                                                <Listeners>
+                                                    <Command Fn="ccGenerador_Command" />
+                                                </Listeners>
+                                            </ext:CommandColumn>
+
                                             
+                                            <ext:Column 
+                                            ID="SpaceColumn" 
+                                            runat="server" 
+                                            Width="80">
+                                            
+                                            </ext:Column>
 
                                             <ext:CommandColumn
                                                 ID="ccFotos"

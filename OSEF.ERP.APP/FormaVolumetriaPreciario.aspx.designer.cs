@@ -517,15 +517,6 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.NumberColumn cCantidad;
         
         /// <summary>
-        /// Control ccGenerador.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.CommandColumn ccGenerador;
-        
-        /// <summary>
         /// Control cUtilizada.
         /// </summary>
         /// <remarks>
@@ -542,6 +533,24 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.NumberField nfUtilizada;
+        
+        /// <summary>
+        /// Control ccGenerador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.CommandColumn ccGenerador;
+        
+        /// <summary>
+        /// Control SpaceColumn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Column SpaceColumn;
         
         /// <summary>
         /// Control ccFotos.
