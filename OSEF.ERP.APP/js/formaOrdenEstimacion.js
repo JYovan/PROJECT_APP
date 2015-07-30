@@ -1440,8 +1440,8 @@ var getDescripcion = function (r) {
         F.decimalSeparator = '.';
 
 
-        App.dfTotalSinRender.setValue(sum.toFixed(6));
-        App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+        App.dfTotalSinRender.setValue(ImporteFinal.toFixed(6));
+        App.dfTotal.setValue(F.number(ImporteFinal.toFixed(6), "$000,000.000000"));
 
 
 
