@@ -221,3 +221,9 @@ ALTER TABLE GeneradorVolumetriaD ALTER COLUMN Total DECIMAL(10,3) NOT NULL
 
 --Cambios Giovanni Flores 27 de Julio 2015
 ALTER TABLE ImagenesVolumetriasD ALTER COLUMN Nombre VARCHAR(500) NOT NULL
+
+
+--Cambios Christian Medina 30 de Julio 2015
+
+ALTER TABLE OrdenesEstimacionesD ALTER COLUMN Cantidad DECIMAL(20,6) NULL
+ALTER TABLE OrdenesEstimacionesD ALTER COLUMN Importe DECIMAL (30,6)NULL

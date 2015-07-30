@@ -1184,24 +1184,7 @@
                                                 DataIndex="Cantidad"
                                                 Width="80">
                                                 <Renderer Fn="cCantidad_Renderer" /> 
-                                                <Editor>
-                                                    <ext:NumberField 
-                                                        ID="ncCantidad"
-                                                        runat="server"
-                                                        AllowDecimals="true"
-                                                        AllowExponential="false"
-                                                        DecimalPrecision="6"
-                                                        DecimalSeparator="."
-                                                        MaxLength="10"
-                                                        EnforceMaxLength="true"
-                                                        MaxValue="999999999"
-                                                        MinValue="0"
-                                                        Step="1">
-                                                        <Listeners>
-                                                            <Change Fn="calcularImportePrecio_Change"></Change>
-                                                        </Listeners>
-                                                    </ext:NumberField>
-                                                </Editor>
+                                               
                                             </ext:NumberColumn>
                                             <ext:CommandColumn
                                                 ID="ccGenerador"

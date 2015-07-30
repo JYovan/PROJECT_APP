@@ -59,7 +59,13 @@ namespace OSEF.APP.DL
                 sqlpCantidad.SqlDbType = SqlDbType.Decimal;
                 sqlpCantidad.Precision = 10;
                 sqlpCantidad.Scale = 6;
-                sqlpCantidad.Value = iOrdenEstimacionD.Cantidad;
+
+
+                if (iOrdenEstimacionD.Cantidad == 0)
+                    sqlpCantidad.Value = 0;
+                else
+                    sqlpCantidad.Value = iOrdenEstimacionD.Cantidad;
+
 
                 SqlParameter sqlpUnidad = new SqlParameter();
                 sqlpUnidad.ParameterName = "@Unidad";
@@ -78,7 +84,12 @@ namespace OSEF.APP.DL
                 sqlpImporte.SqlDbType = SqlDbType.Decimal;
                 sqlpImporte.Precision = 20;
                 sqlpImporte.Scale = 6;
-                sqlpImporte.Value = iOrdenEstimacionD.Importe;
+
+                if (iOrdenEstimacionD.Importe == 0)
+                    sqlpImporte.Value = 0;
+                else
+                    sqlpImporte.Value = iOrdenEstimacionD.Importe;
+
 
 
                 SqlParameter sqlpIntExt = new SqlParameter();
