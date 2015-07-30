@@ -13,6 +13,15 @@ namespace OSEF.ERP.APP {
     public partial class FormaOrdenesEstimaciones {
         
         /// <summary>
+        /// Control Head1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        
+        /// <summary>
         /// Control form1.
         /// </summary>
         /// <remarks>
@@ -866,15 +875,6 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.NumberColumn cCantidad;
-        
-        /// <summary>
-        /// Control ncCantidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.NumberField ncCantidad;
         
         /// <summary>
         /// Control ccGenerador.

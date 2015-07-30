@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
     <link rel="stylesheet" href="css/login.css" />
     <link rel="Stylesheet" href="css/customControls.css" />
@@ -1184,24 +1184,7 @@
                                                 DataIndex="Cantidad"
                                                 Width="80">
                                                 <Renderer Fn="cCantidad_Renderer" /> 
-                                                <Editor>
-                                                    <ext:NumberField 
-                                                        ID="ncCantidad"
-                                                        runat="server"
-                                                        AllowDecimals="true"
-                                                        AllowExponential="false"
-                                                        DecimalPrecision="6"
-                                                        DecimalSeparator="."
-                                                        MaxLength="10"
-                                                        EnforceMaxLength="true"
-                                                        MaxValue="999999999"
-                                                        MinValue="0"
-                                                        Step="1">
-                                                        <Listeners>
-                                                            <Change Fn="calcularImportePrecio_Change"></Change>
-                                                        </Listeners>
-                                                    </ext:NumberField>
-                                                </Editor>
+                                               
                                             </ext:NumberColumn>
                                             <ext:CommandColumn
                                                 ID="ccGenerador"

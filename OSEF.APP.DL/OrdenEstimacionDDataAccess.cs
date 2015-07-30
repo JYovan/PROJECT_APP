@@ -59,10 +59,13 @@ namespace OSEF.APP.DL
                 sqlpCantidad.SqlDbType = SqlDbType.Decimal;
                 sqlpCantidad.Precision = 10;
                 sqlpCantidad.Scale = 6;
+
+
                 if (iOrdenEstimacionD.Cantidad == 0)
                     sqlpCantidad.Value = 0;
                 else
-                    sqlpCantidad.Value = iOrdenEstimacionD.Cantidad; 
+                    sqlpCantidad.Value = iOrdenEstimacionD.Cantidad;
+
 
                 SqlParameter sqlpUnidad = new SqlParameter();
                 sqlpUnidad.ParameterName = "@Unidad";
@@ -82,7 +85,6 @@ namespace OSEF.APP.DL
                 sqlpImporte.Precision = 20;
                 sqlpImporte.Scale = 6;
 
-
                 if (iOrdenEstimacionD.Importe == 0)
                     sqlpImporte.Value = 0;
                 else
@@ -99,16 +101,16 @@ namespace OSEF.APP.DL
                 else
                     sqlpIntExt.Value = iOrdenEstimacionD.IntExt;
 
-                 SqlParameter sqlpMoneda = new SqlParameter();
-                 sqlpMoneda.ParameterName = "@Moneda";
-                 sqlpMoneda.SqlDbType = SqlDbType.VarChar;
+                SqlParameter sqlpMoneda = new SqlParameter();
+                sqlpMoneda.ParameterName = "@Moneda";
+                sqlpMoneda.SqlDbType = SqlDbType.VarChar;
 
                 if (iOrdenEstimacionD.Moneda == null)
                     sqlpMoneda.Value = DBNull.Value;
                 else
                     sqlpMoneda.Value = iOrdenEstimacionD.Moneda;
 
-                
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpVolumetria);
                 sqlcComando.Parameters.Add(sqlpRenglon);
@@ -209,7 +211,7 @@ namespace OSEF.APP.DL
                     sqlpMoneda.Value = DBNull.Value;
                 else
                     sqlpMoneda.Value = uOrdenEstimacionD.Moneda;
-              
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpVolumetria);
                 sqlcComando.Parameters.Add(sqlpRenglon);
@@ -449,10 +451,10 @@ namespace OSEF.APP.DL
                 sqlcComando.CommandText = "web_spS_ObtenerOrdenEstimacionDExploradorConcluidos";
 
                 //2. Declarar los parametros
-              
+
 
                 //3. Agregar los parametros al comando
-              
+
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

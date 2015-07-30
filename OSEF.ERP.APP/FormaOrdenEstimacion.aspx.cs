@@ -25,7 +25,7 @@ namespace OSEF.ERP.APP
             if (!X.IsAjaxRequest)
             {
                 sCuadrillas.DataSource = CuadrillaBusiness.ObtenerCuadrillas();
-                sCuadrillas.DataBind(); 
+                sCuadrillas.DataBind();
             }
             //2. Checar ticket de autenticación
             UsuarioBusiness.checkValidSession(this);
@@ -65,7 +65,7 @@ namespace OSEF.ERP.APP
                     sConceptos.DataSource = OrdenEstimacionDBusiness.ObtenerOrdenEstimacionDPorOrigen(oOrdenEstimacion.OrigenId);
                     sConceptos.DataBind();
                 }
-                else 
+                else
                 {
                     //Cargar el detalle del movimiento normal
                     sConceptos.DataSource = OrdenEstimacionDBusiness.ObtenerOrdenEstimacionDPorOrdenEstimacion(oOrdenEstimacion.Id);
@@ -195,7 +195,7 @@ namespace OSEF.ERP.APP
         /// <param name="e"></param>
         [DirectMethod]
         public void imgbtnGuardarDirect_Click(string strOrdenEstimacionForma, string strOrdenEstimacion, string strID, string strOrdenEstimacionD,
-            string strSucursal, string strDiasAtencion, DateTime strFechaMaxima)
+            string strSucursal, string strDiasAtencion, string strFechaMaxima)
         {
 
             //1. Obtener datos de la Forma y saber si es edición o nuevo
@@ -278,13 +278,13 @@ namespace OSEF.ERP.APP
 
             //2. Serializar el encabezado y el detalle
             Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strOrdenEstimacionForma);
-            OrdenEstimacion oFormaOrdenEstimacion = ObtenerObjetoDesdeForma(dRegistro); 
+            OrdenEstimacion oFormaOrdenEstimacion = ObtenerObjetoDesdeForma(dRegistro);
 
             OrdenEstimacion oOrdenEstimacion = null;
             if (strID != "null")
             {
                 oOrdenEstimacion = OrdenEstimacionBusiness.ObtenerOrdenEstimacionPorID(Convert.ToInt32(strID));
-            } 
+            }
             //OrdenEstimacion oOrdenEstimacion = JsonConvert.DeserializeObject<List<OrdenEstimacion>>(strOrdenEstimacion).FirstOrDefault();
             List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(strOrdenEstimacionD);
 
@@ -382,9 +382,9 @@ namespace OSEF.ERP.APP
                         break;
                     //6. Tercer pestaña
                     case "txtfCodigoFalla":
-                        oOrdenEstimacionForma.CodigoFalla= sd.Value;
+                        oOrdenEstimacionForma.CodigoFalla = sd.Value;
                         break;
-                 
+
                     case "dfFechaLlegada":
                         if (sd.Value == null || sd.Value.Equals(""))
                             oOrdenEstimacionForma.FechaLlegada = null;
@@ -392,10 +392,10 @@ namespace OSEF.ERP.APP
                             oOrdenEstimacionForma.FechaLlegada = Convert.ToDateTime(sd.Value);
                         break;
                     case "tfHoraLlegada":
-                         if (sd.Value == null || sd.Value.Equals(""))
+                        if (sd.Value == null || sd.Value.Equals(""))
                             oOrdenEstimacionForma.HoraLlegada = null;
                         else
-                             oOrdenEstimacionForma.HoraLlegada = Convert.ToDateTime(sd.Value);
+                            oOrdenEstimacionForma.HoraLlegada = Convert.ToDateTime(sd.Value);
                         break;
                     case "dfFechaFinActividad":
                         if (sd.Value == null || sd.Value.Equals(""))
@@ -404,10 +404,10 @@ namespace OSEF.ERP.APP
                             oOrdenEstimacionForma.FechaFinActividad = Convert.ToDateTime(sd.Value);
                         break;
                     case "tfHoraFinActividad":
-                         if (sd.Value == null || sd.Value.Equals(""))
+                        if (sd.Value == null || sd.Value.Equals(""))
                             oOrdenEstimacionForma.HoraFinActividad = null;
                         else
-                             oOrdenEstimacionForma.HoraFinActividad = Convert.ToDateTime(sd.Value);
+                            oOrdenEstimacionForma.HoraFinActividad = Convert.ToDateTime(sd.Value);
                         break;
                     case "cmbCuadrilla":
                         oOrdenEstimacionForma.Cuadrilla = sd.Value;
@@ -416,10 +416,10 @@ namespace OSEF.ERP.APP
                         oOrdenEstimacionForma.ImporteTotal = Convert.ToDecimal(sd.Value);
                         break;
                     case "tHoraOrigen":
-                         if (sd.Value == null || sd.Value.Equals(""))
-                             oOrdenEstimacionForma.HoraOrigen = null;
+                        if (sd.Value == null || sd.Value.Equals(""))
+                            oOrdenEstimacionForma.HoraOrigen = null;
                         else
-                             oOrdenEstimacionForma.HoraOrigen = Convert.ToDateTime(sd.Value);
+                            oOrdenEstimacionForma.HoraOrigen = Convert.ToDateTime(sd.Value);
                         break;
                     case "fufNormal":
                         oOrdenEstimacionForma.RutaImagen = sd.Value;
@@ -434,7 +434,7 @@ namespace OSEF.ERP.APP
                         oOrdenEstimacionForma.ReferenciaOrden = sd.Value;
                         break;
                     case "cmbClasificacion":
-                        oOrdenEstimacionForma.Clasificacion = sd.Value == null ? "":sd.Value;
+                        oOrdenEstimacionForma.Clasificacion = sd.Value == null ? "" : sd.Value;
                         break;
                     case "IdCliente":
                         oOrdenEstimacionForma.Cliente = sd.Value == null ? "" : sd.Value;
@@ -463,7 +463,7 @@ namespace OSEF.ERP.APP
             oOrdenEstimacionForma.Usuario = oUsuario.ID;
 
             //2. Actualizamos el Estatus e Insertar en la base de datos
-            oOrdenEstimacionForma.Estatus = "BORRADOR"; 
+            oOrdenEstimacionForma.Estatus = "BORRADOR";
             string strReporte = oOrdenEstimacionForma.Reporte;
             string strImagen = fufNormal.FileName;
             oOrdenEstimacionForma.RutaImagen = strImagen;
@@ -496,7 +496,7 @@ namespace OSEF.ERP.APP
                 }
 
 
-                
+
 
                 oOrdenEstimacionForma.Id = OrdenEstimacionBusiness.insertarOrdenEstimacion(oOrdenEstimacionForma);
 
@@ -543,7 +543,7 @@ namespace OSEF.ERP.APP
                     Clasificacion = oOrdenEstimacionForma.Clasificacion == null ? oOrdenEstimacionForma.Clasificacion : "",
                     Cliente = oOrdenEstimacionForma.Cliente,
                     RCliente = oOrdenEstimacionForma.RCliente
-                }); 
+                });
 
                 //7. Guardar Detalle y regresar valor
                 GuardarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacionForma);
@@ -569,7 +569,8 @@ namespace OSEF.ERP.APP
                     oOrdenEstimacionForma.RutaImagen = "imagenesReportes\\" + oOrdenEstimacionForma.Reporte + "\\" + fufNormal.FileName;
 
                 }
-                else {
+                else
+                {
                     oOrdenEstimacionForma.RutaImagen = oOrdenEstimacion.RutaImagen;
                 }
 
@@ -657,7 +658,7 @@ namespace OSEF.ERP.APP
             borrarImagenesPorMovimiento(strID);
             OrdenEstimacionDBusiness.BorrarPorID(strID);
             OrdenEstimacionBusiness.Borrar(strID);
-            
+
         }
 
 
@@ -718,7 +719,7 @@ namespace OSEF.ERP.APP
             ImagenOrdenEstimacionBusiness.BorrarImagenesOrdenEstimacionDPorConcepto(iID, strConcepto);
             FacturaOrdenEstimacionBusiness.BorrarFacturaOrdenEstimacionDPorConcepto(iID, strConcepto);
             CroquisOrdenEstimacionBusiness.BorrarCroquisOrdenEstimacionDPorConcepto(iID, strConcepto);
-            GeneradorOrdenEstimacionDBusiness.BorrarGeneradorOrdenEstimacionDPorConcepto(iID,strConcepto);
+            GeneradorOrdenEstimacionDBusiness.BorrarGeneradorOrdenEstimacionDPorConcepto(iID, strConcepto);
         }
 
         /// <summary>
@@ -729,12 +730,12 @@ namespace OSEF.ERP.APP
         public void borrarImagenesPorMovimiento(int strID)
         {
             //1. Obtener el ID del movimiento
-            
+
             string strDireccionImagenes = Server.MapPath(" ") + "\\imagenesOrdenEstimacion\\" + strID;
             string strDireccionCroquis = Server.MapPath(" ") + "\\croquisOrdenEstimacion\\" + strID;
             string strDireccionFacturas = Server.MapPath(" ") + "\\facturasOrdenEstimacion\\" + strID;
 
-              //2. Validar si existe el directorio donde se borrarán las imagenes
+            //2. Validar si existe el directorio donde se borrarán las imagenes
             if (Directory.Exists(strDireccionImagenes))
             {
                 try
@@ -805,7 +806,7 @@ namespace OSEF.ERP.APP
         [DirectMethod]
         public static int VerificarImagenes(int strID, string IDConcepto)
         {
-            List<ImagenOrdenEstimacionD> oeb = OrdenEstimacionBusiness.ObtenerOrdenEstimacionDPorID(strID,IDConcepto);
+            List<ImagenOrdenEstimacionD> oeb = OrdenEstimacionBusiness.ObtenerOrdenEstimacionDPorID(strID, IDConcepto);
             if (oeb.Count > 0)
             {
                 return 1;
@@ -894,5 +895,5 @@ namespace OSEF.ERP.APP
             }
         }
         #endregion
-    } 
+    }
 }
