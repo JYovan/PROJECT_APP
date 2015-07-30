@@ -74,9 +74,20 @@ namespace OSEF.ERP.APP
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void miCerrarSesionClick(object sender, DirectEventArgs e)
-        {  
+        {
+
+            //if (Request.Cookies["logeado"] != null)
+            //{
+            //    HttpCookie myCookie = new HttpCookie("logeado");
+            //    myCookie.Expires = DateTime.Now.AddDays(-1d);
+            //    Response.Cookies.Add(myCookie);
+            //}
+
+            //Session["logeado"] = "No";
             FormsAuthentication.SignOut();
-            Response.Redirect("~/Login.aspx", true);   
+            Response.Redirect("~/Login.aspx", true);
+
+            
         }
 
         [DirectMethod]

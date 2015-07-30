@@ -40,6 +40,12 @@ namespace OSEF.AVANCES.SUCURSALES
         protected void Session_End(object sender, EventArgs e)
         {
 
+                //HttpCookie myCookie = new HttpCookie("logeado");
+                //myCookie.Expires = DateTime.Now.AddDays(-1d);
+                //Response.Cookies.Add(myCookie);
+
+            //Session["logeado"] = "No";
+
         }
 
         protected void Application_End(object sender, EventArgs e)

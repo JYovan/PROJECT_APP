@@ -92,6 +92,22 @@ namespace OSEF.ERP.APP
                 ck.Expires = tkt.Expiration;
                 ck.Path = FormsAuthentication.FormsCookiePath;
                 Response.Cookies.Add(ck);
+
+
+                ////Crear una cookie para checar la sesion logeada
+                //HttpCookie myCookie = new HttpCookie("logeado");
+                //DateTime now = DateTime.Now;
+
+                //// Set the cookie value.
+                //myCookie.Value = "Si";
+                //// Set the cookie expiration date.
+                //myCookie.Expires = now.AddDays(1);
+                //// Add the cookie.
+                //Response.Cookies.Add(myCookie);
+
+
+                //Session["logeado"] = "Si";
+
             }
             else
             {
