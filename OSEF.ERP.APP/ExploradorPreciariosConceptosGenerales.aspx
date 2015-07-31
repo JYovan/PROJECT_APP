@@ -25,7 +25,43 @@
     <link rel="stylesheet" href="css/xPanel.css"/>
     <link rel="stylesheet" href="css/xButton.css"/>
     <script type='text/javascript' src="js/exploradorConceptoPreciarioGeneral.js"></script>
+     <script>
 
+         var applyFilter = function (field) {
+             var store = App.gpExploradorConceptosPreciarioGeneral.getStore();
+             store.filterBy(getRecordFilter());
+         };
+
+         var filterDate = function (value, dataIndex, record) {
+             var val = Ext.Date.clearTime(record.get(dataIndex), true).getTime();
+
+             if (!Ext.isEmpty(value, false) && val != Ext.Date.clearTime(value, true).getTime()) {
+                 return false;
+             }
+             return true;
+         };
+
+         var getRecordFilter = function () {
+             var f = [];
+             f.push({
+                 filter: function (record) {
+                     console.log(record);
+                     return filterDate(App.fEmitido.getValue(), "FechaEmision", record);
+                 }
+             });
+
+             var len = f.length;
+
+             return function (record) {
+                 for (var i = 0; i < len; i++) {
+                     if (!f[i].filter(record)) {
+                         return false;
+                     }
+                 }
+                 return true;
+             };
+         };
+    </script> 
 </head>
 <body class="xCustomBody">
     <form id="form1" runat="server">
@@ -196,7 +232,7 @@
                         </HeaderItems>
                         <Renderer Fn="cMov_Renderer" />
                     </ext:Column>
-                    <ext:DateColumn
+                   <%-- <ext:DateColumn
                         ID="dcFechaEmision"
                         runat="server"
                         Text="EMITIDO"
@@ -240,8 +276,26 @@
                                 </SelectedItems>
                             </ext:ComboBox>
                         </HeaderItems>
+                    </ext:DateColumn>--%> 
+                    <ext:DateColumn 
+                    ID="cEmitido" 
+                    runat="server" 
+                    Text="EMITIDO" 
+                    Width="120" 
+                    DataIndex="FechaEmision" 
+                    Format="dd/MM/yyyy">
+                        <HeaderItems>
+                            <ext:DateField ID="fEmitido" runat="server" Editable="false">
+                                <Listeners>
+                                    <Change Handler="applyFilter(this);" />
+                                </Listeners>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton1" runat="server" />
+                                </Plugins>
+                            </ext:DateField>
+                        </HeaderItems>
                     </ext:DateColumn>
-                     
+
                     <ext:Column
                         ID="cCliente"
                         runat="server"
