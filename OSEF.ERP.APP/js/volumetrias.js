@@ -74,7 +74,7 @@ var imgbtnGuardar_Click_Success = function (response, result) {
         App.gpVolumetriaDetalle.reconfigure();
 
 
-       // console.log(App.ccFotos.commands[0]);
+        // console.log(App.ccFotos.commands[0]);
         //console.log(App.ccFotos.cache.length);
         //console.log(App.ccFotos.cache);
         //console.log(App.ccFotos.getMenuItems());
@@ -90,7 +90,18 @@ var imgbtnGuardar_Click_Success = function (response, result) {
             closable: false,
             icon: Ext.MessageBox.INFO
         });
-        
+        App.sConceptos.reload({
+            callback: function () {
+                if (App.sConceptos.getCount() > 0) {
+                    //Obtener el Renglon anterior
+                    var auxRenglonAnterior = App.sConceptos.getCount() - 1;
+                    var renglonAnterior = App.sConceptos.getAt(auxRenglonAnterior).get('Renglon') + 1;
+                    App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: renglonAnterior });
+                } else {
+                    App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: 1 });
+                }
+            }
+        });
     }
 };
 

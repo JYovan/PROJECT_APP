@@ -70,13 +70,13 @@ namespace OSEF.APP.BL
         {
             List<PreciarioConcepto> lpc = PreciarioConceptosDataAccess.ObtenerPreciarioConceptoFiltro(strPreciario, strCategoria,strSubCategoria,strSubsubCategoria);
 
-            foreach (PreciarioConcepto sd in lpc)
-            {
-                if (sd.Cliente != null)
-                {
-                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
-                } 
-            }
+            //foreach (PreciarioConcepto sd in lpc)
+            //{
+            //    if (sd.Cliente != null)
+            //    {
+            //        sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+            //    } 
+            //}
             return lpc;
         }
 

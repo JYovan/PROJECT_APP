@@ -343,7 +343,7 @@ namespace OSEF.ERP.APP
             foreach (VolumetriaD sd in lVolumetriaD)
             {
                 //2. Validar que el objeto no venga en blanco
-                if (sd.ConceptoID.Equals(string.Empty) || sd.Cantidad.Equals(string.Empty) || sd.Utilizada == 0)
+                if (sd.ConceptoID.Equals(string.Empty) && sd.Cantidad == 0 && sd.Utilizada == 0)
                     continue;
                 else
                 {

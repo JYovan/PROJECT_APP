@@ -32,15 +32,15 @@ CREATE PROCEDURE web_spI_InsertarVolumetriaD
 	@Volumetria	INT,
 	@Renglon	SMALLINT,
 	@ConceptoID	CHAR(10),
-	@Cantidad	DECIMAL(10, 3),
-	@Utilizada	DECIMAL(10, 3),
+	@Cantidad	DECIMAL(10, 6),
+	@Utilizada	DECIMAL(10, 6),
 	@Fotos		VARCHAR(200)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-
+	SET @Cantidad = (SELECT SUM(gdv.Total) FROM GeneradorVolumetriaD gdv WHERE gdv.MovID = @Volumetria AND gdv.ConceptoID = @ConceptoID);
 		-- Insert statements for procedure here
 		INSERT INTO
 			VolumetriasD

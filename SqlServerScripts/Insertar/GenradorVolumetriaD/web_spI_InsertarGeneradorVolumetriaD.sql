@@ -79,5 +79,8 @@ BEGIN
 			@Cantidad,
 			@Total				
 		)
+		UPDATE VolumetriasD
+		SET Cantidad = (SELECT SUM(gvd.Total) FROM GeneradorVolumetriaD gvd WHERE gvd.MovID = @ID AND gvd.ConceptoID = @Concepto)
+		WHERE Volumetria = @ID AND ConceptoID = @Concepto;
 END
 GO

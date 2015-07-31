@@ -359,21 +359,30 @@ var imgbtnAceptar_Click = function () {
 
     var strVolumetriaD = Ext.encode(wp.App.sConceptos.getRecordsValues());
     var strID = IDVolumetria();
-
-//    wp.App.direct.imgbtnGuardarDirect_Click(strID, strVolumetriaD);
-    //    wp.App.sConceptos.reload({
-    //        callback: function () {
-    //            if (wp.App.sConceptos.getCount() > 0) {
-    //                //Obtener el Renglon anterior
-    //                var auxRenglonAnterior = wp.App.sConceptos.getCount() - 1;
-    //                var renglonAnterior = wp.App.sConceptos.getAt(auxRenglonAnterior).get('Renglon') + 1;
-    //                wp.App.sConceptos.insert(wp.App.sConceptos.getCount(), { Renglon: renglonAnterior });
-    //            } else {
-    //                wp.App.sConceptos.insert(wp.App.sConceptos.getCount(), { Renglon: 1 });
-    //            }
-    //        }
-    //    });
-
     wp.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Utilizada", parseFloat(ImporteFinal));
+    console.log('Guardando...');
+    console.log('Cantidad: ');
+    wp.App.direct.imgbtnGuardarDirect_Click(strID, strVolumetriaD,
+                 {
+                     success: function () {
+                         wp.App.sConceptos.reload({
+                             callback: function () {
+                                 if (wp.App.sConceptos.getCount() > 0) {
+                                     //Obtener el Renglon anterior
+                                     var auxRenglonAnterior = wp.App.sConceptos.getCount() - 1;
+                                     var renglonAnterior = wp.App.sConceptos.getAt(auxRenglonAnterior).get('Renglon') + 1;
+                                     wp.App.sConceptos.insert(wp.App.sConceptos.getCount(), { Renglon: renglonAnterior });
+                                 } else {
+                                     wp.App.sConceptos.insert(wp.App.sConceptos.getCount(), { Renglon: 1 });
+                                 }
+                             }
+                         });
+                     },
+                     failure: function (errorMsg) {
+                         Ext.Msg.alert('Error', errorMsg);
+                     }
+                 }
+    );
+
     window.parent.App.wGenerador.hide();
 }
