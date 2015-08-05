@@ -37,8 +37,8 @@
             Height="460"
             Width="1150"           
             Title="EXPLORADOR MESA DE REPORTE"
-            EnableColumnHide="false"
-            EnableColumnMove="false"
+            EnableColumnHide="true"
+            EnableColumnMove="true"
             Header="true"
             TitleAlign="Left"
             StyleSpec="margin:0 auto; margin-top: 20px;">

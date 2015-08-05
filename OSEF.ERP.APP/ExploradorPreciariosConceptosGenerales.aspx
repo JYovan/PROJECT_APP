@@ -76,8 +76,8 @@
             Height="420"
             Width="1000"
             Title="EXPLORADOR ORDENES DE CAMBIO"
-            EnableColumnHide="false"
-            EnableColumnMove="false"
+            EnableColumnHide="true"
+            EnableColumnMove="true"
             Header="true"
             TitleAlign="Left"
             StyleSpec="margin:0 auto; margin-top: 20px;">
