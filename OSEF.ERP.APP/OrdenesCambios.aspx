@@ -479,10 +479,6 @@
                 </ext:RowSelectionModel>
             </SelectionModel>
 
-            <Plugins>
-                <ext:FilterHeader ID="FilterHeader1" runat="server" OnCreateFilterableField="OnCreateFilterableField" />
-            </Plugins>
-
             <FooterBar>
                 <ext:StatusBar
                     ID="sbOrdenesEstimacion"
