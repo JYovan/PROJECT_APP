@@ -41,8 +41,8 @@
             Width="1120"
             Resizable="true"
             Title="REPORTES & ESTIMACIONES"
-            EnableColumnHide="false"
-            EnableColumnMove="false"
+            EnableColumnHide="true"
+            EnableColumnMove="true"
             Header="true"
             TitleAlign="Left"
             StyleSpec="margin:0 auto; margin-top: 20px;">
@@ -642,7 +642,7 @@
                 <ext:GridView
                     ID="gvOrdenesEstimaciones"
                     runat="server"
-                    StripeRows="true">
+                    StripeRows="true"> 
                 </ext:GridView>
             </View>
             <SelectionModel>

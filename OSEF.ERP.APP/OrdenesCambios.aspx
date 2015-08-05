@@ -21,8 +21,8 @@
             Height="420"
             Width="1020"
             Title="ÓRDENES DE CAMBIO"
-            EnableColumnHide="false"
-            EnableColumnMove="false"
+            EnableColumnHide="true"
+            EnableColumnMove="true"
             Header="true"
             TitleAlign="Left"
             StyleSpec="margin:0 auto; margin-top: 20px;">

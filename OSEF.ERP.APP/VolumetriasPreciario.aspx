@@ -37,8 +37,8 @@
             Height="450"
             Width="1100"
             Title="VOLUMETRIAS"
-            EnableColumnHide="false"
-            EnableColumnMove="false"
+            EnableColumnHide="true"
+            EnableColumnMove="true"
             Header="true"
             TitleAlign="Left"
             StyleSpec="margin:0 auto; margin-top: 20px;">
