@@ -41,8 +41,8 @@
             Width="1120"
             Resizable="true"
             Title="REPORTES & ESTIMACIONES"
-            EnableColumnHide="false"
-            EnableColumnMove="false"
+            EnableColumnHide="true"
+            EnableColumnMove="true"
             Header="true"
             TitleAlign="Left"
             StyleSpec="margin:0 auto; margin-top: 20px;">
@@ -230,6 +230,9 @@
                                 <Listeners>
                                     <Change Fn="txtReporteFiltro_Change" />
                                 </Listeners>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton9" runat="server" />
+                                </Plugins>
                             </ext:TextField>
                         </HeaderItems>
                     </ext:Column>
@@ -267,8 +270,7 @@
                                 ID="cmbSucursalFiltro"
                                 runat="server"
                                 DisplayField="Nombre"
-                                ValueField="ID"
-
+                                ValueField="ID" 
                                 ForceSelection="true"
                                 Editable="true"
                                  MatchFieldWidth="true"
@@ -297,7 +299,10 @@
                                             </ext:Model>
                                         </Model>
                                     </ext:Store>
-                                </Store>
+                                </Store> 
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton1" runat="server" />
+                                </Plugins>
                             </ext:ComboBox>
                         </HeaderItems>
                     </ext:Column>
@@ -328,6 +333,9 @@
                                 <Listeners>
                                     <Select Fn="cmbClasificacionFiltro_Select" />
                                 </Listeners> 
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton2" runat="server" />
+                                </Plugins>
                             </ext:ComboBox>
                         </HeaderItems>
                     </ext:DateColumn> 
@@ -392,6 +400,9 @@
                                 <SelectedItems>
                                     <ext:ListItem Index="0" />
                                 </SelectedItems>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton3" runat="server" />
+                                </Plugins>
                             </ext:ComboBox>
                         </HeaderItems>
                     </ext:DateColumn> 
@@ -448,6 +459,9 @@
                                 <SelectedItems>
                                     <ext:ListItem Index="0" />
                                 </SelectedItems>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton4" runat="server" />
+                                </Plugins>
                             </ext:ComboBox>
                         </HeaderItems>
                     </ext:DateColumn>
@@ -507,6 +521,9 @@
                                  <Listeners>
                                     <Select Fn="cmbCuadrillasFiltro_Select" />
                                 </Listeners>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton5" runat="server" />
+                                </Plugins>
                             </ext:ComboBox>
                     
                         </HeaderItems>
@@ -537,6 +554,9 @@
                                 <Listeners>
                                     <Select Fn="cmbMovimientoFiltro_Select" />
                                 </Listeners>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton6" runat="server" />
+                                </Plugins>
                             </ext:ComboBox>
                         </HeaderItems>
                         <Renderer Fn="cMov_Renderer" />
@@ -587,6 +607,9 @@
                                  <Listeners>
                                     <Select Fn="cmbUsuarioFiltro_Select" />
                                 </Listeners>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton7" runat="server" />
+                                </Plugins>
                             </ext:ComboBox>
                     
                         </HeaderItems>
@@ -619,6 +642,9 @@
                                 <Listeners>
                                     <Select Fn="cmbEstatusFiltro_Select" />
                                 </Listeners> 
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton8" runat="server" />
+                                </Plugins>
                             </ext:ComboBox>
                         </HeaderItems> 
                     </ext:Column> 
@@ -642,7 +668,7 @@
                 <ext:GridView
                     ID="gvOrdenesEstimaciones"
                     runat="server"
-                    StripeRows="true">
+                    StripeRows="true"> 
                 </ext:GridView>
             </View>
             <SelectionModel>

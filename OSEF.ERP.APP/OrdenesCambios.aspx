@@ -21,8 +21,8 @@
             Height="420"
             Width="1020"
             Title="ÓRDENES DE CAMBIO"
-            EnableColumnHide="false"
-            EnableColumnMove="false"
+            EnableColumnHide="true"
+            EnableColumnMove="true"
             Header="true"
             TitleAlign="Left"
             StyleSpec="margin:0 auto; margin-top: 20px;">
@@ -259,7 +259,11 @@
                     <ext:Column
                         ID="cNoOrden"
                         runat="server"
+<<<<<<< HEAD
                         Text="NO. ORDEN"
+=======
+                        Text="No.ORDEN"
+>>>>>>> origin/master
                         Align="Center"
                         Width="70"
                         DataIndex="NoOrden"> 
@@ -272,10 +276,13 @@
                                 <Listeners>
                                     <Change Fn="txtNoOrdenFiltro_Change" />
                                 </Listeners>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton1" runat="server" />
+                                </Plugins>
                             </ext:TextField>
                         </HeaderItems>
                     </ext:Column>
-                                      <ext:Column
+                    <ext:Column
                         ID="cSucursal"
                         runat="server"
                         Text="SUCURSAL"
@@ -475,6 +482,7 @@
                     runat="server">
                 </ext:RowSelectionModel>
             </SelectionModel>
+
             <FooterBar>
                 <ext:StatusBar
                     ID="sbOrdenesEstimacion"

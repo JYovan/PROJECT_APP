@@ -1161,21 +1161,124 @@ var cCantidad_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "000,000,000.000000");
+    
+    var dotstar = valor.toString().indexOf(".") + 1;
+    var strdecimal = valor.toString();
+    var decimals, ndecimals;
+
+    if (dotstar != null) {
+        decimals = strdecimal.substring(dotstar, valor.toString().length);
+        ndecimals = dotstar == 0 ? 0 : decimals.toString().length;
+
+        //        console.log("DotStart: "+dotstar+", Valor: " + valor.toString() + ", Tamaño: " + valor.toString().length + ", Inicio: "
+        //                    + dotstar + ", Decimals: " + decimals + ", NDecimals: " + ndecimals); 
+
+        switch (ndecimals) {
+            case 0:
+                return F.number(valor.toFixed(6), "$000,000,000.00");
+                break;
+            case 1:
+                return F.number(valor.toFixed(6), "$000,000,000.00");
+                break;
+            case 2:
+                return F.number(valor.toFixed(6), "$000,000,000.000");
+                break;
+            case 3:
+                return F.number(valor.toFixed(6), "$000,000,000.000");
+                break;
+            case 4:
+                return F.number(valor.toFixed(6), "$000,000,000.0000");
+                break;
+            case 5:
+                return F.number(valor.toFixed(6), "$000,000,000.00000");
+                break;
+            default:
+                return F.number(valor.toFixed(6), "$000,000,000.000000");
+                break;
+        }
+    }
 };
 
 var cPrecio_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "$000,000,000.000000");
+    var dotstar = valor.toString().indexOf(".") + 1;
+    var strdecimal = valor.toString();
+    var decimals, ndecimals;
+
+    if (dotstar != null) {
+        decimals = strdecimal.substring(dotstar, valor.toString().length);
+        ndecimals = dotstar == 0 ? 0 : decimals.toString().length;
+
+        //        console.log("DotStart: "+dotstar+", Valor: " + valor.toString() + ", Tamaño: " + valor.toString().length + ", Inicio: "
+        //                    + dotstar + ", Decimals: " + decimals + ", NDecimals: " + ndecimals); 
+
+        switch (ndecimals) {
+            case 0:
+                return F.number(valor, "$000,000,000.00");
+                break;
+            case 1:
+                return F.number(valor, "$000,000,000.00");
+                break;
+            case 2:
+                return F.number(valor, "$000,000,000.00");
+                break;
+            case 3:
+                return F.number(valor, "$000,000,000.000");
+                break;
+            case 4:
+                return F.number(valor, "$000,000,000.0000");
+                break;
+            case 5:
+                return F.number(valor, "$000,000,000.00000");
+                break;
+            default:
+                return F.number(valor, "$000,000,000.000000");
+                break;
+        }
+    }
 };
 
 var cImporte_Renderer = function (valor) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    return F.number(valor, "$000,000,000.000000");
+    var dotstar = valor.toString().indexOf(".") + 1;
+    var strdecimal = valor.toString();
+    var decimals, ndecimals;
+
+    if (dotstar != null) {
+        decimals = strdecimal.substring(dotstar, valor.toString().length);
+        ndecimals = dotstar == 0 ? 0:decimals.toString().length;
+
+//        console.log("DotStart: "+dotstar+", Valor: " + valor.toString() + ", Tamaño: " + valor.toString().length + ", Inicio: "
+//                    + dotstar + ", Decimals: " + decimals + ", NDecimals: " + ndecimals); 
+        
+        switch (ndecimals) {
+            case 0:
+                return F.number(valor, "$000,000,000.00");
+                break;
+            case 1:
+                return F.number(valor, "$000,000,000.00");
+                break;
+            case 2:
+                return F.number(valor, "$000,000,000.00");
+                break;
+            case 3:
+                return F.number(valor, "$000,000,000.000");
+                break;
+            case 4:
+                return F.number(valor, "$000,000,000.0000");
+                break;
+            case 5:
+                return F.number(valor, "$000,000,000.00000");
+                break;
+            default:
+                return F.number(valor, "$000,000,000.000000");
+                break;
+        } 
+    }
 };
 
 
@@ -1189,15 +1292,16 @@ var sConceptos_Load = function (avance, registro, index) {
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
 
-//    var a2 = Math.floor(sum * 100) / 100;
-//    App.dfTotalSinRender.setValue(a2.toFixed(2));
-//    App.dfTotal.setValue(F.number(a2.toFixed(2), "$000,000.00"));
-
-
-    App.dfTotalSinRender.setValue(sum.toFixed(6));
-    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
-
+    //    var a2 = Math.floor(sum * 100) / 100;
+    //    App.dfTotalSinRender.setValue(a2.toFixed(2));
+    //    App.dfTotal.setValue(F.number(a2.toFixed(2), "$000,000.00"));
     
+    beforeRender_Importe(sum,F);
+
+    //    App.dfTotalSinRender.setValue(sum.toFixed(6));
+    //    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+
+
 }
 
 //Calular Importe cuando la columna de precio cambia
@@ -1246,8 +1350,12 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
 
-    App.dfTotalSinRender.setValue(sum.toFixed(6));
-    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+
+    beforeRender_Importe(sum, F);
+
+//    App.dfTotalSinRender.setValue(sum.toFixed(6));
+//    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+
     ImporteFinal = sum;
      
     if (indiceDetalle == 0) {
@@ -1390,8 +1498,8 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
 
-    App.dfTotalSinRender.setValue(sum.toFixed(6));
-    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+//    App.dfTotalSinRender.setValue(sum.toFixed(6));
+//    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
     ImporteFinal = sum; 
 };
 
@@ -1440,10 +1548,11 @@ var getDescripcion = function (r) {
         F.decimalSeparator = '.';
 
 
-        App.dfTotalSinRender.setValue(ImporteFinal.toFixed(6));
-        App.dfTotal.setValue(F.number(ImporteFinal.toFixed(6), "$000,000.000000"));
+//        App.dfTotalSinRender.setValue(ImporteFinal.toFixed(6));
+//        App.dfTotal.setValue(F.number(ImporteFinal.toFixed(6), "$000,000.000000"));
 
 
+        beforeRender_Importe(ImporteFinal, F);
 
         if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') {
             Ext.util.Cookies.set('cookieIDBorrarFotosOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
@@ -2238,3 +2347,53 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
 //            console.log("datos publicados"); 
         }
     }
+
+    var beforeRender_Importe = function (sum, F) {
+        var valor = sum;
+        var dotstar = valor.toString().indexOf(".") + 1;
+        var strdecimal = valor.toString();
+        var decimals, ndecimals;
+
+        if (dotstar != null) {
+
+            decimals = strdecimal.substring(dotstar, valor.toString().length);
+
+//            console.log("Value: " + valor + ", STRDecimals: " + decimals.toString().length + ", DotStar: " + dotstar);
+//            ndecimals = decimals.toString().length == 0 ? 0 : decimals.toString().length <= 6 ? decimals.toString().length : 6;
+
+            switch (ndecimals) {
+                case 0:
+                    App.dfTotalSinRender.setValue(sum.toFixed(6));
+                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
+                    break;
+                case 1:
+                    App.dfTotalSinRender.setValue(sum.toFixed(6));
+                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
+                    break;
+                case 2:
+                    App.dfTotalSinRender.setValue(sum.toFixed(6));
+                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
+                    break;
+                case 3:
+                    App.dfTotalSinRender.setValue(sum.toFixed(6));
+                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000"));
+                    break;
+                case 4:
+                    App.dfTotalSinRender.setValue(sum.toFixed(6));
+                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.0000"));
+                    break;
+                case 5:
+                    App.dfTotalSinRender.setValue(sum.toFixed(6));
+                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00000"));
+                    break;
+                case 6:
+                    App.dfTotalSinRender.setValue(sum.toFixed(6));
+                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+                    break;
+                default:
+                    App.dfTotalSinRender.setValue(sum.toFixed(6));
+                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+                    break;
+            }
+        }
+    };

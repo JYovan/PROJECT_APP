@@ -180,7 +180,7 @@ namespace OSEF.APP.DL
                 sqlpCantidad.ParameterName = "@Cantidad";
                 sqlpCantidad.SqlDbType = SqlDbType.Decimal;
                 sqlpCantidad.Precision = 10;
-                sqlpCantidad.Scale = 2;
+                sqlpCantidad.Scale = 6;
                 sqlpCantidad.Value = uOrdenEstimacionD.Cantidad;
 
                 SqlParameter sqlpUnidad = new SqlParameter();
@@ -192,16 +192,25 @@ namespace OSEF.APP.DL
                 sqlpPrecio.ParameterName = "@Precio";
                 sqlpPrecio.SqlDbType = SqlDbType.Decimal;
                 sqlpPrecio.Precision = 20;
-                sqlpPrecio.Scale = 2;
+                sqlpPrecio.Scale = 6;
                 sqlpPrecio.Value = uOrdenEstimacionD.Precio;
 
                 SqlParameter sqlpImporte = new SqlParameter();
                 sqlpImporte.ParameterName = "@Importe";
                 sqlpImporte.SqlDbType = SqlDbType.Decimal;
                 sqlpImporte.Precision = 20;
-                sqlpImporte.Scale = 2;
+                sqlpImporte.Scale = 6;
                 sqlpImporte.Value = uOrdenEstimacionD.Importe;
 
+
+                SqlParameter sqlpIntExt = new SqlParameter();
+                sqlpIntExt.ParameterName = "@IntExt";
+                sqlpIntExt.SqlDbType = SqlDbType.VarChar;
+
+                if (uOrdenEstimacionD.IntExt == null)
+                    sqlpIntExt.Value = DBNull.Value;
+                else
+                    sqlpIntExt.Value = uOrdenEstimacionD.IntExt;
 
                 SqlParameter sqlpMoneda = new SqlParameter();
                 sqlpMoneda.ParameterName = "@Moneda";
@@ -220,6 +229,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpUnidad);
                 sqlcComando.Parameters.Add(sqlpPrecio);
                 sqlcComando.Parameters.Add(sqlpImporte);
+                sqlcComando.Parameters.Add(sqlpIntExt);
                 sqlcComando.Parameters.Add(sqlpMoneda);
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

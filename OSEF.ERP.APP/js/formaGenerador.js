@@ -389,7 +389,7 @@ var strID = function () {
     }
 }
 var getRecordValues = function () {
-    var store = window.parent.App.wEmergente.getBody().App.sOrdenEstimacion;
+    var store = window.parent.App.wEmergente.getBody().App.sConceptos;
     var records = store.getRecordsValues();
     var encodedrecords;
     var xudata = [], data = [];
@@ -409,21 +409,81 @@ var getRecordValues = function () {
         }
     }
 }
+
+var getNewEncodedRecords = function () {
+
+    var store = window.parent.App.wEmergente.getBody().App.sConceptos;
+    var newRecords = store.getNewRecords();
+    var encodednewrecords;
+    var xndata = []; 
+    if (newRecords.length > 0 || newRecords != null) {
+
+        for (i = 0; i < newRecords.length; i++) {
+            xndata.push(newRecords[i].data);
+        }
+
+        xndata.pop();
+        if (xndata.length > 0) {
+            encodednewrecords = Ext.encode(xndata);
+            return encodednewrecords;
+        } else {
+            return 0;
+        }
+    }
+};
+
+var getRemovedRecords = function () {
+    var store = window.parent.App.wEmergente.getBody().App.sConceptos;
+    var deleteRecords = store.getRemovedRecords();
+    var encodedremovedrecords;
+    var xrdata = [];
+
+    if (deleteRecords.length > 0 || deleteRecords != null) {
+        for (i = 0; i < deleteRecords.length; i++) {
+            xrdata.push(deleteRecords[i].data);
+        }
+        if (xrdata.length > 0) {
+            encodedremovedrecords = Ext.encode(xrdata);
+            return encodedremovedrecords;
+        } else {
+            return 0;
+        }
+    }
+};
+
+var getUpdatedRecords = function () {
+
+    var store = window.parent.App.wEmergente.getBody().App.sConceptos;
+    var editedRecords = store.getUpdatedRecords();
+    var encodedupdaterecords;
+    var xudata = []; 
+    if (editedRecords.length > 0 || editedRecords != null) {
+        for (i = 0; i < editedRecords.length; i++) {
+            xudata.push(editedRecords[i].data);
+        }
+        if (xudata.length > 0) {
+            encodedupdaterecords = Ext.encode(xudata);
+            return encodedupdaterecords;
+        } else {
+            return 0;
+        }
+    }
+};
+
 var imgbtnAceptar_Click = function () {
 
     var wp = window.parent.App.wEmergente.getBody();
+    var tf = false;
+    //    var strOrdenEstimacionForma = Ext.encode(wp.App.fpOrdenEstimacion.getForm().getValues()); 
+    var newRecords, deleteRecords, updateRecords;
 
-    var strOrdenEstimacionForma = Ext.encode(wp.App.fpOrdenEstimacion.getForm().getValues());
-    var strOrdenEstimacion = getRecordValues();
-    var strOrdenEstimacionD = Ext.encode(wp.App.sConceptos.getRecordsValues());
+    window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("Cantidad", ImporteFinal.toFixed(6)); 
 
-    var strSucursal = wp.App.txtfSucursalID.getValue();
-    var strDiasAtencion = wp.App.nfDiasAtencion.getValue();
-    var strFechaMaxima = wp.App.dfFechaMaxima.getValue();
+    newRecords = getNewEncodedRecords();
+    deleteRecords = getRemovedRecords();
+    updateRecords = getUpdatedRecords();
 
-    window.parent.App.wEmergente.getBody().App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonOrdenEstimacionD')).set("Cantidad", parseFloat(ImporteFinal));
-   
-    wp.App.direct.imgbtnGuardarDirect_Click(strID(), strOrdenEstimacionD, 
+    wp.App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, tf, wp.App.sConceptos.getCount(),
                  {
                      success: function () {
                          wp.App.sConceptos.reload({
@@ -449,4 +509,7 @@ var imgbtnAceptar_Click = function () {
 var txtDescripcion_Corta_SpecialKey = function (field, eventArgs) { 
     if (eventArgs.getKey() == eventArgs.ENTER) { 
     }
+};
+var onSuccess = function () {
+
 };

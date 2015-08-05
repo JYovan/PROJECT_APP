@@ -75,7 +75,6 @@
             runat="server"
             Height="420"
             Width="1000"
-           
             Title="EXPLORADOR ORDENES DE CAMBIO"
             EnableColumnHide="false"
             EnableColumnMove="false"
@@ -176,7 +175,6 @@
                     </Items>
                 </ext:Toolbar>
             </TopBar>
-    
              <Store>
                 <ext:Store
                     ID="sOrdenesEstimaciones"
@@ -209,7 +207,6 @@
                     </Listeners>
                 </ext:Store>
             </Store>
-
             <ColumnModel>
                 <Columns>
                     <ext:Column 
@@ -232,7 +229,7 @@
                         </HeaderItems>
                         <Renderer Fn="cMov_Renderer" />
                     </ext:Column>
-                   <%-- <ext:DateColumn
+                    <%-- <ext:DateColumn
                         ID="dcFechaEmision"
                         runat="server"
                         Text="EMITIDO"
@@ -295,7 +292,6 @@
                             </ext:DateField>
                         </HeaderItems>
                     </ext:DateColumn>
-
                     <ext:Column
                         ID="cCliente"
                         runat="server"
@@ -414,7 +410,6 @@
                 </ext:StatusBar>
             </FooterBar>
         </ext:GridPanel>
-
     </form>
 </body>
 </html>

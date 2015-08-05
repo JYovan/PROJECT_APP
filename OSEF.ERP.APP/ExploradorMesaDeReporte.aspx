@@ -375,6 +375,9 @@
                               <Listeners>
                                     <Change Fn="txtMovID_Change" />
                                 </Listeners>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton1" runat="server" />
+                                </Plugins>
                             </ext:TextField>
                         </HeaderItems>
                         <Renderer Fn="cMov_Renderer" />
@@ -394,6 +397,9 @@
                               <Listeners>
                                     <Change Fn="txtReporteFiltro_Change" />
                                 </Listeners>
+                                <Plugins>
+                                    <ext:ClearButton ID="ClearButton2" runat="server" />
+                                </Plugins>
                             </ext:TextField>
                         </HeaderItems>
                     </ext:Column>

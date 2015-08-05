@@ -194,18 +194,27 @@ namespace OSEF.ERP.APP
         /// <param name="sender"></param>
         /// <param name="e"></param>
         [DirectMethod]
-        public void imgbtnGuardarDirect_Click(string strID, string strOrdenEstimacionD)
+        public void imgbtnGuardarDirect_Click(string strID, string newRecords, string updateRecords, string deleteRecords, string t, string rows)
         {
 
             //1. Obtener datos de la Forma y saber si es edición o nuevo  
-
+            bool tf = Convert.ToBoolean(t);
+            int nrows = Convert.ToInt32(rows);
             //2. Serializar el encabezado y el detalle  
             OrdenEstimacion oOrdenEstimacion = null;
             if (strID != "null")
             {
                 oOrdenEstimacion = OrdenEstimacionBusiness.ObtenerOrdenEstimacionPorID(Convert.ToInt32(strID));
-                List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(strOrdenEstimacionD);
-                GuardarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacion); 
+                if (strID != "null" && !newRecords.Equals("0"))
+                {
+                    List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(newRecords);
+                    GuardarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacion);
+                }
+                if (strID != "null" && !updateRecords.Equals("0"))
+                {
+                    List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(updateRecords);
+                        ActualizarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacion); 
+                }
             }
         }
         /// <summary>
@@ -591,6 +600,29 @@ namespace OSEF.ERP.APP
                 }
             }
         }
+
+        /// <summary>
+        /// Evento que Guarda el detalle de OrdenEstimacionD
+        /// </summary>
+        /// <param name="lOrdenEstimacionD"></param>
+        /// <param name="oOrdenEstimacionForma"></param>
+        private void ActualizarDetalleOrdenEstimacion(List<OrdenEstimacionD> lOrdenEstimacionD, OrdenEstimacion oOrdenEstimacionForma)
+        {
+            //1. Insertar los datos del detalle
+            foreach (OrdenEstimacionD sd in lOrdenEstimacionD)
+            {
+                //2. Validar que el objeto no venga en blanco
+                if (sd.ConceptoID.Equals(string.Empty) || sd.Cantidad.Equals(string.Empty) || sd.Precio == 0)
+                    continue;
+                else
+                {
+                    sd.Id = oOrdenEstimacionForma.Id;
+                    OrdenEstimacionDBusiness.Actualizar(sd);
+                }
+            }
+        }
+
+
 
 
 

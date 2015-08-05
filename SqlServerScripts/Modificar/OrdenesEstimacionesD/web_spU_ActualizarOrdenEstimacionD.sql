@@ -36,6 +36,7 @@ CREATE PROCEDURE web_spU_ActualizarOrdenEstimacionD
 	@Unidad		VARCHAR(30),
 	@Precio		DECIMAL(20, 6),
 	@Importe	DECIMAL(20, 6),
+	@IntExt		VARCHAR(30),
 	@Moneda		VARCHAR(10)
 AS
 BEGIN
@@ -44,6 +45,11 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
+	DECLARE @TF INT;
+	SET @TF = (SELECT COUNT(*) FROM OrdenesEstimacionesD oed 
+	WHERE oed.ID = @ID AND oed.ConceptoID = @ConceptoID AND oed.Cantidad = @Cantidad AND oed.Precio = @Precio);
+
+	IF @TF > 0 BEGIN
     UPDATE
 		OrdenesEstimacionesD
 	SET
@@ -54,7 +60,39 @@ BEGIN
 		Importe= @Importe,
 		Moneda = @Moneda
 	WHERE
-		ID = @ID AND
-		Renglon = @Renglon
+		ID = @ID AND ConceptoID = @ConceptoID AND
+		Renglon = @Renglon;
+	END
+	ELSE BEGIN
+	SET @Cantidad = (SELECT SUM(god.Total) FROM GeneradorOrdenEstimacionD god WHERE god.MovID = @ID AND god.ConceptoID = @ConceptoID);
+	SET @Importe = (@Cantidad * @Precio);
+	 
+		-- Insert statements for procedure here
+		INSERT INTO
+			OrdenesEstimacionesD
+			(
+				ID,
+				Renglon,
+				ConceptoID,
+				Cantidad,
+				Unidad,
+				Precio,
+				Importe,
+				IntExt,
+				Moneda
+			)
+		VALUES
+			(
+				@ID,
+				@Renglon,
+				@ConceptoID,
+				@Cantidad,
+				@Unidad,
+				@Precio,
+				@Importe,
+				@IntExt,
+				@Moneda
+			);
+	END
 END
 GO

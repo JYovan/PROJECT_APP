@@ -274,6 +274,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.TextField txtMovID;
         
         /// <summary>
+        /// Control ClearButton1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton1;
+        
+        /// <summary>
         /// Control cReporte.
         /// </summary>
         /// <remarks>
@@ -290,6 +299,15 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.TextField txtFiltroReporte;
+        
+        /// <summary>
+        /// Control ClearButton2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton2;
         
         /// <summary>
         /// Control dcFechaEmision.
