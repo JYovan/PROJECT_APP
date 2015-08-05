@@ -51,7 +51,16 @@ namespace OSEF.ERP.APP
             sOrdenesEstimaciones.DataBind();
         }
 
+        protected Field OnCreateFilterableField(object sender, ColumnBase column, Field defaultField)
+        {
+            if (column.DataIndex == "cNoOrden" && sOrdenesEstimaciones.GetAt(1) != null)
+            {
+                sOrdenesEstimaciones.DataSource = OrdenEstimacionBusiness.ObtenerOrdenesCambios();
+                sOrdenesEstimaciones.DataBind();
+            }
 
+            return defaultField;
+        }
 
         //Exporta a Excel el grid
         protected void ExportEt(object sender, EventArgs e)

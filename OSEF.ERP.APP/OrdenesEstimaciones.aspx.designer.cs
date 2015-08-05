@@ -184,6 +184,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.TextField txtReporte;
         
         /// <summary>
+        /// Control ClearButton9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton9;
+        
+        /// <summary>
         /// Control cTieneReporte.
         /// </summary>
         /// <remarks>
@@ -238,6 +247,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.Model mSucursales;
         
         /// <summary>
+        /// Control ClearButton1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton1;
+        
+        /// <summary>
         /// Control cClasificacion.
         /// </summary>
         /// <remarks>
@@ -254,6 +272,15 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.ComboBox cmbFClasificacion;
+        
+        /// <summary>
+        /// Control ClearButton2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton2;
         
         /// <summary>
         /// Control cReporta.
@@ -292,6 +319,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.ComboBox cmbFechaOrigen;
         
         /// <summary>
+        /// Control ClearButton3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton3;
+        
+        /// <summary>
         /// Control dcHoraOrigen.
         /// </summary>
         /// <remarks>
@@ -317,6 +353,15 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.ComboBox ComboBox1;
+        
+        /// <summary>
+        /// Control ClearButton4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton4;
         
         /// <summary>
         /// Control cObservaciones.
@@ -373,6 +418,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.Model mCuadrillas;
         
         /// <summary>
+        /// Control ClearButton5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton5;
+        
+        /// <summary>
         /// Control cMovimiento.
         /// </summary>
         /// <remarks>
@@ -389,6 +443,15 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.ComboBox cmbMovimiento;
+        
+        /// <summary>
+        /// Control ClearButton6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton6;
         
         /// <summary>
         /// Control cUsuario.
@@ -427,6 +490,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.Model mUsuarios;
         
         /// <summary>
+        /// Control ClearButton7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton7;
+        
+        /// <summary>
         /// Control cEstatus.
         /// </summary>
         /// <remarks>
@@ -443,6 +515,15 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.ComboBox cmbFiltroEstatus;
+        
+        /// <summary>
+        /// Control ClearButton8.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton8;
         
         /// <summary>
         /// Control cCliente.

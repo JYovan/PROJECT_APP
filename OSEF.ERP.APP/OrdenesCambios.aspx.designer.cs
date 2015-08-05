@@ -229,6 +229,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.TextField txtReporte;
         
         /// <summary>
+        /// Control ClearButton1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton1;
+        
+        /// <summary>
         /// Control cSucursal.
         /// </summary>
         /// <remarks>
@@ -362,6 +371,15 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.RowSelectionModel rsmOrdenesEstimaciones;
+        
+        /// <summary>
+        /// Control FilterHeader1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.FilterHeader FilterHeader1;
         
         /// <summary>
         /// Control sbOrdenesEstimacion.
