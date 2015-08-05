@@ -325,7 +325,7 @@
                     <ext:Column
                         ID="cTotal"
                         runat="server"
-                        Text="Importe"
+                        Text="IMPORTE"
                         Align="Center"
                         Width="95"
                         DataIndex="ImporteTotal">

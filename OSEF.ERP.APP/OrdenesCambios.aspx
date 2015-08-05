@@ -259,7 +259,7 @@
                     <ext:Column
                         ID="cNoOrden"
                         runat="server"
-                        Text="No.Orden"
+                        Text="NO. ORDEN"
                         Align="Center"
                         Width="70"
                         DataIndex="NoOrden"> 
