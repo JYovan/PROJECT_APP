@@ -78,6 +78,7 @@
             Title="EXPLORADOR ORDENES DE CAMBIO"
             EnableColumnHide="true"
             EnableColumnMove="true"
+            
             Header="true"
             TitleAlign="Left"
             StyleSpec="margin:0 auto; margin-top: 20px;">
@@ -385,6 +386,47 @@
                     </ext:Column>
                 </Columns>
             </ColumnModel>
+            
+            <Plugins>
+                    <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
+            </Plugins>
+                    <BottomBar>
+                        <ext:PagingToolbar ID="PagingToolbar1" runat="server" 
+                        DisplayInfo="true"
+                        DisplayMsg=""
+                        HideRefresh="True">
+                        <Items>
+                            <ext:Label ID="Label1" runat="server" Text="Tamaño página:" />
+                            <ext:ToolbarSpacer ID="ToolbarSpacer2" runat="server" Width="10" />
+                              
+                            <ext:ComboBox ID="ComboBox2" runat="server" 
+                            Editable="false"
+                            Width="80">
+                                <Items>
+                                    <ext:ListItem Text="1" />
+                                    <ext:ListItem Text="5" />
+                                    <ext:ListItem Text="15" />
+                                    <ext:ListItem Text="25" /> 
+                                    <ext:ListItem Text="50" />
+                                    <ext:ListItem Text="100" />
+                                    <ext:ListItem Text="200" />
+                                    <ext:ListItem Text="300" />
+                                    <ext:ListItem Text="500" />
+                                    <ext:ListItem Text="1000" />
+                                </Items>
+                                <SelectedItems>
+                                    <ext:ListItem Value="10" />
+                                </SelectedItems>
+                                <Listeners>
+                                    <Select Handler="#{gpExploradorConceptosPreciarioGeneral}.store.pageSize = parseInt(this.getValue(), 10); #{gpExploradorConceptosPreciarioGeneral}.store.reload();" />
+                                </Listeners>
+                            </ext:ComboBox> 
+                            
+                            <ext:Label runat="server" ID="lblPagingTool" Text="Label 1"></ext:Label>
+                        </Items>
+                        </ext:PagingToolbar>
+                    </BottomBar>
+
             <Listeners>
                 <ItemDblClick Fn="gpExploradorConceptos_ItemClick" />
             </Listeners>
@@ -395,20 +437,12 @@
                     StripeRows="true">
                 </ext:GridView>
             </View>
-            <SelectionModel>
+            <SelectionModel> 
                 <ext:RowSelectionModel
                     ID="rsmExploradorPreciarioConcepto"
                     runat="server">
                 </ext:RowSelectionModel>
-            </SelectionModel>
-            <FooterBar>
-                <ext:StatusBar
-                    ID="sbOrdenesEstimacion"
-                    runat="server"
-                    Text=""
-                    StatusAlign="Left">
-                </ext:StatusBar>
-            </FooterBar>
+            </SelectionModel> 
         </ext:GridPanel>
     </form>
 </body>

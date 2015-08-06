@@ -64,12 +64,12 @@ var txtBuscar_Change = function (textfield, newValue, oldValue, e) {
 
 //Cambio en los datos del tablero
 var sVolumetrias_DataChanged = function () {
-    if (App.sVolumetrias.getCount() > 1 || App.sVolumetrias.getCount() == 0) {
-        App.sbVolumetrias.setText(App.sVolumetrias.getCount() + ' ' + 'VOLUMETRÍAS');
-    }
-    else {
-        App.sbVolumetrias.setText(App.sVolumetrias.getCount() + ' ' + 'VOLUMETRÍAS');
-    }
+//    if (App.sVolumetrias.getCount() > 1 || App.sVolumetrias.getCount() == 0) {
+//        App.sbVolumetrias.setText('MOSTRANDO 1 - ' + App.sVolumetrias.getCount() + ' DE ' + App.PagingToolbar1.store.totalCount.toString() + ' VOLUMETRÍAS');
+//    }
+//    else {
+//        App.sbVolumetrias.setText(App.sVolumetrias.getCount() + ' ' + 'VOLUMETRÍAS');
+//    }
 };
 
 //Acciones al hacer clic en un registro

@@ -38,12 +38,12 @@ var gpOrdenEstimacion_ItemDblClick = function (gridview, registro, gvhtml, index
 
 //Cambio en los datos del tablero
 var sOrdenesEstimaciones_DataChanged = function () {
-    if (App.sOrdenesEstimaciones.getCount() > 1 || App.sOrdenesEstimaciones.getCount() == 0) {
-        App.sbOrdenesEstimacion.setText(App.sOrdenesEstimaciones.getCount() + ' ' + 'MOVIMIENTOS');
-    }
-    else {
-        App.sbOrdenesEstimacion.setText(App.sOrdenesEstimaciones.getCount() + ' ' + 'MOVIMIENTO');
-    }
+//    if (App.sOrdenesEstimaciones.getCount() > 1 || App.sOrdenesEstimaciones.getCount() == 0) {
+//        App.sbOrdenesEstimacion.setText('MOSTRANDO 1 - '+App.sOrdenesEstimaciones.getCount() + ' DE ' + App.PagingToolbar1.store.totalCount.toString() + ' MOVIMIENTOS');
+//    }
+//    else {
+//        App.sbOrdenesEstimacion.setText(App.sOrdenesEstimaciones.getCount() + ' ' + 'MOVIMIENTO');
+//    }
 };
 
 

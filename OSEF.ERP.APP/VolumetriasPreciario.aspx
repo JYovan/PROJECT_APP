@@ -132,6 +132,8 @@
                 <ext:Store
                     ID="sVolumetrias"
                     runat="server"
+                    PageSize="10" 
+                    RemoteSort="true"
                     OnReadData="OnReadData_sVolumetrias">
                     <Model>
                         <ext:Model ID="mVolumetrias" runat="server">
@@ -364,6 +366,34 @@
                     </ext:Column>
                 </Columns>
             </ColumnModel>
+            <Plugins>
+                        <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
+                    </Plugins>
+                    <BottomBar>
+                        <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
+                        <Items>
+                            <ext:Label ID="Label1" runat="server" Text="Tamaño página:" />
+                            <ext:ToolbarSpacer ID="ToolbarSpacer1" runat="server" Width="10" />
+                            <ext:ComboBox ID="ComboBox2" runat="server" Width="80">
+                                <Items>
+                                    <ext:ListItem Text="1" />
+                                    <ext:ListItem Text="5" />
+                                    <ext:ListItem Text="10" />
+                                    <ext:ListItem Text="20" />
+                                    <ext:ListItem Text="40" />
+                                    <ext:ListItem Text="80" />
+                                    <ext:ListItem Text="100" />
+                                </Items>
+                                <SelectedItems>
+                                    <ext:ListItem Value="10" />
+                                </SelectedItems>
+                                <Listeners>
+                                    <Select Handler="#{gpVolumetrias}.store.pageSize = parseInt(this.getValue(), 10); #{gpVolumetrias}.store.reload();" />
+                                </Listeners>
+                            </ext:ComboBox>
+                        </Items>
+                        </ext:PagingToolbar>
+                    </BottomBar>
             <Listeners>
                 <ItemClick Fn="gpVolumetrias_ItemClick" />
                  <ItemDblClick Fn="gpVolumetrias_ItemDblClick" />
@@ -381,14 +411,14 @@
                     runat="server">
                 </ext:RowSelectionModel>
             </SelectionModel>
-            <FooterBar>
+            <%--<FooterBar>
                 <ext:StatusBar
                     ID="sbVolumetrias"
                     runat="server"
                     Text=""
                     StatusAlign="Left">
                 </ext:StatusBar>
-            </FooterBar>
+            </FooterBar>--%>
         </ext:GridPanel>
     </form>
 </body>

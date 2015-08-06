@@ -1,11 +1,11 @@
 ﻿//Cambio en los datos del tablero
 var sMesaDeReportes_DataChanged = function () {
-    if (App.sMesaDeReporte.getCount() > 1 || App.sMesaDeReporte.getCount() == 0) {
-        App.sbMesaDeReporte.setText(App.sMesaDeReporte.getCount() + ' ' + 'MOVIMIENTOS');
-    }
-    else {
-        App.sbMesaDeReporte.setText(App.sMesaDeReporte.getCount() + ' ' + 'MOVIMIENTO');
-    }
+//    if (App.sMesaDeReporte.getCount() > 1 || App.sMesaDeReporte.getCount() == 0) {
+//        App.sbMesaDeReporte.setText('MOSTRANDO 1 - ' + App.sMesaDeReporte.getCount() + ' DE ' + App.PagingToolbar1.store.totalCount.toString() + ' MOVIMIENTOS');
+//    }
+//    else {
+//        App.sbMesaDeReporte.setText(App.sMesaDeReporte.getCount() + ' ' + 'MOVIMIENTO');
+//    }
 };
 
 
@@ -190,16 +190,16 @@ var sMesaDeReporte_Load = function (avance, registro, index) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.ToolBarTotal.setText('TOTAL: $' + F.number(sum, "000,000,000.00"));
+    App.lblPagingTool.setText('MOSTRANDO 1 - ' + App.sMesaDeReporte.getCount() + ' DE ' + App.PagingToolbar1.store.totalCount.toString() + ' MOVIMIENTOS');
+    App.PagingToolbar1.displayMsg = 'TOTAL: $' + F.number(sum, "000,000,000.00");
+    //    App.PagingToolbar1.initialConfig.displayMsg('TOTAL: $' + F.number(sum, "000,000,000.00"));
 }
+
 var showResult = function (t) {
     if (t) {
         App.sMesaDeReporte.reload();
     }
-}
-
-
-
+} 
 //Evento que hace el filtro al seleccionar algun elemento
 var txtReporteFiltro_Change = function (textfield, newValue, oldValue, e) {
     App.sMesaDeReporte.clearFilter();

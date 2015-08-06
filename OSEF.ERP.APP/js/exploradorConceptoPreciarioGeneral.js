@@ -1,11 +1,16 @@
 ﻿//Cambio en los datos del tablero
 var sOrdenesEstimaciones_DataChanged = function () {
-    if (App.sOrdenesEstimaciones.getCount() > 1 || App.sOrdenesEstimaciones.getCount() == 0) {
-        App.sbOrdenesEstimacion.setText(App.sOrdenesEstimaciones.getCount() + ' ' + 'MOVIMIENTOS');
-    }
-    else {
-        App.sbOrdenesEstimacion.setText(App.sOrdenesEstimaciones.getCount() + ' ' + 'MOVIMIENTO');
-    }
+
+    var sum = 0;
+    App.sOrdenesEstimaciones.each(function (record) {
+        sum += record.get('ImporteTotal');
+    });
+
+    var F = Ext.util.Format;
+    F.thousandSeparator = ',';
+    F.decimalSeparator = '.';
+    App.PagingToolbar1.displayMsg = 'TOTAL: $' + F.number(sum, "000,000,000.00");
+    App.lblPagingTool.setText('MOSTRANDO 1 - ' + App.sOrdenesEstimaciones.getCount() + ' DE ' + App.PagingToolbar1.store.totalCount.toString() + ' MOVIMIENTOS');
 };
 
 

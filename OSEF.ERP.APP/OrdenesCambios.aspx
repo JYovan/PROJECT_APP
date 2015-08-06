@@ -192,6 +192,8 @@
                 <ext:Store
                     ID="sOrdenesEstimaciones"
                     runat="server"
+                    PageSize="10" 
+                    RemoteSort="true"
                     OnReadData="OnReadData_sOrdenesEstimaciones">
                     <Model>
                         <ext:Model ID="mOrdenesEstimaciones" runat="server">
@@ -448,8 +450,7 @@
                             </ext:ComboBox>
                     
                         </HeaderItems> 
-                    </ext:Column>
-                    
+                    </ext:Column> 
                     <ext:Column
                         ID="cCliente"
                         runat="server"
@@ -461,6 +462,33 @@
                     </ext:Column>
                 </Columns>
             </ColumnModel>
+            <Plugins>
+                        <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
+                    </Plugins>
+                    <BottomBar>
+                        <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
+                        <Items>
+                            <ext:Label ID="Label1" runat="server" Text="Tamaño página:" />
+                            <ext:ToolbarSpacer ID="ToolbarSpacer1" runat="server" Width="10" />
+                            <ext:ComboBox ID="ComboBox2" runat="server" Width="80">
+                                <Items>
+                                    <ext:ListItem Text="1" />
+                                    <ext:ListItem Text="5" />
+                                    <ext:ListItem Text="10" />
+                                    <ext:ListItem Text="20" />
+                                    <ext:ListItem Text="40" />
+                                    <ext:ListItem Text="80" />
+                                </Items>
+                                <SelectedItems>
+                                    <ext:ListItem Value="10" />
+                                </SelectedItems>
+                                <Listeners>
+                                    <Select Handler="#{gpOrdenesEstimaciones}.store.pageSize = parseInt(this.getValue(), 10); #{gpOrdenesEstimaciones}.store.reload();" />
+                                </Listeners>
+                            </ext:ComboBox>
+                        </Items>
+                        </ext:PagingToolbar>
+                    </BottomBar>
             <Listeners>
                 <ItemClick Fn="gpOrdenesEstimaciones_ItemClick" />
                   <ItemDblClick Fn="gpOrdenEstimacion_ItemDblClick" />
@@ -478,7 +506,7 @@
                     runat="server">
                 </ext:RowSelectionModel>
             </SelectionModel>
-
+<%--
             <FooterBar>
                 <ext:StatusBar
                     ID="sbOrdenesEstimacion"
@@ -486,7 +514,7 @@
                     Text=""
                     StatusAlign="Left">
                 </ext:StatusBar>
-            </FooterBar>
+            </FooterBar>--%>
         </ext:GridPanel>
     </form>
 </body>

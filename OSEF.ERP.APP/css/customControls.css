@@ -78,3 +78,8 @@ a /*Quita la decoración de los enlaces*/
 {
         cursor:pointer; 
 } 
+
+.x-label-value {
+  vertical-align: middle;
+  color: #333;
+} 

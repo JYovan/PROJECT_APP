@@ -168,7 +168,9 @@
                 <ext:Store
                     ID="sOrdenesEstimaciones"
                     runat="server"
-                     OnReadData="OnReadData_sOrdenesEstimaciones">
+                    PageSize="10" 
+                    RemoteSort="true"
+                    OnReadData="OnReadData_sOrdenesEstimaciones">
                     <Model>
                         <ext:Model ID="mOrdenesEstimaciones" runat="server">
                             <Fields>
@@ -237,7 +239,7 @@
                         </HeaderItems>
                     </ext:Column>
                     
-                      <ext:Column
+                    <ext:Column
                         ID="cTieneReporte"
                         runat="server"
                         Text="¿REPORTE?"
@@ -307,7 +309,7 @@
                         </HeaderItems>
                     </ext:Column>
                     
-                     <ext:DateColumn
+                    <ext:DateColumn
                         ID="cClasificacion"
                         runat="server"
                         Text="CLASIFICACIÓN"
@@ -407,7 +409,7 @@
                         </HeaderItems>
                     </ext:DateColumn> 
 
-                     <ext:DateColumn
+                    <ext:DateColumn
                         ID="dcHoraOrigen"
                         runat="server"
                         Text="HORA ORIGEN"
@@ -528,7 +530,6 @@
                     
                         </HeaderItems>
                     </ext:Column>
-
 
                     <ext:Column 
                         ID="cMovimiento"
@@ -660,6 +661,33 @@
                     </ext:Column>
                 </Columns>
             </ColumnModel>
+                    <Plugins>
+                        <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
+                    </Plugins>
+                    <BottomBar>
+                        <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
+                        <Items>
+                            <ext:Label ID="Label1" runat="server" Text="Tamaño página:" />
+                            <ext:ToolbarSpacer ID="ToolbarSpacer1" runat="server" Width="10" />
+                            <ext:ComboBox ID="ComboBox2" runat="server" Width="80">
+                                <Items>
+                                    <ext:ListItem Text="1" />
+                                    <ext:ListItem Text="5" />
+                                    <ext:ListItem Text="10" />
+                                    <ext:ListItem Text="20" />
+                                    <ext:ListItem Text="40" />
+                                    <ext:ListItem Text="80" />
+                                </Items>
+                                <SelectedItems>
+                                    <ext:ListItem Value="10" />
+                                </SelectedItems>
+                                <Listeners>
+                                    <Select Handler="#{gpOrdenesEstimaciones}.store.pageSize = parseInt(this.getValue(), 10); #{gpOrdenesEstimaciones}.store.reload();" />
+                                </Listeners>
+                            </ext:ComboBox>
+                        </Items>
+                        </ext:PagingToolbar>
+                    </BottomBar>
             <Listeners>
                 <ItemClick Fn="gpOrdenesEstimaciones_ItemClick" />
                   <ItemDblClick Fn="gpOrdenEstimacion_ItemDblClick" />
@@ -677,14 +705,14 @@
                     runat="server">
                 </ext:RowSelectionModel>
             </SelectionModel>
-            <FooterBar>
-                <ext:StatusBar
+            <%--<FooterBar>
+                <%--<ext:StatusBar
                     ID="sbOrdenesEstimacion"
                     runat="server"
                     Text=""
                     StatusAlign="Left">
                 </ext:StatusBar>
-            </FooterBar>
+            </FooterBar>--%>
              <%--    <BottomBar>
                 <ext:PagingToolbar ID="PagingToolbar1" runat="server">
                 <Items>
