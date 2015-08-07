@@ -19,11 +19,12 @@ namespace OSEF.ERP.APP
             {
 
                 string mov = Cookies.GetCookie("cookieMovimientoIdentificador").Value;
+                string cliente = Cookies.GetCookie("cookieMovimientocliente").Value;
                 string idPReciario;
 
                 if (mov.Equals("Mnto"))
                 {
-                    PreciarioGeneral oPreciarioGeneral = PreciarioGeneralBusiness.ObtenerPreciarioGeneralTipoMnto();
+                    PreciarioGeneral oPreciarioGeneral = PreciarioGeneralBusiness.ObtenerPreciarioGeneralTipoMnto(cliente);
                     if (oPreciarioGeneral != null)
                     {
                         idPReciario = oPreciarioGeneral.ID;

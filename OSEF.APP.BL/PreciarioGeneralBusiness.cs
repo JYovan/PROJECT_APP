@@ -94,9 +94,9 @@ namespace OSEF.APP.BL
         /// </summary>
         /// <param name="strID"></param>
         /// <returns></returns>
-        public static PreciarioGeneral ObtenerPreciarioGeneralTipoMnto()
+        public static PreciarioGeneral ObtenerPreciarioGeneralTipoMnto(string clienteID)
         {
-            return PreciarioGeneralDataAccess.ObtenerPreciarioGeneralTipoMnto();
+            return PreciarioGeneralDataAccess.ObtenerPreciarioGeneralTipoMnto(clienteID);
 
         }
 

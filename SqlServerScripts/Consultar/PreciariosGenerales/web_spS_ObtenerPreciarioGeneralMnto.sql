@@ -29,6 +29,7 @@ GO
 -- =============================================
 CREATE PROCEDURE web_spS_ObtenerPreciarioGeneralMnto
 	-- Add the parameters for the stored procedure here
+	@Cliente CHAR(8)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -48,7 +49,9 @@ BEGIN
 		Cliente
 	FROM
 		PreciariosGenerales
-	WHERE 
+	WHERE  
+		Cliente=@Cliente
+	AND
 		TipoMantenimiento=1 
 	AND 
 		Estatus='ACTIVO';

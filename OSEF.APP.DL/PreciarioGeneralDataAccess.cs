@@ -373,7 +373,7 @@ namespace OSEF.APP.DL
         /// </summary>
         /// <param name="strID"></param>
         /// <returns></returns>
-        public static PreciarioGeneral ObtenerPreciarioGeneralTipoMnto()
+        public static PreciarioGeneral ObtenerPreciarioGeneralTipoMnto(string clienteID)
         {
             try
             {
@@ -385,10 +385,14 @@ namespace OSEF.APP.DL
                 sqlcComando.CommandText = "web_spS_ObtenerPreciarioGeneralMnto";
 
                 //2. Declarar los parametros
-               
+                SqlParameter sqlpID = new SqlParameter();
+                sqlpID.ParameterName = "@Cliente";
+                sqlpID.SqlDbType = SqlDbType.Char;
+                sqlpID.Size = 8;
+                sqlpID.Value = clienteID;
 
                 //3. Agregar los parametros al comando
-             
+                sqlcComando.Parameters.Add(sqlpID);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

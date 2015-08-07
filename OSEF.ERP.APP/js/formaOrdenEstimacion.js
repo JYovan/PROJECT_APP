@@ -156,6 +156,8 @@ var sMov_Add = function (store, registros, index, eOpts) {
 var sMov_Change = function (combo) {
     if (combo.value.trim() == 'Mesa de reporte') {
         Ext.util.Cookies.set('cookieMovimientoIdentificador', 'Mnto');
+        Ext.util.Cookies.set('cookieMovimientocliente', App.IdCliente.getValue());
+        
         //   App.pDatosReporte.show(); 
         App.pDatosReporte.tab.show();
         App.pDatosReporteDos.tab.show();
@@ -269,6 +271,8 @@ var btnBuscarCodigos_Click = function () {
 
 //Evento que se lanza al poner algun caracter en el control de la Sucursal
 var txtfSucursalCR_Change = function () {
+
+    Ext.util.Cookies.set('cookieMovimientocliente', App.IdCliente.getValue());
     //Validar si se habilita Guardar
     HabilitarGuardar();
     //Validar si se habilita el boton de afectar
