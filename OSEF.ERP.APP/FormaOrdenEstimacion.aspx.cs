@@ -194,11 +194,11 @@ namespace OSEF.ERP.APP
         /// <param name="sender"></param>
         /// <param name="e"></param>
         [DirectMethod]
-        public void imgbtnGuardarDirect_Click(string strID, string newRecords, string updateRecords, string deleteRecords, string t, string rows)
+        public void imgbtnGuardarDirect_Click(string strID, string newRecords, string updateRecords, string deleteRecords, string rows)
         {
 
             //1. Obtener datos de la Forma y saber si es edición o nuevo  
-            bool tf = Convert.ToBoolean(t);
+            
             int nrows = Convert.ToInt32(rows);
             //2. Serializar el encabezado y el detalle  
             OrdenEstimacion oOrdenEstimacion = null;

@@ -79,12 +79,13 @@ var gpCuadrillas_Select = function (gridview, registro, index, gvhtml) {
  
     //Cambio en los datos del tablero
     var sCuadrillas_DataChanged = function () {
-        if (App.sCuadrillas.getCount() > 1 || App.sCuadrillas.getCount() == 0) {
-            App.sbCuadrillas.setText(App.sCuadrillas.getCount() + ' CUADRILLAS');
-        }
-        else {
-            App.sbCuadrillas.setText(App.sCuadrillas.getCount() + ' CUADRILLA');
-        }
+//        if (App.sCuadrillas.getCount() > 1 || App.sCuadrillas.getCount() == 0) {
+//            App.sbCuadrillas.setText(App.sCuadrillas.getCount() + ' CUADRILLAS');
+//        }
+//        else {
+//            App.sbCuadrillas.setText(App.sCuadrillas.getCount() + ' CUADRILLA');
+        //        }
+        App.PagingToolbar1.displayMsg ='MOSTRANDO {1} DE {2} CUADRILLAS';
     }; 
     //Hacer la busqueda de información
     var txtBuscarCuadrilla_Change = function (textfield, newValue, oldValue, e) {

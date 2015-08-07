@@ -62,11 +62,10 @@ BEGIN
 		pc.Usuario,
 		pc.Estatus,
 		pc.FechaAlta,
-		p.Cliente
-	FROM
-		PreciarioConceptos pc INNER JOIN Preciarios p
-	ON pc.Preciario = p.ID AND
-		pc.Preciario = @Preciario
+		cl.Nombre Cliente
+	FROM dbo.Clientes cl INNER JOIN dbo.Preciarios p 
+	ON cl.ID = p.Cliente INNER JOIN dbo.PreciarioConceptos pc 
+	ON p.ID = pc.Preciario AND pc.Preciario = @Preciario
 		AND pc.Categoria = ISNULL(@Categoria, pc.Categoria)
 		AND pc.SubCategoria = ISNULL(@SubCategoria, pc.SubCategoria)
 		AND pc.SubSubCategoria = ISNULL(@SubSubCategoria, pc.SubSubCategoria)	

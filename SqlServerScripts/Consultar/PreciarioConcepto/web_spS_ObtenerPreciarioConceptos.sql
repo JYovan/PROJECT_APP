@@ -39,24 +39,26 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
-		ID,
-		CLAVE,
-		Preciario,
-		Descripcion,
-		Categoria,
-		SubCategoria,
-		SubSubCategoria,
-		Unidad,
-		Costo,
-		Cantidad,
-		Utilizada,
-		Importe,
-		ImporteFinal,
-		Estatus,
-		FechaAlta
-		
-	FROM
-		PreciarioConceptos
+		pc.ID,
+		pc.CLAVE,
+		pc.Preciario,
+		pc.Descripcion,
+		pc.Categoria,
+		pc.SubCategoria,
+		pc.SubSubCategoria,
+		pc.Unidad,
+		pc.Costo,
+		pc.Cantidad,
+		pc.Utilizada,
+		pc.Importe,
+		pc.ImporteFinal,
+		pc.Usuario,
+		pc.Estatus,
+		pc.FechaAlta,
+		cl.Nombre Cliente
+	FROM dbo.Clientes cl INNER JOIN dbo.Preciarios p 
+	ON cl.ID = p.Cliente INNER JOIN dbo.PreciarioConceptos pc 
+	ON p.ID = pc.Preciario 
 	
 END
 GO

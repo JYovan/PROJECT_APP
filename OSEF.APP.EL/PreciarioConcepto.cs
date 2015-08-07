@@ -27,7 +27,7 @@ namespace OSEF.APP.EL
         decimal importefinal;
         string usuario;
         string estatus;
-        DateTime fechaalta;
+        Nullable<DateTime> fechaalta;
         string tipo;
         string cliente;
         Cliente rcliente;
@@ -135,7 +135,7 @@ namespace OSEF.APP.EL
             set { estatus = value; }
         }
 
-        public DateTime FechaAlta
+        public Nullable<DateTime> FechaAlta
         {
             get { return fechaalta; }
             set { fechaalta = value; }

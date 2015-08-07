@@ -125,7 +125,7 @@ namespace OSEF.AVANCES.SUCURSALES
                         c.Descripcion = sd.Descripcion;
                         c.Usuario = oUsuario.ID;
                         c.Estatus = sd.Estatus;
-                        c.FechaAlta = sd.FechaAlta;
+                        c.FechaAlta =Convert.ToDateTime(sd.FechaAlta);
                         categoria =PreciarioCategoriaBuisness.Insertar(c);
                     }
                     //10. Insertar SubCategoria
@@ -138,7 +138,7 @@ namespace OSEF.AVANCES.SUCURSALES
                         sc.Categoria = categoria;
                         sc.Usuario = oUsuario.ID;
                         sc.Estatus = sd.Estatus;
-                        sc.FechaAlta = sd.FechaAlta;
+                        sc.FechaAlta = Convert.ToDateTime(sd.FechaAlta);
                         subcategoria= PreciarioSubCategoriaBusiness.Insertar(sc);
                     }
                     //11. Insertar SubSubCategoria
@@ -151,8 +151,8 @@ namespace OSEF.AVANCES.SUCURSALES
                         ssc.Categoria = categoria;
                         ssc.SubCategoria = subcategoria;
                         ssc.Usuario = oUsuario.ID;
-                        ssc.Estatus = sd.Estatus;
-                        ssc.FechaAlta = sd.FechaAlta;
+                        ssc.Estatus = sd.Estatus; 
+                        ssc.FechaAlta = Convert.ToDateTime(sd.FechaAlta);
                         subsubcategoria= PreciarioSubSubCategoriaBusiness.Insertar(ssc);
                     }
                     //12. Insertar Concepto

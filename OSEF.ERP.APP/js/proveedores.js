@@ -23,13 +23,13 @@ var imgbtnGuardar_Click_Success = function () {
 
 //Cambio en los datos del tablero
 var sProveedores_DataChanged = function () {
-    if (App.sProveedores.getCount() > 1) {
-        App.sbProveedores.setText(App.sProveedores.getCount() + ' ' + 'PROVEEDORES');
-    }
-    else {
-        App.sbProveedores.setText(App.sProveedores.getCount() + ' ' + 'PROVEEDOR');
-    }
-
+//    if (App.sProveedores.getCount() > 1) {
+//        App.sbProveedores.setText(App.sProveedores.getCount() + ' ' + 'PROVEEDORES');
+//    }
+//    else {
+//        App.sbProveedores.setText(App.sProveedores.getCount() + ' ' + 'PROVEEDOR');
+//    }
+    App.PagingToolbar1.displayMsg = 'MOSTRANDO {1} DE {2} PROVEEDORES';
     //Resize column Description when records are 11
     if (App.sProveedores.getCount() > 10) {
         App.gpProveedores.columns[2].setWidth(363);

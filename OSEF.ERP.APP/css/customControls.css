@@ -83,3 +83,8 @@ a /*Quita la decoración de los enlaces*/
   vertical-align: middle;
   color: #333;
 } 
+.x-toolbar-footer .x-toolbar-text {
+  color: #FFF;
+  font-family: "WeblySleek UI Semilight" !important;
+  font-size: 12px;
+}

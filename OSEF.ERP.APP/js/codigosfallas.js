@@ -171,12 +171,13 @@ var tpCodigoPPTA_Select = function (gridview, registro, index, gvhtml) {
 
 //Cambio en los datos del tablero
 var sCodigoPPTA_DataChanged = function () {
-    if (App.sCodigoPPTA.getCount() > 1 || App.sCodigoPPTA.getCount() == 0) {
-        App.sbCodigoPPTA.setText(App.sCodigoPPTA.getCount() + ' CODIGOS PPTA');
-    }
-    else {
-        App.sbCodigoPPTA.setText(App.sCodigoPPTA.getCount() + ' CODIGO PPTA');
-    }
+//    if (App.sCodigoPPTA.getCount() > 1 || App.sCodigoPPTA.getCount() == 0) {
+//        App.sbCodigoPPTA.setText(App.sCodigoPPTA.getCount() + ' CODIGOS PPTA');
+//    }
+//    else {
+//        App.sbCodigoPPTA.setText(App.sCodigoPPTA.getCount() + ' CODIGO PPTA');
+    //    }
+    App.PagingToolbar1.displayMsg = 'MOSTRANDO {1} DE {2} CÓDIGOS PPTA';
 };
 
 //Asignar la descripción "dias" a la columna

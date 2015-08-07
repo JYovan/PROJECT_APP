@@ -38,25 +38,25 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
-		ID,
-		CLAVE,
-		Preciario,
-		Descripcion,
-		Categoria,
-		SubCategoria,
-		SubSubCategoria,
-		Unidad,
-		Costo,
-		Cantidad,
-		Utilizada,
-		Importe,
-		ImporteFinal,
-		Estatus,
-		FechaAlta
-		
+		pc.ID,
+		pc.CLAVE,
+		pc.Preciario,
+		pc.Descripcion,
+		pc.Categoria,
+		pc.SubCategoria,
+		pc.SubSubCategoria,
+		pc.Unidad,
+		pc.Costo,
+		pc.Cantidad,
+		pc.Utilizada,
+		pc.Importe,
+		pc.ImporteFinal,
+		pc.Usuario,
+		pc.Estatus,
+		pc.FechaAlta,
+		p.Cliente
 	FROM
-		PreciarioConceptos
-	WHERE
-		Preciario = @Preciario
+		PreciarioConceptos pc INNER JOIN Preciarios p
+	ON pc.Preciario = p.ID AND pc.Preciario = @Preciario
 END
 GO

@@ -483,7 +483,7 @@ var imgbtnAceptar_Click = function () {
     deleteRecords = getRemovedRecords();
     updateRecords = getUpdatedRecords();
 
-    wp.App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, tf, wp.App.sConceptos.getCount(),
+    wp.App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, wp.App.sConceptos.getCount(),
                  {
                      success: function () {
                          wp.App.sConceptos.reload({

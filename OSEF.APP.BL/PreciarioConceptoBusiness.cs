@@ -91,12 +91,13 @@ namespace OSEF.APP.BL
             //1. Obtener lista de conceptos
             List<PreciarioConcepto> lPreciarioConcepto = PreciarioConceptosDataAccess.ObtenerPreciarioConceptoPorPreciario(strPreciario);
             //2. Asignar a categorias
-            foreach (PreciarioConcepto sd in lPreciarioConcepto)
-            {
-                sd.RCategoria = PreciarioCategoriaBuisness.ObtenerPreciarioCategoriaPorID(sd.Categoria);
-                sd.RSubcategoria = PreciarioSubCategoriaBusiness.ObtenerPreciarioSubCategoriaPorID(sd.SubCategoria);
-                sd.RSubsubcategoria = PreciarioSubSubCategoriaBusiness.ObtenerPreciarioSubSubCategoriaPorID(sd.SubSubCategoria);
-            }
+            //foreach (PreciarioConcepto sd in lPreciarioConcepto)
+            //{
+            //    sd.RCategoria = PreciarioCategoriaBuisness.ObtenerPreciarioCategoriaPorID(sd.Categoria);
+            //    sd.RSubcategoria = PreciarioSubCategoriaBusiness.ObtenerPreciarioSubCategoriaPorID(sd.SubCategoria);
+            //    sd.RSubsubcategoria = PreciarioSubSubCategoriaBusiness.ObtenerPreciarioSubSubCategoriaPorID(sd.SubSubCategoria);
+            //}
+
             return lPreciarioConcepto;
 
         }

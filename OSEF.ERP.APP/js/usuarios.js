@@ -209,20 +209,21 @@ var NombreCompleto_Convert = function (value, record) {
 
 //Cambio en los datos del tablero
 var sUsuarios_DataChanged = function () {
-    if (App.sUsuarios.getCount() > 1) {
-        App.sbUsuarios.setText(App.sUsuarios.getCount() + ' ' + 'USUARIOS');
-    }
-    else {
-        App.sbUsuarios.setText(App.sUsuarios.getCount() + ' ' + 'USUARIO');
-    }
+//    if (App.sUsuarios.getCount() > 1) {
+//        App.sbUsuarios.setText(App.sUsuarios.getCount() + ' ' + 'USUARIOS');
+//    }
+//    else {
+//        App.sbUsuarios.setText(App.sUsuarios.getCount() + ' ' + 'USUARIO');
+//    }
 
-    //Resize column Nombre when records are 11
-    if (App.sUsuarios.getCount() > 10) {
-        App.gpUsuarios.columns[2].setWidth(280);
-    }
-    else {
-        App.gpUsuarios.columns[2].setWidth(300);
-    }
+//    //Resize column Nombre when records are 11
+//    if (App.sUsuarios.getCount() > 10) {
+//        App.gpUsuarios.columns[2].setWidth(280);
+//    }
+//    else {
+//        App.gpUsuarios.columns[2].setWidth(300);
+    //    }
+    App.PagingToolbar1.displayMsg = 'MOSTRANDO {1} DE {2} USUARIOS';
 };
 
 //Acciones al hacer clic en un registro

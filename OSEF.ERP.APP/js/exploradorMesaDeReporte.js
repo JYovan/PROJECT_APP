@@ -190,8 +190,8 @@ var sMesaDeReporte_Load = function (avance, registro, index) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.lblPagingTool.setText('MOSTRANDO 1 - ' + App.sMesaDeReporte.getCount() + ' DE ' + App.PagingToolbar1.store.totalCount.toString() + ' MOVIMIENTOS');
-    App.PagingToolbar1.displayMsg = 'TOTAL: $' + F.number(sum, "000,000,000.00");
+    App.lblPagingTool.setText('MOSTRANDO ' + App.sMesaDeReporte.getCount() + ' DE ' + App.PagingToolbar1.store.totalCount.toString() + ' MOVIMIENTOS');
+    App.PagingToolbar1.displayMsg = 'SUMA TOTAL: $' + F.number(sum, "000,000,000.00") + ', DE ' + App.sMesaDeReporte.getCount()+' MOVIMIENTOS';
     //    App.PagingToolbar1.initialConfig.displayMsg('TOTAL: $' + F.number(sum, "000,000,000.00"));
 }
 

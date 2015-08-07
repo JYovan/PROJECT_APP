@@ -150,6 +150,36 @@
                 </ext:Column>
             </Columns>
         </ColumnModel> 
+        <Plugins>
+                        <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
+                    </Plugins>
+                    <BottomBar>
+                        <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
+                        <Items>
+                            <ext:Label ID="Label1" runat="server" Text="Tamaño página:" />
+                            <ext:ToolbarSpacer ID="ToolbarSpacer1" runat="server" Width="10" />
+                            <ext:ComboBox ID="ComboBox2" runat="server" Width="80">
+                                <Items>
+                                    <ext:ListItem Text="1" />
+                                    <ext:ListItem Text="5" />
+                                    <ext:ListItem Text="10" />
+                                    <ext:ListItem Text="25" />
+                                    <ext:ListItem Text="50" />
+                                    <ext:ListItem Text="100" />
+                                    <ext:ListItem Text="250" />
+                                    <ext:ListItem Text="500" />
+                                    <ext:ListItem Text="1000" />
+                                </Items>
+                                <SelectedItems>
+                                    <ext:ListItem Value="10" />
+                                </SelectedItems>
+                                <Listeners>
+                                    <Select Handler="#{gpCodigoPPTA}.store.pageSize = parseInt(this.getValue(), 10); #{gpCodigoPPTA}.store.reload();" />
+                                </Listeners>
+                            </ext:ComboBox>
+                        </Items>
+                        </ext:PagingToolbar>
+                    </BottomBar>
         <Listeners>
             <ItemClick Fn="tpCodigoPPTA_Select" />
             <ItemDblClick Fn="imgbtnEditar_Click" />
@@ -158,10 +188,6 @@
             <ext:RowSelectionModel ID="rsmCodigoPPTA" runat="server">
             </ext:RowSelectionModel>
         </SelectionModel>
-        <FooterBar>
-            <ext:StatusBar ID="sbCodigoPPTA" runat="server" Text="ESTATUS" StatusAlign="Left">
-            </ext:StatusBar>
-        </FooterBar>
     </ext:GridPanel>
     </form>
 </body>

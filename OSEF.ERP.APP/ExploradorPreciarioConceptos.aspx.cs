@@ -32,11 +32,13 @@ namespace OSEF.ERP.APP
         {
             //1. Obtener el Preciario seleccionado y obtener sus datos junto con su sucursal
             string strPreciarios = e.ExtraParams["valor"];
-            //sPreciarioConcepto.DataSource = PreciarioConceptoBusiness.ObtenerPreciarioConceptoPorPreciario(strPreciarios);
-            //sPreciarioConcepto.DataBind();
-
-            sCategoria.DataSource = PreciarioCategoriaBuisness.ObtenerPreciarioCategoriasPorPreciario(strPreciarios);
-            sCategoria.DataBind();
+            if (strPreciarios != null)
+            {
+                sPreciarioConcepto.DataSource = PreciarioConceptoBusiness.ObtenerPreciarioConceptoPorPreciario(strPreciarios);
+                sPreciarioConcepto.DataBind();
+                sCategoria.DataSource = PreciarioCategoriaBuisness.ObtenerPreciarioCategoriasPorPreciario(strPreciarios);
+                sCategoria.DataBind();
+            }
         }
 
         /// <summary>
@@ -83,7 +85,11 @@ namespace OSEF.ERP.APP
             sPreciarioConcepto.DataBind();
         }
 
-
+        protected void OnReadData_sConceptos(object sender, StoreReadDataEventArgs e)
+        {
+            //sSubCategoria.DataSource = PreciarioSubCategoriaBusiness.ObtenerPreciarioSubCategoriaPorCategoria(strCategoria);
+            //sSubCategoria.DataBind();
+        }
 
         protected void ExportEt(object sender, DirectEventArgs e)
         {

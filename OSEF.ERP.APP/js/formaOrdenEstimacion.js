@@ -2291,27 +2291,107 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
             }
         }
     }
+    
+    /** DIRECT WITH RELOAD **/
     var strID = function () {
         if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') === 'Nuevo') { 
             return null;
         } else {
             return App.sOrdenEstimacion.getAt(0).get('ID');
-        }  
+        }
     }
+
+    var getNewEncodedRecords = function () {
+
+        var store = App.sConceptos;
+        var newRecords = store.getNewRecords();
+        var encodednewrecords;
+        var xndata = [];
+        if (newRecords.length > 0 || newRecords != null) {
+
+            for (i = 0; i < newRecords.length; i++) {
+                xndata.push(newRecords[i].data);
+            }
+
+            xndata.pop();
+            if (xndata.length > 0) {
+                encodednewrecords = Ext.encode(xndata);
+                return encodednewrecords;
+            } else {
+                return 0;
+            }
+        }
+    };
+
+    var getRemovedRecords = function () {
+        var store = App.sConceptos;
+        var deleteRecords = store.getRemovedRecords();
+        var encodedremovedrecords;
+        var xrdata = [];
+
+        if (deleteRecords.length > 0 || deleteRecords != null) {
+            for (i = 0; i < deleteRecords.length; i++) {
+                xrdata.push(deleteRecords[i].data);
+            }
+            if (xrdata.length > 0) {
+                encodedremovedrecords = Ext.encode(xrdata);
+                return encodedremovedrecords;
+            } else {
+                return 0;
+            }
+        }
+    };
+
+    var getUpdatedRecords = function () {
+
+        var store = App.sConceptos;
+        var editedRecords = store.getUpdatedRecords();
+        var encodedupdaterecords;
+        var xudata = [];
+        if (editedRecords.length > 0 || editedRecords != null) {
+            for (i = 0; i < editedRecords.length; i++) {
+                xudata.push(editedRecords[i].data);
+            }
+            if (xudata.length > 0) {
+                encodedupdaterecords = Ext.encode(xudata);
+                return encodedupdaterecords;
+            } else {
+                return 0;
+            }
+        }
+    };
+
     var onChangeValues = function () { 
 
         if (App.sOrdenEstimacion.getCount() != 0) { 
-            var strOrdenEstimacionForma = Ext.encode(App.fpOrdenEstimacion.getForm().getValues());
-            var strOrdenEstimacion = getRecordValues();
-            var strOrdenEstimacionD = Ext.encode(App.sConceptos.getRecordsValues());
+//            var strOrdenEstimacionForma = Ext.encode(App.fpOrdenEstimacion.getForm().getValues()); 
 
-            var strSucursal = App.txtfSucursalID.getValue();
-            var strDiasAtencion = App.nfDiasAtencion.getValue();
-            var strFechaMaxima = App.dfFechaMaxima.getValue(); 
-            App.direct.imgbtnGuardarDirect_Click(
-    strOrdenEstimacionForma, strOrdenEstimacion, strID(),
-    strOrdenEstimacionD, strSucursal, strDiasAtencion, strFechaMaxima);
-//            console.log("datos publicados"); 
+            var newRecords, deleteRecords, updateRecords;
+
+            newRecords = getNewEncodedRecords();
+            deleteRecords = getRemovedRecords();
+            updateRecords = getUpdatedRecords();
+
+            App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, App.sConceptos.getCount(), {
+                     success: function () {
+                         App.sConceptos.reload({
+                             callback: function () {
+                                 if (App.sConceptos.getCount() > 0) {
+                                     //Obtener el Renglon anterior
+                                     var auxRenglonAnterior = App.sConceptos.getCount() - 1;
+                                     var renglonAnterior = App.sConceptos.getAt(auxRenglonAnterior).get('Renglon') + 1;
+                                     App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: renglonAnterior });
+                                 } else {
+                                     App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: 1 });
+                                 }
+                             }
+                         });
+                     },
+                     failure: function (errorMsg) {
+                         Ext.Msg.alert('Error', errorMsg);
+                     }
+                 }
+            ); 
         }
     }
 

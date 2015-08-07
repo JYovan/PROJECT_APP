@@ -124,6 +124,7 @@
                 <ext:Store
                     ID="sClientes"
                     runat="server"
+                    RemoteSort="true"
                     OnReadData="OnReadData_sClientes">
                     <Model>
                         <ext:Model ID="mClientes" runat="server" IDProperty="ID">
@@ -207,6 +208,39 @@
                         DataIndex="Estatus" />                   
                 </Columns>
             </ColumnModel>
+
+            <Plugins>
+                        <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
+                    </Plugins>
+                    <BottomBar>
+                        <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
+                        <Items>
+                            <ext:Label ID="Label1" runat="server" Text="TAMAÑO DE PÁGINA:" />
+                            <ext:ToolbarSpacer ID="ToolbarSpacer1" runat="server" Width="10" />
+                            <ext:ComboBox ID="ComboBox2" runat="server" Width="80">
+                                <Items>
+                                    <ext:ListItem Text="1" />
+                                    <ext:ListItem Text="5" />
+                                    <ext:ListItem Text="10" />
+                                    <ext:ListItem Text="25" />
+                                    <ext:ListItem Text="50" />
+                                    <ext:ListItem Text="100" />
+                                    <ext:ListItem Text="250" />
+                                    <ext:ListItem Text="500" />
+                                    <ext:ListItem Text="1000" />
+                                </Items>
+                                <SelectedItems>
+                                    <ext:ListItem Value="10" />
+                                </SelectedItems>
+                                <Listeners>
+                                    <Select Handler="#{gpClientes}.store.pageSize = parseInt(this.getValue(), 10); #{gpClientes}.store.reload();" />
+                                </Listeners>
+                            </ext:ComboBox>
+                            <ext:Label ID="lblPagingTool" runat="server" Text="" />
+                        </Items>
+                        </ext:PagingToolbar>
+                    </BottomBar>
+
             <Listeners>
                 <ItemClick Fn="gpClientes_ItemClick" />
                 <ItemDblClick Fn="imgbtnEditar_Click"></ItemDblClick>
@@ -218,17 +252,14 @@
                     runat="server">
                 </ext:RowSelectionModel>
             </SelectionModel>
-            <FooterBar>
+            <%--<FooterBar>
                 <ext:StatusBar
                     ID="sbClientes"
                     runat="server"
-                    Text=""
-                    StatusAlign="Left">
-                   <%-- <Listeners>
-                        <BeforeRender Fn="sbClientes_Render"></BeforeRender>
-                    </Listeners>--%>
+                    Text="" 
+                    StatusAlign="Left"> 
                 </ext:StatusBar>
-            </FooterBar>
+            </FooterBar>--%>
         </ext:GridPanel>
     </form>
 </body>

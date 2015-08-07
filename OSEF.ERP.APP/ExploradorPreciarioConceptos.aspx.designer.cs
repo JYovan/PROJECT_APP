@@ -319,13 +319,13 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.Label Label1;
         
         /// <summary>
-        /// Control ToolbarSpacer2.
+        /// Control ToolbarSpacer1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ToolbarSpacer ToolbarSpacer2;
+        protected global::Ext.Net.ToolbarSpacer ToolbarSpacer1;
         
         /// <summary>
         /// Control ComboBox2.

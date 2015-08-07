@@ -674,9 +674,12 @@
                                     <ext:ListItem Text="1" />
                                     <ext:ListItem Text="5" />
                                     <ext:ListItem Text="10" />
-                                    <ext:ListItem Text="20" />
-                                    <ext:ListItem Text="40" />
-                                    <ext:ListItem Text="80" />
+                                    <ext:ListItem Text="25" />
+                                    <ext:ListItem Text="50" />
+                                    <ext:ListItem Text="100" />
+                                    <ext:ListItem Text="250" />
+                                    <ext:ListItem Text="500" />
+                                    <ext:ListItem Text="1000" />
                                 </Items>
                                 <SelectedItems>
                                     <ext:ListItem Value="10" />
@@ -704,42 +707,8 @@
                     ID="rsmOrdenesEstimaciones"
                     runat="server">
                 </ext:RowSelectionModel>
-            </SelectionModel>
-            <%--<FooterBar>
-                <%--<ext:StatusBar
-                    ID="sbOrdenesEstimacion"
-                    runat="server"
-                    Text=""
-                    StatusAlign="Left">
-                </ext:StatusBar>
-            </FooterBar>--%>
-             <%--    <BottomBar>
-                <ext:PagingToolbar ID="PagingToolbar1" runat="server">
-                <Items>
-                    <ext:Label ID="Label1" runat="server" Text="Tamaño página:" />
-                    <ext:ToolbarSpacer ID="ToolbarSpacer1" runat="server" Width="10" />
-                    <ext:ComboBox ID="ComboBox2" runat="server" Width="80">
-                        <Items>
-                            <ext:ListItem Text="1" />
-                            <ext:ListItem Text="2" />
-                            <ext:ListItem Text="10" />
-                            <ext:ListItem Text="20" />
-                        </Items>
-                        <SelectedItems>
-                            <ext:ListItem Value="10" />
-                        </SelectedItems>
-                        <Listeners>
-                            <Select Handler="#{gpOrdenesEstimaciones}.store.pageSize = parseInt(this.getValue(), 10); #{gpOrdenesEstimaciones}.store.reload();" />
-                        </Listeners>
-                    </ext:ComboBox>
-                </Items>
-                <Plugins>
-                    <ext:ProgressBarPager ID="ProgressBarPager1" runat="server" />
-                </Plugins>
-            </ext:PagingToolbar>
-        </BottomBar>--%>
-        </ext:GridPanel>
-
+            </SelectionModel> 
+        </ext:GridPanel> 
     </form>
 </body>
-</html>
+</html> 

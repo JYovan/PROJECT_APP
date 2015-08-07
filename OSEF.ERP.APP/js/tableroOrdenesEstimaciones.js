@@ -62,7 +62,9 @@ var sOrdenesEstimaciones_DataChanged = function () {
 //    }
 //    else {
 //        App.sbOrdenesEstimacion.setText(App.sOrdenesEstimaciones.getCount() + ' ' + 'MOVIMIENTO');
-//    }
+    //    }
+
+    App.PagingToolbar1.displayMsg = 'MOSTRANDO {1} DE {2} MOVIMIENTOS';
 };
 
 

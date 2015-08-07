@@ -36,22 +36,21 @@ var gpClientes_ItemClick = function (gridview, registro, gvhtml, index) {
 
 //Cambio en los datos del tablero
 var sClientes_DataChanged = function () {
+    //    if (App.sClientes.getCount() > 1 || App.sClientes.getCount() == 0) {
+    //        App.sbClientes.setText(App.sClientes.getCount() + ' CLIENTES');
+    //    }
+    //    else {
+    //        App.sbClientes.setText(App.sClientes.getCount() + ' CLIENTE');
+    //    }
 
-
-    if (App.sClientes.getCount() > 1 || App.sClientes.getCount() == 0) {
-        App.sbClientes.setText(App.sClientes.getCount() + ' CLIENTES');
-    }
-    else {
-        App.sbClientes.setText(App.sClientes.getCount() + ' CLIENTE');
-    }
-
-    //Resize column Description when records are 11
-    if (App.sClientes.getCount() > 10) {
-        App.gpClientes.columns[1].setWidth(263);
-    }
-    else {
-        App.gpClientes.columns[1].setWidth(280);
-    }
+    //    //Resize column Description when records are 11
+    //    if (App.sClientes.getCount() > 10) {
+    //        App.gpClientes.columns[1].setWidth(263);
+    //    }
+    //    else {
+    //        App.gpClientes.columns[1].setWidth(280);
+    //    }
+    App.PagingToolbar1.displayMsg = 'MOSTRANDO {1} DE {2} CLIENTES';
 };
 
 //Concatenar la columna de Nombre Completo

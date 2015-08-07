@@ -1232,10 +1232,11 @@
                                                         MaxValue="999999999"
                                                         MinValue="0"
                                                         Step="1">
-                                                        <Listeners>
+                                                        <Listeners> 
                                                             <Change Fn="onChangeValues"></Change>
+                                                            <Blur Fn="onChangeValues"></Blur>
                                                         </Listeners>
-                                                    </ext:NumberField>
+                                                  </ext:NumberField>
                                                 </Editor>
                                             </ext:NumberColumn>
                                             <ext:Column

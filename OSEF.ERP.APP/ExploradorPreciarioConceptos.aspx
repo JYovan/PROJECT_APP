@@ -96,14 +96,7 @@
                                         </ext:Model>                            
                                     </Model>
                                 </ext:Store>
-                            </Store>
-                                <DirectEvents>
-                                <Select OnEvent="cmbPreciarios_Change" >
-                                    <ExtraParams>
-                                        <ext:Parameter Name="valor" Value="App.cmbPreciario.getValue()" Mode="Raw" />
-                                    </ExtraParams>
-                                </Select>
-                            </DirectEvents>
+                            </Store> 
                                                                    
                     </ext:ComboBox>
                                 <ext:ComboBox
@@ -290,11 +283,10 @@
                                 <ext:ModelField Name="FechaAlta" Type="Date" />
                                 <ext:ModelField Name="Estatus" Type="String" />
                                 <ext:ModelField Name="Tipo" Type="String" />
-                                <ext:ModelField Name="RCategoria" Type="Object" />
+                                <%--<ext:ModelField Name="RCategoria" Type="Object" />
                                 <ext:ModelField Name="RSubcategoria" Type="Object" />
-                                <ext:ModelField Name="RSubsubcategoria" Type="Object" /> 
-                                <ext:ModelField Name="Cliente" Type="String" />
-                                <ext:ModelField Name="RCliente" Type="Object" />
+                                <ext:ModelField Name="RSubsubcategoria" Type="Object" /> --%>
+                                <ext:ModelField Name="Cliente" Type="String" /> 
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -316,8 +308,7 @@
                         Text="CLIENTE"
                         Align="Center"
                         Width="150"
-                        DataIndex="Cliente">
-                        <Renderer Fn="cCliente_Renderer" />
+                        DataIndex="Cliente"> 
                     </ext:Column>
                     <ext:Column 
                         ID="cClave"
@@ -395,29 +386,22 @@
             </ColumnModel>
 
             <Plugins>
-                    <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
-            </Plugins>
+                        <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
+                    </Plugins>
                     <BottomBar>
-                        <ext:PagingToolbar ID="PagingToolbar1" runat="server" 
-                        DisplayInfo="true"
-                        DisplayMsg=""
-                        HideRefresh="True">
+                        <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
                         <Items>
                             <ext:Label ID="Label1" runat="server" Text="Tamaño página:" />
-                            <ext:ToolbarSpacer ID="ToolbarSpacer2" runat="server" Width="10" />
-                              
-                            <ext:ComboBox ID="ComboBox2" runat="server" 
-                            Editable="false"
-                            Width="80">
+                            <ext:ToolbarSpacer ID="ToolbarSpacer1" runat="server" Width="10" />
+                            <ext:ComboBox ID="ComboBox2" runat="server" Width="80">
                                 <Items>
                                     <ext:ListItem Text="1" />
                                     <ext:ListItem Text="5" />
-                                    <ext:ListItem Text="15" />
-                                    <ext:ListItem Text="25" /> 
+                                    <ext:ListItem Text="10" />
+                                    <ext:ListItem Text="25" />
                                     <ext:ListItem Text="50" />
                                     <ext:ListItem Text="100" />
-                                    <ext:ListItem Text="200" />
-                                    <ext:ListItem Text="300" />
+                                    <ext:ListItem Text="250" />
                                     <ext:ListItem Text="500" />
                                     <ext:ListItem Text="1000" />
                                 </Items>
@@ -427,8 +411,7 @@
                                 <Listeners>
                                     <Select Handler="#{gpExploradorConceptosPreciario}.store.pageSize = parseInt(this.getValue(), 10); #{gpExploradorConceptosPreciario}.store.reload();" />
                                 </Listeners>
-                            </ext:ComboBox> 
-
+                            </ext:ComboBox>
                         </Items>
                         </ext:PagingToolbar>
                     </BottomBar>

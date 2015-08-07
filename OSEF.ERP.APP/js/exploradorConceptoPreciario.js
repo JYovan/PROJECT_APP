@@ -5,7 +5,8 @@ var sExploradorPConcepto_DataChanged = function () {
 //    }
 //    else {
 //        App.sbExploradorPreciarioConcepto.setText(App.sPreciarioConcepto.getCount() + ' ' + 'CONCEPTOS');
-//    }
+    //    }
+    App.PagingToolbar1.displayMsg = 'MOSTRANDO {1} de {2} CONCEPTOS';
 };
 
 
@@ -141,8 +142,7 @@ var txtCosto_renderer = function (valor) {
 }; 
 
 //Regresar el nombre del cliente
-var cCliente_Renderer = function (valor, metaData, registro) {
-    console.log(registro);
+var cCliente_Renderer = function (valor, metaData, registro) { 
     var r = registro.get('RCliente');
     if (r.Nombre != null) {
         return r.Nombre;
