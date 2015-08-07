@@ -1357,11 +1357,11 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
 
     beforeRender_Importe(sum, F);
 
-//    App.dfTotalSinRender.setValue(sum.toFixed(6));
-//    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+    //    App.dfTotalSinRender.setValue(sum.toFixed(6));
+    //    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
 
     ImporteFinal = sum;
-     
+
     if (indiceDetalle == 0) {
         if (App.cmbMov.getValue().trim() == "Orden de Cambio" || App.cmbMov.getValue().trim() == "Orden de Compra") {
 
@@ -1421,9 +1421,9 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
                     HabilitarAfectar();
                 }
             }
-        } 
+        }
 
-    } //else
+    } //else 
 }
 
 //Evento que se lanza despues de editar una columna en PreciarioConceptoOrdenEstimacion
@@ -2361,10 +2361,10 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
         }
     };
 
-    var onChangeValues = function () { 
+    var onChangeValues = function () {
 
-        if (App.sOrdenEstimacion.getCount() != 0) { 
-//            var strOrdenEstimacionForma = Ext.encode(App.fpOrdenEstimacion.getForm().getValues()); 
+        if (App.sOrdenEstimacion.getCount() != 0) {
+            //            var strOrdenEstimacionForma = Ext.encode(App.fpOrdenEstimacion.getForm().getValues()); 
 
             var newRecords, deleteRecords, updateRecords;
 
@@ -2372,26 +2372,19 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
             deleteRecords = getRemovedRecords();
             updateRecords = getUpdatedRecords();
 
-            App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, App.sConceptos.getCount(), {
-                     success: function () {
-                         App.sConceptos.reload({
-                             callback: function () {
-                                 if (App.sConceptos.getCount() > 0) {
-                                     //Obtener el Renglon anterior
-                                     var auxRenglonAnterior = App.sConceptos.getCount() - 1;
-                                     var renglonAnterior = App.sConceptos.getAt(auxRenglonAnterior).get('Renglon') + 1;
-                                     App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: renglonAnterior });
-                                 } else {
-                                     App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: 1 });
-                                 }
-                             }
-                         });
-                     },
-                     failure: function (errorMsg) {
-                         Ext.Msg.alert('Error', errorMsg);
-                     }
-                 }
-            ); 
+            App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, App.sConceptos.getCount());
+            App.sConceptos.reload({
+                callback: function () {
+                    if (App.sConceptos.getCount() > 0) {
+                        //Obtener el Renglon anterior
+                        var auxRenglonAnterior = App.sConceptos.getCount() - 1;
+                        var renglonAnterior = App.sConceptos.getAt(auxRenglonAnterior).get('Renglon') + 1;
+                        App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: renglonAnterior });
+                    } else {
+                        App.sConceptos.insert(App.sConceptos.getCount(), { Renglon: 1 });
+                    }
+                }
+            });
         }
     }
 
