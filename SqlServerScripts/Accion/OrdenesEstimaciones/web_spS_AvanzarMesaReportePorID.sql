@@ -63,7 +63,7 @@ BEGIN
 		@FechaFinActividad		SMALLDATETIME,
 		@HoraFinActividad		DATETIME,
 		@Cuadrilla				VARCHAR(200),
-		@ImporteTotal			DECIMAL(20,2),
+		@ImporteTotal			DECIMAL (30,6),
 		@HoraOrigen				DATETIME,
 		@RutaImagen				VARCHAR(500),
 		@Atendido				VARCHAR(5),

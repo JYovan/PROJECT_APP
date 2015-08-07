@@ -216,7 +216,7 @@ namespace OSEF.APP.DL
                 SqlParameter sqlpImporteTotal = new SqlParameter();
                 sqlpImporteTotal.ParameterName = "@ImporteTotal";
                 sqlpImporteTotal.SqlDbType = SqlDbType.Decimal;
-                sqlpImporteTotal.Precision = 20;
+                sqlpImporteTotal.Precision = 30;
                 sqlpImporteTotal.Scale = 6;
                 sqlpImporteTotal.Value = iOrdenEstimacion.ImporteTotal;
                  
@@ -506,8 +506,8 @@ namespace OSEF.APP.DL
                 SqlParameter sqlpImporteTotal = new SqlParameter();
                 sqlpImporteTotal.ParameterName = "@ImporteTotal";
                 sqlpImporteTotal.SqlDbType = SqlDbType.Decimal;
-                sqlpImporteTotal.Precision = 20;
-                sqlpImporteTotal.Scale = 2; 
+                sqlpImporteTotal.Precision = 30;
+                sqlpImporteTotal.Scale = 6; 
                 sqlpImporteTotal.Value = uOrdenEstimacion.ImporteTotal;
 
                 SqlParameter sqlpHoraOrigen = new SqlParameter();
