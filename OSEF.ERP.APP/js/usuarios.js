@@ -268,3 +268,42 @@ var ccOpciones_Command = function (opciones, comando, registro, indice) {
         });
     }
 };
+
+
+//Concatenar la columna de ESTATUS
+var cUsuario_Renderer = function (valor, metaData, registro) {
+    var estatus = registro.get('Estatus');
+
+    switch (estatus) {
+          case 'BAJA':
+              return '<img class="IconColumnaEstatus" src="images/pendiente.png" alt="pendiente" /> '  + registro.get('Estatus');
+        case 'ALTA':
+            return '<img class="IconColumnaEstatus" src="images/concluido.png" alt="concluido" /> '  + registro.get('Estatus');
+        case 'BLOQUEADO':
+            return '<img class="IconColumnaEstatus" src="images/cancelar.png" alt="cancelar" /> '  + registro.get('Estatus');
+    }
+};
+
+
+
+//Evento que hace el filtro al seleccionar algun elemento
+var cmbEstatusFiltro_Select = function (combobox, registro) {
+    //1. Obtener el valor
+    var valor = combobox.value;
+
+    //2. Validar si es todos o hacer el filtro, sino si hace el filtro por Sucursal
+    if (valor == 'Todos') {
+        App.sUsuarios.clearFilter();
+    }
+    else {
+        App.sUsuarios.filterBy(function (elemento) {
+
+            if (elemento.get('Estatus').trim() == valor) {
+                return true
+            }
+            else {
+                return false;
+            }
+        });
+    }
+};

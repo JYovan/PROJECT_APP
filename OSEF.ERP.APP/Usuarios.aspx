@@ -148,6 +148,7 @@
                                 <ext:ModelField Name="AMaterno" Type="String" />
                                 <ext:ModelField Name="Correo" Type="String" />
                                 <ext:ModelField Name="EnLinea" Type="Boolean" />
+                                <ext:ModelField Name="Estatus" Type="String" />
                                 <ext:ModelField Name="Bloqueado" Type="Boolean" />
                                 <ext:ModelField Name="FechaAlta" Type="Date" />
                                 <ext:ModelField Name="FechaBloqueo" Type="Date" />
@@ -204,32 +205,35 @@
                         runat="server"
                         Text="CORREO"
                         Align="Left"
-                        Width="270"
+                        Width="220"
                         DataIndex="Correo" />
-                    <ext:BooleanColumn
-                        ID="bcEnLinea"
+                    <ext:Column
+                        ID="cEstatus"
                         runat="server"
-                        Text="EN LÍNEA"
+                        Text="ESTATUS"
                         Align="Center"
-                        Width="110"
-                        DataIndex="EnLinea"
-                        FalseText="No"
-                        TrueText="Si">
+                        Width="120"
+                        DataIndex="Estatus">
+                        <Renderer Fn="cUsuario_Renderer"></Renderer>
                         <HeaderItems>
                             <ext:ComboBox
-                                ID="cmbEnLinea"
+                                ID="cmbEstatus"
                                 runat="server">
                                 <Items>
-                                    <ext:ListItem Index="0" Text="(Todo)" />
-                                    <ext:ListItem Index="1" Text="Si" />
-                                    <ext:ListItem Index="2" Text="No" />
+                                    <ext:ListItem Index="0" Text="(Todo)" Value="Todos" />
+                                    <ext:ListItem Index="1" Text="ALTA" />
+                                    <ext:ListItem Index="2" Text="BAJA" />
+                                    <ext:ListItem Index="3" Text="BLOQUEADO" />
                                 </Items>
                                 <SelectedItems>
                                     <ext:ListItem Index="0" />
                                 </SelectedItems>
+                                 <Listeners>
+                                    <Select Fn="cmbEstatusFiltro_Select" />
+                                </Listeners>
                             </ext:ComboBox>
                         </HeaderItems>
-                    </ext:BooleanColumn>
+                    </ext:Column>
                     <ext:DateColumn
                         ID="dcUltimoAcceso"
                         runat="server"

@@ -166,22 +166,22 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.Column cCorreo;
         
         /// <summary>
-        /// Control bcEnLinea.
+        /// Control cEstatus.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.BooleanColumn bcEnLinea;
+        protected global::Ext.Net.Column cEstatus;
         
         /// <summary>
-        /// Control cmbEnLinea.
+        /// Control cmbEstatus.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cmbEnLinea;
+        protected global::Ext.Net.ComboBox cmbEstatus;
         
         /// <summary>
         /// Control dcUltimoAcceso.
