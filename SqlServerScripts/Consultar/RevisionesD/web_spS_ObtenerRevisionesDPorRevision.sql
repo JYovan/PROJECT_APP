@@ -51,9 +51,9 @@ BEGIN
 	INNER JOIN
 		Conceptos B ON A.Concepto = B.ID
 	LEFT JOIN
-		SubCategorias C ON B.SubCategoria = C.ID
+		SubCategorias C ON B.SubCategoriaIdRaw = C.ID
 	INNER JOIN
-		Categorias D ON B.Categoria = D.ID		
+		Categorias D ON B.CategoriaIdRaw = D.ID		
 	WHERE
 		Revision = @Revision
 END
