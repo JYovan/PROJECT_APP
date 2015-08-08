@@ -170,14 +170,26 @@
                         Text="MOVIMIENTO"
                         Align="Center"
                         Width="130"
+                        Filterable="false"
                         DataIndex="Mov">
                         <Renderer Fn="cMov_Renderer" />
+                    </ext:Column>
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Filterable="false"
+                        Align="Center"
+                        Width="150"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
                     </ext:Column>
                     <ext:Column
                         ID="cSucursal"
                         runat="server"
                         Text="SUCURSAL"
                         Align="Center"
+                        Filterable="false"
                         Width="230"
                         DataIndex="Sucursal">
                         <Renderer Fn="cSucursal_Renderer" />
@@ -355,15 +367,7 @@
                             </ext:ComboBox>
                         </HeaderItems>
                     </ext:Column>
-                    <ext:Column
-                        ID="cCliente"
-                        runat="server"
-                        Text="CLIENTE"
-                        Align="Center"
-                        Width="150"
-                        DataIndex="Cliente">
-                        <Renderer Fn="cCliente_Renderer" />
-                    </ext:Column>
+                    
                 </Columns>
             </ColumnModel>
             <Plugins>

@@ -281,6 +281,16 @@
                         </HeaderItems>
                     </ext:Column>
                     <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        Filterable="false"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
+                    </ext:Column>
+                    <ext:Column
                         ID="cSucursal"
                         runat="server"
                         Text="SUCURSAL"
@@ -451,15 +461,7 @@
                     
                         </HeaderItems> 
                     </ext:Column> 
-                    <ext:Column
-                        ID="cCliente"
-                        runat="server"
-                        Text="CLIENTE"
-                        Align="Center"
-                        Width="150"
-                        DataIndex="Cliente">
-                        <Renderer Fn="cCliente_Renderer" />
-                    </ext:Column>
+                    
                 </Columns>
             </ColumnModel>
             <Plugins>

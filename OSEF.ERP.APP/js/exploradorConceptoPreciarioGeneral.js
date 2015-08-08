@@ -76,6 +76,16 @@ var cmbSucursalFiltro_Select = function (combobox, registro) {
 };
 
 
+
+
+//Asignar la descripción de la sucursal a esta columna
+var cOrden_Renderer = function (valor, columna, registro) {
+
+    if (valor.length != 0) {
+        return registro.get('RSucursal').CR + '-' + registro.get('NoOrden');
+    }
+};
+
 //Concatenar la columna de Movimiento
 var cMov_Renderer = function (valor, metaData, registro) {
     var estatus = registro.get('Estatus');

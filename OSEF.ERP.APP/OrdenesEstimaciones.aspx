@@ -245,6 +245,7 @@
                         Text="¿REPORTE?"
                         Align="Center"
                         Width="70"
+                        Filterable="false"
                         DataIndex="RutaImagen">
                          <Renderer Fn="cTieneReporte_Renderer" />
                     </ext:Column>
@@ -253,12 +254,22 @@
                     ID="cAtendido"
                     runat="server"
                     Text="ATENDIDO"
+                    Filterable="false"
                     Align="Center"
                     Width="70"
                     DataIndex="Atendido">
                          <Renderer Fn="cAtendido_Renderer" />
                     </ext:Column>
-
+                     <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        Filterable="false"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
+                    </ext:Column>
                     <ext:Column
                         ID="cSucursal"
                         runat="server"
@@ -347,6 +358,7 @@
                         runat="server"
                         Text="REPORTA"
                         Align="Center"
+                        Filterable="false"
                         Width="110"
                         DataIndex="Reporto">
                     </ext:Column> 
@@ -357,6 +369,7 @@
                         Text="TRABAJO REQUERIDO"
                         Align="Center"
                         Width="170"
+                        Filterable="false"
                         DataIndex="TrabajoRequerido">
                     </ext:Column> 
 
@@ -415,6 +428,7 @@
                         Text="HORA ORIGEN"
                         Align="Center"
                         Width="80"
+                        Filterable="false"
                         Format="H:mm"
                         DataIndex="HoraOrigen">
                     </ext:DateColumn> 
@@ -473,6 +487,7 @@
                         runat="server"
                         Text="ASUNTO"
                         Align="Center"
+                        Filterable="false"
                         Width="210"
                         DataIndex="Observaciones">
                     </ext:Column> 
@@ -481,6 +496,7 @@
                         ID="cZona"
                         runat="server"
                         Text="ZONA"
+                        Filterable="false"
                         Align="Center"
                         Width="110"
                         DataIndex="Sucursal">
@@ -650,15 +666,7 @@
                         </HeaderItems> 
                     </ext:Column> 
                     
-                    <ext:Column
-                        ID="cCliente"
-                        runat="server"
-                        Text="CLIENTE"
-                        Align="Center"
-                        Width="150"
-                        DataIndex="Cliente">
-                        <Renderer Fn="cCliente_Renderer" />
-                    </ext:Column>
+                   
                 </Columns>
             </ColumnModel>
                     <Plugins>

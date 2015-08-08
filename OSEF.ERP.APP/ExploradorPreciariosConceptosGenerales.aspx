@@ -279,7 +279,7 @@
                     ID="cEmitido" 
                     runat="server" 
                     Text="EMITIDO" 
-                    Width="120" 
+                    Width="90" 
                     DataIndex="FechaEmision" 
                     Format="dd/MM/yyyy">
                         <HeaderItems>
@@ -293,18 +293,30 @@
                             </ext:DateField>
                         </HeaderItems>
                     </ext:DateColumn>
+                     <ext:Column
+                        ID="cNoOrden"
+                        runat="server"
+                        Text="NO.ORDEN"
+                        Align="Center"
+                        Width="80"
+                        Filterable="false"
+                        DataIndex="NoOrden">
+                        <Renderer Fn="cOrden_Renderer" />
+                    </ext:Column>
                     <ext:Column
                         ID="cCliente"
                         runat="server"
                         Text="CLIENTE"
                         Align="Center"
                         Width="150"
+                        Filterable="false"
                         DataIndex="Cliente">
                         <Renderer Fn="cCliente_Renderer" />
                     </ext:Column>
                     <ext:Column
                         ID="cSucursal"
                         runat="server"
+                        Filterable="false"
                         Text="SUCURSAL"
                         Align="Center"
                         Width="170"
@@ -315,6 +327,7 @@
                         ID="cAsunto"
                         runat="server"
                         Text="ASUNTO"
+                        Filterable="false"
                         Align="Center"
                         Width="300"
                         DataIndex="Observaciones">
@@ -322,6 +335,7 @@
                     <ext:Column
                         ID="cTotal"
                         runat="server"
+                        Filterable="false"
                         Text="IMPORTE"
                         Align="Center"
                         Width="95"

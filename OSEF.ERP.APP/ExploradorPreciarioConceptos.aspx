@@ -302,20 +302,14 @@
 
             <ColumnModel>
                 <Columns>
-                    <ext:Column
-                        ID="cCliente"
-                        runat="server"
-                        Text="CLIENTE"
-                        Align="Center"
-                        Width="150"
-                        DataIndex="Cliente"> 
-                    </ext:Column>
+                    
                     <ext:Column 
                         ID="cClave"
                         runat="server"
                         Text="CLAVE"
                         Align="Center"
                         Width="120"
+                        Filterable="false"
                         DataIndex="Clave">
                          <Renderer Fn="cMov_Renderer" />
                     </ext:Column>
@@ -323,6 +317,7 @@
                         ID="cDescripcion"
                         runat="server"
                         Text="CONCEPTO"
+                        Filterable="false"
                         Align="Left"
                         Width="340"
                         DataIndex="Descripcion">
@@ -331,6 +326,7 @@
                         ID="cCantidad"
                         runat="server"
                         Text="CANTIDAD"
+                        Filterable="false"
                         Align="Center"
                         Width="120"
                         DataIndex="Cantidad">
@@ -368,6 +364,7 @@
                         ID="ccPrecio"
                         runat="server"
                         Text="PRECIO"
+                        Filterable="false"
                         Align="Center"
                         Width="150"
                         DataIndex="Costo">
@@ -377,6 +374,7 @@
                         ID="cTotal"
                         runat="server"
                         Text="IMPORTE"
+                        Filterable="false"
                         Align="Center"
                         Width="125"
                         DataIndex="Importefinal">
