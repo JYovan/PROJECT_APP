@@ -100,13 +100,13 @@ var cMov_Renderer = function (valor, metaData, registro) {
 
     switch (estatus) {
         case 'BORRADOR':
-            return '<img class="IconColumnaEstatus" src="images/borrador.png" alt="borrador" /> ' + " " + registro.get('Mov') + " " + registro.get('MovID');
+            return '<img class="IconColumnaEstatus" src="images/borrador.png" alt="borrador" /> ' + registro.get('Mov') + " " + registro.get('MovID');
         case 'PENDIENTE':
-            return '<img class="IconColumnaEstatus" src="images/pendiente.png" alt="pendiente" /> ' + " " + registro.get('Mov') + " " + registro.get('MovID');
+            return '<img class="IconColumnaEstatus" src="images/pendiente.png" alt="pendiente" /> ' +  registro.get('Mov') + " " + registro.get('MovID');
         case 'CONCLUIDO':
-            return '<img class="IconColumnaEstatus" src="images/concluido.png" alt="concluido" /> ' + " " + registro.get('Mov') + " " + registro.get('MovID');
+            return '<img class="IconColumnaEstatus" src="images/concluido.png" alt="concluido" /> ' +  registro.get('Mov') + " " + registro.get('MovID');
         case 'CANCELADO':
-            return '<img class="IconColumnaEstatus" src="images/cancelar.png" alt="cancelar" /> ' + " " + registro.get('Mov') + " " + registro.get('MovID');
+            return '<img class="IconColumnaEstatus" src="images/cancelar.png" alt="cancelar" /> ' + registro.get('Mov') + " " + registro.get('MovID');
     }
 };
 
@@ -261,7 +261,7 @@ var cClasificacion_Renderer = function (valor, metaData, registro) {
     var clasi = registro.get('Clasificacion'); 
     switch (clasi) {
         case 'MOBILIARIO':
-            return '<img class="IconColumnaEstatus" src="assets/img/controles/rsofa.png" alt="borrador" width="16" heigth="16" />' +registro.get('Clasificacion');
+            return '<img class="IconColumnaEstatus" src="assets/img/controles/rsofa.png" alt="borrador" width="16" heigth="16" /> ' +registro.get('Clasificacion');
         case 'CERRAJERIA':
             return '<img class="IconColumnaEstatus" src="assets/img/controles/rkey.png" alt="pendiente" width="16" heigth="16"/> ' + registro.get('Clasificacion');
         case 'INMUEBLE':

@@ -45,89 +45,16 @@
             <TopBar>
                 <ext:Toolbar ID="tbPreciarios" runat="server">
                     <Items>
-                    <ext:ComboBox
-                                ID="cmbSucursal"
-                                runat="server"
-                                LabelWidth="70"
-                                Width="300"
-                                FieldLabel="SUCURSAL"
-                                ValueField="ID"
-                                Cls="spanCustomCombo xEspacioCmbxCustom"
-                                PageSize="10"
-                                DisplayField="Nombre"
-                                StyleSpec="margin-right: 3px;"
-                                Editable="true"
-                                MatchFieldWidth="true"
-                                ForceSelection="true"
-                                QueryMode="Local"
-                                TypeAhead="true"
-                                EnforceMaxLength="true">
-                                 <ListConfig ID="lcPreciario" runat="server" Width="400"                                                                Cls="xEspacioCmbxCustom">
-                                    <ItemTpl ID="itPreciario" runat="server">
-                                        <Html>
-                                            <div class="search-item">
-							                    <h3>{CR}</h3>
-                                                <span>{Nombre}</span>
-						                    </div>
-                                        </Html>
-                                    </ItemTpl>
-                                </ListConfig>
-                                <Items>
-                                    <ext:ListItem Index="0" Text="(Todos)" Value="Todos"  />
-                                </Items>
-                             <%--   <SelectedItems>
-                                    <ext:ListItem Index="0" />
-                                </SelectedItems>--%>
-                                <Listeners>
-                                    <Select Fn="cmbSucursalFiltro_Select" />
-                                </Listeners>
-                                <Store>
-                                    <ext:Store
-                                        ID="sSucursales"
-                                        runat="server">
-                                        <Model>
-                                            <ext:Model ID="mSucursales" runat="server" IDProperty="ID">
-                                                <Fields>
-                                                    <ext:ModelField Name="ID" Type="String" />
-                                                    <ext:ModelField Name="Nombre" Type="String" />
-                                                    <ext:ModelField Name="CR" Type="String" />
-                                                </Fields>
-                                            </ext:Model>
-                                        </Model>
-                                    </ext:Store>
-                                </Store>
-                                <Listeners>
-                                <Change Fn="cmbSucursal_Change" />
-                                </Listeners>
-                            </ext:ComboBox>
+                 
 
                       
-                        <ext:ComboBox
-                                ID="cmbClasificacion"
-                                runat="server"
-                                FieldLabel="CLASIFICACIÓN"
-                                ForceSelection="true"
-                                Width="220"
-                                Editable="false">
-                                <Items>
-                                    <ext:ListItem Index="0" Text="(Todos)" Value="Todos" />
-                                    <ext:ListItem Index="1" Text="MOBILIARIO" Value="MOBILIARIO"/>
-                                    <ext:ListItem Index="2" Text="CERRAJERIA" Value="CERRAJERIA"/>
-                                    <ext:ListItem Index="3" Text="INMUEBLE" Value="INMUEBLE"/>
-                                </Items>
-                                <SelectedItems>
-                                    <ext:ListItem Index="0" />
-                                </SelectedItems>
-                                <Listeners>
-                                    <Select Fn="cmbClasificacion_Select" />
-                                </Listeners>
-                            </ext:ComboBox>
+                       
                   
 
                         <ext:ToolbarSpacer 
                         runat="server" 
                         ID="tsExploradorMesaDeReporte" 
-                        Width="15"> 
+                        Width="555"> 
                         </ext:ToolbarSpacer>
                           
 
@@ -361,7 +288,7 @@
                         </HeaderItems>
                     </ext:CheckColumn>
 
-                   <ext:Column 
+                 <%--  <ext:Column 
                         ID="cMovimiento"
                         runat="server"
                         Text="MOVIMIENTO"
@@ -383,7 +310,7 @@
                             </ext:TextField>
                         </HeaderItems>
                         <Renderer Fn="cMov_Renderer" />
-                    </ext:Column>
+                    </ext:Column>--%>
                     
                    <ext:Column 
                         ID="cReporte"
@@ -460,8 +387,37 @@
                         Width="120"
                         DataIndex="Clasificacion"> 
                         <Renderer Fn="cClasificacion_Renderer" />
+                        <HeaderItems>
+                             <ext:ComboBox
+                                ID="cmbClasificacion"
+                                runat="server"
+                                ForceSelection="true"
+                                Editable="false">
+                                <Items>
+                                    <ext:ListItem Index="0" Text="(Todos)" Value="Todos" />
+                                    <ext:ListItem Index="1" Text="MOBILIARIO" Value="MOBILIARIO"/>
+                                    <ext:ListItem Index="2" Text="CERRAJERIA" Value="CERRAJERIA"/>
+                                    <ext:ListItem Index="3" Text="INMUEBLE" Value="INMUEBLE"/>
+                                </Items>
+                                <SelectedItems>
+                                    <ext:ListItem Index="0" />
+                                </SelectedItems>
+                                <Listeners>
+                                    <Select Fn="cmbClasificacion_Select" />
+                                </Listeners>
+                            </ext:ComboBox>
+                        </HeaderItems>
                     </ext:Column>
-                    
+                    <ext:Column
+                        ID="cCliente"
+                        runat="server"
+                        Text="CLIENTE"
+                        Align="Center"
+                        Width="150"
+                        Filterable="false"
+                        DataIndex="Cliente">
+                        <Renderer Fn="cCliente_Renderer" />
+                    </ext:Column>
                    <ext:Column
                         ID="cSucursal"
                         runat="server"
@@ -470,6 +426,60 @@
                         Width="170"
                         DataIndex="Sucursal">
                       <Renderer Fn="cSucursal_Renderer" />
+                      <HeaderItems>
+                       <ext:ComboBox
+                                ID="cmbSucursal"
+                                runat="server"
+                                ValueField="ID"
+                                Cls="spanCustomCombo xEspacioCmbxCustom"
+                                DisplayField="Nombre"
+                                StyleSpec="margin-right: 3px;"
+                                Editable="true"
+                                MatchFieldWidth="true"
+                                ForceSelection="true"
+                                QueryMode="Local"
+                                TypeAhead="true"
+                                EnforceMaxLength="true">
+                                 <ListConfig ID="lcPreciario" runat="server" Width="400"    Cls="xEspacioCmbxCustom">
+                                    <ItemTpl ID="itPreciario" runat="server">
+                                        <Html>
+                                            <div class="search-item">
+							                    <h3>{CR}</h3>
+                                                <span>{Nombre}</span>
+						                    </div>
+                                        </Html>
+                                    </ItemTpl>
+                                </ListConfig>
+                                <Items>
+                                    <ext:ListItem Index="0" Text="(Todos)" Value="Todos"  />
+                                </Items>
+                             <%--   <SelectedItems>
+                                    <ext:ListItem Index="0" />
+                                </SelectedItems>--%>
+                                <Listeners>
+                                    <Select Fn="cmbSucursalFiltro_Select" />
+                                </Listeners>
+                                <Store>
+                                    <ext:Store
+                                        ID="sSucursales"
+                                        runat="server">
+                                        <Model>
+                                            <ext:Model ID="mSucursales" runat="server" IDProperty="ID">
+                                                <Fields>
+                                                    <ext:ModelField Name="ID" Type="String" />
+                                                    <ext:ModelField Name="Nombre" Type="String" />
+                                                    <ext:ModelField Name="CR" Type="String" />
+                                                </Fields>
+                                            </ext:Model>
+                                        </Model>
+                                    </ext:Store>
+                                </Store>
+                                <Listeners>
+                                <Change Fn="cmbSucursal_Change" />
+                                </Listeners>
+                            </ext:ComboBox>
+                      </HeaderItems>
+                        
                     </ext:Column>
 
                    <ext:Column
@@ -478,6 +488,7 @@
                         Text="TRABAJO REQUERIDO"
                         Align="Center"
                         Width="170"
+                        Filterable="false"
                         DataIndex="TrabajoRequerido">
                     </ext:Column> 
 
@@ -487,7 +498,7 @@
                         Text="TRABAJO REALIZADO"
                         Align="Center"
                         Width="170"
-
+                        Filterable="false"
                         DataIndex="Observaciones">
                     </ext:Column> 
 
@@ -498,6 +509,7 @@
                         Text="IMPORTE"
                         Align="Center"
                         Width="95"
+                        Filterable="false"
                         DataIndex="ImporteTotal">
                         <Renderer Fn="cImporte_renderer"></Renderer>
                     </ext:Column>
@@ -559,15 +571,7 @@
                     
                     </ext:Column>
                     
-                    <ext:Column
-                        ID="cCliente"
-                        runat="server"
-                        Text="CLIENTE"
-                        Align="Center"
-                        Width="150"
-                        DataIndex="Cliente">
-                        <Renderer Fn="cCliente_Renderer" />
-                    </ext:Column>
+                    
                 </Columns>
             </ColumnModel>
             <Plugins>
