@@ -193,15 +193,6 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.DateColumn dcUltimoAcceso;
         
         /// <summary>
-        /// Control cmbUltimoAcceso.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cmbUltimoAcceso;
-        
-        /// <summary>
         /// Control FilterHeader1.
         /// </summary>
         /// <remarks>

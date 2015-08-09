@@ -242,7 +242,7 @@
                         Width="170"
                         DataIndex="UltimoAcceso"
                         Format="dd/MM/yyyy HH:mm:ss">
-                        <HeaderItems>
+                        <%--<HeaderItems>
                             <ext:ComboBox
                                 ID="cmbUltimoAcceso"
                                 runat="server">
@@ -277,7 +277,7 @@
                                     <ext:ListItem Index="0" />
                                 </SelectedItems>
                             </ext:ComboBox>
-                        </HeaderItems>
+                        </HeaderItems>--%>
                     </ext:DateColumn>
                 </Columns>
             </ColumnModel>

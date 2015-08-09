@@ -320,8 +320,8 @@
                         </HeaderItems>
                     </ext:Column>
                     
-                    <ext:DateColumn
-                        ID="cClasificacion"
+                    <ext:Column
+                        ID="clasificacion"
                         runat="server"
                         Text="CLASIFICACIÓN"
                         Align="Center"
@@ -351,7 +351,7 @@
                                 </Plugins>
                             </ext:ComboBox>
                         </HeaderItems>
-                    </ext:DateColumn> 
+                    </ext:Column> 
     
                     <ext:Column
                         ID="cReporta"
@@ -382,45 +382,16 @@
                         DataIndex="FechaOrigen"
                         Format="dd/MM/yyyy">
                         <HeaderItems>
-                            <ext:ComboBox
-                                ID="cmbFechaOrigen"
-                                runat="server">
-                                <Items>
-                                    <ext:ListItem Index="0" Text="(Todo)" />
-                                    <ext:ListItem Index="1" Text="Hoy" />
-                                    <ext:ListItem Index="2" Text="Ayer" />
-                                    <ext:ListItem Index="3" Text="Mañana" />
-                                    <ext:ListItem Index="4" Text="Esta semana" />
-                                    <ext:ListItem Index="5" Text="Semana pasada" />
-                                    <ext:ListItem Index="6" Text="Este mes" />
-                                    <ext:ListItem Index="7" Text="Mes móvil" />
-                                    <ext:ListItem Index="8" Text="Mes pasado" />
-                                    <ext:ListItem Index="9" Text="Este año" />
-                                    <ext:ListItem Index="10" Text="Año móvil" />
-                                    <ext:ListItem Index="11" Text="Año pasado" />
-                                    <ext:ListItem Index="12" Text="Enero" />
-                                    <ext:ListItem Index="13" Text="Febrero" />
-                                    <ext:ListItem Index="14" Text="Marzo" />
-                                    <ext:ListItem Index="15" Text="Abril" />
-                                    <ext:ListItem Index="16" Text="Mayo" />
-                                    <ext:ListItem Index="17" Text="Junio" />
-                                    <ext:ListItem Index="18" Text="Julio" />
-                                    <ext:ListItem Index="19" Text="Agosto" />
-                                    <ext:ListItem Index="20" Text="Septiembre" />
-                                    <ext:ListItem Index="21" Text="Octubre" />
-                                    <ext:ListItem Index="22" Text="Noviembre" />
-                                    <ext:ListItem Index="23" Text="Diciembre" />
-                                    <ext:ListItem Index="24" Text="Especifica..." />
-                                </Items>
-                                <SelectedItems>
-                                    <ext:ListItem Index="0" />
-                                </SelectedItems>
+                            <ext:DateField ID="fOrigen" runat="server" Editable="false">
+                                <Listeners>
+                                    <Change Handler="applyFilter(App.fOrigen.getValue(),'FechaOrigen');" />
+                                </Listeners>
                                 <Plugins>
                                     <ext:ClearButton ID="ClearButton3" runat="server" />
                                 </Plugins>
-                            </ext:ComboBox>
+                            </ext:DateField>
                         </HeaderItems>
-                    </ext:DateColumn> 
+                    </ext:DateColumn>
 
                     <ext:DateColumn
                         ID="dcHoraOrigen"
@@ -440,45 +411,16 @@
                         Align="Center"
                         Width="100"
                         DataIndex="FechaMaximaAtencion"
-                        Format="dd/MM/yyyy">
+                        Format="dd/MM/yyyy"> 
                         <HeaderItems>
-                            <ext:ComboBox
-                                ID="ComboBox1"
-                                runat="server">
-                                <Items>
-                                    <ext:ListItem Index="0" Text="(Todo)" />
-                                    <ext:ListItem Index="1" Text="Hoy" />
-                                    <ext:ListItem Index="2" Text="Ayer" />
-                                    <ext:ListItem Index="3" Text="Mañana" />
-                                    <ext:ListItem Index="4" Text="Esta semana" />
-                                    <ext:ListItem Index="5" Text="Semana pasada" />
-                                    <ext:ListItem Index="6" Text="Este mes" />
-                                    <ext:ListItem Index="7" Text="Mes móvil" />
-                                    <ext:ListItem Index="8" Text="Mes pasado" />
-                                    <ext:ListItem Index="9" Text="Este año" />
-                                    <ext:ListItem Index="10" Text="Año móvil" />
-                                    <ext:ListItem Index="11" Text="Año pasado" />
-                                    <ext:ListItem Index="12" Text="Enero" />
-                                    <ext:ListItem Index="13" Text="Febrero" />
-                                    <ext:ListItem Index="14" Text="Marzo" />
-                                    <ext:ListItem Index="15" Text="Abril" />
-                                    <ext:ListItem Index="16" Text="Mayo" />
-                                    <ext:ListItem Index="17" Text="Junio" />
-                                    <ext:ListItem Index="18" Text="Julio" />
-                                    <ext:ListItem Index="19" Text="Agosto" />
-                                    <ext:ListItem Index="20" Text="Septiembre" />
-                                    <ext:ListItem Index="21" Text="Octubre" />
-                                    <ext:ListItem Index="22" Text="Noviembre" />
-                                    <ext:ListItem Index="23" Text="Diciembre" />
-                                    <ext:ListItem Index="24" Text="Especifica..." />
-                                </Items>
-                                <SelectedItems>
-                                    <ext:ListItem Index="0" />
-                                </SelectedItems>
+                            <ext:DateField ID="fMaxima" runat="server" Editable="false">
+                                <Listeners>
+                                   <Change Handler="applyFilter(App.fMaxima.getValue(),'FechaMaximaAtencion');" />
+                                </Listeners>
                                 <Plugins>
                                     <ext:ClearButton ID="ClearButton4" runat="server" />
                                 </Plugins>
-                            </ext:ComboBox>
+                            </ext:DateField>
                         </HeaderItems>
                     </ext:DateColumn>
                     
@@ -668,10 +610,7 @@
                     
                    
                 </Columns>
-            </ColumnModel>
-                    <Plugins>
-                        <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
-                    </Plugins>
+            </ColumnModel> 
                     <BottomBar>
                         <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
                         <Items>

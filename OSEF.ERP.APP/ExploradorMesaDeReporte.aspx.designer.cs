@@ -256,13 +256,22 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.DateColumn dcFechaEmision;
         
         /// <summary>
-        /// Control cmbFechaRevision.
+        /// Control fOrigen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cmbFechaRevision;
+        protected global::Ext.Net.DateField fOrigen;
+        
+        /// <summary>
+        /// Control ClearButton1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ClearButton ClearButton1;
         
         /// <summary>
         /// Control cClasificacion.

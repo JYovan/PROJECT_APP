@@ -265,13 +265,13 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.ClearButton ClearButton1;
         
         /// <summary>
-        /// Control cClasificacion.
+        /// Control clasificacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.DateColumn cClasificacion;
+        protected global::Ext.Net.Column clasificacion;
         
         /// <summary>
         /// Control cmbFClasificacion.
@@ -319,13 +319,13 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.DateColumn dcFechaOrigen;
         
         /// <summary>
-        /// Control cmbFechaOrigen.
+        /// Control fOrigen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cmbFechaOrigen;
+        protected global::Ext.Net.DateField fOrigen;
         
         /// <summary>
         /// Control ClearButton3.
@@ -355,13 +355,13 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.DateColumn dcFechaMaxima;
         
         /// <summary>
-        /// Control ComboBox1.
+        /// Control fMaxima.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox ComboBox1;
+        protected global::Ext.Net.DateField fMaxima;
         
         /// <summary>
         /// Control ClearButton4.
@@ -533,15 +533,6 @@ namespace OSEF.ERP.APP {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.ClearButton ClearButton8;
-        
-        /// <summary>
-        /// Control FilterHeader1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.FilterHeader FilterHeader1;
         
         /// <summary>
         /// Control PagingToolbar1.

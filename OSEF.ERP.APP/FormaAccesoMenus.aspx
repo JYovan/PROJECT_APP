@@ -44,8 +44,7 @@
                     MsgTarget="Side"
                     FromTitle="No Asignados"
                     ToTitle="Asignados"
-                    Cls="x-custom-form-item x-customPanelHeader x-btnCustomDefaultOver x-btnCustomDefault"
-                    >
+                    Cls="x-custom-form-item x-customPanelHeader x-btnCustomDefaultOver x-btnCustomDefault">
                     <Items> 
                         <ext:ListItem Text="Avances" Value="Avances" />
                         <ext:ListItem Text="Categorias" Value="Categorias" />

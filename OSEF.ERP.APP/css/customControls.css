@@ -88,3 +88,8 @@ a /*Quita la decoración de los enlaces*/
   font-family: "WeblySleek UI Semilight" !important;
   font-size: 12px;
 }
+.x-btn-default-small .x-btn-inner {
+  font-size: 13px;
+  font-weight: normal;
+  color: #333;
+}

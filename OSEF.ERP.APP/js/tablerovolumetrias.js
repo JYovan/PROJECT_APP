@@ -160,4 +160,42 @@ var cPreciario_Renderer = function (valor, metaData, registro) {
 //Regresar el nombre del cliente
 var cCliente_Renderer = function (valor, metaData, registro) {
     return registro.get('RCliente').Nombre;
-}; 
+};
+
+/**BUSCAR POR FECHA**/
+var applyFilter = function (stor, fieldvalue, dindex) {
+    var store = stor.getStore();
+    store.filterBy(getRecordFilter(fieldvalue, dindex));
+};
+
+var getRecordFilter = function (fieldvalue, dindex) {
+    var f = [];
+    f.push({
+        filter: function (record) {
+            return filterDate(fieldvalue, dindex, record);
+        }
+    });
+
+    var len = f.length;
+
+    return function (record) {
+        for (var i = 0; i < len; i++) {
+            if (!f[i].filter(record)) {
+                return false;
+            }
+        }
+        return true;
+    };
+};
+
+var filterDate = function (value, dataIndex, record) {
+    var dateone = value, datetwo = record.get(dataIndex);
+    if (dateone !== null && datetwo !== null) {
+        if (value.toString() == record.get(dataIndex).toString()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    return true;
+};

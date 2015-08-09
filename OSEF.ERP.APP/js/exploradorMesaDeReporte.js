@@ -372,4 +372,39 @@ var cCliente_Renderer = function (valor, metaData, registro) {
     if (r != null) {
         return registro.get('RCliente').Nombre;
     }
-}; 
+};
+
+/**BUSCAR POR FECHA**/
+var applyFilter = function (field) {
+    var store = App.gpExploradorMesaDeReporte.getStore();
+    store.filterBy(getRecordFilter());
+};
+
+var filterDate = function (value, dataIndex, record) {
+    var val = Ext.Date.clearTime(record.get(dataIndex), true).getTime();
+
+    if (!Ext.isEmpty(value, false) && val != Ext.Date.clearTime(value, true).getTime()) {
+        return false;
+    }
+    return true;
+};
+
+var getRecordFilter = function () {
+    var f = [];
+    f.push({
+        filter: function (record) {
+            return filterDate(App.fOrigen.getValue(), "FechaOrigen", record);
+        }
+    });
+
+    var len = f.length;
+
+    return function (record) {
+        for (var i = 0; i < len; i++) {
+            if (!f[i].filter(record)) {
+                return false;
+            }
+        }
+        return true;
+    };
+};
