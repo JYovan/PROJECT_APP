@@ -44,12 +44,7 @@
                     Vtype="daterange"
                     FieldLabel="Desde"
                     EnableKeyEvents="true">  
-                    <CustomConfig>
-                        <ext:ConfigItem 
-                        Name="endDateField" 
-                        Value="DateField2" 
-                        Mode="Value" />
-                    </CustomConfig>
+                  
                     
                       <PickerOptions 
                         Cls="my-date-picker"

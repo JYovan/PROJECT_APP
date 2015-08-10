@@ -51,12 +51,13 @@
                        
                   
 
-                        <ext:ToolbarSpacer 
+                       <%-- <ext:ToolbarSpacer 
                         runat="server" 
                         ID="tsExploradorMesaDeReporte" 
                         Width="555"> 
-                        </ext:ToolbarSpacer>
+                        </ext:ToolbarSpacer>--%>
                           
+                        <ext:ToolbarFill ID="tfAcomodo" runat="server" />
 
                          <ext:Container
                                 ID="cMantenimientos"

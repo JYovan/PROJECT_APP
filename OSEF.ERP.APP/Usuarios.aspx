@@ -174,9 +174,7 @@
                             <ext:GridCommand Icon="ArrowDown">
                                 <Menu EnableScrolling="false">
                                     <Items>
-                                        <ext:MenuCommand CommandName="Bloquear" Text="Bloquear" Icon="ArrowRight" />
-                                        <ext:MenuCommand CommandName="AccesoModulos" Text="Acceso Modulos" Icon="ArrowRight" />
-                                        <ext:MenuCommand CommandName="AccesoSucursales" Text="Acceso sucursales" Icon="ArrowRight" />
+                                        <ext:MenuCommand CommandName="AccesoModulos" Text="Acceso Módulos" Icon="ArrowRight" />
                                         <ext:MenuCommand CommandName="CambiarContrasena" Text="Cambiar contraseña" Icon="ArrowRight" />
                                     </Items>
                                 </Menu>
@@ -191,12 +189,14 @@
                         runat="server"
                         Text="USUARIO"
                         Align="Left"
+                        Filterable="false"
                         Width="110"
                         DataIndex="ID" />
                     <ext:Column
                         ID="cNombre"
                         runat="server"
                         Text="NOMBRE"
+                        Filterable="false"
                         Align="Left"
                         Width="300"
                         DataIndex="NombreCompleto" />
@@ -204,6 +204,7 @@
                         ID="cCorreo"
                         runat="server"
                         Text="CORREO"
+                        Filterable="false"
                         Align="Left"
                         Width="220"
                         DataIndex="Correo" />
@@ -238,6 +239,7 @@
                         ID="dcUltimoAcceso"
                         runat="server"
                         Text="ULTIMO ACCESO"
+                        Filterable="false"
                         Align="Center"
                         Width="170"
                         DataIndex="UltimoAcceso"

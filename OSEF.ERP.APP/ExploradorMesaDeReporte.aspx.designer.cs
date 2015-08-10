@@ -49,13 +49,13 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.Toolbar tbPreciarios;
         
         /// <summary>
-        /// Control tsExploradorMesaDeReporte.
+        /// Control tfAcomodo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ToolbarSpacer tsExploradorMesaDeReporte;
+        protected global::Ext.Net.ToolbarFill tfAcomodo;
         
         /// <summary>
         /// Control cMantenimientos.

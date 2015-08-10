@@ -242,32 +242,16 @@ var ccOpciones_Command = function (opciones, comando, registro, indice) {
         window.parent.App.wEmergente.setTitle('Accesos a modulos: ' + registro.data.ID);
         window.parent.App.wEmergente.show();
     }
-    else if (comando == 'AccesoSucursales') {
-        window.parent.App.wEmergente.load('FormaAccesoSucursales.aspx');
-        window.parent.App.wEmergente.setHeight(351);
-        window.parent.App.wEmergente.setWidth(520);
-        window.parent.App.wEmergente.center();
-        window.parent.App.wEmergente.setTitle('Accesos a sucursales del usuario: ' + registro.data.ID);
-        window.parent.App.wEmergente.show();
-    }
+    
     else if (comando == 'CambiarContrasena') {
         window.parent.App.wEmergente.load('FormaCambiarContrasena.aspx');
-        window.parent.App.wEmergente.setHeight(260);
-        window.parent.App.wEmergente.setWidth(460);
+        window.parent.App.wEmergente.setHeight(255);
+        window.parent.App.wEmergente.setWidth(420);
         window.parent.App.wEmergente.center();
         window.parent.App.wEmergente.setTitle('Cambiar contraseña usuario: ' + registro.data.ID);
         window.parent.App.wEmergente.show();
     }
-    else if (comando == 'Bloquear') {
-        Ext.net.Notification.show({
-            iconCls: 'icon-delete',
-            pinEvent: 'click',
-            header: true,
-            width: 350,
-            html: '<p class="deletePop">Usuario ' + registro.data.ID + ' bloqueado</p>',
-            title: 'Bloquear'
-        });
-    }
+   
 };
 
 
