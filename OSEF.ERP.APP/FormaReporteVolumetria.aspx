@@ -24,12 +24,27 @@
         <Content>
             <div align="center">
                 <br />
-                <asp:ImageButton ID="imgbtnPop" runat="server" OnClick="imgbtnExportarReporteVolumetrias_Click" Height="30"
-                    Width="30" class="imgs" ImageUrl="assets/img/controles/vp.png" />
-              <%--  <asp:ImageButton ID="imgbtnXLS" runat="server" OnClick="toXls" Height="30"
-                    Width="30" class="imgs" ImageUrl="assets/img/controles/ExcelNormal.png" />
-                <asp:ImageButton ID="imgbtnPDF" runat="server" OnClick="toPDF" Height="30" Width="30"
-                    class="imgs" ImageUrl="assets/img/controles/pdfNormal.png" />--%>
+
+                 <asp:ImageButton 
+                ID="ImageButton1" 
+                runat="server" 
+                Height="30"
+                Width="30" 
+                OnClick="imgbtnExportarReporteGeneradorVolumetrias_Click"
+                ToolTip="Reporte Generador"
+                class="imgs" 
+                ImageUrl="assets/img/controles/generador.png" />
+
+                <asp:ImageButton 
+                ID="imgbtnPop" 
+                runat="server" 
+                OnClick="imgbtnExportarReporteVolumetrias_Click" 
+                Height="30"
+                Width="30" 
+                
+                ToolTip="Reporte Fotográfico"
+                class="imgs" 
+                ImageUrl="assets/img/controles/imagenes.png" />
             </div>
         </Content>
         <BottomBar>

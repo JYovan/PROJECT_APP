@@ -1057,6 +1057,17 @@
       <DependentUpon>rFotosOC.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="reportess\rGeneradorVolumetrias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rGeneradorVolumetrias.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportess\rGeneradorVolumetriasConcepto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rGeneradorVolumetriasConcepto.rpt</DependentUpon>
+    </Compile>
     <Compile Include="reportess\rMantenimientosFacturador.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1207,6 +1218,14 @@
     <EmbeddedResource Include="reportess\rFotosOC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rFotosOC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportess\rGeneradorVolumetrias.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rGeneradorVolumetrias.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportess\rGeneradorVolumetriasConcepto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rGeneradorVolumetriasConcepto.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="reportess\rMantenimientosFacturador.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
