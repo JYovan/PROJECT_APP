@@ -207,7 +207,7 @@
                         </ext:Model>
                     </Model>
                       <Sorters>
-                        <ext:DataSorter Property="ID" Direction="ASC" />
+                        <ext:DataSorter Property="Reporte" Direction="DESC" />
                     </Sorters>
                     <Listeners>
                         <DataChanged Fn="sOrdenesEstimaciones_DataChanged" />
