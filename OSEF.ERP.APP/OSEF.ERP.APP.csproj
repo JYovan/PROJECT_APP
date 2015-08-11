@@ -1067,6 +1067,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rGeneradorVolumetriasConcepto.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="reportess\rMantenimientosFacturador.cs">
       <AutoGen>True</AutoGen>
