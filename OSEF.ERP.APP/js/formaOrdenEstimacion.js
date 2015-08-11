@@ -1179,25 +1179,25 @@ var cCantidad_Renderer = function (valor) {
 
         switch (ndecimals) {
             case 0:
-                return F.number(valor.toFixed(6), "$000,000,000.00");
+                return F.number(valor.toFixed(6), "000,000,000.00");
                 break;
             case 1:
-                return F.number(valor.toFixed(6), "$000,000,000.00");
+                return F.number(valor.toFixed(6), "000,000,000.00");
                 break;
             case 2:
-                return F.number(valor.toFixed(6), "$000,000,000.000");
+                return F.number(valor.toFixed(6), "000,000,000.000");
                 break;
             case 3:
-                return F.number(valor.toFixed(6), "$000,000,000.000");
+                return F.number(valor.toFixed(6), "000,000,000.000");
                 break;
             case 4:
-                return F.number(valor.toFixed(6), "$000,000,000.0000");
+                return F.number(valor.toFixed(6), "000,000,000.0000");
                 break;
             case 5:
-                return F.number(valor.toFixed(6), "$000,000,000.00000");
+                return F.number(valor.toFixed(6), "000,000,000.00000");
                 break;
             default:
-                return F.number(valor.toFixed(6), "$000,000,000.000000");
+                return F.number(valor.toFixed(6), "000,000,000.000000");
                 break;
         }
     }

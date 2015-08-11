@@ -47,8 +47,9 @@ BEGIN
 		--Datos del concepto
 		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,OED.Unidad,PGCAT.Descripcion DescripcionPreGenCat,god.Plano,
 		--CONCEPTO INFO GENERADOR
-		GOD.Eje,GOD.EntreEje1,GOD.EntreEje2,GOD.Area,GOD.Ancho,GOD.Largo,GOD.Alto,GOD.Total,GOD.Cantidad CANT_GEN, GOD.Descripcion
+		GOD.Eje,GOD.EntreEje1,GOD.EntreEje2,GOD.Area,GOD.Ancho,GOD.Largo,GOD.Alto,GOD.Total,GOD.Cantidad CANT_GEN, GOD.Descripcion,
 		--Encabezado del movimiento(No del reporte)
+		cli.ID ClienteID, cli.RutaLogo
 		FROM OrdenesEstimaciones OE
 		--Detalle del movimiento
 		LEFT JOIN OrdenesEstimacionesD OED
@@ -72,6 +73,8 @@ BEGIN
 		ON E.ID =  S.Estado
 		LEFT JOIN Colonias C
 		ON C.ID = S.Colonia
+		INNER JOIN Clientes cli
+		ON OE.Cliente = cli.ID
 		WHERE OE.ID = @IDMovimiento
 		AND GOD.ConceptoID IS NOT NULL;
 END

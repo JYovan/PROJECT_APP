@@ -114,6 +114,7 @@ namespace OSEF.ERP.APP
                     reporteCroquis.SetParameterValue("reviso", strReviso);
                     reporteCroquis.SetParameterValue("autorizo", strAutorizo);
                     reporteCroquis.SetParameterValue("path", path);
+                    reporteCroquis.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
                     string strDireccion = Server.MapPath(" ") + "\\reportess\\Estimaciones\\" + strID;
 
@@ -185,7 +186,8 @@ namespace OSEF.ERP.APP
                             reporteFotos.SetParameterValue("reviso", strReviso);
                             reporteFotos.SetParameterValue("autorizo", strAutorizo);
                             reporteFotos.SetParameterValue("pathFotos", path);
-
+                            reporteFotos.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
+                             
                             string strDireccion = Server.MapPath(" ") + "\\reportess\\Estimaciones\\" + strID;
 
                             //2. Validar si existe el directorio donde se guardaran
@@ -258,6 +260,7 @@ namespace OSEF.ERP.APP
                             reporteFacturas.SetParameterValue("reviso", strReviso);
                             reporteFacturas.SetParameterValue("autorizo", strAutorizo);
                             reporteFacturas.SetParameterValue("pathFact", path);
+                            reporteFacturas.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
                             string strDireccion = Server.MapPath(" ") + "\\reportess\\Estimaciones\\" + strID;
 
@@ -334,7 +337,7 @@ namespace OSEF.ERP.APP
                             reporteGenerador.SetParameterValue("elaboro", strElaboro);
                             reporteGenerador.SetParameterValue("reviso", strReviso);
                             reporteGenerador.SetParameterValue("autorizo", strAutorizo);
-
+                            reporteGenerador.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
                             string strDireccion = Server.MapPath(" ") + "\\reportess\\Estimaciones\\" + strID;
 
@@ -409,6 +412,7 @@ namespace OSEF.ERP.APP
                             reporteEstimaciones.SetParameterValue("elaboro", strElaboro);
                             reporteEstimaciones.SetParameterValue("reviso", strReviso);
                             reporteEstimaciones.SetParameterValue("autorizo", strAutorizo);
+                            reporteEstimaciones.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
 
                             string strDireccion = Server.MapPath(" ") + "\\reportess\\Estimaciones\\" + strID;
@@ -481,6 +485,7 @@ namespace OSEF.ERP.APP
                             reporteEstimaciones.SetDataSource(dt);
                             reporteEstimaciones.SetParameterValue("reviso", strReviso);
                             reporteEstimaciones.SetParameterValue("autorizo", strAutorizo);
+                            reporteEstimaciones.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
 
                             string strDireccion = Server.MapPath(" ") + "\\reportess\\Estimaciones\\" + strID;

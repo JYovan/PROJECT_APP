@@ -1135,6 +1135,7 @@
     <Folder Include="imagesVolumetrias\" />
     <Folder Include="images\clientes\" />
     <Folder Include="preciariosGenerales\" />
+    <Folder Include="reportess\App_LocalResources\" />
     <Folder Include="reportess\Volumetrias\7\" />
   </ItemGroup>
   <ItemGroup>

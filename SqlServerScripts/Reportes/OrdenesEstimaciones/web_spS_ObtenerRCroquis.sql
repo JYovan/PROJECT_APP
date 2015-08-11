@@ -48,8 +48,9 @@ BEGIN
 		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,OED.Unidad,PGCAT.Descripcion DescripcionPreGenCat,
 		
 		--Croquis
-		COD.Direccion
+		COD.Direccion,
 		--Encabezado del movimiento(No del reporte)
+		cli.ID ClienteID, cli.RutaLogo
 		FROM OrdenesEstimaciones OE
 		--Detalle del movimiento
 		LEFT JOIN OrdenesEstimacionesD OED
@@ -73,5 +74,7 @@ BEGIN
 		ON E.ID =  S.Estado
 		LEFT JOIN Colonias C
 		ON C.ID = S.Colonia
+		INNER JOIN Clientes cli
+		ON OE.Cliente = cli.ID
 END
 GO

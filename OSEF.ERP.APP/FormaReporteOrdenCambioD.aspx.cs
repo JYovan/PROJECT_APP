@@ -56,6 +56,7 @@ namespace OSEF.ERP.APP
                     reporteCroquis.SetParameterValue("reviso", strReviso);
                     reporteCroquis.SetParameterValue("autorizo", strAutorizo);
                     reporteCroquis.SetParameterValue("path", path);
+                    reporteCroquis.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
                     string strDireccion = Server.MapPath(" ") + "\\reportess\\OrdenesDeCambio\\" + strID;
 
@@ -125,6 +126,7 @@ namespace OSEF.ERP.APP
                             reporteFotos.SetParameterValue("reviso", strReviso);
                             reporteFotos.SetParameterValue("autorizo", strAutorizo);
                             reporteFotos.SetParameterValue("pathFotos", path);
+                            reporteFotos.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
                             string strDireccion = Server.MapPath(" ") + "\\reportess\\OrdenesDeCambio\\" + strID;
 
@@ -195,6 +197,7 @@ namespace OSEF.ERP.APP
                             reporteFacturas.SetParameterValue("reviso", strReviso);
                             reporteFacturas.SetParameterValue("autorizo", strAutorizo);
                             reporteFacturas.SetParameterValue("pathFact", path);
+                            reporteFacturas.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
                             string strDireccion = Server.MapPath(" ") + "\\reportess\\OrdenesDeCambio\\" + strID;
 
@@ -267,6 +270,7 @@ namespace OSEF.ERP.APP
                             reporteGenerador.SetParameterValue("elaboro", strElaboro);
                             reporteGenerador.SetParameterValue("reviso", strReviso);
                             reporteGenerador.SetParameterValue("autorizo", strAutorizo);
+                            reporteGenerador.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
 
                             string strDireccion = Server.MapPath(" ") + "\\reportess\\OrdenesDeCambio\\" + strID;
