@@ -209,9 +209,6 @@
                 </Columns>
             </ColumnModel>
 
-            <Plugins>
-                        <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
-                    </Plugins>
                     <BottomBar>
                         <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
                         <Items>

@@ -53,6 +53,7 @@ namespace OSEF.ERP.APP
                         reporte.Load(Server.MapPath("reportess/CPreciario.rpt"));
                         reporte.SetDataSource(dt);
                         reporte.SetParameterValue("path", path);
+                        reporte.SetParameterValue("pathlogo", Server.MapPath(" ")+"\\images\\clientes\\");
 
                         string strDireccion = Server.MapPath(" ") + "\\reportess\\Volumetrias\\" + strID;
 

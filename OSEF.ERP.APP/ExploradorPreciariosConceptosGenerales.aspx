@@ -253,6 +253,11 @@
                                 <Plugins>
                                     <ext:ClearButton ID="ClearButton1" runat="server" />
                                 </Plugins>
+                                <PickerOptions 
+                                    ID="PickerOptions1"
+                                    runat="server"
+                                    Cls="my-date-picker">
+                                </PickerOptions>
                             </ext:DateField>
                         </HeaderItems>
                     </ext:DateColumn>

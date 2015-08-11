@@ -209,7 +209,12 @@
                                 </Listeners>
                                 <Plugins>
                                     <ext:ClearButton ID="ClearButton4" runat="server" />
-                                </Plugins>
+                                </Plugins> 
+                                <PickerOptions 
+                                    ID="poFechaEmision"
+                                    runat="server"
+                                    Cls="my-date-picker">
+                                </PickerOptions>
                             </ext:DateField>
                         </HeaderItems>
                     </ext:DateColumn>

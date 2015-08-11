@@ -38,28 +38,20 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT V.Sucursal,V.Observaciones,V.Preciario,P.Descripcion,S.Nombre,S.CR,S.Calle,
-S.NoExterior,S.NoInterior,S.CodigoPostal,S.Colonia,S.Estado,S.Municipio,VD.ConceptoID,
-PC.Descripcion AS DESC_CONCEPTO,PC.Utilizada,PC.Cantidad ,V.FechaEmision, IVD.Nombre,IVD.Direccion,PC.Categoria,
-PC.SubCategoria,PC.SubSubCategoria,PC.Unidad,PC.ImporteFinal, PC.Importe,PC.CLAVE,PC.Costo, 
-M.Descripcion AS DESC_MUNICIPIO, E.Descripcion AS EDO_DESCRIPCION, C.Descripcion AS COL_DESCRIPCION
-FROM Volumetrias V
-LEFT JOIN VolumetriasD VD 
-ON V.ID= VD.Volumetria
-LEFT JOIN ImagenesVolumetriasD IVD 
-ON IVD.Volumetria =  V.ID AND IVD.PreciarioConcepto = VD.ConceptoID
-LEFT JOIN PreciarioS P 
-ON P.ID = V.Preciario
-LEFT JOIN PreciarioConceptos PC 
-ON PC.Preciario = P.ID AND VD.ConceptoID = PC.ID
-LEFT JOIN Sucursales S
-ON S.ID = V.Sucursal
-LEFT JOIN Municipios M
-ON M.ID =  S.Municipio
-LEFT JOIN Estados E
-ON E.ID =  S.Estado
-LEFT JOIN Colonias C
-ON C.ID = S.Colonia
+	SELECT        V.Sucursal, V.Observaciones, V.Preciario, P.Descripcion, S.Nombre, S.CR, S.Calle, S.NoExterior, S.NoInterior, S.CodigoPostal, S.Colonia, S.Estado, S.Municipio, 
+                         VD.ConceptoID, PC.Descripcion AS DESC_CONCEPTO, PC.Utilizada, PC.Cantidad, V.FechaEmision, IVD.Nombre AS Expr1, IVD.Direccion, PC.Categoria, 
+                         PC.SubCategoria, PC.SubSubCategoria, PC.Unidad, PC.ImporteFinal, PC.Importe, PC.CLAVE, PC.Costo, M.Descripcion AS DESC_MUNICIPIO, 
+                         E.Descripcion AS EDO_DESCRIPCION, C.Descripcion AS COL_DESCRIPCION, dbo.Clientes.ID ClienteID, dbo.Clientes.RutaLogo
+FROM            dbo.Volumetrias AS V INNER JOIN
+                         dbo.Clientes ON V.Cliente = dbo.Clientes.ID LEFT OUTER JOIN
+                         dbo.Sucursales AS S ON dbo.Clientes.ID = S.Cliente AND S.ID = V.Sucursal LEFT OUTER JOIN
+                         dbo.Preciarios AS P ON dbo.Clientes.ID = P.Cliente AND P.ID = V.Preciario LEFT OUTER JOIN
+                         dbo.VolumetriasD AS VD ON V.ID = VD.Volumetria LEFT OUTER JOIN
+                         dbo.ImagenesVolumetriasD AS IVD ON IVD.Volumetria = V.ID AND IVD.PreciarioConcepto = VD.ConceptoID LEFT OUTER JOIN
+                         dbo.PreciarioConceptos AS PC ON PC.Preciario = P.ID AND VD.ConceptoID = PC.ID LEFT OUTER JOIN
+                         dbo.Municipios AS M ON M.ID = S.Municipio LEFT OUTER JOIN
+                         dbo.Estados AS E ON E.ID = S.Estado LEFT OUTER JOIN
+                         dbo.Colonias AS C ON C.ID = S.Colonia
 WHERE V.ID=@Volumetria AND V.Preciario=@idpreciario
 
 END

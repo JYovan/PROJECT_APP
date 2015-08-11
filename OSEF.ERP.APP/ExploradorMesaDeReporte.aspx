@@ -350,6 +350,11 @@
                                 <Plugins>
                                     <ext:ClearButton ID="ClearButton1" runat="server" />
                                 </Plugins>
+                                <PickerOptions 
+                                    ID="PickerOptions1"
+                                    runat="server"
+                                    Cls="my-date-picker">
+                                </PickerOptions>
                             </ext:DateField>
                         </HeaderItems>
                     </ext:DateColumn>
@@ -548,10 +553,7 @@
                     
                     
                 </Columns>
-            </ColumnModel>
-            <Plugins>
-                        <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
-                    </Plugins>
+            </ColumnModel>  
                     <BottomBar>
                         <ext:PagingToolbar ID="PagingToolbar1" runat="server" 
                         DisplayInfo="true"

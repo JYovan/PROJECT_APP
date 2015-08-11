@@ -313,6 +313,7 @@ namespace OSEF.ERP.APP
             string strID = Cookies.GetCookie("cookieEditarOrdenEstimacion").Value;
 
 
+            string path = AppDomain.CurrentDomain.BaseDirectory;
             //1. Configurar la conexión y el tipo de comando
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
             try
@@ -331,7 +332,7 @@ namespace OSEF.ERP.APP
                 reporteCuadrila.Load(Server.MapPath("reportess/PortadaOC.rpt"));
                 reporteCuadrila.SetDataSource(dt);
 
-
+                reporteCuadrila.SetParameterValue("pathlogo", path + "\\images\\clientes\\");
 
                 string strDireccion = Server.MapPath(" ") + "\\reportess\\OrdenesDeCambio\\" + strID;
 

@@ -2264,7 +2264,7 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
         App.txtfSucursalID.setValue('');
         var win = window.parent.App.wAyudaConcepto;
         win.load('FormaBuscaCliente.aspx');
-        win.setHeight(220);
+        win.setHeight(400);
         win.setWidth(500);
         win.center();
         win.setTitle('BUSQUEDA DE CLIENTES');
@@ -2389,18 +2389,45 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
     }
 
     var beforeRender_Importe = function (sum, F) {
-        var valor = sum;
-        var dotstar = valor.toString().indexOf(".") + 1;
-        var strdecimal = valor.toString();
-        var decimals, ndecimals;
+        /**
+        1.-Buscar la posición de el punto
+        2.-Calcular el numero de digitos despues del punto [0-9]
+        3.-Verificar que el tamaño total de los decimales sea menor o igual a 6
+        4.-De no ser menores o iguales a 6, se hace un recorte para solo tomar 6 digitos
+        5.-Se verifica que todos sean diferentes de 0, ej: 
+        Tenemos un numero de : 1239.020010
+        El cual solo queremos que se muestre así: 1239.02001
+        Como vemos solo hemos quitado un "0", por ello tenemos que buscar la posicion donde termina y donde ya no hay nada más que ceros, como en el siguiente caso:
+        Tenemos un numero de: 3.002000, tenemos que dejar el número así: 3.002
+
+        **/
+        var decimals, ndecimals, dotstar = sum.toString().indexOf(".") + 1;
+        decimals = sum.toString().substring(dotstar, sum.toString().length);
+        //        ndecimals = decimals.toString().length == 0 ? 0 : decimals.toString().length <= 6 ? decimals.toString().length : 6;
+        if (decimals.length >= 6) {
+            decimals = decimals.toString().substring(0, 6);
+        }
+
+        var sdecimals = decimals.split("");
+        var nbefore, nafter, ncurrent = [];
+
+        for (i = 0; i < decimals.length; i++) {
+
+            if (i > 0) {
+                nbefore = decimals[i - 1];
+            }
+            if (nbefore != null) {
+            }
+            if (i ==0 && i <=decimals.length) {
+                nafter = decimals[i + 1];
+            }
+
+            ncurrent.push(decimals[i]);
+
+        }
 
         if (dotstar != null) {
-
-            decimals = strdecimal.substring(dotstar, valor.toString().length);
-
-//            console.log("Value: " + valor + ", STRDecimals: " + decimals.toString().length + ", DotStar: " + dotstar);
-//            ndecimals = decimals.toString().length == 0 ? 0 : decimals.toString().length <= 6 ? decimals.toString().length : 6;
-
+            //            console.log("Value: " + valor + ", STRDecimals: " + decimals.toString().length + ", DotStar: " + dotstar);
             switch (ndecimals) {
                 case 0:
                     App.dfTotalSinRender.setValue(sum.toFixed(6));

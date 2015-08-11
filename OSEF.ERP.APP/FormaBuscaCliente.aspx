@@ -125,6 +125,34 @@
                         DataIndex="Estatus" />                   
                 </Columns>
             </ColumnModel>
+                    <BottomBar>
+                        <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
+                        <Items>
+                            <ext:Label ID="Label1" runat="server" Text="TAMAÑO DE PÁGINA:" />
+                            <ext:ToolbarSpacer ID="ToolbarSpacer1" runat="server" Width="10" />
+                            <ext:ComboBox ID="ComboBox2" runat="server" Width="80">
+                                <Items>
+                                    <ext:ListItem Text="1" />
+                                    <ext:ListItem Text="5" />
+                                    <ext:ListItem Text="10" />
+                                    <ext:ListItem Text="25" />
+                                    <ext:ListItem Text="50" />
+                                    <ext:ListItem Text="100" />
+                                    <ext:ListItem Text="250" />
+                                    <ext:ListItem Text="500" />
+                                    <ext:ListItem Text="1000" />
+                                </Items>
+                                <SelectedItems>
+                                    <ext:ListItem Value="10" />
+                                </SelectedItems>
+                                <Listeners>
+                                    <Select Handler="#{gpClientes}.store.pageSize = parseInt(this.getValue(), 10); #{gpClientes}.store.reload();" />
+                                </Listeners>
+                            </ext:ComboBox>
+                            <ext:Label ID="lblPagingTool" runat="server" Text="" />
+                        </Items>
+                        </ext:PagingToolbar>
+                    </BottomBar>
             <Listeners>
                 <ItemDblClick Fn="gpBuscaClientes_ItemDblClick" />
             </Listeners>
@@ -134,14 +162,7 @@
                     runat="server">
                 </ext:RowSelectionModel>
             </SelectionModel>
-            <FooterBar>
-                <ext:StatusBar
-                    ID="sbClientes"
-                    runat="server"
-                    Text=""
-                    StatusAlign="Left"> 
-                </ext:StatusBar>
-            </FooterBar>
+
         </ext:GridPanel> 
     </form>
 </body>

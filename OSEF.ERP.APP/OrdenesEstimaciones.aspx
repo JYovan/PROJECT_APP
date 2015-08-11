@@ -389,6 +389,11 @@
                                 <Plugins>
                                     <ext:ClearButton ID="ClearButton3" runat="server" />
                                 </Plugins>
+                                <PickerOptions 
+                                    ID="poFechaEmision"
+                                    runat="server"
+                                    Cls="my-date-picker">
+                                </PickerOptions>
                             </ext:DateField>
                         </HeaderItems>
                     </ext:DateColumn>
@@ -420,6 +425,11 @@
                                 <Plugins>
                                     <ext:ClearButton ID="ClearButton4" runat="server" />
                                 </Plugins>
+                                <PickerOptions 
+                                    ID="PickerOptions1"
+                                    runat="server"
+                                    Cls="my-date-picker">
+                                </PickerOptions>
                             </ext:DateField>
                         </HeaderItems>
                     </ext:DateColumn>
