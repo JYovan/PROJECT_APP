@@ -16,14 +16,14 @@ namespace OSEF.ERP.APP.reportess {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rNumerosGeneradores : ReportClass {
+    public class rGeneradorVolumetrias : ReportClass {
         
-        public rNumerosGeneradores() {
+        public rGeneradorVolumetrias() {
         }
         
         public override string ResourceName {
             get {
-                return "rNumerosGeneradores.rpt";
+                return "rGeneradorVolumetrias.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace OSEF.ERP.APP.reportess {
         
         public override string FullResourceName {
             get {
-                return "OSEF.ERP.APP.reportess.rNumerosGeneradores.rpt";
+                return "OSEF.ERP.APP.reportess.rGeneradorVolumetrias.rpt";
             }
             set {
                 // Do nothing
@@ -127,12 +127,20 @@ namespace OSEF.ERP.APP.reportess {
                 return this.DataDefinition.ParameterFields[2];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_IDMovimiento {
+            get {
+                return this.DataDefinition.ParameterFields[3];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrNumerosGeneradores : Component, ICachedReport {
+    public class CachedrGeneradorVolumetrias : Component, ICachedReport {
         
-        public CachedrNumerosGeneradores() {
+        public CachedrGeneradorVolumetrias() {
         }
         
         [Browsable(false)]
@@ -169,7 +177,7 @@ namespace OSEF.ERP.APP.reportess {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rNumerosGeneradores rpt = new rNumerosGeneradores();
+            rGeneradorVolumetrias rpt = new rGeneradorVolumetrias();
             rpt.Site = this.Site;
             return rpt;
         }
