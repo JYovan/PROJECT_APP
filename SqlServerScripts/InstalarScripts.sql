@@ -463,6 +463,6 @@
 -- Reporte Volumetria
 :r c:\SqlServerScripts\Reportes\web_spS_ObtenerCambiosPreciarioPorVolumetria.sql 
 :r c:\SqlServerScripts\Reportes\web_spS_ObtenerRGeneradorPorVolumetria.sql 
-
+:r c:\SqlServerScripts\Reportes\web_spS_ObtenerRGeneradorPorVolumetriaConcepto.sql 
 -----------------------------------------------------------------------------------
 

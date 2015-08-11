@@ -16,14 +16,14 @@ namespace OSEF.ERP.APP.reportess {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rGeneradorVolumetrias : ReportClass {
+    public class rGeneradorVolumetriasConcepto : ReportClass {
         
-        public rGeneradorVolumetrias() {
+        public rGeneradorVolumetriasConcepto() {
         }
         
         public override string ResourceName {
             get {
-                return "rGeneradorVolumetrias.rpt";
+                return "rGeneradorVolumetriasConcepto.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace OSEF.ERP.APP.reportess {
         
         public override string FullResourceName {
             get {
-                return "OSEF.ERP.APP.reportess.rGeneradorVolumetrias.rpt";
+                return "OSEF.ERP.APP.reportess.rGeneradorVolumetriasConcepto.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace OSEF.ERP.APP.reportess {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace OSEF.ERP.APP.reportess {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace OSEF.ERP.APP.reportess {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,33 +90,25 @@ namespace OSEF.ERP.APP.reportess {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
-            get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_IDMovimiento {
+        public CrystalDecisions.Shared.IParameterField Parameter_idconcepto {
             get {
                 return this.DataDefinition.ParameterFields[0];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_idpreciario {
+            get {
+                return this.DataDefinition.ParameterFields[1];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrGeneradorVolumetrias : Component, ICachedReport {
+    public class CachedrGeneradorVolumetriasConcepto : Component, ICachedReport {
         
-        public CachedrGeneradorVolumetrias() {
+        public CachedrGeneradorVolumetriasConcepto() {
         }
         
         [Browsable(false)]
@@ -153,7 +145,7 @@ namespace OSEF.ERP.APP.reportess {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rGeneradorVolumetrias rpt = new rGeneradorVolumetrias();
+            rGeneradorVolumetriasConcepto rpt = new rGeneradorVolumetriasConcepto();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -174,18 +174,24 @@
                             Width="30"
                             Disabled="true">
                         </ext:ImageButton>
-                        <ext:ImageButton
-                            ID="imgbtnImprimir"
-                            runat="server"
-                            ImageUrl="assets/img/controles/ImprimirNormal.png"
-                            DisabledImageUrl="assets/img/controles/ImprimirDisabled.png"
-                            OverImageUrl="assets/img/controles/ImprimirOver.png"
-                            PressedImageUrl="assets/img/controles/ImprimirPressed.png"
-                            ToolTip="Imprimir"
-                            Height="30"
-                            Width="30"
-                            Disabled="true"> 
-                        </ext:ImageButton> 
+
+                        <ext:Container
+                        ID="Container1"
+                        runat="server">
+                            <Content>
+                            <asp:ImageButton 
+                                ID="imgbtnReporteGenerador" 
+                                runat="server"  
+                                Height="30"
+                                Width="30"
+                                ToolTip="Reporte Generador"
+                                Enabled="false"
+                                OnClick="imgbtnVistaPreviaReporteGeneradorVolumetrias_Click"
+                                class="imgs" 
+                                ImageUrl="assets/img/controles/generador.png"/> 
+                        </Content>
+                    </ext:Container> 
+
                         <ext:Container
                         ID="cVistaPrevia"
                         runat="server">
@@ -195,22 +201,13 @@
                                 runat="server"  
                                 Height="30"
                                 Width="30"
-                                ToolTip="Vista previa del reporte"
+                                ToolTip="Reporte Fotográfico"
                                 Enabled="false"
                                 OnClick="imgbtnVistaPreviaReporteVolumetrias_Click"
                                 class="imgs" 
-                                ImageUrl="assets/img/controles/vp.png"/> 
+                                ImageUrl="assets/img/controles/imagenes.png"/> 
                         </Content>
                     </ext:Container> 
-                       <%-- <ext:ImageButton
-                            ID="imgbtnPreview"
-                            runat="server"
-                            ImageUrl="assets/img/controles/vp.png" 
-                            ToolTip="Imprimir"
-                            Height="30"
-                            Width="30"
-                            Disabled="false">
-                        </ext:ImageButton>--%>
                         <ext:ToolbarSpacer
                             ID="tbsPrimerEspacio"
                             runat="server"
