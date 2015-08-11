@@ -6,8 +6,6 @@ $(document).ready(function () {
         parent.App.pCentro.getLoader().load('Menu.aspx');
     });
 
-
-
     $("#usuarios").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
             parent.App.imgbtnRegresar.show();
@@ -16,16 +14,13 @@ $(document).ready(function () {
         });
     });
 
-
     $("#articulos").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
             parent.App.imgbtnRegresar.show();
             //            parent.App.lblRegresar.show();
             parent.App.pCentro.getLoader().load('Articulos.aspx');
         });
-    });
-
- 
+    }); 
 
     $("#sucursal").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -41,9 +36,7 @@ $(document).ready(function () {
             //            parent.App.lblRegresar.show();
             parent.App.pCentro.getLoader().load('Conceptos.aspx');
         });
-    });
-
-  
+    });  
 
     $("#categorias").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -76,7 +69,6 @@ $(document).ready(function () {
             parent.App.pCentro.getLoader().load('Estados.aspx');
         });
     });
-
  
     $("#municipios").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -85,7 +77,6 @@ $(document).ready(function () {
             parent.App.pCentro.getLoader().load('Municipios.aspx');
         });
     });
-
   
     $("#colonias").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -101,7 +92,6 @@ $(document).ready(function () {
             parent.App.pCentro.getLoader().load('CodigosPostales.aspx');
         });
     });
-
   
     $("#socios").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -127,7 +117,6 @@ $(document).ready(function () {
         });
     });
 
-
     $("#reportes").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
             parent.App.imgbtnRegresar.show();
@@ -136,8 +125,6 @@ $(document).ready(function () {
         });
     });
 
-   
-
     $("#exploradorPreciarioConcepto").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
             parent.App.imgbtnRegresar.show();
@@ -145,7 +132,6 @@ $(document).ready(function () {
             parent.App.pCentro.getLoader().load('ExploradorPreciarioConceptos.aspx');
         });
     });
-
 
     $("#clientes").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -162,7 +148,6 @@ $(document).ready(function () {
             parent.App.pCentro.getLoader().load('PreciariosGenerales.aspx');
         });
     });
-
  
     $("#OrdenesEstimaciones").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
@@ -188,7 +173,6 @@ $(document).ready(function () {
         });
     });
 
-
     $("#MesaDeReporte").click(function (event) {
         $("#contenedor").fadeOut(timer, function () {
             parent.App.imgbtnRegresar.show();
@@ -210,8 +194,6 @@ $(document).ready(function () {
         });
     });
 
-
-
     parent.App.direct.getData({
         success: function (result) {
             $("#lPlantas").attr("href", 'http://plantas.ibuho.mx:81/index.php?IdProcess=1&txtUsr=' + result.Nombre + '&txtPwd=' + result.Contrasena);
@@ -223,33 +205,28 @@ $(document).ready(function () {
     });
 
     // Por el moemnto no estará disponible
-        $("#avances").click(function (event) {
-            $("#contenedor").fadeOut(timer, function () {
-                parent.App.imgbtnRegresar.show();
-                //            parent.App.lblRegresar.show();
-                parent.App.pCentro.getLoader().load('Avances.aspx');
-            });
+    $("#avances").click(function (event) {
+        $("#contenedor").fadeOut(timer, function () {
+            parent.App.imgbtnRegresar.show();
+            //            parent.App.lblRegresar.show();
+            parent.App.pCentro.getLoader().load('Avances.aspx');
         });
-
-
-//        $("#gantt").click(function (event) {
-//            $("#contenedor").fadeOut(timer, function () {
-//                parent.App.imgbtnRegresar.show();
-//                //            parent.App.lblRegresar.show();
-//                parent.App.pCentro.getLoader().load('Principal2.aspx');
-//            });
-//        });
-
-
-    parent.App.direct.getData({
-        success: function (result) {
-            $("#gantt").attr("href", 'http://programaobra.ibuho.mx/index.html' + '?txtUsr=' + result.Nombre + '&txtPwd=' + result.Contrasena);
-        },
-        failure: function (errorMsg) {
-            Ext.Msg.alert('Error', errorMsg);
-        }
     });
-   
 
+    //Abre el project para programar la obra
+    $("#gantt").click(function (event) {
+        $("#contenedor").fadeOut(timer, function () {
+            parent.App.imgbtnRegresar.show();
+            parent.App.pCentro.getLoader().load('ProgramasObras.aspx');
+        });
+    });
 
+//    parent.App.direct.getData({
+//        success: function (result) {
+//            $("#gantt").attr("href", 'http://programaobra.ibuho.mx/index.html' + '?txtUsr=' + result.Nombre + '&txtPwd=' + result.Contrasena);
+//        },
+//        failure: function (errorMsg) {
+//            Ext.Msg.alert('Error', errorMsg);
+//        }
+//    });
 });

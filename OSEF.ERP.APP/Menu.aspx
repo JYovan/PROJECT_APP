@@ -34,10 +34,10 @@
                                     </div>
                                 </a>
 
-                             <a class="tile square image bg-color-yellow" id="gantt" href="" target="_blank" >
+                             <a class="tile square image bg-color-yellow" id="gantt" href="#">
                                     <img src="assets/img/menu-gantt.png" alt="Gantt" />
                                     <div class="textover-wrapper transparent">
-                                        <div class="text2">Visual Gantt</div>
+                                        <div class="text2">Programa Obra</div>
                                     </div>
                                 </a>
                                  
