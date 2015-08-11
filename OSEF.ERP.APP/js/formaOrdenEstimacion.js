@@ -2397,70 +2397,57 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
         5.-Se verifica que todos sean diferentes de 0, ej: 
         Tenemos un numero de : 1239.020010
         El cual solo queremos que se muestre así: 1239.02001
-        Como vemos solo hemos quitado un "0", por ello tenemos que buscar la posicion donde termina y donde ya no hay nada más que ceros, como en el siguiente caso:
+        Como vemos solo hemos quitado un "0", por ello tenemos que buscar la posicion donde termina y donde ya no hay nada más que ceros, 
+        como en el siguiente caso:
         Tenemos un numero de: 3.002000, tenemos que dejar el número así: 3.002
 
         **/
-        var decimals, ndecimals, dotstar = sum.toString().indexOf(".") + 1;
-        decimals = sum.toString().substring(dotstar, sum.toString().length);
-        //        ndecimals = decimals.toString().length == 0 ? 0 : decimals.toString().length <= 6 ? decimals.toString().length : 6;
+        var decimals, ndecimals, dotstar = sum.toString().indexOf(".") + 1, originalvalue;
+
+        originalvalue = sum.toString().substring(0, dotstar);
+
+        decimals = sum.toString().substring(dotstar, sum.toString().length); 
         if (decimals.length >= 6) {
             decimals = decimals.toString().substring(0, 6);
-        }
-
-        var sdecimals = decimals.split("");
-        var nbefore, nafter, ncurrent = [];
-
-        for (i = 0; i < decimals.length; i++) {
-
-            if (i > 0) {
-                nbefore = decimals[i - 1];
-            }
-            if (nbefore != null) {
-            }
-            if (i ==0 && i <=decimals.length) {
-                nafter = decimals[i + 1];
-            }
-
-            ncurrent.push(decimals[i]);
-
-        }
-
-        if (dotstar != null) {
-            //            console.log("Value: " + valor + ", STRDecimals: " + decimals.toString().length + ", DotStar: " + dotstar);
-            switch (ndecimals) {
-                case 0:
-                    App.dfTotalSinRender.setValue(sum.toFixed(6));
-                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
-                    break;
-                case 1:
-                    App.dfTotalSinRender.setValue(sum.toFixed(6));
-                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
-                    break;
-                case 2:
-                    App.dfTotalSinRender.setValue(sum.toFixed(6));
-                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
-                    break;
-                case 3:
-                    App.dfTotalSinRender.setValue(sum.toFixed(6));
-                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000"));
-                    break;
-                case 4:
-                    App.dfTotalSinRender.setValue(sum.toFixed(6));
-                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.0000"));
-                    break;
-                case 5:
-                    App.dfTotalSinRender.setValue(sum.toFixed(6));
-                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00000"));
-                    break;
-                case 6:
-                    App.dfTotalSinRender.setValue(sum.toFixed(6));
-                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
-                    break;
-                default:
-                    App.dfTotalSinRender.setValue(sum.toFixed(6));
-                    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
-                    break;
-            }
+            ndecimals = 6;
+        } 
+        originalvalue += decimals;
+        sum = parseFloat(originalvalue);
+        dotstar = sum.toString().indexOf(".") + 1;
+        ndecimals = sum.toString().substring(dotstar, sum.toString().length);
+        console.log(ndecimals);
+        switch (ndecimals.length) {
+            case 0:
+                App.dfTotalSinRender.setValue(sum.toFixed(6));
+                App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
+                break;
+            case 1:
+                App.dfTotalSinRender.setValue(sum.toFixed(6));
+                App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
+                break;
+            case 2:
+                App.dfTotalSinRender.setValue(sum.toFixed(6));
+                App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
+                break;
+            case 3:
+                App.dfTotalSinRender.setValue(sum.toFixed(6));
+                App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000"));
+                break;
+            case 4:
+                App.dfTotalSinRender.setValue(sum.toFixed(6));
+                App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.0000"));
+                break;
+            case 5:
+                App.dfTotalSinRender.setValue(sum.toFixed(6));
+                App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00000"));
+                break;
+            case 6:
+                App.dfTotalSinRender.setValue(sum.toFixed(6));
+                App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+                break;
+            default:
+                App.dfTotalSinRender.setValue(sum.toFixed(6));
+                App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+                break;
         }
     };
