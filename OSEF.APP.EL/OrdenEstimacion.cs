@@ -24,6 +24,7 @@ namespace OSEF.APP.EL
         string usuario;
         string reporte;
         string division;
+        string zona;
         Nullable<DateTime> fechaorigen;
         Nullable<DateTime> fechamaximaatencion;
         decimal diasatencion;
@@ -46,8 +47,7 @@ namespace OSEF.APP.EL
         bool facturado;
         string cliente;
         Cliente Rcliente;
-
-
+        int cr;
       
 
         Sucursal rsucursal;
@@ -282,6 +282,19 @@ namespace OSEF.APP.EL
         {
             get { return Rcliente; }
             set { Rcliente = value; }
+        }
+
+
+        public string Zona
+        {
+            get { return zona; }
+            set { zona = value; }
+        }
+
+        public int Cr
+        {
+            get { return cr; }
+            set { cr = value; }
         }
 
         #endregion

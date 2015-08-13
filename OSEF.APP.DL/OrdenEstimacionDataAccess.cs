@@ -65,8 +65,14 @@ namespace OSEF.APP.DL
                 SqlParameter sqlpObservaciones = new SqlParameter();
                 sqlpObservaciones.ParameterName = "@Observaciones";
                 sqlpObservaciones.SqlDbType = SqlDbType.VarChar;
-                sqlpObservaciones.Value = iOrdenEstimacion.Observaciones;
-
+                if (iOrdenEstimacion.Observaciones.Equals(""))
+                {
+                    sqlpObservaciones.Value = "";
+                }
+                else
+                {
+                    sqlpObservaciones.Value = iOrdenEstimacion.Observaciones;
+                }
                 SqlParameter sqlpEstatus = new SqlParameter();
                 sqlpEstatus.ParameterName = "@Estatus";
                 sqlpEstatus.SqlDbType = SqlDbType.VarChar;
@@ -354,8 +360,13 @@ namespace OSEF.APP.DL
                 SqlParameter sqlpObservaciones = new SqlParameter();
                 sqlpObservaciones.ParameterName = "@Observaciones";
                 sqlpObservaciones.SqlDbType = SqlDbType.VarChar;
-                sqlpObservaciones.Value = uOrdenEstimacion.Observaciones;
-
+                if (uOrdenEstimacion.Observaciones == null || uOrdenEstimacion.Observaciones.Equals(""))
+                {
+                    sqlpObservaciones.Value = "";
+                }
+                else {
+                    sqlpObservaciones.Value = uOrdenEstimacion.Observaciones;
+                }
                 SqlParameter sqlpEstatus = new SqlParameter();
                 sqlpEstatus.ParameterName = "@Estatus";
                 sqlpEstatus.SqlDbType = SqlDbType.VarChar;

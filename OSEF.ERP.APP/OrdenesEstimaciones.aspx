@@ -188,7 +188,8 @@
                                 <ext:ModelField Name="HoraOrigen" Type="Date" /> 
                                  <ext:ModelField Name="Reporte" Type="String" />
                                  <ext:ModelField Name="Sucursal" Type="String" />
-                                 <ext:ModelField Name="RSucursal" Type="Object" />
+                                 <ext:ModelField Name="Cr" Type="Int" />
+                                 <%--<ext:ModelField Name="RSucursal" Type="Object" />--%>
                                  <ext:ModelField Name="FechaOrigen" Type="Date" />
                                  <ext:ModelField Name="Reporto" Type="String" />
                                  <ext:ModelField Name="TrabajoRealizado" Type="String" />
@@ -196,12 +197,12 @@
                                  <ext:ModelField Name="Estatus" Type="String" />
                                  <ext:ModelField Name="Zona" Type="String" />
                                  <ext:ModelField Name="Cuadrilla" Type="String" />
-                                 <ext:ModelField Name="RCuadrilla" Type="Object" /> 
+                                 <%--<ext:ModelField Name="RCuadrilla" Type="Object" /> --%>
                                  <ext:ModelField Name="RutaImagen" Type="String" />
                                  <ext:ModelField Name="Atendido" Type="String" />
                                  <ext:ModelField Name="NoOrden" Type="String" />
                                  <ext:ModelField Name="Cliente" Type="String" />
-                                 <ext:ModelField Name="RCliente" Type="Object" />
+                                <%-- <ext:ModelField Name="RCliente" Type="Object" />--%>
                                  <ext:ModelField Name="Clasificacion" Type="String" />
                             </Fields>
                         </ext:Model>
@@ -276,8 +277,7 @@
                         Text="SUCURSAL"
                         Align="Left"
                         Width="225"
-                        DataIndex="Sucursal">
-                      <Renderer Fn="cSucursal_Renderer" />
+                        DataIndex="Sucursal"> 
                         <HeaderItems>
                             <ext:ComboBox
                                 ID="cmbSucursalFiltro"
@@ -451,8 +451,7 @@
                         Filterable="false"
                         Align="Center"
                         Width="110"
-                        DataIndex="Sucursal">
-                         <Renderer Fn="cZona_Renderer" /> 
+                        DataIndex="Zona"> 
                     </ext:Column> 
                     
                     <ext:Column
@@ -462,7 +461,6 @@
                         Align="Center"
                         Width="110"
                         DataIndex="Cuadrilla">
-                         <Renderer Fn="cCuadrilla_Renderer" />
                              <HeaderItems>
                              <ext:ComboBox
                                 ID="cmbCuadrillas"
@@ -617,8 +615,7 @@
                             </ext:ComboBox>
                         </HeaderItems> 
                     </ext:Column> 
-                    
-                   
+               
                 </Columns>
             </ColumnModel> 
                     <BottomBar>

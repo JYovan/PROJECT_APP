@@ -23,9 +23,9 @@ IF EXISTS (	SELECT name
 	DROP PROCEDURE web_spS_ObtenerOrdenesEstimaciones
 GO
 -- =============================================
--- Author:		Orlando Esparza
--- Create date: Viernes 05 de Diciembre de 2014
--- Description:	Obtener todos los registros de Revisiones
+-- Author:		Giovanni Flores
+-- Create date: Lunes 10 de Agosto de 2014
+-- Description:	Obtener todos los registros de OE
 -- =============================================
 CREATE PROCEDURE web_spS_ObtenerOrdenesEstimaciones
 	-- Add the parameters for the stored procedure here
@@ -36,85 +36,18 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT
-		ID,
-		Mov,
-		MovID,
-		Sucursal,
-		FechaEmision,
-		Observaciones,
-		Estatus,
-		Usuario,
-		Origen,
-		OrigenID,
-		Reporte,
-		Division,
-		FechaOrigen,
-		FechaMaximaAtencion,
-		DiasAtencion,
-		Reporto,
-		TrabajoRequerido,
-		TrabajoRealizado,
-		CodigoFalla,
-		FechaLlegada,
-		HoraLlegada,
-		FechaFinActividad,
-		HoraFinActividad,
-		Cuadrilla,
-		ImporteTotal,
-		HoraOrigen,
-		RutaImagen,
-		Atendido,
-		NoOrden,
-		ReferenciaOrden,
-		Facturado,
-		Clasificacion,
-		Cliente
-	FROM
-		OrdenesEstimaciones
-	WHERE 
-	 Mov in('Mesa de reporte','Estimacion') AND MovEnLinea = 1
-	 AND Estatus IN('CONCLUIDO','PENDIENTE','BORRADOR')  AND Facturado <> 1 
-UNION	 
-	SELECT
-		ID,
-		Mov,
-		MovID,
-		Sucursal,
-		FechaEmision,
-		Observaciones,
-		Estatus,
-		Usuario,
-		Origen,
-		OrigenID,
-		Reporte,
-		Division,
-		FechaOrigen,
-		FechaMaximaAtencion,
-		DiasAtencion,
-		Reporto,
-		TrabajoRequerido,
-		TrabajoRealizado,
-		CodigoFalla,
-		FechaLlegada,
-		HoraLlegada,
-		FechaFinActividad,
-		HoraFinActividad,
-		Cuadrilla,
-		ImporteTotal,
-		HoraOrigen,
-		RutaImagen,
-		Atendido ,
-		NoOrden,
-		ReferenciaOrden,
-		Facturado,
-		Clasificacion,
-		Cliente
-	FROM
-		OrdenesEstimaciones
-	WHERE 
-	 Mov in('Mesa de reporte','Estimacion') AND MovEnLinea = 0
-	 AND Estatus IN('BORRADOR') AND Facturado <> 1
+SELECT        TOP (100) PERCENT OE.ID, OE.Mov, OE.MovID, dbo.Sucursales.Nombre AS Sucursal, OE.FechaEmision, OE.Observaciones, OE.Estatus, OE.Usuario, OE.Origen, 
+                         OE.OrigenID, OE.Reporte, OE.Division, OE.FechaOrigen, OE.FechaMaximaAtencion, OE.DiasAtencion, OE.Reporto, OE.TrabajoRequerido, OE.TrabajoRealizado, 
+                         OE.CodigoFalla, OE.FechaLlegada, OE.HoraLlegada, OE.FechaFinActividad, OE.HoraFinActividad, cua.Nombre AS Cuadrilla, OE.ImporteTotal, OE.HoraOrigen, 
+                         OE.RutaImagen, OE.Atendido, OE.NoOrden, OE.ReferenciaOrden, OE.Facturado, OE.Clasificacion, cli.Nombre AS Cliente, dbo.Sucursales.DireccionZona AS Zona, 
+                         dbo.Sucursales.CR
+FROM            dbo.OrdenesEstimaciones AS OE INNER JOIN
+                         dbo.Clientes AS cli ON OE.Cliente = cli.ID AND OE.Mov IN ('Mesa de reporte', 'Estimacion') AND OE.MovEnLinea = 1 AND OE.Estatus IN ('CONCLUIDO', 'PENDIENTE', 
+                         'BORRADOR') AND OE.Facturado <> 1 OR
+                         OE.Mov IN ('Mesa de reporte', 'Estimacion') AND OE.MovEnLinea = 0 AND OE.Estatus IN ('BORRADOR') AND OE.Facturado <> 1 INNER JOIN
+                         dbo.Cuadrillas AS cua ON OE.Cuadrilla = cua.ID INNER JOIN
+                         dbo.Sucursales ON OE.Sucursal = dbo.Sucursales.ID
+ORDER BY OE.Reporte DESC
 
 END
 GO

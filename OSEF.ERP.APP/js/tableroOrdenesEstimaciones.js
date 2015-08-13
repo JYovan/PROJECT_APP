@@ -17,9 +17,9 @@ var imgbtnEditar_Click = function () {
     Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Id'));
 
     var cadenatitulo = ' - ' + App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Reporte') + ' - ' +
-    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').Nombre + ' - ' +
-    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').CR + ' - ' +
-    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').Direccionzona;
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Sucursal') + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Cr') + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Zona');
 
     window.parent.App.wEmergente.load('FormaOrdenEstimacion.aspx');
     window.parent.App.wEmergente.setHeight(600);
@@ -42,9 +42,9 @@ var imgbtnFirmas_Click = function () {
 var gpOrdenEstimacion_ItemDblClick = function (gridview, registro, gvhtml, index) {
 
     var cadenatitulo = ' - ' + App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Reporte') + ' - ' +
-    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').Nombre + ' - ' +
-    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').CR + ' - ' +
-    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('RSucursal').Direccionzona;
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Sucursal') + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Cr') + ' - ' +
+    App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Zona');
 
     Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Id')); 
             window.parent.App.wEmergente.load('FormaOrdenEstimacion.aspx');
@@ -349,11 +349,7 @@ var cmbClasificacionFiltro_Select = function (combobox, registro) {
 
 //Regresar el nombre del cliente
 var cCliente_Renderer = function (valor, metaData, registro) {
-    var r = registro.get('RCliente').Nombre;
-
-    if (r != null && r.trim() != '') {
-        return registro.get('RCliente').Nombre;
-    } 
+    return '<img class="IconColumnaEstatus" src="images/cliente.png" alt="borrador" width="16" heigth="16" />' + registro.get('Cliente');
 };
 /**BUSCAR POR FECHA**/
 var applyFilter = function (fieldvalue, dindex) {

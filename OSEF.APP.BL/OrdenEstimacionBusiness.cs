@@ -63,22 +63,22 @@ namespace OSEF.APP.BL
             List<OrdenEstimacion> lOrdenesEstimaciones = OrdenEstimacionDataAccess.ObtenerOrdenesEstimaciones();
 
             //2. Complementarlas con sucursal
-            foreach (OrdenEstimacion sd in lOrdenesEstimaciones)
-            {
-                sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
-                sd.RCuadrilla = CuadrillaBusiness.ObtenerCuadrillaPorID(sd.Cuadrilla);
-            }
+            //foreach (OrdenEstimacion sd in lOrdenesEstimaciones)
+            //{
+            //    sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.Sucursal);
+            //    sd.RCuadrilla = CuadrillaBusiness.ObtenerCuadrillaPorID(sd.Cuadrilla);
+            //}
 
-            foreach (OrdenEstimacion sd in lOrdenesEstimaciones)
-            {
-                if (sd.Cliente != null)
-                {
-                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
-                }
-                else {
-                    sd.RCliente = null;
-                }
-            }
+            //foreach (OrdenEstimacion sd in lOrdenesEstimaciones)
+            //{
+            //    if (sd.Cliente != null)
+            //    {
+            //        sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+            //    }
+            //    else {
+            //        sd.RCliente = null;
+            //    }
+            //}
             return lOrdenesEstimaciones;
         }
 
