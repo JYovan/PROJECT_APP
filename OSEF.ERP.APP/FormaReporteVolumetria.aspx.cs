@@ -106,7 +106,7 @@ namespace OSEF.ERP.APP
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
             try
             {
-                using (var comando = new SqlCommand("web_spS_ObtenerGeneradorPorVolumetriaConcepto", conn))
+                using (var comando = new SqlCommand("web_spS_ObtenerRGeneradorPorVolumetriaConcepto", conn))
                 {
                     using (var adaptador = new SqlDataAdapter(comando))
                     {
