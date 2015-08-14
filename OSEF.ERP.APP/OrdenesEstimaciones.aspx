@@ -168,7 +168,7 @@
                 <ext:Store
                     ID="sOrdenesEstimaciones"
                     runat="server"
-                    PageSize="10" 
+                    PageSize="100" 
                     RemoteSort="true"
                     OnReadData="OnReadData_sOrdenesEstimaciones">
                     <Model>
@@ -208,7 +208,7 @@
                         </ext:Model>
                     </Model>
                       <Sorters>
-                        <ext:DataSorter Property="Reporte" Direction="DESC" />
+                        <ext:DataSorter Property="Reporte" Direction="ASC" />
                     </Sorters>
                     <Listeners>
                         <DataChanged Fn="sOrdenesEstimaciones_DataChanged" />
@@ -636,7 +636,7 @@
                                     <ext:ListItem Text="1000" />
                                 </Items>
                                 <SelectedItems>
-                                    <ext:ListItem Value="10" />
+                                    <ext:ListItem Value="100" />
                                 </SelectedItems>
                                 <Listeners>
                                     <Select Handler="#{gpOrdenesEstimaciones}.store.pageSize = parseInt(this.getValue(), 10); #{gpOrdenesEstimaciones}.store.reload();" />

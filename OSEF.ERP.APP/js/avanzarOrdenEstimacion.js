@@ -8,11 +8,14 @@
 
                 Ext.util.Cookies.set('cookieEditarOrdenEstimacion', result.Id);
 
+           
+
                 window.parent.App.sOrdenEstimacion.getAt(0).set("ID", result.Id);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("Mov", result.Mov);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("MovID", result.MovID);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("Origen", result.Origen);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("OrigenId", result.OrigenId);
+                window.parent.App.sOrdenEstimacion.getAt(0).set("Cliente", result.Cliente);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("FechaEmision", result.FechaEmision);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("Estatus", result.Estatus);
 
@@ -25,7 +28,7 @@
                 window.parent.App.sbOrdenEstimacion.setText(window.parent.App.sOrdenEstimacion.getAt(0).get('Estatus'));
 
 
-                window.parent.parent.parent.App.wEmergente.setTitle('Nuevo Movimiento '+ Ext.util.Cookies.get('cookieEditarOrdenEstimacion'));
+                window.parent.parent.parent.App.wEmergente.setTitle('Nuevo Movimiento ' + Ext.util.Cookies.get('cookieEditarOrdenEstimacion'));
 
                 //Obtener el Renglon anterior
                 var renglonAnterior = window.parent.App.sConceptos.getAt(window.parent.App.sConceptos.getCount() - 1).get('Renglon') + 1;
@@ -48,6 +51,7 @@
                 window.parent.App.sOrdenEstimacion.getAt(0).set("MovID", result.MovID);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("Origen", result.Origen);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("OrigenId", result.OrigenId);
+                window.parent.App.sOrdenEstimacion.getAt(0).set("Cliente", result.Cliente);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("FechaEmision", result.FechaEmision);
                 window.parent.App.sOrdenEstimacion.getAt(0).set("Estatus", result.Estatus);
 
@@ -83,7 +87,8 @@ function HabilitarControlesAvanzar() {
     window.parent.App.imgbtnBorrar.setDisabled(false);
     window.parent.App.chkAtendido.setReadOnly(false);
 
-
+    window.parent.App.IdCliente.setDisabled(false);
+    window.parent.App.txtfSucursalCR.setDisabled(false);
 
 
     window.parent.App.dfFechaOrigen.setReadOnly(false);
