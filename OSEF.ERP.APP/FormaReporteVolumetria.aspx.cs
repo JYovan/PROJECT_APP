@@ -120,6 +120,7 @@ namespace OSEF.ERP.APP
                         var reporte = new ReportDocument();
                         reporte.Load(Server.MapPath("reportess/rGeneradorVolumetriasConcepto.rpt"));
                         reporte.SetDataSource(dt);
+                        reporte.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
                        
 
                         string strDireccion = Server.MapPath(" ") + "\\reportess\\Volumetrias\\" + strID;

@@ -160,8 +160,14 @@ var txtBuscarCliente_Change = function (textfield, newValue, oldValue, e) {
 
 //Acciones al hacer clic en un registro de busqueda
 var gpBuscaClientes_ItemDblClick = function (gridview, registro, gvhtml, index) {
-    window.parent.App.wEmergente.getBody().App.IdCliente.setValue(App.sClientes.getAt(index).get('ID'));
-    window.parent.App.wEmergente.getBody().App.txtCliente.setValue(App.sClientes.getAt(index).get('Nombre')); 
+    var wp = window.parent.App.wEmergente.getBody();
+    wp.App.IdCliente.setValue(App.sClientes.getAt(index).get('ID'));
+    wp.App.txtCliente.setValue(App.sClientes.getAt(index).get('Nombre'));
+    wp.App.cmbPreciario.setValue('');
+    wp.App.txtfDescripcionPreciario.setValue('');
+    wp.App.txtfIDSucursal.setValue('');
+    wp.App.txtfSucursalNombre.setValue('');
+    wp.App.imgbtnGuardar.setDisabled(true);
     window.parent.App.wAyudaConcepto.hide();
 };
 

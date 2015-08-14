@@ -283,42 +283,6 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.TextField txtfUsuario;
         
         /// <summary>
-        /// Control FieldContainer1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.FieldContainer FieldContainer1;
-        
-        /// <summary>
-        /// Control txtFirmaInicial.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.TextField txtFirmaInicial;
-        
-        /// <summary>
-        /// Control txtFirmaCentral.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.TextField txtFirmaCentral;
-        
-        /// <summary>
-        /// Control txtFirmaFinal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.TextField txtFirmaFinal;
-        
-        /// <summary>
         /// Control fbtnBuscarSucursal.
         /// </summary>
         /// <remarks>

@@ -605,7 +605,7 @@ namespace OSEF.ERP.APP
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
             try
             {
-                using (var comando = new SqlCommand("web_spS_ObtenerGeneradorPorVolumetria", conn))
+                using (var comando = new SqlCommand("web_spS_ObtenerRGeneradorPorVolumetria", conn))
                 {
                     using (var adaptador = new SqlDataAdapter(comando))
                     {
@@ -618,7 +618,7 @@ namespace OSEF.ERP.APP
                         var reporte = new ReportDocument();
                         reporte.Load(Server.MapPath("reportess/rGeneradorVolumetrias.rpt"));
                         reporte.SetDataSource(dt);
-                     
+                        reporte.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
 
                         string strDireccion = Server.MapPath(" ") + "\\reportess\\Volumetrias\\" + strID;
 

@@ -320,7 +320,7 @@
                                                     </ext:TextField>
                                                 </Items>
                                             </ext:FieldContainer> 
-                                            <ext:FieldContainer 
+                                            <%--<ext:FieldContainer 
                                                 ID="FieldContainer1" 
                                                 runat="server" 
                                                 FieldLabel="Firmas"
@@ -352,7 +352,7 @@
                                                         AllowBlank="false">
                                                     </ext:TextField>
                                                     <ext:TextField
-                                                        ID="txtFirmaFinal"
+                                                        ID="txtFirmaCentral"
                                                         runat="server"
                                                         Width="215"
                                                         Editable="false"
@@ -362,7 +362,7 @@
                                                         AllowBlank="false">
                                                     </ext:TextField>
                                                 </Items>
-                                              </ext:FieldContainer>
+                                              </ext:FieldContainer>--%>
                                             
                                             <ext:FieldContainer 
                                                 ID="fbtnBuscarSucursal" 
