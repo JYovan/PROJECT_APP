@@ -73,8 +73,6 @@
                 </ext:ItemSelector>
             </Items>
             <DockedItems>
-                
-
                 <ext:Toolbar ID="Toolbar2" runat="server" Dock="Bottom">
                     <Defaults>
                         <ext:Parameter Name="minWidth" Value="75" />

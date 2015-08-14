@@ -2415,7 +2415,7 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
         sum = parseFloat(originalvalue);
         dotstar = sum.toString().indexOf(".") + 1;
         ndecimals = sum.toString().substring(dotstar, sum.toString().length);
-        console.log(ndecimals);
+    
         switch (ndecimals.length) {
             case 0:
                 App.dfTotalSinRender.setValue(sum.toFixed(6));

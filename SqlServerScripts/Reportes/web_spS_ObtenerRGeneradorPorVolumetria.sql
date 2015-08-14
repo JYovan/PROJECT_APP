@@ -48,8 +48,9 @@ BEGIN
 		PC.CLAVE,PC.Unidad,PC.Descripcion DescripcionPreGenConceptos,
 		VD.Utilizada,PCAT.Descripcion DescripcionPreGenCat,
 		--CONCEPTO INFO GENERADOR
-		GVD.Eje,GVD.EntreEje1,GVD.EntreEje2,GVD.Area,GVD.Ancho,GVD.Largo,GVD.Alto,GVD.Total,GVD.Cantidad CANT_GEN, GVD.Descripcion
+		GVD.Eje,GVD.EntreEje1,GVD.EntreEje2,GVD.Area,GVD.Ancho,GVD.Largo,GVD.Alto,GVD.Total,GVD.Cantidad CANT_GEN, GVD.Descripcion,
 		--Encabezado del movimiento(No del reporte)
+		cli.ID ClienteID, cli.RutaLogo
 		FROM Volumetrias V
 		--Detalle del movimiento
 		LEFT JOIN VolumetriasD VD
@@ -73,6 +74,8 @@ BEGIN
 		ON E.ID =  S.Estado
 		LEFT JOIN Colonias C
 		ON C.ID = S.Colonia
+		INNER JOIN Clientes cli
+		ON V.Cliente = cli.ID
 		WHERE V.ID = @IDMovimiento
 		AND GVD.ConceptoID IS NOT NULL;
 END

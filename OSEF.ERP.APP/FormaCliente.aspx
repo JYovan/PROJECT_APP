@@ -320,6 +320,49 @@
                                                     </ext:TextField>
                                                 </Items>
                                             </ext:FieldContainer> 
+                                            <ext:FieldContainer 
+                                                ID="FieldContainer1" 
+                                                runat="server" 
+                                                FieldLabel="Firmas"
+                                                LabelWidth="120" 
+                                                AnchorHorizontal="100%" 
+                                                Layout="ColumnLayout"
+                                                Disabled="false">
+                                                <Items>  
+                                                    <ext:TextField
+                                                        ID="txtFirmaInicial"
+                                                        runat="server"
+                                                        Width="215"
+                                                        Editable="false"
+                                                        EmptyText="ELABORO"
+                                                        MaxLength="50"
+                                                        EnforceMaxLength="true" 
+                                                        StyleSpec="margin-right: 3px;"
+                                                        AllowBlank="false">
+                                                    </ext:TextField>
+                                                    <ext:TextField
+                                                        ID="txtFirmaCentral"
+                                                        runat="server"
+                                                        Width="215"
+                                                        Editable="false"
+                                                        MaxLength="50"
+                                                        EmptyText="REVISO"
+                                                        EnforceMaxLength="true"
+                                                        StyleSpec="margin-right: 3px;"
+                                                        AllowBlank="false">
+                                                    </ext:TextField>
+                                                    <ext:TextField
+                                                        ID="txtFirmaFinal"
+                                                        runat="server"
+                                                        Width="215"
+                                                        Editable="false"
+                                                        MaxLength="50"
+                                                        EmptyText="AUTORIZO"
+                                                        EnforceMaxLength="true"
+                                                        AllowBlank="false">
+                                                    </ext:TextField>
+                                                </Items>
+                                              </ext:FieldContainer>
                                             
                                             <ext:FieldContainer 
                                                 ID="fbtnBuscarSucursal" 
@@ -336,8 +379,8 @@
                                                         </Listeners>
                                                     </ext:LinkButton>
                                                 </Items>
-                                            </ext:FieldContainer>
-
+                                            </ext:FieldContainer>  
+                                              
                                             <ext:FieldContainer 
                                                 ID="fcImagen" 
                                                 runat="server" 
@@ -355,11 +398,8 @@
                                                     Cls="img-resize"
                                                     Width="200">
                                                 </ext:Image>
-                                                
                                                 </Items>
                                               </ext:FieldContainer>
-
-
                                               
                                         </Items>
                                     </ext:Panel>
