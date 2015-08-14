@@ -42,16 +42,16 @@ BEGIN
 	    -- Insert statements for procedure here
 	SELECT 
 		--ID DE MOVIMIENTO Y CONCEPTOS
-		V.ID,V.Mov,
-		VD.ConceptoID,
+		V.ID,V.Mov,	VD.ConceptoID,
 		--Datos de la sucursal
 		CONVERT(VARCHAR(4),S.CR) CR,S.Nombre Sucursal,S.Calle,S.NoExterior,S.NoInterior,C.Descripcion Colonia,M.Descripcion Municipio,E.Descripcion Estado,
 		--Datos del concepto
 		PC.CLAVE,PC.Unidad,PC.Descripcion DescripcionPreGenConceptos,
 		VD.Utilizada,PCAT.Descripcion DescripcionPreGenCat,
 		--CONCEPTO INFO GENERADOR
-		GVD.Eje,GVD.EntreEje1,GVD.EntreEje2,GVD.Area,GVD.Ancho,GVD.Largo,GVD.Alto,GVD.Total,GVD.Cantidad CANT_GEN, GVD.Descripcion
+		GVD.Eje,GVD.EntreEje1,GVD.EntreEje2,GVD.Area,GVD.Ancho,GVD.Largo,GVD.Alto,GVD.Total,GVD.Cantidad CANT_GEN, GVD.Descripcion,
 		--Encabezado del movimiento(No del reporte)
+		cli.ID ClienteID, cli.RutaLogo
 		FROM Volumetrias V
 		--Detalle del movimiento
 		LEFT JOIN VolumetriasD VD
@@ -77,6 +77,8 @@ BEGIN
 		ON C.ID = S.Colonia
 		LEFT JOIN Preciarios P
 		ON P.ID=V.Preciario
+		INNER JOIN Clientes cli
+		ON V.Cliente = cli.ID
 		WHERE 
 		 VD.ConceptoID =@idconcepto
 		AND V.Preciario=@idpreciario

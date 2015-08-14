@@ -189,13 +189,13 @@ var calcularTotalLargo_Change = function (component) {
 
 
 
-    if (valorancho == null || valorancho == "") {
+    if (valorancho == null || valorancho == "" || valorancho == "0") {
         valorancho = 1;
     }
-    if (valorAlto == null || valorAlto == "") {
+    if (valorAlto == null || valorAlto == "" || valorAlto == "0") {
         valorAlto = 1;
     }
-    if (valorCantidad == null || valorCantidad == "") {
+    if (valorCantidad == null || valorCantidad == "" || valorCantidad == "0") {
         valorCantidad = 1;
     }
 
@@ -211,7 +211,8 @@ var calcularTotalLargo_Change = function (component) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue('' + F.number(sum, "000,000,000.000000"));
+    beforeRender_Importe(sum, F);
+    //    App.dfTotal.setValue('' + F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
 }
 
@@ -223,13 +224,13 @@ var calcularTotalAncho_Change = function (component) {
     var valorCantidad = App.sFormaGenerador.getAt(indiceDetalle).data.Cantidad;
 
 
-    if (valorLargo == null || valorLargo == "") {
+    if (valorLargo == null || valorLargo == "" | valorLargo =="0") {
         valorLargo = 1;
     }
-    if (valorAlto == null || valorAlto == "") {
+    if (valorAlto == null || valorAlto == "" || valorAlto == "0") {
         valorAlto = 1;
     }
-    if (valorCantidad == null || valorCantidad == "") {
+    if (valorCantidad == null || valorCantidad == "" || valorCantidad == "0") {
         valorCantidad = 1;
     }
    
@@ -245,7 +246,9 @@ var calcularTotalAncho_Change = function (component) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
+
+    beforeRender_Importe(sum, F);
+//    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
 }
 
@@ -258,13 +261,13 @@ var calcularTotalAlto_Change = function (component) {
     var valorAncho = App.sFormaGenerador.getAt(indiceDetalle).data.Ancho;
     var valorCantidad = App.sFormaGenerador.getAt(indiceDetalle).data.Cantidad;
 
-    if (valorLargo == null || valorLargo == "") {
+    if (valorLargo == null || valorLargo == "" || valorLargo == "0") {
         valorLargo = 1;
     }
-    if (valorAncho == null || valorAncho == "") {
+    if (valorAncho == null || valorAncho == "" || valorAncho == "0") {
         valorAncho = 1;
     }
-    if (valorCantidad == null || valorCantidad == "") {
+    if (valorCantidad == null || valorCantidad == "" || valorCantidad == "0") {
         valorCantidad = 1;
     }
 
@@ -280,28 +283,25 @@ var calcularTotalAlto_Change = function (component) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
+    beforeRender_Importe(sum, F);
+//    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
 
 }
 
 //Calular Total cuando la columnas cambian
 var calcularTotalCantidad_Change = function (component) {
-
-
-    
-
     var valorLargo = App.sFormaGenerador.getAt(indiceDetalle).data.Largo;
     var valorAncho = App.sFormaGenerador.getAt(indiceDetalle).data.Ancho;
     var valorAlto = App.sFormaGenerador.getAt(indiceDetalle).data.Alto;
 
-    if (valorLargo == null || valorLargo == "") {
+    if (valorLargo == null || valorLargo == "" || valorLargo == "0") {
         valorLargo = 1;
     }
-    if (valorAncho == null || valorAncho == "") {
+    if (valorAncho == null || valorAncho == "" || valorAncho == "0") {
         valorAncho = 1;
     }
-    if (valorAlto == null || valorAlto == "") {
+    if (valorAlto == null || valorAlto == "" || valorAlto == "0") {
         valorAlto = 1;
     }
 
@@ -317,9 +317,12 @@ var calcularTotalCantidad_Change = function (component) {
     var F = Ext.util.Format;
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
+
+    beforeRender_Importe(sum, F);
+
+//    App.dfTotal.setValue(F.number(sum, "000,000,000.000000"));
     ImporteFinal = sum;
-    
+
 }
 
 
@@ -512,4 +515,59 @@ var txtDescripcion_Corta_SpecialKey = function (field, eventArgs) {
 };
 var onSuccess = function () {
 
+};
+var beforeRender_Importe = function (sum, F) {
+    /**
+    1.-Buscar la posición de el punto
+    2.-Calcular el numero de digitos despues del punto [0-9]
+    3.-Verificar que el tamaño total de los decimales sea menor o igual a 6
+    4.-De no ser menores o iguales a 6, se hace un recorte para solo tomar 6 digitos
+    5.-Se verifica que todos sean diferentes de 0, ej: 
+    Tenemos un numero de : 1239.020010
+    El cual solo queremos que se muestre así: 1239.02001
+    Como vemos solo hemos quitado un "0", por ello tenemos que buscar la posicion donde termina y donde ya no hay nada más que ceros, 
+    como en el siguiente caso:
+    Tenemos un numero de: 3.002000, tenemos que dejar el número así: 3.002
+
+    **/
+    var decimals, ndecimals, dotstar = sum.toString().indexOf(".") + 1, originalvalue;
+
+    originalvalue = sum.toString().substring(0, dotstar);
+
+    decimals = sum.toString().substring(dotstar, sum.toString().length);
+    if (decimals.length >= 6) {
+        decimals = decimals.toString().substring(0, 6);
+        ndecimals = 6;
+    }
+    originalvalue += decimals;
+    sum = parseFloat(originalvalue);
+    dotstar = sum.toString().indexOf(".") + 1;
+    ndecimals = sum.toString().substring(dotstar, sum.toString().length);
+    console.log(sum);
+    switch (ndecimals.length) {
+        case 0:
+            App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
+            break;
+        case 1:
+            App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
+            break;
+        case 2:
+            App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00"));
+            break;
+        case 3:
+            App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000"));
+            break;
+        case 4:
+            App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.0000"));
+            break;
+        case 5:
+            App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.00000"));
+            break;
+        case 6:
+            App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+            break;
+        default:
+            App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
+            break;
+    }
 };

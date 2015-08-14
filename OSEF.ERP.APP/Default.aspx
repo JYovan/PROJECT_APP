@@ -78,7 +78,7 @@
                                             </ext:MenuItem>
                                              <ext:MenuItem ID="miReportarProblema" runat="server" Text="Reportar un problema">
                                               <Listeners>
-                                                <Click Handler=" window.open('http://200.57.115.237:81/support/open.php/','_blank');"></Click>
+                                                <Click Handler=" window.open('http://project.ibuho.mx:81/support/open.php/','_blank');"></Click>
                                               </Listeners>
                                             </ext:MenuItem>
                                             <ext:MenuItem ID="miCerrarSesion" runat="server" Text="Cerrar sesión">
@@ -208,7 +208,7 @@
             Hidden="true"
             Modal="true"
             Padding="0"
-            Resizable="False"
+            Resizable="true"
             Region="Center"
             XOnEsc="Ext.emptyFn">
             <Loader ID="Loader2" runat="server" Mode="Frame" AutoLoad="false">

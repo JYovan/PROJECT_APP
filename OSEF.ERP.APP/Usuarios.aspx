@@ -286,7 +286,7 @@
             <Plugins>
                         <ext:FilterHeader ID="FilterHeader1" runat="server" Remote="true" />
                     </Plugins>
-                    <BottomBar>
+            <BottomBar>
                         <ext:PagingToolbar ID="PagingToolbar1" runat="server" HideRefresh="True">
                         <Items>
                             <ext:Label ID="Label1" runat="server" Text="Tamaño página:" />
