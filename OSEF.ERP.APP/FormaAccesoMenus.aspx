@@ -29,69 +29,47 @@
 <body>
     <form id="Form1" runat="server">
         <ext:ResourceManager ID="rmAccesoMenu" runat="server" />
-        
-        <ext:FormPanel ID="frAccesoMenu" 
-            runat="server"
+        <ext:GridPanel 
+            ID="GridPanel1" 
+            runat="server"  
+            Header="false" 
             Width="500"
-            BodyPadding="10"
-            Height="300"
-            Layout="FitLayout">
-            <Items>
-                <ext:ItemSelector 
-                    ID="isAccesoMenu" 
-                    runat="server"
-                    AllowBlank="false"
-                    MsgTarget="Side"
-                    FromTitle="No Asignados"
-                    ToTitle="Asignados"
-                    Cls="x-custom-form-item x-customPanelHeader x-btnCustomDefaultOver x-btnCustomDefault">
-                    <Items> 
-                        <ext:ListItem Text="Avances" Value="Avances" />
-                        <ext:ListItem Text="Categorias" Value="Categorias" />
-                        <ext:ListItem Text="Clientes" Value="Clientes"/>
-                        <ext:ListItem Text="Codigos Postales" Value="Codigos Postales"/>
-                        <ext:ListItem Text="Codigos PPTA" Value="Códigos PPTA"/>
-                        <ext:ListItem Text="Colonia" Value="Colonia"/>
-                        <ext:ListItem Text="Conceptos" Value="Conceptos"/>
-                        <ext:ListItem Text="Cuadrillas" Value="Cuadrillas"/>
-                        <ext:ListItem Text="Estados" Value="Estados"/>
-                        <ext:ListItem Text="Explorador Mesa de Reporte" Value="Explorador Mesa de Reporte"/>
-                        <ext:ListItem Text="Explorador Ordenes de Cambio" Value="Explorador Ordenes de Cambio" />
-                        <ext:ListItem Text="Explorador Preciario Concepto Volumetrias" Value="Explorador Preciario Concepto Volumetrias" />
-                        <ext:ListItem Text="Monitor" Value="Monitor" />
-                        <ext:ListItem Text="Municipios" Value="Municipios" />
-                        <ext:ListItem Text="Ordenes de cambio" Value="Ordenes de cambio"/>
-                        <ext:ListItem Text="Preciarios Generales" Value="Preciarios Generales" />
-                        <ext:ListItem Text="Preciarios Sucursales" Value="Preciarios Sucursales"/>
-                        <ext:ListItem Text="Proveedores" Value="Proveedores" />
-                        <ext:ListItem Text="Reportes y Estimaciones" Value="Reportes y Estimaciones" />
-                        <ext:ListItem Text="SubCategorias" Value="SubCategorias" />
-                        <ext:ListItem Text="Usuarios" Value="Usuarios" />
-                        <ext:ListItem Text="Visual Gantt" Value="Visual Gantt" />
-                        <ext:ListItem Text="Volumetrias" Value="Volumetrias" /> 
-                    </Items> 
-                </ext:ItemSelector>
-            </Items>
-            <DockedItems>
-                <ext:Toolbar ID="Toolbar2" runat="server" Dock="Bottom">
-                    <Defaults>
-                        <ext:Parameter Name="minWidth" Value="75" />
-                    </Defaults>
+            Height="300">
+            <Store>
+                <ext:Store ID="sAccesos" runat="server" PageSize="50">
+                    <Model>
+                        <ext:Model ID="Model1" runat="server" IDProperty="ID">
+                            <Fields>
+                                <ext:ModelField Name="ID" Type="Int" />
+                                <ext:ModelField Name="Nombre" Type="String" />
+                                <ext:ModelField Name="Permiso" Type="Boolean" /> 
+                            </Fields>
+                        </ext:Model>
+                    </Model>
+                  </ext:Store>
+            </Store> 
+            <ColumnModel ID="ColumnModel1" runat="server">
+		        <Columns>  
+                    <ext:Column ID="cNombre" runat="server" Text="MODULO" Align="Center" Width="400" DataIndex="Nombre">
+                    </ext:Column>
+                    <ext:CheckColumn ID="chkPermiso" runat="server" Text="PERMISO" Align="Center" Width="100" DataIndex="Permiso" Editable="true">
+                    </ext:CheckColumn> 
+		        </Columns>
+            </ColumnModel>
+            <BottomBar>
+                <ext:PagingToolbar ID="PagingToolbar1" runat="server">
                     <Items>
-                        <ext:ToolbarFill />
-                        <ext:Button 
-                        ID="Button3" 
-                        runat="server" 
-                        Text="Limpiar" 
-                        Handler="App.ItemSelector1.reset();" />
-                        <ext:Button 
-                        ID="Button4" 
-                        runat="server" 
-                        Text="Guardar" />
+                        <ext:Button ID="Button1" runat="server" Text="Submit Selected Records" StandOut="true">
+                           <%-- <DirectEvents>
+                                <Click OnEvent="Button1_Click">
+                                    <EventMask ShowMask="true" />
+                                </Click>
+                            </DirectEvents>--%>
+                        </ext:Button>
                     </Items>
-                </ext:Toolbar>
-            </DockedItems>
-        </ext:FormPanel>
+                </ext:PagingToolbar>
+            </BottomBar>        
+        </ext:GridPanel>
     </form>
 </body>
 </html>

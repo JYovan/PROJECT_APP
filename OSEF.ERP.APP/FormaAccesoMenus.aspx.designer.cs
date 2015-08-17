@@ -40,48 +40,66 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.ResourceManager rmAccesoMenu;
         
         /// <summary>
-        /// Control frAccesoMenu.
+        /// Control GridPanel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.FormPanel frAccesoMenu;
+        protected global::Ext.Net.GridPanel GridPanel1;
         
         /// <summary>
-        /// Control isAccesoMenu.
+        /// Control sAccesos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ItemSelector isAccesoMenu;
+        protected global::Ext.Net.Store sAccesos;
         
         /// <summary>
-        /// Control Toolbar2.
+        /// Control Model1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Toolbar Toolbar2;
+        protected global::Ext.Net.Model Model1;
         
         /// <summary>
-        /// Control Button3.
+        /// Control cNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Button Button3;
+        protected global::Ext.Net.Column cNombre;
         
         /// <summary>
-        /// Control Button4.
+        /// Control chkPermiso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Button Button4;
+        protected global::Ext.Net.CheckColumn chkPermiso;
+        
+        /// <summary>
+        /// Control PagingToolbar1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.PagingToolbar PagingToolbar1;
+        
+        /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Button Button1;
     }
 }
