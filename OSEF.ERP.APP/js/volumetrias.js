@@ -129,6 +129,9 @@ var imgbtnBorrar_Click_Success = function (response, result) {
     App.cmbPreciario.setDisabled(false);
     App.txtfDescripcionPreciario.setValue(null);
 
+    App.IdCliente.setValue('');
+    App.txtCliente.setValue('');
+    
     App.txtfIDSucursal.setValue('');
     App.txtfSucursalNombre.setValue('');
 

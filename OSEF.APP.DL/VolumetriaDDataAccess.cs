@@ -61,12 +61,20 @@ namespace OSEF.APP.DL
                 sqlpCantidad.Scale = 3;
                 sqlpCantidad.Value = iVolumetriaD.Cantidad;
 
+
+
+
                 SqlParameter sqlpUtilizada = new SqlParameter();
                 sqlpUtilizada.ParameterName = "@Utilizada";
                 sqlpUtilizada.SqlDbType = SqlDbType.Decimal;
                 sqlpUtilizada.Precision = 10;
                 sqlpUtilizada.Scale = 3;
-                sqlpUtilizada.Value = iVolumetriaD.Utilizada;
+                
+
+                if (iVolumetriaD.Utilizada == 0)
+                    sqlpUtilizada.Value = 0;
+                else
+                    sqlpUtilizada.Value = iVolumetriaD.Utilizada;
 
              
 
