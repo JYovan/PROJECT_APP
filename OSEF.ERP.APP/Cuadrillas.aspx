@@ -137,13 +137,13 @@
         </Store>
         <ColumnModel>
             <Columns> 
-                <ext:Column ID="cID" runat="server" Text="ID" Align="Center" Width="175"
+                <ext:Column ID="cID" runat="server" Text="ID" Align="Center" Width="175" Filterable="false"
                     DataIndex="ID"> 
                 </ext:Column> 
-                <ext:Column ID="cNombre" runat="server" Text="Nombre" Align="Center" Width="275"
+                <ext:Column ID="cNombre" runat="server" Text="NOMBRE" Align="Center" Width="275" Filterable="false"
                     DataIndex="Nombre"> 
                 </ext:Column> 
-                <ext:Column ID="cDescripcion" runat="server" Text="Descripcion" Align="Center" Width="500"
+                <ext:Column ID="cDescripcion" runat="server" Text="DESCRIPCIÓN" Align="Center" Width="500" Filterable="false"
                     DataIndex="Descripcion"> 
                 </ext:Column> 
             </Columns>

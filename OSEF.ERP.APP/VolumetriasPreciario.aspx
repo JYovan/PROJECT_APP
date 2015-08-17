@@ -132,7 +132,7 @@
                 <ext:Store
                     ID="sVolumetrias"
                     runat="server"
-                    PageSize="10" 
+                    PageSize="100" 
                     RemoteSort="true"
                     OnReadData="OnReadData_sVolumetrias">
                     <Model>
@@ -368,7 +368,7 @@
                                     <ext:ListItem Text="100" />
                                 </Items>
                                 <SelectedItems>
-                                    <ext:ListItem Value="10" />
+                                    <ext:ListItem Value="100" />
                                 </SelectedItems>
                                 <Listeners>
                                     <Select Handler="#{gpVolumetrias}.store.pageSize = parseInt(this.getValue(), 10); #{gpVolumetrias}.store.reload();" />

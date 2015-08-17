@@ -263,7 +263,7 @@
             </TopBar>
    
             <Store>
-                <ext:Store ID="sPreciarioConcepto" runat="server">
+                <ext:Store ID="sPreciarioConcepto" runat="server"  PageSize="100" >
                     <Model>
                         <ext:Model ID="mPreciarioConcepto" runat="server">
                             <Fields>
@@ -404,7 +404,7 @@
                                     <ext:ListItem Text="1000" />
                                 </Items>
                                 <SelectedItems>
-                                    <ext:ListItem Value="10" />
+                                    <ext:ListItem Value="100" />
                                 </SelectedItems>
                                 <Listeners>
                                     <Select Handler="#{gpExploradorConceptosPreciario}.store.pageSize = parseInt(this.getValue(), 10); #{gpExploradorConceptosPreciario}.store.reload();" />

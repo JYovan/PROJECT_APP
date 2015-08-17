@@ -182,7 +182,7 @@
                 <ext:Store
                     ID="sMesaDeReporte"
                     runat="server"
-                    PageSize="10" 
+                    PageSize="100" 
                     RemoteSort="true"
                    OnReadData="OnReadData_sMesaDeReporte">
                     <Model>
@@ -580,7 +580,7 @@
                                     <ext:ListItem Text="1000" />
                                 </Items>
                                 <SelectedItems>
-                                    <ext:ListItem Value="10" />
+                                    <ext:ListItem Value="100" />
                                 </SelectedItems>
                                 <Listeners>
                                     <Select Handler="#{gpExploradorMesaDeReporte}.store.pageSize = parseInt(this.getValue(), 10); #{gpExploradorMesaDeReporte}.store.reload();" />

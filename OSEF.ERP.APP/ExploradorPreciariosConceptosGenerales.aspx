@@ -143,6 +143,7 @@
                 <ext:Store
                     ID="sOrdenesEstimaciones"
                     runat="server"
+                    PageSize="100" 
                    OnReadData="OnReadData_sOrdenesEstimaciones">
                     <Model>
                         <ext:Model ID="mOrdenesEstimaciones" runat="server">
@@ -397,7 +398,7 @@
                                     <ext:ListItem Text="1000" />
                                 </Items>
                                 <SelectedItems>
-                                    <ext:ListItem Value="10" />
+                                    <ext:ListItem Value="100" />
                                 </SelectedItems>
                                 <Listeners>
                                     <Select Handler="#{gpExploradorConceptosPreciarioGeneral}.store.pageSize = parseInt(this.getValue(), 10); #{gpExploradorConceptosPreciarioGeneral}.store.reload();" />

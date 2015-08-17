@@ -75,7 +75,7 @@
                                  <a class="tile wide imagetext wideimage bg-color-purple" href="#" id="OrdenesEstimaciones">
                                     <img src="assets/img/menu-mnto.png" alt="Ordenes & Estimaciones" />
                                     <div class="textover-wrapper transparent">
-                                        <div class="text4">Reportes & Estimaciones</div>
+                                        <div class="text4">Mantenimiento</div>
                                     </div>
                                 </a>
 
@@ -100,7 +100,7 @@
                                   <a class="tile wide imagetext wideimage bg-color-orange" id="MesaDeReporte" href="#">
                                     <img src="assets/img/Search.png" alt="Explorador" />
                                     <div class="textover-wrapper transparent">
-                                        <div class="text2">Explorador Mesa de Reporte</div>
+                                        <div class="text2">Explorador de Mantenimiento</div>
                                     </div>
                                 </a> 
                               

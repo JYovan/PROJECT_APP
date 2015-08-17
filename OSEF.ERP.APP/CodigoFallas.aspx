@@ -141,10 +141,10 @@
         </Store>
         <ColumnModel>
             <Columns> 
-                <ext:Column ID="cMainSaver" runat="server" Text="CÓDIGO MAINSAVER" Align="Left" Width="375"
+                <ext:Column ID="cMainSaver" runat="server" Text="CÓDIGO MAINSAVER" Align="Left" Width="375" Filterable="false"
                     DataIndex="CodigoMainSaver">  
                 </ext:Column>
-                <ext:Column ID="cDias" runat="server" Text="DIAS" Align="Left" Width="565"
+                <ext:Column ID="cDias" runat="server" Text="DIAS" Align="Left" Width="565" Filterable="false"
                     DataIndex="Dias">  
                     <Renderer Fn="cvDias_Renderer"></Renderer>
                 </ext:Column>

@@ -192,7 +192,7 @@
                 <ext:Store
                     ID="sOrdenesEstimaciones"
                     runat="server"
-                    PageSize="10" 
+                    PageSize="100" 
                     RemoteSort="true"
                     OnReadData="OnReadData_sOrdenesEstimaciones">
                     <Model>
@@ -452,16 +452,20 @@
                             <ext:Label ID="Label1" runat="server" Text="Tamaño página:" />
                             <ext:ToolbarSpacer ID="ToolbarSpacer1" runat="server" Width="10" />
                             <ext:ComboBox ID="ComboBox2" runat="server" Width="80">
-                                <Items>
+                                  <Items>
                                     <ext:ListItem Text="1" />
                                     <ext:ListItem Text="5" />
-                                    <ext:ListItem Text="10" />
-                                    <ext:ListItem Text="20" />
-                                    <ext:ListItem Text="40" />
-                                    <ext:ListItem Text="80" />
+                                    <ext:ListItem Text="15" />
+                                    <ext:ListItem Text="25" /> 
+                                    <ext:ListItem Text="50" />
+                                    <ext:ListItem Text="100" />
+                                    <ext:ListItem Text="200" />
+                                    <ext:ListItem Text="300" />
+                                    <ext:ListItem Text="500" />
+                                    <ext:ListItem Text="1000" />
                                 </Items>
                                 <SelectedItems>
-                                    <ext:ListItem Value="10" />
+                                    <ext:ListItem Value="100" />
                                 </SelectedItems>
                                 <Listeners>
                                     <Select Handler="#{gpOrdenesEstimaciones}.store.pageSize = parseInt(this.getValue(), 10); #{gpOrdenesEstimaciones}.store.reload();" />
