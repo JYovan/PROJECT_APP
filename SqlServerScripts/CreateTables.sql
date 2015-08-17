@@ -114,6 +114,10 @@ CREATE TABLE Sucursales(
 	InicioObra					DATE			NULL,
 	FinObra						DATE			NULL,
 	SemanasObra					SMALLINT		NULL,
+	TipoConcepto				VARCHAR(50)		NULL,
+	EmpresaSupervisora			VARCHAR(50)		NULL,
+	TipoObra					VARCHAR(50)		NULL,
+	Cliente						CHAR(8)			NULL FOREIGN KEY REFERENCES dbo.Clientes(ID),
 	FechaAlta					SMALLDATETIME	NULL,
 	Estatus						VARCHAR(50)		NULL
 )
