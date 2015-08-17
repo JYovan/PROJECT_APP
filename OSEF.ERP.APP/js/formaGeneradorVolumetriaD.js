@@ -363,9 +363,7 @@ var imgbtnAceptar_Click = function () {
     console.log(parseFloat(ImporteFinal));
 
 
-    wp.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Utilizada", parseFloat(ImporteFinal));
-    console.log('Guardando...');
-    console.log(wp.App.sConceptos);
+    wp.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Utilizada", parseFloat(ImporteFinal)); 
     wp.App.direct.imgbtnGuardarDirect_Click(strID, strVolumetriaD,
                  {
                      success: function () {

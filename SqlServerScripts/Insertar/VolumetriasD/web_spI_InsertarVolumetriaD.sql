@@ -40,7 +40,7 @@ BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-	SET @Cantidad = (SELECT SUM(gdv.Total) FROM GeneradorVolumetriaD gdv WHERE gdv.MovID = @Volumetria AND gdv.ConceptoID = @ConceptoID);
+	SET @Utilizada = (SELECT SUM(gdv.Total) FROM GeneradorVolumetriaD gdv WHERE gdv.MovID = @Volumetria AND gdv.ConceptoID = @ConceptoID);
 		-- Insert statements for procedure here
 		INSERT INTO
 			VolumetriasD

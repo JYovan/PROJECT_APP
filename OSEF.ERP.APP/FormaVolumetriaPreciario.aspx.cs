@@ -98,6 +98,7 @@ namespace OSEF.ERP.APP
             {
                 oVolumetria = VolumetriaBusiness.ObtenerVolumetriaPorID(Convert.ToInt32(strID));
                 List<VolumetriaD> lVolumetriaD = JSON.Deserialize<List<VolumetriaD>>(strVolumetriaD);
+                VolumetriaDBusiness.BorrarPorVolumetria(Convert.ToInt32(strID));
                 GuardarDetalleVolumetria(lVolumetriaD, oVolumetria);
             } 
         }
