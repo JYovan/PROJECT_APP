@@ -10,7 +10,7 @@
 namespace OSEF.AVANCES.SUCURSALES {
     
     
-    public partial class FormaAccesosMenu {
+    public partial class FormaModulo {
         
         /// <summary>
         /// Control Head1.
@@ -22,76 +22,85 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// Control Form1.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control rmAccesoMenu.
+        /// Control rmCuadrilla.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ResourceManager rmAccesoMenu;
+        protected global::Ext.Net.ResourceManager rmCuadrilla;
         
         /// <summary>
-        /// Control GridPanel1.
+        /// Control fpCuadrillas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.GridPanel GridPanel1;
+        protected global::Ext.Net.FormPanel fpCuadrillas;
         
         /// <summary>
-        /// Control sAccesos.
+        /// Control Panel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Store sAccesos;
+        protected global::Ext.Net.Panel Panel1;
         
         /// <summary>
-        /// Control Model1.
+        /// Control FieldContainer2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Model Model1;
+        protected global::Ext.Net.FieldContainer FieldContainer2;
         
         /// <summary>
-        /// Control cNombre.
+        /// Control txtID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Column cNombre;
+        protected global::Ext.Net.TextField txtID;
         
         /// <summary>
-        /// Control chkPermiso.
+        /// Control FieldContainer3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.CheckColumn chkPermiso;
+        protected global::Ext.Net.FieldContainer FieldContainer3;
         
         /// <summary>
-        /// Control chkTodos.
+        /// Control txtNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Checkbox chkTodos;
+        protected global::Ext.Net.TextField txtNombre;
+        
+        /// <summary>
+        /// Control imgbtnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.ImageButton imgbtnGuardar;
         
         /// <summary>
         /// Control imgbtnCancelar.
@@ -103,12 +112,12 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.ImageButton imgbtnCancelar;
         
         /// <summary>
-        /// Control imgbtnGuardar.
+        /// Control sbProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ImageButton imgbtnGuardar;
+        protected global::Ext.Net.StatusBar sbProveedor;
     }
 }

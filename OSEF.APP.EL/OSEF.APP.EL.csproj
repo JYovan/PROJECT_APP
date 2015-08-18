@@ -62,6 +62,7 @@
     <Compile Include="ImagenRevisionD.cs" />
     <Compile Include="ImagenVolumetriaD.cs" />
     <Compile Include="MesaDeReporte.cs" />
+    <Compile Include="Modulo.cs" />
     <Compile Include="Municipio.cs" />
     <Compile Include="OrdenEstimacion.cs" />
     <Compile Include="OrdenEstimacionD.cs" />

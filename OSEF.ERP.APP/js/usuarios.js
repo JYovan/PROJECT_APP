@@ -235,9 +235,10 @@ var gpUsuarios_ItemClick = function () {
 //Lanzar algun comando de la lista de opciones
 var ccOpciones_Command = function (opciones, comando, registro, indice) {
     if (comando == 'AccesoModulos') {
+        Ext.util.Cookies.set('cEditarUxM', registro.data.ID);
         window.parent.App.wEmergente.load('FormaAccesoMenus.aspx');
-        window.parent.App.wEmergente.setHeight(351);
-        window.parent.App.wEmergente.setWidth(520);
+        window.parent.App.wEmergente.setHeight(400);
+        window.parent.App.wEmergente.setWidth(670);
         window.parent.App.wEmergente.center();
         window.parent.App.wEmergente.setTitle('Accesos a modulos: ' + registro.data.ID);
         window.parent.App.wEmergente.show();
@@ -291,4 +292,57 @@ var cmbEstatusFiltro_Select = function (combobox, registro) {
             }
         });
     }
+};
+
+var showSuccess = function () {
+
+};
+
+var getUpdatedRecords = function () {
+
+    var store = App.sAccesos;
+    var editedRecords = store.getUpdatedRecords();
+    var encodedupdaterecords;
+    var xudata = [];
+    if (editedRecords.length > 0 || editedRecords != null) {
+        for (i = 0; i < editedRecords.length; i++) {
+            xudata.push(editedRecords[i].data);
+        }
+        if (xudata.length > 0) {
+            encodedupdaterecords = Ext.encode(xudata);
+            return encodedupdaterecords;
+        } else {
+            return 0;
+        }
+    }
+};
+var onSubmitData = function () {
+    App.sAccesos.reload();
+    Ext.Msg.show({
+        id: 'msgPermisos',
+        title: 'EXITO',
+        msg: "PERMISOS GUARDADOS.",
+        buttons: Ext.MessageBox.OK,
+        onEsc: Ext.emptyFn,
+        closable: false,
+        icon: Ext.MessageBox.Success
+    });
+}
+
+
+var setCheckedAllRecords_Permision = function (avance, registro, index) {
+    App.sAccesos.each(function (record) {
+        App.chkTodos.getValue() ? record.set('Permiso', true) : record.set('Permiso', false);
+    });
+}
+
+//Evento de click del botón Editar
+var imgbtnNuevoModulo = function () {
+    var wp = window.parent.App.wSubModulo;
+    wp.load('FormaModulo.aspx');
+    wp.setHeight(180);
+    wp.setWidth(670);
+    wp.center();
+    wp.setTitle('Nuevo Modulo');
+    wp.show();
 };

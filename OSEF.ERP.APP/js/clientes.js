@@ -163,10 +163,12 @@ var gpBuscaClientes_ItemDblClick = function (gridview, registro, gvhtml, index) 
     var wp = window.parent.App.wEmergente.getBody();
     wp.App.IdCliente.setValue(App.sClientes.getAt(index).get('ID'));
     wp.App.txtCliente.setValue(App.sClientes.getAt(index).get('Nombre'));
-    wp.App.cmbPreciario.setValue('');
-    wp.App.txtfDescripcionPreciario.setValue('');
-    wp.App.txtfIDSucursal.setValue('');
-    wp.App.txtfSucursalNombre.setValue('');
+    if (wp.App.cmbPreciario != undefined) {
+        wp.App.cmbPreciario.setValue('');
+        wp.App.txtfDescripcionPreciario.setValue('');
+        wp.App.txtfIDSucursal.setValue('');
+        wp.App.txtfSucursalNombre.setValue('');
+    }
     wp.App.imgbtnGuardar.setDisabled(true);
     window.parent.App.wAyudaConcepto.hide();
 };
