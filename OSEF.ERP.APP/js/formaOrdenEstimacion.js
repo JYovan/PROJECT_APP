@@ -657,7 +657,7 @@ var imgbtnCancelar_Click_Success = function (response, result) {
     App.imgbtnImprimir.setDisabled(true);
 
     App.imgbtnAfectar.setDisabled(true);
-
+    App.imgbtnGuardar.setDisabled(true);
     App.chkBoxOrdenCompra.setDisabled(true);
 
     window.parent.App.wEmergente.setTitle('Movimiento Cancelado');

@@ -263,7 +263,6 @@
     <Content Include="CodigosPostales.aspx" />
     <Content Include="Colonias.aspx" />
     <Content Include="Conceptos.aspx" />
-    <Content Include="ConsultarPreciario.aspx" />
     <Content Include="css\customControls.css" />
     <Content Include="css\login.css" />
     <Content Include="css\metroButtons.css" />
@@ -305,7 +304,6 @@
     <Content Include="fancylibs\jquery.fancybox.js" />
     <Content Include="fancylibs\jquery.fancybox.pack.js" />
     <Content Include="FormaAccesoMenus.aspx" />
-    <Content Include="FormaAccesoSucursales.aspx" />
     <Content Include="FormaAvance.aspx" />
     <Content Include="FormaAvanzarOrdenEstimacion.aspx" />
     <Content Include="FormaAvanzarVolumetria.aspx" />
@@ -340,7 +338,6 @@
     <Content Include="FormaOrdenEstimacion.aspx" />
     <Content Include="FormaPreciario.aspx" />
     <Content Include="FormaPreciarioGeneral.aspx" />
-    <Content Include="FormaPreciarioGeneralExplorador.aspx" />
     <Content Include="FormaReporteEstimacion.aspx" />
     <Content Include="FormaReporteOrdenCambioD.aspx" />
     <Content Include="FormaSubirCroquisOrdenEstimacion.aspx" />
@@ -382,7 +379,6 @@
     <Content Include="js\codigosfallas.js" />
     <Content Include="js\colonias.js" />
     <Content Include="js\conceptos2.js" />
-    <Content Include="js\consultarPreciario.js" />
     <Content Include="js\cuadrillas.js" />
     <Content Include="js\exploradorConceptoPreciarioGeneral.js" />
     <Content Include="js\exploradorMesaDeReporte.js" />
@@ -509,13 +505,6 @@
     <Compile Include="Conceptos.aspx.designer.cs">
       <DependentUpon>Conceptos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarPreciario.aspx.cs">
-      <DependentUpon>ConsultarPreciario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ConsultarPreciario.aspx.designer.cs">
-      <DependentUpon>ConsultarPreciario.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Cuadrillas.aspx.cs">
       <DependentUpon>Cuadrillas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -564,13 +553,6 @@
     </Compile>
     <Compile Include="FormaAccesoMenus.aspx.designer.cs">
       <DependentUpon>FormaAccesoMenus.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FormaAccesoSucursales.aspx.cs">
-      <DependentUpon>FormaAccesoSucursales.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FormaAccesoSucursales.aspx.designer.cs">
-      <DependentUpon>FormaAccesoSucursales.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormaAvance.aspx.cs">
       <DependentUpon>FormaAvance.aspx</DependentUpon>
@@ -809,13 +791,6 @@
     </Compile>
     <Compile Include="FormaPreciarioGeneral.aspx.designer.cs">
       <DependentUpon>FormaPreciarioGeneral.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FormaPreciarioGeneralExplorador.aspx.cs">
-      <DependentUpon>FormaPreciarioGeneralExplorador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FormaPreciarioGeneralExplorador.aspx.designer.cs">
-      <DependentUpon>FormaPreciarioGeneralExplorador.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormaReporteEstimacion.aspx.cs">
       <DependentUpon>FormaReporteEstimacion.aspx</DependentUpon>

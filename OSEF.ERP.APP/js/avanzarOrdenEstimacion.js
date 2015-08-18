@@ -85,6 +85,7 @@ function HabilitarControlesAvanzar() {
     window.parent.App.txtfObservaciones.setReadOnly(false);
     window.parent.App.imgbtnGuardar.setDisabled(false);
     window.parent.App.imgbtnBorrar.setDisabled(false);
+    window.parent.App.imgbtnCancelar.setDisabled(true);
     window.parent.App.chkAtendido.setReadOnly(false);
 
     window.parent.App.IdCliente.setDisabled(false);
