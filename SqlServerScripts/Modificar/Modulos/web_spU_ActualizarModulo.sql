@@ -18,26 +18,29 @@ GO
 -- =============================================
 IF EXISTS (	SELECT name 
 			FROM sysobjects
-			WHERE  name = 'web_spS_ObtenerModulosXUsuario' AND
+			WHERE  name = 'web_spU_ActualizarModulo' AND
 			TYPE = 'P')
-	DROP PROCEDURE web_spS_ObtenerModulosXUsuario
+	DROP PROCEDURE web_spU_ActualizarModulo
 GO
 -- =============================================
 -- Author:		Giovanni Flores
--- Create date: Viernes 20 de Febrero de 2014
--- Description:	Obtener los registros de modulos
+-- Create date: 01 Agosto 2015
+-- Description:	Actualizar un registro de Modulo por su ID
 -- =============================================
-CREATE PROCEDURE web_spS_ObtenerModulosXUsuario
-	-- Add the parameters for the stored procedure here 
-	@ID VARCHAR(50)
+CREATE PROCEDURE web_spU_ActualizarModuloXUsuario
+	-- Add the parameters for the stored procedure here
+	@ID INT, @UsuarioID VARCHAR(50), @ModuloID VARCHAR(50), @Permiso BIT
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
-	SET NOCOUNT ON; 
-    -- Insert statements for procedure here
-	SELECT        uxm.ID, u.ID AS UsuarioID, m.ID AS ModuloID, m.Nombre, uxm.Permiso
-	FROM          dbo.Usuarios AS u INNER JOIN dbo.UsuarioXModulo AS uxm ON u.ID = uxm.UsuarioID INNER JOIN dbo.Modulos AS m ON uxm.ModuloID = m.ID
-	WHERE        (u.ID =@ID );
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here 
+	UPDATE [dbo].[UsuarioXModulo]
+	   SET [UsuarioID] =@UsuarioID
+		  ,[ModuloID] =  @ModuloID
+		  ,[Permiso] =  @Permiso
+	 WHERE [ID] = @ID;
 END
 GO

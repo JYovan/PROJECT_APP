@@ -62,6 +62,7 @@
     <Compile Include="ImagenRevisionDDataAccess.cs" />
     <Compile Include="ImagenVolumetriaDDataAccess.cs" />
     <Compile Include="MesaDeReporteDataAccess.cs" />
+    <Compile Include="ModuloDataAccess.cs" />
     <Compile Include="MunicipioDataAccess.cs" />
     <Compile Include="OrdenEstimacionDataAccess.cs" />
     <Compile Include="OrdenEstimacionDDataAccess.cs" />

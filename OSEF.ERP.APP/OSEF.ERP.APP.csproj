@@ -264,6 +264,7 @@
     <Content Include="Colonias.aspx" />
     <Content Include="Conceptos.aspx" />
     <Content Include="ConsultarPreciario.aspx" />
+    <Content Include="FormaModulo.aspx" />
     <Content Include="css\customControls.css" />
     <Content Include="css\login.css" />
     <Content Include="css\metroButtons.css" />
@@ -515,6 +516,13 @@
     </Compile>
     <Compile Include="ConsultarPreciario.aspx.designer.cs">
       <DependentUpon>ConsultarPreciario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormaModulo.aspx.cs">
+      <DependentUpon>FormaModulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormaModulo.aspx.designer.cs">
+      <DependentUpon>FormaModulo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cuadrillas.aspx.cs">
       <DependentUpon>Cuadrillas.aspx</DependentUpon>
