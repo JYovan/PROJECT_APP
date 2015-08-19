@@ -26,28 +26,35 @@
                         <!-- Primer pagina  Programa -->
                         <div class="panorama-section">
                             <h2>Programa</h2>
+
                             <div class="tile-column-span-2">
+                            
+                            <div id="Avances">
                                  <a class="tile widepeek" id="avances" href="#">
                                     <div class="tile wide image">
                                         <img src="assets/img/revisiones.png" alt="Revisiones" />
                                         <div class="text-header">Avances</div>
                                     </div>
                                 </a>
+                             </div>
 
-                             <a class="tile square image bg-color-yellow" id="gantt" href="#">
-                                    <img src="assets/img/menu-gantt.png" alt="Gantt" />
-                                    <div class="textover-wrapper transparent">
-                                        <div class="text2">Programa Obra</div>
-                                    </div>
-                                </a>
-                                 
+                             <div id="pObra">
+                                 <a class="tile square image bg-color-yellow" id="gantt" href="#">
+                                        <img src="assets/img/menu-gantt.png" alt="Gantt" />
+                                        <div class="textover-wrapper transparent">
+                                            <div class="text2">Programa Obra</div>
+                                        </div>
+                                  </a>
+                              </div>
+                              <div id="Monitor">
                                  <a class="tile square image bg-color-green" id="lPlantas" 
                                  href="" target="_blank">
                                     <img src="assets/img/menu-preciariosG.png" alt="Gantt" />
                                     <div class="textover-wrapper transparent">
                                         <div class="text2">Monitor</div>
                                     </div>
-                                </a> 
+                                </a>
+                               </div>
                             </div>  
                         </div>
                         <!-- Fin Primer pagina  -->

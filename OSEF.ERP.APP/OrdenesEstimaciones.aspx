@@ -286,10 +286,9 @@
                                 ValueField="ID" 
                                 ForceSelection="true"
                                 Editable="true"
-                                 MatchFieldWidth="true"
-                            QueryMode="Local"
-                            TypeAhead="true"
-                                >
+                                MatchFieldWidth="true"
+                                QueryMode="Local"
+                                TypeAhead="true">
                                 <Items>
                                     <ext:ListItem Index="0" Text="(Todos)" Value="Todos" />
                                 </Items>
@@ -298,6 +297,7 @@
                                 </SelectedItems>
                                 <Listeners>
                                     <Select Fn="cmbSucursalFiltro_Select" />
+                                    <Change Fn="cmbSucursalFiltro_Select" />
                                 </Listeners>
                                 <Store>
                                     <ext:Store

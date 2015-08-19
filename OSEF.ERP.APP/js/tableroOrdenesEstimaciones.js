@@ -183,17 +183,14 @@ var cmbEstatusFiltro_Select = function (combobox, registro) {
 //Evento que hace el filtro al seleccionar algun elemento
 var cmbSucursalFiltro_Select = function (combobox, registro) {
     //1. Obtener el valor
-    var valor = registro[0].get('ID');
-
-    //2. Validar si es todos o hacer el filtro, sino si hace el filtro por Sucursal
-    if (valor == 'Todos') {
+    var valor = combobox.rawValue;
+    //2. Validar si es todos o hacer el filtro, sino si hace el filtro por Sucursal 
+    if (valor == '(Todos)' || valor.toString().trim() ==='') {
         App.sOrdenesEstimaciones.clearFilter();
-    }
-    else {
+    } else {
         App.sOrdenesEstimaciones.filterBy(function (elemento) {
-
-            if (elemento.get('Sucursal') == valor) {
-                return true
+            if (elemento.data.Sucursal == valor) {
+                return true;
             }
             else {
                 return false;
