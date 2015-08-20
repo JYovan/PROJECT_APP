@@ -718,6 +718,19 @@ var ccConcepto_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
 //Validaciones de comandos para fotos
 var ccFotos_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
 
+
+    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar fotos 
+    if (Ext.util.Cookies.get('cookieEditarVolumetria') == 'Nuevo' && App.sVolumetria.getAt(0) == undefined) {
+
+        //Toma el primer elemento de la columna para poder desabilitarlo
+        var botonCargar2 = toolbar.items.get(0);
+        var botonVerFotos2 = toolbar.items.get(1);
+        botonCargar2.setDisabled(true);
+        botonVerFotos2.setDisabled(true);
+        botonCargar2.setTooltip("Debes de guardar el movimiento antes");
+        botonVerFotos2.setTooltip("Debes de guardar el movimiento antes");
+    }
+
     //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de ver fotos
     if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'CONCLUIDO') {
 
@@ -736,17 +749,7 @@ var ccFotos_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
         botonCargar.setTooltip("No se pueden cargar fotos a un movimiento cancelado");
     }
 
-    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar fotos 
-    if (Ext.util.Cookies.get('cookieEditarVolumetria') == 'Nuevo' && App.sVolumetria.getAt(0) == undefined) {
-
-        //Toma el primer elemento de la columna para poder desabilitarlo
-        var botonCargar2 = toolbar.items.get(0);
-        var botonVerFotos2 = toolbar.items.get(1);
-        botonCargar2.setDisabled(true);
-        botonVerFotos2.setDisabled(true);
-        botonCargar2.setTooltip("Debes de guardar el movimiento antes");
-        botonVerFotos2.setTooltip("Debes de guardar el movimiento antes");
-    }
+  
 
     //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar y ver fotos
     if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'BORRADOR') {
@@ -1098,7 +1101,7 @@ var onResult_From_Direct = function () {
 
 //Render column
 var cCheckCroquis_Renderer = function (value, metadata, registro) {
-    console.log(registro);
+   
     if (registro.get('Croquis') > 0 && registro.get('ConceptoID').trim().length > 0) {
         metadata.style = "background-color: #669900; color: #fff;";
     } else {
@@ -1111,55 +1114,65 @@ var cCheckCroquis_Renderer = function (value, metadata, registro) {
 //Validaciones de comandos para croquis
 var ccCroquis_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
 
-    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de ver fotos
-    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'CONCLUIDO') {
 
-        //Toma el primer elemento de la columna para poder desabilitarlo
-        var botonCargar = toolbar.items.get(0);
-        botonCargar.setDisabled(true);
-        botonCargar.setTooltip("No se pueden cargar croquis a un movimiento concluido");
-    }
 
-    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de ver fotos
-    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'CANCELADO') {
+        //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de ver fotos
+        if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'CONCLUIDO') {
 
-        //Toma el primer elemento de la columna para poder desabilitarlo
-        var botonCargar = toolbar.items.get(0);
-        botonCargar.setDisabled(true);
-        botonCargar.setTooltip("No se pueden cargar croquis a un movimiento cancelado");
-    }
+            //Toma el primer elemento de la columna para poder desabilitarlo
+            var botonCargar = toolbar.items.get(0);
+            botonCargar.setDisabled(true);
+            botonCargar.setTooltip("No se pueden cargar croquis a un movimiento concluido");
+        }
 
-    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar fotos 
-    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') == 'Nuevo' && App.sVolumetria.getAt(0) == undefined) {
+        //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de ver fotos
+        if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'CANCELADO') {
 
-        //Toma el primer elemento de la columna para poder desabilitarlo
-        var botonCargar2 = toolbar.items.get(0);
-        var botonVerFotos2 = toolbar.items.get(1);
-        botonCargar2.setDisabled(true);
-        botonVerFotos2.setDisabled(true);
-        botonCargar2.setTooltip("Debes de guardar el movimiento antes");
-        botonVerFotos2.setTooltip("Debes de guardar el movimiento antes");
-    }
+            //Toma el primer elemento de la columna para poder desabilitarlo
+            var botonCargar = toolbar.items.get(0);
+            botonCargar.setDisabled(true);
+            botonCargar.setTooltip("No se pueden cargar croquis a un movimiento cancelado");
+        }
 
-    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar conceptos 
-    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sVolumetria.getAt(0).get('Mov').trim() == 'Estimacion') {
 
-        //Toma el primer elemento de la columna para poder desabilitarlo
-        var botonCargar2 = toolbar.items.get(0);
-        botonCargar2.setDisabled(true);
-    }
 
-    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar y ver fotos
-    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'BORRADOR') {
+        //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar conceptos 
+        if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && App.sVolumetria.getAt(0).get('Mov').trim() == 'Estimacion') {
 
-        //Toma el primer elemento de la columna para poder desabilitarlo
-        var botonCargar2 = toolbar.items.get(0);
-        var botonVerFotos2 = toolbar.items.get(1);
-        botonCargar2.setDisabled(false);
-        botonVerFotos2.setDisabled(false);
-        botonCargar2.setTooltip("Cargar Croquis");
-        botonVerFotos2.setTooltip("Ver Croquis");
-    }
+            //Toma el primer elemento de la columna para poder desabilitarlo
+            var botonCargar2 = toolbar.items.get(0);
+            botonCargar2.setDisabled(true);
+        }
+
+        //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar y ver fotos
+        if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'BORRADOR') {
+
+            //Toma el primer elemento de la columna para poder desabilitarlo
+            var botonCargar2 = toolbar.items.get(0);
+            var botonVerFotos2 = toolbar.items.get(1);
+            botonCargar2.setDisabled(false);
+            botonVerFotos2.setDisabled(false);
+            botonCargar2.setTooltip("Cargar Croquis");
+            botonVerFotos2.setTooltip("Ver Croquis");
+        }
+    
+   
+        //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar fotos 
+        if (Ext.util.Cookies.get('cookieEditarVolumetria') == 'Nuevo' && App.sVolumetria.getAt(0) == undefined) {
+    
+            //Toma el primer elemento de la columna para poder desabilitarlo
+            var botonCargar2 = toolbar.items.get(0);
+            var botonVerFotos2 = toolbar.items.get(1);
+            botonCargar2.setDisabled(true);
+            botonVerFotos2.setDisabled(true);
+            botonCargar2.setTooltip("Debes de guardar el movimiento antes");
+            botonVerFotos2.setTooltip("Debes de guardar el movimiento antes");
+        }
+
+    
+
+
+
 };
 
 //Lo que hace el comando de croquis

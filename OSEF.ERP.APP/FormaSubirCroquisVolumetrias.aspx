@@ -111,7 +111,7 @@
                             FileQueueLimit="1"--%>
 
                             <Button>
-                                <ext:Button ID="btnSubirImagenesVolumetria" Icon="CameraAdd" runat="server" Text="Seleccionar..." ToolTip="Subir imagenes" />
+                                <ext:Button ID="btnSubirImagenesVolumetria"  runat="server" Text="Subir..." ToolTip="Subir imagenes" />
                             </Button>
                             <Listeners>
                        
@@ -131,8 +131,8 @@
                         <ext:Button
                             ID="btnIniciar"
                             runat="server"
-                            Text="Subir"
-                            Icon="CameraGo"
+                            Text="Iniciar"
+                             Icon="Tick"
                             Handler="#{muSubirImagenesVolumetria}.startUpload(); onUploadImages();" />
                         <ext:Button
                             ID="btnCancelar"

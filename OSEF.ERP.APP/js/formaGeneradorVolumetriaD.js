@@ -360,7 +360,7 @@ var imgbtnAceptar_Click = function () {
     var strVolumetriaD = Ext.encode(wp.App.sConceptos.getRecordsValues());
     var strID = IDVolumetria();
 
-    console.log(parseFloat(ImporteFinal));
+
 
 
     wp.App.sConceptos.getAt(Ext.util.Cookies.get('cookieRenglonVolumetriaD')).set("Utilizada", parseFloat(ImporteFinal)); 

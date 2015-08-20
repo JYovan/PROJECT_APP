@@ -698,8 +698,7 @@
                                              <ext:CommandColumn
                                                 ID="ccGenerador"
                                                 runat="server"
-                                                Text="Generador"
-                                                Width="60">
+                                                Width="25">
                                                 <PrepareToolbar Fn="ccDimensiones_PrepareToolbar" />
                                                 <Commands>
                                                
@@ -719,7 +718,7 @@
                                             <ext:Column 
                                             ID="SpaceColumn" 
                                             runat="server" 
-                                            Width="10">
+                                            Width="80">
                                             
                                             </ext:Column>
 
