@@ -114,6 +114,21 @@ namespace OSEF.APP.DL
                 sqlpRutaLogo.SqlDbType = SqlDbType.VarChar;
                 sqlpRutaLogo.Value = iCliente.RutaLogo;
 
+                SqlParameter sqlpElaboro = new SqlParameter();
+                sqlpElaboro.ParameterName = "@Elaboro";
+                sqlpElaboro.SqlDbType = SqlDbType.VarChar;
+                sqlpElaboro.Value = iCliente.Elaboro;
+
+                SqlParameter sqlpReviso = new SqlParameter();
+                sqlpReviso.ParameterName = "@Reviso";
+                sqlpReviso.SqlDbType = SqlDbType.VarChar;
+                sqlpReviso.Value = iCliente.Reviso;
+
+                SqlParameter sqlpAutorizo = new SqlParameter();
+                sqlpAutorizo.ParameterName = "@Autorizo";
+                sqlpAutorizo.SqlDbType = SqlDbType.VarChar;
+                sqlpAutorizo.Value = iCliente.Autorizo;
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpNombre);
@@ -131,6 +146,9 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpEstatus);
                 sqlcComando.Parameters.Add(sqlpUsuario);
                 sqlcComando.Parameters.Add(sqlpRutaLogo);
+                sqlcComando.Parameters.Add(sqlpElaboro);
+                sqlcComando.Parameters.Add(sqlpReviso);
+                sqlcComando.Parameters.Add(sqlpAutorizo);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
@@ -250,6 +268,22 @@ namespace OSEF.APP.DL
                 sqlpRutaLogo.SqlDbType = SqlDbType.VarChar;
                 sqlpRutaLogo.Value = uCliente.RutaLogo;
 
+                SqlParameter sqlpElaboro = new SqlParameter();
+                sqlpElaboro.ParameterName = "@Elaboro";
+                sqlpElaboro.SqlDbType = SqlDbType.VarChar;
+                sqlpElaboro.Value = uCliente.Elaboro;
+
+                SqlParameter sqlpReviso = new SqlParameter();
+                sqlpReviso.ParameterName = "@Reviso";
+                sqlpReviso.SqlDbType = SqlDbType.VarChar;
+                sqlpReviso.Value = uCliente.Reviso;
+
+                SqlParameter sqlpAutorizo = new SqlParameter();
+                sqlpAutorizo.ParameterName = "@Autorizo";
+                sqlpAutorizo.SqlDbType = SqlDbType.VarChar;
+                sqlpAutorizo.Value = uCliente.Autorizo;
+
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpNombre);
@@ -268,6 +302,9 @@ namespace OSEF.APP.DL
                 //sqlcComando.Parameters.Add(sqlpMunicipio);
                 sqlcComando.Parameters.Add(sqlpEstatus);
                 sqlcComando.Parameters.Add(sqlpRutaLogo);
+                sqlcComando.Parameters.Add(sqlpElaboro);
+                sqlcComando.Parameters.Add(sqlpReviso);
+                sqlcComando.Parameters.Add(sqlpAutorizo);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

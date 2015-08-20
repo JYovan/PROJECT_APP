@@ -40,7 +40,7 @@
         <ext:ResourceManager ID="rmFormaPreciarioGeneral" runat="server" HideInDesign="true" />
        
         <ext:Store
-            ID="sPreciarioGeneral"
+            ID="sPreciarioGeneral" 
             runat="server">
             <Model>
                 <ext:Model
@@ -96,7 +96,7 @@
                             Width="30"
                             Disabled="true">
                             <DirectEvents>
-                                <Click OnEvent="imgbtnGuardar_Click" Success="App.imgbtnGuardar.setDisabled(false);">
+                                <Click OnEvent="imgbtnGuardar_Click" Success="onSuccess">
                                     <EventMask ShowMask="true" Msg="Registrando información..." />
                                     <ExtraParams>
                                         <ext:Parameter Name="registro" Value="Ext.encode(this.up('form').getForm().getValues(false, false, false, true))" Mode="Raw" />

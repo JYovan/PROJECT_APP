@@ -55,7 +55,7 @@ BEGIN
 		--Datos del concepto
 		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,OED.Unidad,PGCAT.Descripcion DescripcionPreGenCat,
 		--Datos del cliente
-		cli.ID ClienteID, cli.RutaLogo
+		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo
 		FROM OrdenesEstimaciones OE 
 		--Detalle del movimiento
 		LEFT JOIN OrdenesEstimacionesD OED

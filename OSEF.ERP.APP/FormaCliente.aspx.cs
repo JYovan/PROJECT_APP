@@ -105,6 +105,15 @@ namespace OSEF.ERP.APP
                     case "cmbEstatus":
                         oCliente.Estatus = sd.Value;
                         break;
+                    case "txtElaboro":
+                        oCliente.Elaboro = sd.Value.ToString().Trim().Length > 0 ? sd.Value : "";
+                        break;
+                    case "txtReviso":
+                        oCliente.Reviso = sd.Value.ToString().Trim().Length > 0 ? sd.Value : "";
+                        break;
+                    case "txtAutorizo":
+                        oCliente.Autorizo = sd.Value.ToString().Trim().Length > 0 ? sd.Value : "";
+                        break;
                 }
             }
 
@@ -251,7 +260,10 @@ namespace OSEF.ERP.APP
                 Usuario = oCliente.Usuario,
                 FechaAlta = oCliente.FechaAlta,
                 Estatus = oCliente.Estatus,
-                RutaLogo = oCliente.RutaLogo
+                RutaLogo = oCliente.RutaLogo,
+                Elaboro = oCliente.Elaboro,
+                Reviso = oCliente.Reviso,
+                Autorizo = oCliente.Autorizo
             });
           
 

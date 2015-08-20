@@ -42,7 +42,10 @@ CREATE PROCEDURE web_spU_ActualizarCliente
 	@CodigoPostal			CHAR(10),
 	@EntreCalles			VARCHAR(100), 
 	@Estatus				VARCHAR(20),
-	@RutaLogo				VARCHAR(500)
+	@RutaLogo				VARCHAR(500),
+	@Elaboro				VARCHAR(100),
+	@Reviso					VARCHAR(100),
+	@Autorizo				VARCHAR(100)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -65,7 +68,10 @@ BEGIN
 		CodigoPostal = @CodigoPostal,
 		EntreCalles = @EntreCalles, 
 		Estatus = @Estatus,
-		RutaLogo = @RutaLogo
+		RutaLogo = @RutaLogo,
+		Elaboro = @Elaboro,
+		Reviso = @Reviso,
+		Autorizo = @Autorizo
 	WHERE
 		ID = @ID
 END

@@ -48,7 +48,7 @@ BEGIN
 		GOD.Eje,GOD.EntreEje1,GOD.EntreEje2,GOD.Area,GOD.Ancho,GOD.Largo,GOD.Alto,GOD.Total,GOD.Cantidad CANT_GEN,GOD.Descripcion, GOD.Plano,
 
 		--Encabezado del movimiento(No del reporte)
-		cli.ID ClienteID, cli.RutaLogo
+		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo
 		FROM OrdenesEstimaciones OE
 		--Detalle del movimiento
 		LEFT JOIN OrdenesEstimacionesD OED

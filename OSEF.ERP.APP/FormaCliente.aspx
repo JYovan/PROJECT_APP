@@ -61,6 +61,9 @@
                         <ext:ModelField Name="FechaAlta" Type="Date" />
                         <ext:ModelField Name="Estatus" Type="String" />
                         <ext:ModelField Name="RutaLogo" Type="String" />
+                        <ext:ModelField Name="Elaboro" Type="String" />
+                        <ext:ModelField Name="Reviso" Type="String" />
+                        <ext:ModelField Name="Autorizo" Type="String" />
                     </Fields>
                 </ext:Model>
             </Model>
@@ -320,7 +323,7 @@
                                                     </ext:TextField>
                                                 </Items>
                                             </ext:FieldContainer> 
-                                            <%--<ext:FieldContainer 
+                                            <ext:FieldContainer 
                                                 ID="FieldContainer1" 
                                                 runat="server" 
                                                 FieldLabel="Firmas"
@@ -330,7 +333,7 @@
                                                 Disabled="false">
                                                 <Items>  
                                                     <ext:TextField
-                                                        ID="txtFirmaInicial"
+                                                        ID="txtElaboro"
                                                         runat="server"
                                                         Width="215"
                                                         Editable="false"
@@ -341,7 +344,7 @@
                                                         AllowBlank="false">
                                                     </ext:TextField>
                                                     <ext:TextField
-                                                        ID="txtFirmaCentral"
+                                                        ID="txtReviso"
                                                         runat="server"
                                                         Width="215"
                                                         Editable="false"
@@ -352,7 +355,7 @@
                                                         AllowBlank="false">
                                                     </ext:TextField>
                                                     <ext:TextField
-                                                        ID="txtFirmaCentral"
+                                                        ID="txtAutorizo"
                                                         runat="server"
                                                         Width="215"
                                                         Editable="false"
@@ -362,7 +365,7 @@
                                                         AllowBlank="false">
                                                     </ext:TextField>
                                                 </Items>
-                                              </ext:FieldContainer>--%>
+                                              </ext:FieldContainer>
                                             
                                             <ext:FieldContainer 
                                                 ID="fbtnBuscarSucursal" 

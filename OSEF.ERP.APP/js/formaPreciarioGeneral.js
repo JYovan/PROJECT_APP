@@ -517,3 +517,12 @@ var btnBuscar_Cliente = function () {
     win.setTitle('BUSQUEDA DE CLIENTES');
     win.show();
 }
+
+var onSuccess = function () {
+    App.imgbtnGuardar.setDisabled(false);
+    App.sCarga.reload({
+        callback: function () { 
+            App.sCarga.insert(App.sCarga.getCount(), { CLAVE: "" });
+        }
+    });
+};

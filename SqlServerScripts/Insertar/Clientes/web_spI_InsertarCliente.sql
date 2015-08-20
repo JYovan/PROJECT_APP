@@ -44,7 +44,10 @@ CREATE PROCEDURE web_spI_InsertarCliente
 	@FechaAlta				SMALLDATETIME,
 	@Estatus				VARCHAR(20),
 	@Usuario				VARCHAR(50),
-	@RutaLogo				VARCHAR(500)
+	@RutaLogo				VARCHAR(500),
+	@Elaboro				VARCHAR(100),
+	@Reviso					VARCHAR(100),
+	@Autorizo				VARCHAR(100)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -109,7 +112,10 @@ BEGIN
 				Estatus,
 				Usuario,
 				RutaLogo,
-				CodigoPostal
+				CodigoPostal,
+				Elaboro,
+				Reviso,
+				Autorizo
 			)
 		VALUES 
 			(
@@ -128,7 +134,10 @@ BEGIN
 				@Estatus,
 				@Usuario,
 				@RutaLogo,
-				@CodigoPostal
+				@CodigoPostal,
+				@Elaboro,
+				@Reviso,
+				@Autorizo
 			)
 END
 GO

@@ -36,39 +36,14 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT
-		ID,
-		Mov,
-		MovID,
-		Sucursal,
-		FechaEmision,
-		Observaciones,
-		Estatus,
-		Usuario,
-		Origen,
-		OrigenID,
-		Reporte,
-		Division,
-		FechaOrigen,
-		FechaMaximaAtencion,
-		DiasAtencion,
-		Reporto,
-		TrabajoRequerido,
-		TrabajoRealizado,
-		CodigoFalla,
-		FechaLlegada,
-		HoraLlegada,
-		FechaFinActividad,
-		HoraFinActividad,
-		Cuadrilla,
-		ImporteTotal,
-		HoraOrigen,
-		RutaImagen,
-		Atendido,
-		Cliente
-	FROM
-		OrdenesEstimaciones
-	WHERE 
-	 Mov in('Mesa de reporte','Estimacion');
+	SELECT        OE.ID, OE.Mov, OE.MovID, OE.FechaEmision, OE.Observaciones, OE.Estatus, OE.Usuario, OE.Origen, OE.OrigenID, OE.Reporte, OE.Division, OE.FechaOrigen, 
+                         OE.FechaMaximaAtencion, OE.DiasAtencion, OE.Reporto, OE.TrabajoRequerido, OE.TrabajoRealizado, OE.CodigoFalla, OE.FechaLlegada, OE.HoraLlegada, 
+                         OE.FechaFinActividad, OE.HoraFinActividad, OE.ImporteTotal, OE.HoraOrigen, OE.RutaImagen, OE.Atendido, dbo.Sucursales.Nombre AS Sucursal, 
+                         dbo.Cuadrillas.Nombre AS Cuadrilla, dbo.Clientes.Nombre AS Cliente
+FROM            dbo.OrdenesEstimaciones AS OE INNER JOIN
+                         dbo.Sucursales ON OE.Sucursal = dbo.Sucursales.ID LEFT OUTER JOIN
+                         dbo.Cuadrillas ON OE.Cuadrilla = dbo.Cuadrillas.ID INNER JOIN
+                         dbo.Clientes ON OE.Cliente = dbo.Clientes.ID
+WHERE        (OE.Mov IN ('Mesa de reporte', 'Estimacion'))
 END
 GO

@@ -66,7 +66,7 @@ END
 		AND SOE.Mov in('Mesa de reporte') AND SOE.MovEnLinea = 1
 		AND SOE.Estatus IN('CONCLUIDO') AND SOE.Revisado=1
 		AND SOE.Facturado=0	AND SOE.CLASIFICACION LIKE '%'+@CLASIFICACION+'%'   )   Importes,
-		cli.ID ClienteID, cli.RutaLogo
+		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo
 
 		FROM OrdenesEstimaciones OE	INNER JOIN Clientes cli ON OE.Cliente = cli.ID INNER JOIN OrdenesEstimacionesD OED ON OE.ID = OED.ID
 		JOIN PreciariosGeneralesConceptos PGC ON PGC.ID = OED.ConceptoID 
@@ -80,7 +80,7 @@ END
 		OE.Revisado,
 		OE.Clasificacion,
 		OE.Facturado,
-		OED.Precio, cli.ID, cli.RutaLogo ORDER BY OED.ConceptoID DESC;
+		OED.Precio, cli.ID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo ORDER BY OED.ConceptoID DESC;
 END
 GO
 

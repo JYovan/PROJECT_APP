@@ -117,33 +117,38 @@ var sCliente_Load = function () {
 
 //Evento lanzado al agregar un registro al store
 var sCliente_Add = function (store, registro) {
+    var r = registro[0];
     //Primera parte
-    App.txtfID.setValue(registro[0].get('ID'));
-    App.txtfNombre.setValue(registro[0].get('Nombre'));
-    App.txtfAPaterno.setValue(registro[0].get('APaterno'));
-    App.txtfAMaterno.setValue(registro[0].get('AMaterno'));
-    App.txtfTelefono.setValue(registro[0].get('Telefono'));
-    App.txtfTelefonoMovil.setValue(registro[0].get('TelefonoMovil'));
-    App.txtfCorreo.setValue(registro[0].get('Correo'));
-    App.txtfUsuario.setValue(registro[0].get('Usuario'));
-    App.cmbEstatus.select(registro[0].get('Estatus'));
-    App.dfFechaAlta.setValue(registro[0].get('FechaAlta'));
+    App.txtfID.setValue(r.get('ID'));
+    App.txtfNombre.setValue(r.get('Nombre'));
+    App.txtfAPaterno.setValue(r.get('APaterno'));
+    App.txtfAMaterno.setValue(r.get('AMaterno'));
+    App.txtfTelefono.setValue(r.get('Telefono'));
+    App.txtfTelefonoMovil.setValue(r.get('TelefonoMovil'));
+    App.txtfCorreo.setValue(r.get('Correo'));
+    App.txtfUsuario.setValue(r.get('Usuario'));
+    App.cmbEstatus.select(r.get('Estatus'));
+    App.dfFechaAlta.setValue(r.get('FechaAlta'));
+
+    App.txtElaboro.setValue(r.get('Elaboro'));
+    App.txtReviso.setValue(r.get('Reviso'));
+    App.txtAutorizo.setValue(r.get('Autorizo'));
 
     //Segunda parte
-    App.txtfCalle.setValue(registro[0].get('Calle'));
-    App.txtfEntreCalles.setValue(registro[0].get('EntreCalles'));
-    App.txtfNoExterior.setValue(registro[0].get('NoExterior'));
-    App.txtfNoInterior.setValue(registro[0].get('NoInterior'));
+    App.txtfCalle.setValue(r.get('Calle'));
+    App.txtfEntreCalles.setValue(r.get('EntreCalles'));
+    App.txtfNoExterior.setValue(r.get('NoExterior'));
+    App.txtfNoInterior.setValue(r.get('NoInterior'));
 
-    if (registro[0].get('RCodigoPostal') != null) {
-        App.txtfCodigoPostal.setValue(registro[0].get('RCodigoPostal').Numero);
-        App.txtColonia.setValue(registro[0].get('RColonia').Descripcion);
-        App.txtEstado.setValue(registro[0].get('REstado').Descripcion);
-        App.txtMunicipio.setValue(registro[0].get('RMunicipio').Descripcion);
+    if (r.get('RCodigoPostal') != null) {
+        App.txtfCodigoPostal.setValue(r.get('RCodigoPostal').Numero);
+        App.txtColonia.setValue(r.get('RColonia').Descripcion);
+        App.txtEstado.setValue(r.get('REstado').Descripcion);
+        App.txtMunicipio.setValue(r.get('RMunicipio').Descripcion);
 
     }
 
-    App.txtFileName.setValue(registro[0].get('RutaLogo'));
+    App.txtFileName.setValue(r.get('RutaLogo'));
 };
 
 

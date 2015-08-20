@@ -53,7 +53,10 @@ BEGIN
 		FechaAlta,
 		Estatus,
 		Usuario,
-		RutaLogo
+		RutaLogo,
+		Elaboro,
+		Reviso,
+		Autorizo
 	FROM
 		Clientes
 	WHERE

@@ -38,6 +38,10 @@ namespace OSEF.APP.EL
         Colonia rcolonia;
         CodigoPostal rcodigopostal;
 
+        string elaboro;
+        string reviso;
+        string autorizo;
+
         #endregion
 
         #region Propiedades
@@ -180,6 +184,24 @@ namespace OSEF.APP.EL
         {
             get { return rcodigopostal; }
             set { rcodigopostal = value; }
+        }
+
+        public string Elaboro
+        {
+            get { return elaboro; }
+            set { elaboro = value; }
+        }
+
+        public string Reviso
+        {
+            get { return reviso; }
+            set { reviso = value; }
+        }
+
+        public string Autorizo
+        {
+            get { return autorizo; }
+            set { autorizo = value; }
         }
 
         #endregion
