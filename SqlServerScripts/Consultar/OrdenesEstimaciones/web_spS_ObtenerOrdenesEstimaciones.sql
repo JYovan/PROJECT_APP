@@ -36,18 +36,19 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-SELECT        TOP (100) PERCENT OE.ID, OE.Mov, OE.MovID, dbo.Sucursales.Nombre AS Sucursal, OE.FechaEmision, OE.Observaciones, OE.Estatus, OE.Usuario, OE.Origen, 
-                         OE.OrigenID, OE.Reporte, OE.Division, OE.FechaOrigen, OE.FechaMaximaAtencion, OE.DiasAtencion, OE.Reporto, OE.TrabajoRequerido, OE.TrabajoRealizado, 
-                         OE.CodigoFalla, OE.FechaLlegada, OE.HoraLlegada, OE.FechaFinActividad, OE.HoraFinActividad, cua.Nombre AS Cuadrilla, OE.ImporteTotal, OE.HoraOrigen, 
-                         OE.RutaImagen, OE.Atendido, OE.NoOrden, OE.ReferenciaOrden, OE.Facturado, OE.Clasificacion, cli.Nombre AS Cliente, dbo.Sucursales.DireccionZona AS Zona, 
-                         dbo.Sucursales.CR
-FROM            dbo.OrdenesEstimaciones AS OE INNER JOIN
-                         dbo.Clientes AS cli ON OE.Cliente = cli.ID AND OE.Mov IN ('Mesa de reporte', 'Estimacion') AND OE.MovEnLinea = 1 AND OE.Estatus IN ('CONCLUIDO', 'PENDIENTE', 
-                         'BORRADOR') AND OE.Facturado <> 1 OR
-                         OE.Mov IN ('Mesa de reporte', 'Estimacion') AND OE.MovEnLinea = 0 AND OE.Estatus IN ('BORRADOR') AND OE.Facturado <> 1 INNER JOIN
-                         dbo.Cuadrillas AS cua ON OE.Cuadrilla = cua.ID INNER JOIN
-                         dbo.Sucursales ON OE.Sucursal = dbo.Sucursales.ID
-ORDER BY OE.Reporte DESC
+	SELECT        OE.ID, OE.Mov, OE.MovID, dbo.Sucursales.Nombre AS Sucursal, OE.FechaEmision, OE.Observaciones, OE.Estatus, OE.Usuario, OE.Origen, 
+							 OE.OrigenID, OE.Reporte, OE.Division, OE.FechaOrigen, OE.FechaMaximaAtencion, OE.DiasAtencion, OE.Reporto, OE.TrabajoRequerido, OE.TrabajoRealizado, 
+							 OE.CodigoFalla, OE.FechaLlegada, OE.HoraLlegada, OE.FechaFinActividad, OE.HoraFinActividad, cua.Nombre AS Cuadrilla, OE.ImporteTotal, OE.HoraOrigen, 
+							 OE.RutaImagen, OE.Atendido, OE.NoOrden, OE.ReferenciaOrden, OE.Facturado, OE.Clasificacion, cli.Nombre AS Cliente, dbo.Sucursales.DireccionZona AS Zona, 
+							 dbo.Sucursales.CR
+	FROM            dbo.OrdenesEstimaciones AS OE INNER JOIN
+							 dbo.Clientes AS cli ON OE.Cliente = cli.ID AND OE.Mov IN ('Mesa de reporte', 'Estimacion') AND OE.MovEnLinea = 1 AND OE.Estatus IN ('CONCLUIDO', 'PENDIENTE', 
+							 'BORRADOR') AND OE.Facturado <> 1 OR
+							 OE.Mov IN ('Mesa de reporte', 'Estimacion') AND OE.MovEnLinea = 0 AND OE.Estatus IN ('BORRADOR') AND OE.Facturado <> 1 
+							 LEFT JOIN
+							 dbo.Cuadrillas AS cua ON OE.Cuadrilla = cua.ID INNER JOIN
+							 dbo.Sucursales ON OE.Sucursal = dbo.Sucursales.ID
+	ORDER BY OE.Reporte DESC
 
 END
 GO

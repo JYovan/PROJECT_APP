@@ -207,11 +207,30 @@
                                 class="imgs" 
                                 ImageUrl="assets/img/controles/imagenes.png"/> 
                         </Content>
-                    </ext:Container> 
+                    </ext:Container>
+                    
+                    <ext:Container
+                        ID="Container2"
+                        runat="server">
+                            <Content>
+                            <asp:ImageButton 
+                                ID="imgbtnCroquis" 
+                                runat="server"  
+                                Height="30"
+                                Width="30"
+                                OnClick="imgbtnVistaPreviaCroquisVolumetrias_Click"
+                                ToolTip="Reporte Croquis"
+                                Enabled="false"
+                                class="imgs" 
+                                ImageUrl="assets/img/controles/croquis.png"/> 
+                        </Content>
+                    </ext:Container>
+                    
+                     
                         <ext:ToolbarSpacer
                             ID="tbsPrimerEspacio"
                             runat="server"
-                            Width="170">
+                            Width="120">
                         </ext:ToolbarSpacer>
                         <ext:ImageButton
                             ID="imgbtnBorrar"
@@ -268,7 +287,7 @@
                         <ext:ToolbarSpacer
                             ID="tbsSegundoEspacio"
                             runat="server"
-                            Width="190">
+                            Width="180">
                         </ext:ToolbarSpacer>
                         <ext:ImageButton 
                             ID="imgbtnPrimero"

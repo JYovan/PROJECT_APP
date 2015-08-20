@@ -657,6 +657,71 @@ namespace OSEF.ERP.APP
             }
         }
 
+
+        protected void imgbtnVistaPreviaCroquisVolumetrias_Click(object sender, EventArgs e)
+        {
+
+            //Parametros del store procedure
+            string strID = Cookies.GetCookie("cookieEditarVolumetria").Value;
+            string strPreciario = Cookies.GetCookie("cookiePreciario").Value;
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            //1. Configurar la conexión y el tipo de comando
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+            try
+            {
+                using (var comando = new SqlCommand("web_spS_ObtenerRCroquisPorVolumetria", conn))
+                {
+                    using (var adaptador = new SqlDataAdapter(comando))
+                    {
+                        DataTable dt = new DataTable();
+                        adaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+                        adaptador.SelectCommand.Parameters.Add(@"IDMovimiento", SqlDbType.Int).Value = Convert.ToInt32(strID);
+                        adaptador.Fill(dt);
+
+
+                        var reporte = new ReportDocument();
+                        reporte.Load(Server.MapPath("reportess/rCroquisVolumetria.rpt"));
+                        reporte.SetDataSource(dt);
+                        reporte.SetParameterValue("path", path);
+                        reporte.SetParameterValue("pathlogo", path + "\\images\\clientes\\");
+
+                        string strDireccion = Server.MapPath(" ") + "\\reportess\\Volumetrias\\" + strID;
+
+                        //2. Validar si existe el directorio donde se guardaran
+                        if (Directory.Exists(strDireccion))
+                        {
+                            reporte.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Volumetrias/" + strID + "/rCroquis " + strID + ".pdf"));
+
+                            ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Volumetrias/" + strID + "/rCroquis " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
+                            // reporte.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "Resumen de OC: ");
+
+                        }
+                        else
+                        {
+                            Directory.CreateDirectory(strDireccion);
+                            reporte.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("reportess/Volumetrias/" + strID + "/rCroquis " + strID + ".pdf"));
+                            ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('reportess/Volumetrias/" + strID + "/rCroquis " + strID + ".pdf',null,'height=700,width=660');popup.focus();", true);
+                        }
+                        reporte.Dispose();
+                        reporte.Close();
+                    } // end using adaptador
+                } // end using comando
+
+            }
+
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+                conn.Dispose();
+            }
+        }
+
+
         #endregion
     }
 }

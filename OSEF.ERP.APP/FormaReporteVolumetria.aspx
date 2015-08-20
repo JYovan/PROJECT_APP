@@ -41,10 +41,20 @@
                 OnClick="imgbtnExportarReporteVolumetrias_Click" 
                 Height="30"
                 Width="30" 
-                
                 ToolTip="Reporte Fotográfico"
                 class="imgs" 
                 ImageUrl="assets/img/controles/imagenes.png" />
+
+                 <asp:ImageButton 
+                ID="imgbtnCroquis" 
+                runat="server"  
+                Height="30"
+                Width="30"
+                OnClick="imgbtnVistaPreviaCroquisVolumetriasConcepto_Click"
+                ToolTip="Reporte Croquis"
+                class="imgs" 
+                ImageUrl="assets/img/controles/croquis.png"/> 
+
             </div>
         </Content>
         <BottomBar>

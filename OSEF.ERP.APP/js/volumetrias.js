@@ -339,7 +339,7 @@ var sVolumetria_Add = function (avance, registro) {
         App.txtCliente.setDisabled(true);
         document.getElementById('imgbtnVistaPrevia').disabled = false;
         document.getElementById('imgbtnReporteGenerador').disabled = false;
-
+        document.getElementById('imgbtnCroquis').disabled = false;
 
         Ext.util.Cookies.set('cookiePreciario', registro[0].get('Preciario'));
     }
@@ -373,6 +373,8 @@ var sVolumetria_Add = function (avance, registro) {
         App.txtCliente.setDisabled(true);
         document.getElementById('imgbtnVistaPrevia').disabled = false;
         document.getElementById('imgbtnReporteGenerador').disabled = false;
+        document.getElementById('imgbtnCroquis').disabled = false;
+
 
         Ext.util.Cookies.set('cookiePreciario', registro[0].get('Preciario'));
     }
@@ -407,6 +409,7 @@ var sVolumetria_Add = function (avance, registro) {
         App.cmbMov.setReadOnly(true);
         document.getElementById('imgbtnVistaPrevia').disabled = false;
         document.getElementById('imgbtnReporteGenerador').disabled = false;
+        document.getElementById('imgbtnCroquis').disabled = false;
         //Validar si se habilita Guardar
         HabilitarGuardar();
         HabilitarAfectar();
@@ -441,6 +444,8 @@ var sVolumetria_Add = function (avance, registro) {
         App.imgbtnCancelar.setDisabled(false);
         document.getElementById('imgbtnVistaPrevia').disabled = false;
         document.getElementById('imgbtnReporteGenerador').disabled = false;
+        document.getElementById('imgbtnCroquis').disabled = false;
+
         App.gpVolumetriaDetalle.removeAll();
 
         Ext.util.Cookies.set('cookiePreciario', registro[0].get('Preciario'));

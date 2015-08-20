@@ -157,6 +157,24 @@ namespace OSEF.ERP.APP {
         protected global::System.Web.UI.WebControls.ImageButton imgbtnVistaPrevia;
         
         /// <summary>
+        /// Control Container2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Container Container2;
+        
+        /// <summary>
+        /// Control imgbtnCroquis.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnCroquis;
+        
+        /// <summary>
         /// Control tbsPrimerEspacio.
         /// </summary>
         /// <remarks>
