@@ -18,18 +18,19 @@ GO
 -- =============================================
 IF EXISTS (	SELECT name 
 			FROM sysobjects
-			WHERE  name = 'web_spS_ObtenerVolumetriasDPorVolumetria' AND
+			WHERE  name = 'web_spS_ObtenerCroquisVolumetriaDPorConcepto' AND
 			TYPE = 'P')
-	DROP PROCEDURE web_spS_ObtenerVolumetriasDPorVolumetria
+	DROP PROCEDURE web_spS_ObtenerCroquisVolumetriaDPorConcepto
 GO
 -- =============================================
--- Author:		Orlando Esparza
--- Create date: Viernes 05 de Diciembre de 2014
--- Description:	Obtener todos los registros de RevisionesD por la relación con Revision
+-- Author:		Giovanni Flores
+-- Create date: Jueves 20 de Agosto de 2015
+-- Description:	Obtener los registros de Imagenes Volumetrias Croquis
 -- =============================================
-CREATE PROCEDURE web_spS_ObtenerVolumetriasDPorVolumetria
+CREATE PROCEDURE web_spS_ObtenerCroquisVolumetriaDPorConcepto
 	-- Add the parameters for the stored procedure here
-	@Volumetria	INT
+	@ID			INT,
+	@Concepto	CHAR(10)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -38,24 +39,15 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT
-		vd.Volumetria,
-		vd.Renglon,
-		vd.ConceptoID,
-		vd.Cantidad,
-		vd.Utilizada, 	
-		(SELECT COUNT(*) FROM ImagenesVolumetriasD IVD WHERE IVD.Volumetria = @Volumetria AND IVD.PreciarioConcepto = vd.ConceptoID) Fotos,
-		(SELECT COUNT(*) FROM CroquisVolumetriaD IVD WHERE IVD.MovID = @Volumetria AND IVD.Concepto = vd.ConceptoID) Croquis,
-		pc.CLAVE Clave
+		MovID,
+		Concepto,
+		Nombre,
+		Direccion,
+		Usuario,
+		FechaAlta
 	FROM
-		VolumetriasD vd INNER JOIN dbo.PreciarioConceptos pc
-	ON vd.ConceptoID = pc.ID AND vd.Volumetria = @Volumetria
-	GROUP BY 
-		vd.Volumetria,
-		vd.Renglon,
-		vd.ConceptoID,
-		vd.Cantidad,
-		vd.Utilizada,
-		pc.CLAVE
-	ORDER BY vd.Renglon ASC;
+		CroquisVolumetriaD
+	WHERE
+		MovID = @ID AND Concepto = @Concepto
 END
 GO

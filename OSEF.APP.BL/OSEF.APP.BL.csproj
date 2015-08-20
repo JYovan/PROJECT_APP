@@ -54,6 +54,7 @@
     <Compile Include="CodigoPostalBusiness.cs" />
     <Compile Include="ColoniaBusiness.cs" />
     <Compile Include="ConceptoBusiness.cs" />
+    <Compile Include="CroquisVolumetriaBusiness.cs" />
     <Compile Include="CroquisOrdenEstimacionBusiness.cs" />
     <Compile Include="CuadrillaBusiness.cs" />
     <Compile Include="EmpresaBusiness.cs" />

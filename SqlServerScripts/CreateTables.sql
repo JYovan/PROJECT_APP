@@ -444,6 +444,15 @@ CREATE TABLE GeneradorVolumetriaD(
 	Total						DECIMAL(10,2)	NOT NULL
 )
 
+CREATE TABLE CroquisVolumetriaD(
+	MovID						INT				NOT NULL FOREIGN KEY REFERENCES Volumetrias(ID),
+	Concepto					CHAR(10)		NOT NULL FOREIGN KEY REFERENCES PreciariosGeneralesConceptos(ID),
+	Nombre						VARCHAR(500)		NOT NULL,
+	Direccion					VARCHAR(500)	NOT NULL,
+	Usuario						VARCHAR(50)		NOT NULL,
+	FechaAlta					SMALLDATETIME	NOT NULL
+)
+
 CREATE TABLE CodigoPPTA(
 	CodigoMainSaver				CHAR(50)		NOT NULL PRIMARY KEY,
 	Dias						CHAR(5)			NULL

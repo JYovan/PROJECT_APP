@@ -134,7 +134,7 @@ namespace OSEF.ERP.APP
             string strDiasAtencion = e.ExtraParams["diasAtencion"];
             string strFechaMaxima = e.ExtraParams["fechaMaxima"];
             //Convertir a decimal los dias de atencion
-            decimal diasAtencion = Convert.ToDecimal(strDiasAtencion);
+            decimal diasAtencion = strDiasAtencion.Trim().Equals("") ? 1 : Convert.ToDecimal(strDiasAtencion);
 
             //2. Serializar el encabezado y el detalle
             Dictionary<string, string> dRegistro = JSON.Deserialize<Dictionary<string, string>>(strOrdenEstimacionForma);

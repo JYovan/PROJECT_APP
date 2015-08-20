@@ -1091,6 +1091,113 @@ var cCheckFotos_Renderer = function (value, metadata, registro) {
         }
     }
 }
-var onResult_From_Direct = function () { 
+var onResult_From_Direct = function () {
 
 }
+
+
+//Render column
+var cCheckCroquis_Renderer = function (value, metadata, registro) {
+    console.log(registro);
+    if (registro.get('Croquis') > 0 && registro.get('ConceptoID').trim().length > 0) {
+        metadata.style = "background-color: #669900; color: #fff;";
+    } else {
+        if (registro.get('ConceptoID').trim().length > 1) {
+            metadata.style = "background-color: #CC0000; color: #fff;";
+        }
+    }
+}
+
+//Validaciones de comandos para croquis
+var ccCroquis_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
+
+    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de ver fotos
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'CONCLUIDO') {
+
+        //Toma el primer elemento de la columna para poder desabilitarlo
+        var botonCargar = toolbar.items.get(0);
+        botonCargar.setDisabled(true);
+        botonCargar.setTooltip("No se pueden cargar croquis a un movimiento concluido");
+    }
+
+    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de ver fotos
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'CANCELADO') {
+
+        //Toma el primer elemento de la columna para poder desabilitarlo
+        var botonCargar = toolbar.items.get(0);
+        botonCargar.setDisabled(true);
+        botonCargar.setTooltip("No se pueden cargar croquis a un movimiento cancelado");
+    }
+
+    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar fotos 
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') == 'Nuevo' && App.sVolumetria.getAt(0) == undefined) {
+
+        //Toma el primer elemento de la columna para poder desabilitarlo
+        var botonCargar2 = toolbar.items.get(0);
+        var botonVerFotos2 = toolbar.items.get(1);
+        botonCargar2.setDisabled(true);
+        botonVerFotos2.setDisabled(true);
+        botonCargar2.setTooltip("Debes de guardar el movimiento antes");
+        botonVerFotos2.setTooltip("Debes de guardar el movimiento antes");
+    }
+
+    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar conceptos 
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sVolumetria.getAt(0).get('Mov').trim() == 'Estimacion') {
+
+        //Toma el primer elemento de la columna para poder desabilitarlo
+        var botonCargar2 = toolbar.items.get(0);
+        botonCargar2.setDisabled(true);
+    }
+
+    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar y ver fotos
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sVolumetria.getAt(0).get('Estatus') == 'BORRADOR') {
+
+        //Toma el primer elemento de la columna para poder desabilitarlo
+        var botonCargar2 = toolbar.items.get(0);
+        var botonVerFotos2 = toolbar.items.get(1);
+        botonCargar2.setDisabled(false);
+        botonVerFotos2.setDisabled(false);
+        botonCargar2.setTooltip("Cargar Croquis");
+        botonVerFotos2.setTooltip("Ver Croquis");
+    }
+};
+
+//Lo que hace el comando de croquis
+var ccCroquis_Command = function (column, nombre, registro, renglon, opciones) {
+    var wp = window.parent.App.wGenerador;
+    //Valida que se escocja un concepto antes
+    if (registro.get('ConceptoID') != '') {
+
+        Ext.util.Cookies.set('cookieConceptoVolumetria', registro.get('ConceptoID'));
+
+        if (nombre == 'cnCargarCroquis') {
+            wp.load('FormaSubirCroquisVolumetrias.aspx');
+            wp.setHeight(350);
+            wp.setWidth(700);
+            wp.center();
+            wp.setTitle('Volumetrias - Subir Croquis');
+            wp.show();
+        }
+        else {
+            wp.load('FormaCroquisVolumetria.aspx');
+            wp.setHeight(520);
+            wp.setWidth(670);
+            wp.center();
+            wp.setTitle('Volumetrias - Visualizar Croquis');
+            wp.show();
+        }
+    }
+    else {
+        Ext.Msg.show({
+            id: 'msgFotos',
+            title: 'Advertencia',
+            msg: 'Debes Seleccionar un concepto antes',
+            buttons: Ext.MessageBox.OK,
+            onEsc: Ext.emptyFn,
+            closable: false,
+            icon: Ext.MessageBox.WARNING
+        });
+    }
+
+
+};

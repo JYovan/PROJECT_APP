@@ -604,6 +604,7 @@
                                                         <ext:ModelField Name="Fotos" Type="String" />
                                                         <ext:ModelField Name="Clave" Type="String" />
                                                         <ext:ModelField Name="Fotos" Type="Int" />
+                                                        <ext:ModelField Name="Croquis" Type="Int" />
                                                     </Fields>
                                                 </ext:Model>
                                             </Model>
@@ -697,7 +698,8 @@
                                              <ext:CommandColumn
                                                 ID="ccGenerador"
                                                 runat="server"
-                                                Width="25">
+                                                Text="Generador"
+                                                Width="60">
                                                 <PrepareToolbar Fn="ccDimensiones_PrepareToolbar" />
                                                 <Commands>
                                                
@@ -717,7 +719,7 @@
                                             <ext:Column 
                                             ID="SpaceColumn" 
                                             runat="server" 
-                                            Width="80">
+                                            Width="10">
                                             
                                             </ext:Column>
 
@@ -726,7 +728,7 @@
                                                 Text="Fotos"
                                                 Align="Center"
                                                 runat="server"
-                                                Width="105">
+                                                Width="60">
                                                 <PrepareToolbar Fn="ccFotos_PrepareToolbar" />
                                                 <Commands>
                                                     <ext:GridCommand
@@ -734,6 +736,7 @@
                                                         CommandName="cnCargarFotos" >
                                                         <ToolTip Text="Cargar Fotos" />
                                                     </ext:GridCommand>
+
                                                     <ext:GridCommand
                                                         Icon="FolderPicture"
                                                         CommandName="cnVerFotos">
@@ -744,6 +747,30 @@
                                                     <Command Fn="ccFotos_Command" />
                                                 </Listeners>
                                                 <Renderer Fn="cCheckFotos_Renderer" />
+                                            </ext:CommandColumn>
+                                            
+                                            <ext:CommandColumn
+                                                ID="ccCroquis"
+                                                Text="Croquis"
+                                                runat="server"
+                                                Width="60">
+                                                <PrepareToolbar Fn="ccCroquis_PrepareToolbar" />
+                                                <Commands>
+                                                    <ext:GridCommand
+                                                        Icon="MapAdd"
+                                                        CommandName="cnCargarCroquis" >
+                                                        <ToolTip Text="Cargar Croquis" />
+                                                    </ext:GridCommand>
+                                                    <ext:GridCommand
+                                                        Icon="FolderPicture"
+                                                        CommandName="cnVerCroquis">
+                                                        <ToolTip Text="Ver Croquis" />
+                                                    </ext:GridCommand>
+                                                </Commands>
+                                                <Listeners>
+                                                    <Command Fn="ccCroquis_Command" />
+                                                </Listeners>
+                                                <Renderer Fn="cCheckCroquis_Renderer" />
                                             </ext:CommandColumn>
                                         </Columns>
                                     </ColumnModel>

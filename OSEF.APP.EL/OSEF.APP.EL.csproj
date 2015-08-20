@@ -51,6 +51,7 @@
     <Compile Include="Colonia.cs" />
     <Compile Include="Concepto.cs" />
     <Compile Include="CroquisOrdenEstimacionD.cs" />
+    <Compile Include="CroquisVolumetriaD.cs" />
     <Compile Include="Cuadrilla.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Estado.cs" />

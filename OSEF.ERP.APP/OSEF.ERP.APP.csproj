@@ -263,6 +263,8 @@
     <Content Include="CodigosPostales.aspx" />
     <Content Include="Colonias.aspx" />
     <Content Include="Conceptos.aspx" />
+    <Content Include="FormaCroquisVolumetria.aspx" />
+    <Content Include="FormaSubirCroquisVolumetrias.aspx" />
     <Content Include="css\customControls.css" />
     <Content Include="css\login.css" />
     <Content Include="css\metroButtons.css" />
@@ -379,6 +381,7 @@
     <Content Include="js\codigosfallas.js" />
     <Content Include="js\colonias.js" />
     <Content Include="js\conceptos2.js" />
+    <Content Include="js\subirCroquisVolumetria.js" />
     <Content Include="js\cuadrillas.js" />
     <Content Include="js\exploradorConceptoPreciarioGeneral.js" />
     <Content Include="js\exploradorMesaDeReporte.js" />
@@ -504,6 +507,20 @@
     </Compile>
     <Compile Include="Conceptos.aspx.designer.cs">
       <DependentUpon>Conceptos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormaCroquisVolumetria.aspx.cs">
+      <DependentUpon>FormaCroquisVolumetria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormaCroquisVolumetria.aspx.designer.cs">
+      <DependentUpon>FormaCroquisVolumetria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormaSubirCroquisVolumetrias.aspx.cs">
+      <DependentUpon>FormaSubirCroquisVolumetrias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormaSubirCroquisVolumetrias.aspx.designer.cs">
+      <DependentUpon>FormaSubirCroquisVolumetrias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cuadrillas.aspx.cs">
       <DependentUpon>Cuadrillas.aspx</DependentUpon>

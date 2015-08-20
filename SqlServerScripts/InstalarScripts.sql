@@ -364,6 +364,15 @@
 :r c:\SqlServerScripts\Borrar\CroquisOrdenesEstimacionesD\web_spD_BorrarCroquisOrdenEstimacionDPorConceptoYNombre.sql
 :r c:\SqlServerScripts\Borrar\CroquisOrdenesEstimacionesD\web_spD_BorrarCroquisOrdenEstimacionDPorOrdenEstimacion.sql
 -----------------------------------------------------------------------------------
+-- CroquisVolumetriaD (Insertar)
+:r c:\SqlServerScripts\Insertar\CroquisVolumetriaD\web_spI_InsertarCroquisVolumetriaD.sql
+-- CroquisVolumetriaD (Consultar)
+:r c:\SqlServerScripts\Consultar\CroquisVolumetriaD\web_spS_ObtenerCroquisVolumetriaDPorConcepto.sql
+-- CroquisVolumetriaD (Borrar)
+:r c:\SqlServerScripts\Borrar\CroquisVolumetriaD\web_spD_BorrarCroquisVolumetriaDPorConcepto.sql
+:r c:\SqlServerScripts\Borrar\CroquisVolumetriaD\web_spD_BorrarCroquisVolumetriaDPorConceptoYNombre.sql
+:r c:\SqlServerScripts\Borrar\CroquisVolumetriaD\web_spD_BorrarCroquisVolumetriaDPorVolumetria.sql
+-----------------------------------------------------------------------------------
 -- GenradorOrdenesEstimacionesD (Insertar)
 :r c:\SqlServerScripts\Insertar\GenradorOrdenesEstimacionesD\web_spI_InsertarGeneradorOrdenEstimacionD.sql
 -- GenradorOrdenesEstimacionesD (Consultar)

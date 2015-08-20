@@ -15,7 +15,7 @@ namespace OSEF.APP.EL
         decimal utilizada; 
         string clave;
 
-       
+        int croquis;
         int fotos;
         #endregion
 
@@ -26,6 +26,11 @@ namespace OSEF.APP.EL
             set { volumetria = value; }
         }
 
+        public string Clave
+        {
+            get { return clave; }
+            set { clave = value; }
+        }
         public short Renglon
         {
             get { return renglon; }
@@ -56,10 +61,11 @@ namespace OSEF.APP.EL
             set { fotos = value; }
         }
          
-        public string Clave
+
+        public int Croquis
         {
-            get { return clave; }
-            set { clave = value; }
+            get { return croquis; }
+            set { croquis = value; }
         }
   
         #endregion
