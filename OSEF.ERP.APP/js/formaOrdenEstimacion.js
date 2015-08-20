@@ -794,6 +794,9 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && r.get('Estatus') == 'CONCLUIDO'
          && r.get('Mov').trim() == "Mesa de reporte") {
 
+        alert('D772923');
+        App.imgbtnGuardar.setDisabled(true);
+
         App.cmbMov.setValue(r.get('Mov'));
         App.txtfMovID.setValue(r.get('MovID'));
         //        App.txtfSucursalCR.setValue(r.get('RSucursal').CR);
@@ -1137,7 +1140,7 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
                     //                App.gpOrdenEstimacion.getView().refreshNode(App.sConceptos.getCount() - 2);
                     //Validar si se habilita el boton de afectar
                     HabilitarAfectar();
-                } 
+                }
             }
 
             if (App.cmbMov.getValue().trim() == "Mesa de reporte") {
@@ -1158,7 +1161,7 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
 
         App.cmbMov.setReadOnly(true);
         //        HabilitarAfectar();
-    } 
+    }
 }; 
 //-----------------------------------------DETALLE----------------------------------------------------------------
 var cCantidad_Renderer = function (valor) {
@@ -2011,12 +2014,36 @@ var getDescripcion = function (r) {
 
     //Función que valida si se habilita el botón de Guardar
     function HabilitarGuardar() {
-        if (App.cmbMov.getValue() != null && App.txtfSucursalCR.getValue() != '') {
+
+    //Valido que este lleno el campo de cliente y sucursal en un movimiento nuevo
+        if (App.cmbMov.getValue() != null
+        && App.txtfSucursalCR.getValue() != ''
+        && Ext.util.Cookies.get('cookieEditarOrdenEstimacion') == 'Nuevo') 
+        {
             App.imgbtnGuardar.setDisabled(false);
+
         }
+        //Si no es nuevo valido con la cookie para saber que hacer si ya trae algo el store
+        else if (App.cmbMov.getValue() != null
+        && App.txtfSucursalCR.getValue() != ''
+        && Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') 
+        { 
+        //Primero valido que el store traiga algo
+         if (App.sOrdenEstimacion.getAt(0) != undefined) {
+                //Se valida por ultimo que solo haga la validación en los movimientos que sean editables
+                if (App.sOrdenEstimacion.getAt(0).get('Estatus') == 'BORRADOR') {
+                    App.imgbtnGuardar.setDisabled(false);
+                }
+
+            }
+
+        }
+        //Caso contrario, es decir movimientos CONCLUIDOS Y CANCELADOS deshabilito el boton de guardar
         else {
             App.imgbtnGuardar.setDisabled(true);
         }
+
+
     }
 
     //Evento que valida si ya esta concluido para bloquear el detalle y si es borrador no hace nada si ya esta concluido o cancelado
