@@ -794,7 +794,6 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && r.get('Estatus') == 'CONCLUIDO'
          && r.get('Mov').trim() == "Mesa de reporte") {
 
-        alert('D772923');
         App.imgbtnGuardar.setDisabled(true);
 
         App.cmbMov.setValue(r.get('Mov'));
