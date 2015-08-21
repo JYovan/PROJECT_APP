@@ -40,7 +40,7 @@ BEGIN
     -- Insert statements for procedure here
 		SELECT 
 		--ID DE MOVIMIENTO Y CONCEPTOS
-		OE.ID,OE.Observaciones OBRA,
+		OE.ID,OE.Observaciones OBRA, OE.ImporteTotal,
 		OED.ConceptoID,OED.Cantidad, OED.Precio,OED.Importe,OED.IntExt,OE.FechaEmision,OE.FechaLlegada,
 		--Datos del cliente
 		cli.Nombre ClienteNombre,
