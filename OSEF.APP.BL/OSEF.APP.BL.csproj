@@ -81,6 +81,7 @@
     <Compile Include="PreciarioGeneralSubSubCategoriaBusiness.cs" />
     <Compile Include="PreciarioSubCategoriaBusiness.cs" />
     <Compile Include="PreciarioSubSubCategoriaBusiness.cs" />
+    <Compile Include="ProgramaObraBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorBusiness.cs" />
     <Compile Include="RevisionBusiness.cs" />

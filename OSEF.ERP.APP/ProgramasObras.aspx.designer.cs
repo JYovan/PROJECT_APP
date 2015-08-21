@@ -121,6 +121,15 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.Model mProgramasObras;
         
         /// <summary>
+        /// Control cId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Column cId;
+        
+        /// <summary>
         /// Control cSucursal.
         /// </summary>
         /// <remarks>

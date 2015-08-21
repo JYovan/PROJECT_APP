@@ -25,14 +25,28 @@ namespace OSEF.ERP.APP
                 //UsuarioBusiness.checkValidSession(this);
 
                 //3. Llenar Store de Sucursales y Usuarios
-                //sUsuarios.DataSource = UsuarioBusiness.ObtenerUsuarios();
-                //sUsuarios.DataBind();
+                sUsuarios.DataSource = UsuarioBusiness.ObtenerUsuarios();
+                sUsuarios.DataBind();
 
-                //sSucursales.DataSource = SucursalBusiness.ObtenerSucursalesEnUsoEnOrdenesDeCambio();
-                //sSucursales.DataBind();
+                sSucursales.DataSource = SucursalBusiness.ObtenerSucursales();
+                sSucursales.DataBind();
+
+                sProgramasObras.DataSource = ProgramaObraBusiness.ObtenerProgramasObras();
+                sProgramasObras.DataBind();
 
                 rmProgramasObras.RegisterIcon(Icon.Delete);
             }
+        }
+
+        /// <summary>
+        /// Evento que vuelve a leer los datos para ser cargados al store
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void OnReadData_sProgramasObras(object sender, StoreReadDataEventArgs e)
+        {
+            sProgramasObras.DataSource = OrdenEstimacionBusiness.ObtenerOrdenesCambios();
+            sProgramasObras.DataBind();
         }
     }
 }

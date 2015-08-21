@@ -74,9 +74,9 @@
                         PressedImageUrl="assets/img/controles/update-pressed.png"
                         Height="50"
                         Width="50">
-<%--                            <Listeners>
-                        <Click Handler="#{sOrdenesEstimaciones}.reload(); App.imgbtnEditar.setDisabled(true); App.imgbtnBorrar.setDisabled(true);" />
-                        </Listeners>--%>
+                        <Listeners>
+                            <Click Handler="#{sProgramasObras}.reload(); App.imgbtnEditar.setDisabled(true); App.imgbtnBorrar.setDisabled(true);" />
+                        </Listeners>
                     </ext:ImageButton>
                     <ext:TextField 
                         ID="txtfBuscar"
@@ -107,21 +107,20 @@
                 ID="sProgramasObras"
                 runat="server"
                 PageSize="10" 
-                RemoteSort="true">
+                RemoteSort="true"
+                OnReadData="OnReadData_sProgramasObras">
                 <Model>
                     <ext:Model ID="mProgramasObras" runat="server">
                         <Fields>
                             <ext:ModelField Name="Id" Type="Int" />
-                            <ext:ModelField Name="Sucursal" Type="String" />
-                            <ext:ModelField Name="RSucursal" Type="Object" />
+                            <ext:ModelField Name="SucursalId" Type="String" />
                             <ext:ModelField Name="FechaEmision" Type="Date" />
                             <ext:ModelField Name="Estatus" Type="String" />
-                            <ext:ModelField Name="Usuario" Type="String" />
                         </Fields>
                     </ext:Model>
                 </Model>
                 <Sorters>
-                    <ext:DataSorter Property="ID" Direction="ASC" />
+                    <ext:DataSorter Property="Id" Direction="ASC" />
                 </Sorters>
 <%--                    <Listeners>
                     <DataChanged Fn="sOrdenesEstimaciones_DataChanged" />
@@ -131,12 +130,20 @@
         <ColumnModel>
             <Columns>
                 <ext:Column
+                    ID="cId"
+                    runat="server"
+                    Text="Id"
+                    Align="Center"
+                    Width="100"
+                    DataIndex="Id">
+                </ext:Column>
+                <ext:Column
                     ID="cSucursal"
                     runat="server"
                     Text="SUCURSAL"
                     Align="Center"
                     Width="360"
-                    DataIndex="Sucursal">
+                    DataIndex="SucursalId">
                     <%--<Renderer Fn="cSucursal_Renderer" />--%>
                     <HeaderItems>
                         <ext:ComboBox
