@@ -474,6 +474,7 @@
 :r c:\SqlServerScripts\Reportes\web_spS_ObtenerRGeneradorPorVolumetria.sql 
 :r c:\SqlServerScripts\Reportes\web_spS_ObtenerRGeneradorPorVolumetriaConcepto.sql 
 :r c:\SqlServerScripts\Reportes\web_spS_ObtenerRCroquisPorVolumetria.sql 
+:r c:\SqlServerScripts\Reportes\web_spS_ObtenerRCroquisPorVolumetriaConcepto.sql 
 
 -----------------------------------------------------------------------------------
 

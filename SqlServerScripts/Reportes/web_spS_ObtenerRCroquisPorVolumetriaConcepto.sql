@@ -23,12 +23,12 @@ GO
 -- =============================================
 IF EXISTS (	SELECT name 
 			FROM sysobjects
-			WHERE  name = 'web_spS_ObtenerRGeneradorPorVolumetriaConcepto' AND
+			WHERE  name = 'web_spS_ObtenerRCroquisPorVolumetriaConcepto' AND
 			TYPE = 'P')
-	DROP PROCEDURE web_spS_ObtenerRGeneradorPorVolumetriaConcepto
+	DROP PROCEDURE web_spS_ObtenerRCroquisPorVolumetriaConcepto
 GO
 
-CREATE PROCEDURE web_spS_ObtenerRGeneradorPorVolumetriaConcepto
+CREATE PROCEDURE web_spS_ObtenerRCroquisPorVolumetriaConcepto
 	-- Add the parameters for the stored procedure here
 		@idconcepto CHAR(10),	
 	@idpreciario CHAR(7)
@@ -39,27 +39,28 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	    -- Insert statements for procedure here
-	SELECT 
+		SELECT 
 		--ID DE MOVIMIENTO Y CONCEPTOS
-		V.ID,V.Mov,	VD.ConceptoID,
+		V.ID,V.Mov,
+		VD.ConceptoID,
+		cli.Nombre NombreCliente,
 		--Datos de la sucursal
 		CONVERT(VARCHAR(4),S.CR) CR,S.Nombre Sucursal,S.Calle,S.NoExterior,S.NoInterior,C.Descripcion Colonia,M.Descripcion Municipio,E.Descripcion Estado,
 		--Datos del concepto
 		PC.CLAVE,PC.Unidad,PC.Descripcion DescripcionPreGenConceptos,
 		VD.Utilizada,PCAT.Descripcion DescripcionPreGenCat,
-		--CONCEPTO INFO GENERADOR
-		GVD.Eje,GVD.EntreEje1,GVD.EntreEje2,GVD.Area,GVD.Ancho,GVD.Largo,GVD.Alto,GVD.Total,GVD.Cantidad CANT_GEN, GVD.Descripcion,
+		--CONCEPTO INFO CROQUIS
+		CVD.Direccion RutaCroquis,
 		--Encabezado del movimiento(No del reporte)
-		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo
+		cli.ID ClienteID, cli.RutaLogo
 		FROM Volumetrias V
 		--Detalle del movimiento
 		LEFT JOIN VolumetriasD VD
 		ON V.ID = VD.Volumetria
 		--Generador que pertenece al concepto
-		LEFT JOIN GeneradorVolumetriaD GVD 
-		ON GVD.MovID =  V.ID
-		AND GVD.ConceptoID = vd.ConceptoID
+		LEFT JOIN CroquisVolumetriaD CVD 
+		ON CVD.MovID =  V.ID
+		AND CVD.Concepto = vd.ConceptoID
 		-- Nos trameos los datos complementarios del concepto
 		LEFT JOIN PreciarioConceptos PC 
 		ON vd.ConceptoID = PC.ID
@@ -77,9 +78,7 @@ BEGIN
 		ON C.ID = S.Colonia
 		INNER JOIN Clientes cli
 		ON V.Cliente = cli.ID
-		WHERE 
-		 VD.ConceptoID =@idconcepto
-		AND V.Preciario=@idpreciario
+		WHERE VD.ConceptoID = @idconcepto
+		AND V.Preciario = @idpreciario
 END
 GO
-
