@@ -143,12 +143,7 @@
                                     </div>
                                 </a>
 
-                                <a class="tile square bg-color-red" id="proveedores" href="#">
-                                    <img src="assets/img/provedores.png" alt="proveedores" />
-                                    <div class="textover-wrapper transparent">
-                                        <div class="text2">Proveedores</div>
-                                    </div>
-                                </a>
+                              
                                 
                                  <a class="tile square bg-color-purple" href="#" id="clientes">
                                     <img src="assets/img/Menu-Clientes.png" alt="Clientes" />
@@ -271,6 +266,12 @@
                                     <img src="assets/img/usuarios.png" alt="Usuarios" />
                                     <div class="text-inner">
                                         <div class="text4">Usuarios</div>
+                                    </div>
+                                </a>
+                                  <a class="tile square bg-color-red" id="proveedores" href="#">
+                                    <img src="assets/img/provedores.png" alt="proveedores" />
+                                    <div class="textover-wrapper transparent">
+                                        <div class="text2">Proveedor</div>
                                     </div>
                                 </a>
                             </div>

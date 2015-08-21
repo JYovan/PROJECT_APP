@@ -37,7 +37,7 @@
             runat="server"
             Height="420"
             Width="960"
-            Title="PROVEEDORES"
+            Title="DATOS DEL PROVEEDOR"
             EnableColumnHide="false"
             EnableColumnMove="false"
             Header="true"
@@ -164,11 +164,13 @@
                         Text="ID"
                         Align="Center"
                         Width="100"
+                        Filterable="false"
                         DataIndex="ID" />
                     <ext:Column
                         ID="cNombre"
                         runat="server"
                         Text="NOMBRE"
+                        Filterable="false"
                         Align="Left"
                         Width="280"
                         DataIndex="Nombre" />
@@ -176,6 +178,7 @@
                         ID="cContacto"
                         runat="server"
                         Text="CONTACTO"
+                        Filterable="false"
                         Align="Left"
                         Width="368"
                         DataIndex="Contacto" />
@@ -183,6 +186,7 @@
                         ID="cCorreo"
                         runat="server"
                         Text="CORREO"
+                        Filterable="false"
                         Align="Left"
                         Width="200"
                         DataIndex="Correo" />
