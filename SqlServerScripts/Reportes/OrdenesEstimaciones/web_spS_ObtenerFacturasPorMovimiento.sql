@@ -49,7 +49,8 @@ BEGIN
 		--CONCEPTO INFO GENERADOR
 		FOD.Direccion,
 		--Encabezado del movimiento(No del reporte)
-		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo
+		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo,
+		Pro.Nombre AS Proveedor
 		FROM OrdenesEstimaciones OE
 		--Detalle del movimiento
 		LEFT JOIN OrdenesEstimacionesD OED
@@ -75,6 +76,8 @@ BEGIN
 		ON C.ID = S.Colonia
 		INNER JOIN Clientes cli
 		ON OE.Cliente = cli.ID
+		INNER JOIN dbo.Proveedores AS Pro
+		ON cli.Proveedor = Pro.ID
 		WHERE OE.ID = @IDMovimiento
 		AND FOD.Concepto IS NOT NULL;
 END

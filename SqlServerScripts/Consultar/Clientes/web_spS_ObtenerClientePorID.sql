@@ -56,7 +56,8 @@ BEGIN
 		RutaLogo,
 		Elaboro,
 		Reviso,
-		Autorizo
+		Autorizo,
+		Proveedor
 	FROM
 		Clientes
 	WHERE

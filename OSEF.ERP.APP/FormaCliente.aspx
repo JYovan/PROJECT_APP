@@ -64,6 +64,7 @@
                         <ext:ModelField Name="Elaboro" Type="String" />
                         <ext:ModelField Name="Reviso" Type="String" />
                         <ext:ModelField Name="Autorizo" Type="String" />
+                        <ext:ModelField Name="Proveedor" Type="String" />
                     </Fields>
                 </ext:Model>
             </Model>
@@ -322,7 +323,46 @@
                                                         FieldLabel="Usuario">
                                                     </ext:TextField>
                                                 </Items>
-                                            </ext:FieldContainer> 
+                                            </ext:FieldContainer>  
+                                            <ext:FieldContainer 
+                                                ID="fbtnBuscarSucursal" 
+                                                runat="server" 
+                                                FieldLabel="Sucursales"
+                                                LabelWidth="250" 
+                                                AnchorHorizontal="100%" 
+                                                Layout="ColumnLayout" 
+                                                Disabled="false">
+                                                <Items>  
+                                                    <ext:LinkButton ID="btnBuscarSucursal" runat="server" Icon="Add"  Text="Agregar Sucursal" TextAlign="Center" >
+                                                        <Listeners>
+                                                            <Click Fn="btnBuscarSucursal_Click"></Click>
+                                                        </Listeners>
+                                                    </ext:LinkButton>
+                                                    <ext:ComboBox
+                                                        ID="cmbProveedor"
+                                                        runat="server"
+                                                        AllowBlank="false"
+                                                        Editable="false"
+                                                        Width="400" 
+                                                        ValueField="ID"
+                                                        FieldLabel="Proveedor"
+                                                        StyleSpec="margin-left: 6px;"
+                                                        DisplayField="Nombre">
+                                                        <Store>
+                                                            <ext:Store ID="sProveedor" runat="server">
+                                                                <Model>
+                                                                    <ext:Model ID="mProveedor" runat="server" IDProperty="ID">
+                                                                        <Fields>
+                                                                            <ext:ModelField Name="ID" Type="String" />
+                                                                            <ext:ModelField Name="Nombre" Type="String" />
+                                                                        </Fields>
+                                                                    </ext:Model>
+                                                                </Model>
+                                                            </ext:Store>
+                                                        </Store> 
+                                                    </ext:ComboBox> 
+                                                </Items>
+                                            </ext:FieldContainer>  
                                             <ext:FieldContainer 
                                                 ID="FieldContainer1" 
                                                 runat="server" 
@@ -335,10 +375,10 @@
                                                     <ext:TextField
                                                         ID="txtElaboro"
                                                         runat="server"
-                                                        Width="215"
+                                                        Width="250"
                                                         Editable="false"
                                                         EmptyText="ELABORO"
-                                                        MaxLength="50"
+                                                        MaxLength="55"
                                                         EnforceMaxLength="true" 
                                                         StyleSpec="margin-right: 3px;"
                                                         AllowBlank="false">
@@ -346,9 +386,9 @@
                                                     <ext:TextField
                                                         ID="txtReviso"
                                                         runat="server"
-                                                        Width="215"
+                                                        Width="200"
                                                         Editable="false"
-                                                        MaxLength="50"
+                                                        MaxLength="55"
                                                         EmptyText="REVISO"
                                                         EnforceMaxLength="true"
                                                         StyleSpec="margin-right: 3px;"
@@ -357,32 +397,15 @@
                                                     <ext:TextField
                                                         ID="txtAutorizo"
                                                         runat="server"
-                                                        Width="215"
+                                                        Width="200"
                                                         Editable="false"
-                                                        MaxLength="50"
+                                                        MaxLength="55"
                                                         EmptyText="AUTORIZO"
                                                         EnforceMaxLength="true"
                                                         AllowBlank="false">
                                                     </ext:TextField>
                                                 </Items>
                                               </ext:FieldContainer>
-                                            
-                                            <ext:FieldContainer 
-                                                ID="fbtnBuscarSucursal" 
-                                                runat="server" 
-                                                FieldLabel="Sucursales"
-                                                LabelWidth="120" 
-                                                AnchorHorizontal="100%" 
-                                                Layout="ColumnLayout"
-                                                Disabled="false">
-                                                <Items>  
-                                                    <ext:LinkButton ID="btnBuscarSucursal" runat="server" Icon="Add" Text="Agregar Sucursal" ToggleGroup="Group1" >
-                                                        <Listeners>
-                                                            <Click Fn="btnBuscarSucursal_Click"></Click>
-                                                        </Listeners>
-                                                    </ext:LinkButton>
-                                                </Items>
-                                            </ext:FieldContainer>  
                                               
                                             <ext:FieldContainer 
                                                 ID="fcImagen" 

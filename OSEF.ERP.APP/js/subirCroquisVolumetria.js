@@ -49,7 +49,7 @@ var fileSelected = function (item, file) {
     }
 
     else {
-        Ext.Msg.alert('Error', 'La imagen tiene demasiados caracteres o tiene carácteres especiales"');
+        Ext.Msg.Ext.Msg.alert('Error', 'La imagen tiene demasiados caracteres o tiene carácteres especiales"');
         return false;
     } 
     this.up('grid').store.add({
@@ -73,7 +73,7 @@ var abortUpload = function (btn) {
                 records;
 
     if (!selModel.hasSelection()) {
-        Ext.Msg.alert('Error', 'Por favor selecciona una carga para cancelar');
+        Ext.Msg.Ext.Msg.alert('Error', 'Por favor selecciona una carga para cancelar');
         return true;
     }
 
@@ -86,7 +86,7 @@ var removeUpload = function (btn) {
                 records;
 
     if (!selModel.hasSelection()) {
-        Ext.Msg.alert('Error', 'Por favor selecciona una carga para remover');
+        Ext.Msg.Ext.Msg.alert('Error', 'Por favor selecciona una carga para remover');
         return true;
     }
 
@@ -100,22 +100,22 @@ var uploadError = function (item, file, errorCode, message) {
 
     switch (errorCode) {
         case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
-            Ext.Msg.alert('Error',"Error Code: HTTP Error, File name: " + file.name + ", Message: " + message);
+            Ext.Msg.Ext.Msg.alert('Error',"Error Code: HTTP Error, File name: " + file.name + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
-            Ext.Msg.alert('Error', "Error Code: Upload Failed, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.Ext.Msg.alert('Error', "Error Code: Upload Failed, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.IO_ERROR:
-            Ext.Msg.alert('Error', "Error Code: IO Error, File name: " + file.name + ", Message: " + message);
+            Ext.Msg.Ext.Msg.alert('Error', "Error Code: IO Error, File name: " + file.name + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
-            Ext.Msg.alert('Error', "Error Code: Security Error, File name: " + file.name + ", Message: " + message);
+            Ext.Msg.Ext.Msg.alert('Error', "Error Code: Security Error, File name: " + file.name + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
-            Ext.Msg.alert('Error', "Error Code: Upload Limit Exceeded, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.Ext.Msg.alert('Error', "Error Code: Upload Limit Exceeded, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
-            Ext.Msg.alert('Error', "Error Code: File Validation Failed, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.Ext.Msg.alert('Error', "Error Code: File Validation Failed, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         case SWFUpload.UPLOAD_ERROR.FILE_CANCELLED:
             updateRecord(file.id, 'Estatus', 'Cancelado');
@@ -125,7 +125,7 @@ var uploadError = function (item, file, errorCode, message) {
             break;
         default:
             updateRecord(file.id, 'Estatus', "Unhandled Error: " + errorCode);
-            Ext.Msg.alert('Error', "Error Code: " + errorCode + ", File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.Ext.Msg.alert('Error', "Error Code: " + errorCode + ", File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
     }
 };
@@ -135,29 +135,29 @@ var fileSelectionError = function (item, file, errorCode, message) {
 
 
     if (errorCode === SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED) {
-        alert("Haz seleccionado demasiadas imagenes.\n" + (message === 0 ? "Haz excedido el límite de imágenes." : "Puedes seleccionar " + (message > 1 ? " hasta " + message + " archivos." : "sólo un archivo.")));
+        Ext.Msg.alert("Haz seleccionado demasiadas imagenes.\n" + (message === 0 ? "Haz excedido el límite de imágenes." : "Puedes seleccionar " + (message > 1 ? " hasta " + message + " archivos." : "sólo un archivo.")));
         return;
     }
 
 
     switch (errorCode) {
         case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-            alert("Error Code: File too big, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert("Error Code: File too big, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-            alert("Error Code: Zero byte file, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert("Error Code: Zero byte file, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
-            alert("Error Code: Invalid File Type, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert("Error Code: Invalid File Type, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
         default:
-            alert("Error Code: " + errorCode + ", File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+            Ext.Msg.alert("Error Code: " + errorCode + ", File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
             break;
     }
 };
 
 var loadFailed = function () {
-    alert("Algo sucedio mientras se cargaban las imagenes: loading SWFUpload. Verifique la conexion a internet, habilite los scripts en el navegador e intente de nuevo.");
+    Ext.Msg.alert("Algo sucedio mientras se cargaban las imagenes: loading SWFUpload. Verifique la conexion a internet, habilite los scripts en el navegador e intente de nuevo.");
 };
 var onUploadImages = function () {
     if (Ext.util.Cookies.get('cookieConceptoVolumetria') != null) {

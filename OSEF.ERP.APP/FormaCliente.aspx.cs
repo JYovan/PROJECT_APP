@@ -27,6 +27,7 @@ namespace OSEF.ERP.APP
            
                 //3. Llenar el ComboBox de Estados 
                 string strcookieEditarCliente = Cookies.GetCookie("cookieEditarCliente").Value;
+
                 if (strcookieEditarCliente.Equals("Nuevo"))
                 {
                     fbtnBuscarSucursal.Hidden = true;
@@ -35,6 +36,8 @@ namespace OSEF.ERP.APP
                 {
                     fbtnBuscarSucursal.Hidden = false;
                 }
+                sProveedor.DataSource = ProveedorBusiness.ObtenerProveedores();
+                sProveedor.DataBind();
             }
         }
           
@@ -113,6 +116,9 @@ namespace OSEF.ERP.APP
                         break;
                     case "txtAutorizo":
                         oCliente.Autorizo = sd.Value.ToString().Trim().Length > 0 ? sd.Value : "";
+                        break;
+                    case "cmbProveedor":
+                        oCliente.Proveedor = sd.Value.ToString().Trim().Length > 0 ? sd.Value : "";
                         break;
                 }
             }
@@ -263,7 +269,8 @@ namespace OSEF.ERP.APP
                 RutaLogo = oCliente.RutaLogo,
                 Elaboro = oCliente.Elaboro,
                 Reviso = oCliente.Reviso,
-                Autorizo = oCliente.Autorizo
+                Autorizo = oCliente.Autorizo,
+                Proveedor = oCliente.Proveedor
             });
           
 

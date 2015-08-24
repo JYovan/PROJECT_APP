@@ -23,9 +23,9 @@ IF EXISTS (	SELECT name
 	DROP PROCEDURE web_spS_ObtenerCambiosPreciario
 GO
 -- =============================================
--- Author:		Orlando Esparza
--- Create date: Miercoles 07 de Enero de 2015
--- Description:	Obtener un registro de Clientes por su ID
+-- Author:		Giovanni Flores
+-- Create date: Lunes 24 de Agosto de 2015
+-- Description:	Obtener los cambios en el preciario
 -- =============================================
 CREATE PROCEDURE web_spS_ObtenerCambiosPreciario
 	-- Add the parameters for the stored procedure here
@@ -38,10 +38,11 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT        V.Sucursal, V.Observaciones, V.Preciario, P.Descripcion, S.Nombre, S.CR, S.Calle, S.NoExterior, S.NoInterior, S.CodigoPostal, S.Colonia, S.Estado, S.Municipio, 
-                         VD.ConceptoID, PC.Descripcion AS DESC_CONCEPTO, PC.Utilizada, PC.Cantidad, V.FechaEmision, IVD.Nombre AS Expr1, IVD.Direccion, PC.Categoria, 
+	SELECT        V.Sucursal, V.Observaciones, V.Preciario, P.Descripcion, S.Nombre, S.CR, S.Calle, S.NoExterior, S.NoInterior, S.CodigoPostal, S.Colonia, S.Estado, S.Municipio,
+                         VD.ConceptoID, PC.Descripcion AS DESC_CONCEPTO, PC.Utilizada, PC.Cantidad, V.FechaEmision, IVD.Nombre AS NombreImagenVD, IVD.Direccion, PC.Categoria, 
                          PC.SubCategoria, PC.SubSubCategoria, PC.Unidad, PC.ImporteFinal, PC.Importe, PC.CLAVE, PC.Costo, M.Descripcion AS DESC_MUNICIPIO, 
-                         E.Descripcion AS EDO_DESCRIPCION, C.Descripcion AS COL_DESCRIPCION, dbo.Clientes.ID ClienteID, dbo.Clientes.RutaLogo, dbo.Clientes.Elaboro, dbo.Clientes.Reviso, dbo.Clientes.Autorizo
+                         E.Descripcion AS EDO_DESCRIPCION, C.Descripcion AS COL_DESCRIPCION, dbo.Clientes.ID ClienteID, dbo.Clientes.RutaLogo, dbo.Clientes.Elaboro, dbo.Clientes.Reviso, dbo.Clientes.Autorizo,
+						 pro.Nombre Proveedor
 						 FROM            dbo.Volumetrias AS V INNER JOIN
                          dbo.Clientes ON V.Cliente = dbo.Clientes.ID LEFT OUTER JOIN
                          dbo.Sucursales AS S ON dbo.Clientes.ID = S.Cliente AND S.ID = V.Sucursal LEFT OUTER JOIN
@@ -52,6 +53,8 @@ BEGIN
                          dbo.Municipios AS M ON M.ID = S.Municipio LEFT OUTER JOIN
                          dbo.Estados AS E ON E.ID = S.Estado LEFT OUTER JOIN
                          dbo.Colonias AS C ON C.ID = S.Colonia
+						 INNER JOIN dbo.Proveedores AS Pro
+						 ON dbo.Clientes.Proveedor = Pro.ID
 WHERE VD.ConceptoID=@idconcepto
 AND V.Preciario=@idpreciario
 

@@ -42,6 +42,7 @@ namespace OSEF.APP.EL
         string reviso;
         string autorizo;
 
+        string proveedor;
         #endregion
 
         #region Propiedades
@@ -202,6 +203,12 @@ namespace OSEF.APP.EL
         {
             get { return autorizo; }
             set { autorizo = value; }
+        }
+
+        public string Proveedor
+        {
+            get { return proveedor; }
+            set { proveedor = value; }
         }
 
         #endregion

@@ -51,7 +51,8 @@ BEGIN
 		--CONCEPTO INFO GENERADOR
 		GVD.Eje,GVD.EntreEje1,GVD.EntreEje2,GVD.Area,GVD.Ancho,GVD.Largo,GVD.Alto,GVD.Total,GVD.Cantidad CANT_GEN, GVD.Descripcion,
 		--Encabezado del movimiento(No del reporte)
-		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo
+		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo,
+		Pro.Nombre AS Proveedor
 		FROM Volumetrias V
 		--Detalle del movimiento
 		LEFT JOIN VolumetriasD VD
@@ -76,7 +77,9 @@ BEGIN
 		LEFT JOIN Colonias C
 		ON C.ID = S.Colonia
 		INNER JOIN Clientes cli
-		ON V.Cliente = cli.ID
+		ON V.Cliente = cli.ID 
+		INNER JOIN dbo.Proveedores AS Pro
+		ON cli.Proveedor = Pro.ID
 		WHERE 
 		 VD.ConceptoID =@idconcepto
 		AND V.Preciario=@idpreciario

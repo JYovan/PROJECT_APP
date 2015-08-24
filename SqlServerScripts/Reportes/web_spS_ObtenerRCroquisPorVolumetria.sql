@@ -51,7 +51,8 @@ BEGIN
 		--CONCEPTO INFO CROQUIS
 		CVD.Direccion RutaCroquis,
 		--Encabezado del movimiento(No del reporte)
-		cli.ID ClienteID, cli.RutaLogo
+		cli.ID ClienteID, cli.RutaLogo,
+		Pro.Nombre AS Proveedor
 		FROM Volumetrias V
 		--Detalle del movimiento
 		LEFT JOIN VolumetriasD VD
@@ -77,6 +78,8 @@ BEGIN
 		ON C.ID = S.Colonia
 		INNER JOIN Clientes cli
 		ON V.Cliente = cli.ID
+		INNER JOIN dbo.Proveedores AS Pro
+		ON cli.Proveedor = Pro.ID
 		WHERE V.ID = @IDMovimiento
 		AND CVD.Concepto IS NOT NULL;
 END

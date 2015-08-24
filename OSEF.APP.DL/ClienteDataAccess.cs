@@ -129,6 +129,17 @@ namespace OSEF.APP.DL
                 sqlpAutorizo.SqlDbType = SqlDbType.VarChar;
                 sqlpAutorizo.Value = iCliente.Autorizo;
 
+                SqlParameter sqlpProveedor = new SqlParameter();
+                sqlpProveedor.ParameterName = "@Proveedor";
+                sqlpProveedor.SqlDbType = SqlDbType.Char;
+                if (iCliente.Proveedor != null)
+                {
+                    sqlpProveedor.Value = iCliente.Proveedor;
+                }
+                else
+                {
+                    sqlpProveedor.Value = DBNull.Value;
+                }
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpNombre);
@@ -149,6 +160,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpElaboro);
                 sqlcComando.Parameters.Add(sqlpReviso);
                 sqlcComando.Parameters.Add(sqlpAutorizo);
+                sqlcComando.Parameters.Add(sqlpProveedor);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
@@ -283,7 +295,16 @@ namespace OSEF.APP.DL
                 sqlpAutorizo.SqlDbType = SqlDbType.VarChar;
                 sqlpAutorizo.Value = uCliente.Autorizo;
 
-
+                SqlParameter sqlpProveedor = new SqlParameter();
+                sqlpProveedor.ParameterName = "@Proveedor";
+                sqlpProveedor.SqlDbType = SqlDbType.Char;
+                if (uCliente.Proveedor != null)
+                {
+                    sqlpProveedor.Value = uCliente.Proveedor;
+                }
+                else {
+                    sqlpProveedor.Value = DBNull.Value;
+                }
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpNombre);
@@ -305,6 +326,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpElaboro);
                 sqlcComando.Parameters.Add(sqlpReviso);
                 sqlcComando.Parameters.Add(sqlpAutorizo);
+                sqlcComando.Parameters.Add(sqlpProveedor);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

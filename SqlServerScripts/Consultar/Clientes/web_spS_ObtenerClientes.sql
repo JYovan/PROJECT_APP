@@ -23,8 +23,8 @@ IF EXISTS (	SELECT name
 	DROP PROCEDURE web_spS_ObtenerClientes
 GO
 -- =============================================
--- Author:		Orlando Esparza
--- Create date: Miercoles 07 de Enero de 2015
+-- Author:		Giovanni Flores
+-- Create date: Lunes 24 de Agosto de 2015
 -- Description:	Obtener todos los registros de Clientes
 -- =============================================
 CREATE PROCEDURE web_spS_ObtenerClientes
@@ -55,7 +55,8 @@ BEGIN
 		RutaLogo,
 		Elaboro,
 		Reviso,
-		Autorizo
+		Autorizo,
+		Proveedor
 	FROM
 		Clientes
 END

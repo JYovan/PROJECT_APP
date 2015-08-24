@@ -47,7 +47,8 @@ BEGIN
 		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,OED.Unidad,PGCAT.Descripcion DescripcionPreGenCat,
 		--CONCEPTO INFO GENERADOR
 		GOD.Direccion,
-		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo
+		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo,
+		Pro.Nombre AS Proveedor
 		--Encabezado del movimiento(No del reporte)
 		FROM OrdenesEstimaciones OE
 		--Detalle del movimiento
@@ -74,6 +75,8 @@ BEGIN
 		ON C.ID = S.Colonia
 		INNER JOIN Clientes cli
 		ON OE.Cliente = cli.ID
+		INNER JOIN dbo.Proveedores AS Pro
+		ON cli.Proveedor = Pro.ID
 		WHERE OED.ConceptoID =@ConceptoID;
 END
 GO

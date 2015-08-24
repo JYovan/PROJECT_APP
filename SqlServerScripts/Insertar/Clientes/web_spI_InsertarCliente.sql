@@ -47,7 +47,8 @@ CREATE PROCEDURE web_spI_InsertarCliente
 	@RutaLogo				VARCHAR(500),
 	@Elaboro				VARCHAR(100),
 	@Reviso					VARCHAR(100),
-	@Autorizo				VARCHAR(100)
+	@Autorizo				VARCHAR(100),
+	@Proveedor				CHAR(7)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -115,7 +116,8 @@ BEGIN
 				CodigoPostal,
 				Elaboro,
 				Reviso,
-				Autorizo
+				Autorizo,
+				Proveedor
 			)
 		VALUES 
 			(
@@ -137,7 +139,8 @@ BEGIN
 				@CodigoPostal,
 				@Elaboro,
 				@Reviso,
-				@Autorizo
+				@Autorizo,
+				@Proveedor
 			)
 END
 GO

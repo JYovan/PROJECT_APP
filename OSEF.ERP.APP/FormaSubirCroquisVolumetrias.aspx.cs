@@ -15,15 +15,13 @@ namespace OSEF.ERP.APP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string Mov = Cookies.GetCookie("cockieMovimientoCroquis").Value;
-
-
+            string Mov = Cookies.GetCookie("cookieConceptoVolumetria").Value != null ? Cookies.GetCookie("cookieConceptoVolumetria").Value : "";
+             
             if (Mov.Equals("Reporte"))
             {
                 muSubirImagenesVolumetria.FileUploadLimit = 0;
                 muSubirImagenesVolumetria.FileQueueLimit = 1;
-            }
-            else {
+            } else {
                 muSubirImagenesVolumetria.FileUploadLimit = 0;
                 muSubirImagenesVolumetria.FileQueueLimit = 5;
             }

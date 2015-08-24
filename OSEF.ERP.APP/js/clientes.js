@@ -147,7 +147,7 @@ var sCliente_Add = function (store, registro) {
         App.txtMunicipio.setValue(r.get('RMunicipio').Descripcion);
 
     }
-
+    App.cmbProveedor.setValue(r.get('Proveedor'));
     App.txtFileName.setValue(r.get('RutaLogo'));
 };
 

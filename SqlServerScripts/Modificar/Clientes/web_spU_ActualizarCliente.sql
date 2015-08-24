@@ -45,7 +45,8 @@ CREATE PROCEDURE web_spU_ActualizarCliente
 	@RutaLogo				VARCHAR(500),
 	@Elaboro				VARCHAR(100),
 	@Reviso					VARCHAR(100),
-	@Autorizo				VARCHAR(100)
+	@Autorizo				VARCHAR(100),
+	@Proveedor				CHAR(7)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -71,7 +72,8 @@ BEGIN
 		RutaLogo = @RutaLogo,
 		Elaboro = @Elaboro,
 		Reviso = @Reviso,
-		Autorizo = @Autorizo
+		Autorizo = @Autorizo,
+		Proveedor = @Proveedor
 	WHERE
 		ID = @ID
 END

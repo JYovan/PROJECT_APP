@@ -103,18 +103,12 @@
                             FileDropAnywhere="true"
                             FileSizeLimit="15 MB"
                             FileTypes="*.png;*.jpg;*.jpeg;*.gif"
-                            FileTypesDescription="Archivos de imagen"
-                            >
-<%--
-                            FileUploadLimit="0"
-                            
-                            FileQueueLimit="1"--%>
+                            FileTypesDescription="Archivos de imagen"> 
 
                             <Button>
                                 <ext:Button ID="btnSubirImagenesVolumetria"  runat="server" Text="Subir..." ToolTip="Subir imagenes" />
                             </Button>
                             <Listeners>
-                       
                              <BeforeRender Fn="validaLimite_BeforeRender"></BeforeRender>   
                                 <SwfUploadLoadFailed Fn="loadFailed" />
                                 <FileSelected Fn="fileSelected" />
@@ -133,7 +127,8 @@
                             runat="server"
                             Text="Iniciar"
                              Icon="Tick"
-                            Handler="#{muSubirImagenesVolumetria}.startUpload(); onUploadImages();" />
+                            Handler="#{muSubirImagenesVolumetria}.startUpload(); onUploadImages()">
+                            </ext:Button>
                         <ext:Button
                             ID="btnCancelar"
                             runat="server"

@@ -33,9 +33,8 @@ var sFormaGenerador_Load = function () {
     else if (Ext.util.Cookies.get('cookieEditarVolumetria') != 'Nuevo' && window.parent.App.wEmergente.getBody().App.sVolumetria.getAt(0).get('Estatus') == 'CANCELADO') {
         App.imgbtnAceptar.setDisabled(true);
         App.txtDescripcionCorta.setDisabled(true);
-    }
-
-    else if (App.sFormaGenerador.getCount() < 19) {
+    } 
+    else {
         App.sFormaGenerador.insert(App.sFormaGenerador.getCount(), {});
 
     }
@@ -102,8 +101,7 @@ var ceGenerador_Edit = function (cellediting, columna) {
 
 
 
-        if (registro.get('Area').length != 0
-        && registro.get('Total') != 0 && App.sFormaGenerador.getCount() < 19 ) {
+        if (registro.get('Area').length != 0 && registro.get('Total') != 0) {
 
             //Insertar un nuevo registro
             App.sFormaGenerador.insert(App.sFormaGenerador.getCount(), {});

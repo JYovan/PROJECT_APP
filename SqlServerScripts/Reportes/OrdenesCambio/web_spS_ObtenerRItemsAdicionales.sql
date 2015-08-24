@@ -56,6 +56,7 @@ BEGIN
 		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,
 		OED.Unidad,OED.Precio,PGCAT.Descripcion DescripcionPreGenCat
 		--Encabezado del movimiento(No del reporte)
+		,Pro.Nombre AS Proveedor
 		FROM OrdenesEstimaciones OE
 		--Detalle del movimiento
 		LEFT JOIN OrdenesEstimacionesD OED
@@ -75,6 +76,10 @@ BEGIN
 		ON E.ID =  S.Estado
 		LEFT JOIN Colonias C
 		ON C.ID = S.Colonia
+		INNER JOIN Clientes cli
+		ON S.Cliente = cli.ID
+		INNER JOIN Proveedores AS Pro
+		ON Pro.ID = cli.Proveedor
 		WHERE OE.Mov in ('Orden de Cambio')
 		AND OE.Estatus IN('CONCLUIDO','BORRADOR')
 		AND OE.Sucursal like @Sucursal

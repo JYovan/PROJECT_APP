@@ -239,3 +239,6 @@ ALTER TABLE Clientes ADD Autorizo VARCHAR(100) NULL
 ALTER TABLE VolumetriasD ALTER COLUMN Utilizada DECIMAL(10,3) NULL
 ALTER TABLE VolumetriasD ALTER COLUMN Cantidad DECIMAL(10,3) NULL
 
+--Cambios Giovanni Flores 24 de Agosto 2015 
+ALTER TABLE Clientes ADD Proveedor CHAR(7) NULL FOREIGN KEY REFERENCES Proveedores(ID)
+
