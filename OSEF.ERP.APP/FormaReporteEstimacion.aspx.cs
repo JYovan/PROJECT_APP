@@ -29,22 +29,7 @@ namespace OSEF.ERP.APP
         /// <param name="e"></param>
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            FirmasReportes oFirmas = FirmasReportesBusiness.ObtenerFirmasReportesPorModulo("Reportes");
-            //Checar ticket de autenticación
-            //UsuarioBusiness.checkValidSession(this);
-            if (oFirmas == null)
-            {
-               sbParametros1.Text="Debes de configurar las firmas";
-                
-                imgbtnPresupuesto.Enabled = false;
-                imgbtnResumen.Enabled = false;
-                imgbtnEstimacion.Enabled = false;
-                imgbtnGenerador.Enabled = false;
-                imgbtnCroquis.Enabled = false;
-                imgbtnFacturas.Enabled = false;
-                imgbtnFotos.Enabled = false;
-                imgbtnTodos.Enabled = false;
-            }
+          
         }
 
 
@@ -69,17 +54,12 @@ namespace OSEF.ERP.APP
             //Parametros del store procedure
             string strID = Cookies.GetCookie("cookieEditarOrdenEstimacion").Value; 
           
-                //Firmas documento(Parametros)
-               // string strElaboro = txtElaboro.Value.ToString();
-               // string strReviso = txtReviso.Value.ToString();
-                //string strAutorizo = txtAutorizo.Value.ToString();
-
-                FirmasReportes oFirmas = FirmasReportesBusiness.ObtenerFirmasReportesPorModulo("Reportes");
+     
 
                 Usuario oUsuario = (Usuario)Session["Usuario"];
                 string strElaboro = oUsuario.Nombre + " " + oUsuario.APaterno + " " + oUsuario.AMaterno;
-                string strReviso = oFirmas.FirmaReviso;
-                string strAutorizo = oFirmas.FirmaAutorizo;
+                string strReviso ="";
+                string strAutorizo = "";
 
                 string path = AppDomain.CurrentDomain.BaseDirectory;
                 //1. Configurar la conexión y el tipo de comando

@@ -29,15 +29,6 @@ var imgbtnEditar_Click = function () {
     window.parent.App.wEmergente.show();
 };
 
-//Evento de click del botón Editar
-var imgbtnFirmas_Click = function () {
-   
-    window.parent.App.wEmergente.load('FormaFirmasReportes.aspx');
-    window.parent.App.wEmergente.setHeight(190);
-    window.parent.App.wEmergente.setWidth(590);
-    window.parent.App.wEmergente.center();
-    window.parent.App.wEmergente.show();
-};
 
 var gpOrdenEstimacion_ItemDblClick = function (gridview, registro, gvhtml, index) {
 

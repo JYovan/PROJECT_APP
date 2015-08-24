@@ -94,15 +94,6 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.Checkbox chkHistorial;
         
         /// <summary>
-        /// Control imgbtnFirmas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.ImageButton imgbtnFirmas;
-        
-        /// <summary>
         /// Control cCorreoEnviado.
         /// </summary>
         /// <remarks>

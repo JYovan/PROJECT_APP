@@ -328,7 +328,6 @@
     <Content Include="FormaCuadrillas.aspx" />
     <Content Include="FormaEspecificarFechas.aspx" />
     <Content Include="FormaFacturasOrdenEstimacion.aspx" />
-    <Content Include="FormaFirmasReportes.aspx" />
     <Content Include="FormaGaleria.aspx" />
     <Content Include="FormaGenerador.aspx" />
     <Content Include="FormaGeneradorVolumetriaD.aspx" />
@@ -724,13 +723,6 @@
     </Compile>
     <Compile Include="FormaFacturasOrdenEstimacion.aspx.designer.cs">
       <DependentUpon>FormaFacturasOrdenEstimacion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FormaFirmasReportes.aspx.cs">
-      <DependentUpon>FormaFirmasReportes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FormaFirmasReportes.aspx.designer.cs">
-      <DependentUpon>FormaFirmasReportes.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormaGaleria.aspx.cs">
       <DependentUpon>FormaGaleria.aspx</DependentUpon>

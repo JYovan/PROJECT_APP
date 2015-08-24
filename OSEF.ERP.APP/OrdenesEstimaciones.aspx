@@ -87,7 +87,7 @@
                             Width="50"
                             Disabled="true">
                         </ext:ImageButton>
-                        <ext:ToolbarSpacer ID="tbsOrdenesCambio" runat="server" Width="370">
+                        <ext:ToolbarSpacer ID="tbsOrdenesCambio" runat="server" Width="460">
                         </ext:ToolbarSpacer>
                         <ext:Checkbox
                             ID="chkHistorial" 
@@ -99,19 +99,7 @@
                                 <Change Fn="chkHistorial_Change"></Change>
                             </Listeners>
                         </ext:Checkbox> 
-                        <ext:ImageButton
-                            ID="imgbtnFirmas"
-                            runat="server"
-                            ImageUrl="assets/img/controles/AutorizarNormal.png"
-                            DisabledImageUrl="assets/img/controles/AutorizarDisabled.png"
-                            OverImageUrl="assets/img/controles/AutorizarOver.png"
-                            PressedImageUrl="assets/img/controles/AutorizarPressed.png"
-                            Height="50"
-                            Width="50">
-                             <Listeners>
-                                <Click Fn="imgbtnFirmas_Click" />
-                            </Listeners>
-                        </ext:ImageButton>
+                      
 
                          <ext:Container
                                 ID="cCorreoEnviado"
@@ -122,6 +110,7 @@
                                         runat="server" 
                                         Height="50"
                                         Width="50"
+                                        ToolTip="Reportes por Cuadrilla"
                                         OnClick="ExportEt"
                                         class="imgs" 
                                         ImageUrl="assets/img/controles/ExcelNormal.png"/>
