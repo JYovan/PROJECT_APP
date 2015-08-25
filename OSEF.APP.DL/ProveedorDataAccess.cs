@@ -115,6 +115,17 @@ namespace OSEF.APP.DL
                 sqlpMunicipio.Size = 4;
                 sqlpMunicipio.Value = iProveedor.Municipio;
 
+                SqlParameter sqlpRutaLogo = new SqlParameter();
+                sqlpRutaLogo.ParameterName = "@RutaLogo";
+                sqlpRutaLogo.SqlDbType = SqlDbType.VarChar;
+                if (iProveedor.Rutalogo != null || iProveedor.Rutalogo.Trim().Length > 0)
+                {
+                    sqlpRutaLogo.Value = iProveedor.Rutalogo;
+                }
+                else {
+                    sqlpRutaLogo.Value = "";
+                }
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpNombre);
@@ -131,6 +142,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpColonia);
                 sqlcComando.Parameters.Add(sqlpEstado);
                 sqlcComando.Parameters.Add(sqlpMunicipio);
+                sqlcComando.Parameters.Add(sqlpRutaLogo);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
@@ -252,6 +264,17 @@ namespace OSEF.APP.DL
                 sqlpMunicipio.Size = 4;
                 sqlpMunicipio.Value = uProveedor.Municipio;
 
+                SqlParameter sqlpRutaLogo = new SqlParameter();
+                sqlpRutaLogo.ParameterName = "@RutaLogo";
+                sqlpRutaLogo.SqlDbType = SqlDbType.VarChar;
+                if (uProveedor.Rutalogo != null || uProveedor.Rutalogo.Trim().Length > 0)
+                {
+                    sqlpRutaLogo.Value = uProveedor.Rutalogo;
+                }
+                else
+                {
+                    sqlpRutaLogo.Value = "";
+                }
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpNombre);
@@ -268,6 +291,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpColonia);
                 sqlcComando.Parameters.Add(sqlpEstado);
                 sqlcComando.Parameters.Add(sqlpMunicipio);
+                sqlcComando.Parameters.Add(sqlpRutaLogo);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

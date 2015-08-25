@@ -58,6 +58,33 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.FormPanel PanelProveedores;
         
         /// <summary>
+        /// Control Panel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Panel Panel2;
+        
+        /// <summary>
+        /// Control imgLogo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Image imgLogo;
+        
+        /// <summary>
+        /// Control fuImagenProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.FileUploadField fuImagenProveedor;
+        
+        /// <summary>
         /// Control ContenedorID.
         /// </summary>
         /// <remarks>
@@ -76,6 +103,15 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.TextField txtID;
         
         /// <summary>
+        /// Control txtFileName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.TextField txtFileName;
+        
+        /// <summary>
         /// Control ContenedorNombre.
         /// </summary>
         /// <remarks>
@@ -92,15 +128,6 @@ namespace OSEF.AVANCES.SUCURSALES {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.TextField txtfNombre;
-        
-        /// <summary>
-        /// Control ContendeorRFC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.FieldContainer ContendeorRFC;
         
         /// <summary>
         /// Control txtfRFC.

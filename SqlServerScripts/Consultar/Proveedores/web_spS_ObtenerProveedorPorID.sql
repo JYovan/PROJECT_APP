@@ -52,7 +52,8 @@ BEGIN
 		CodigoPostal,
 		Colonia,
 		Estado,
-		Municipio
+		Municipio,
+		RutaLogo
 	FROM
 		Proveedores
 	WHERE

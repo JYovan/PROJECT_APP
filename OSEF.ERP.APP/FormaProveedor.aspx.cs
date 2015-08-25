@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using OSEF.APP.BL;
 using Ext.Net;
 using OSEF.APP.EL;
+using System.IO;
 
 namespace OSEF.AVANCES.SUCURSALES
 {
@@ -44,6 +45,7 @@ namespace OSEF.AVANCES.SUCURSALES
             if (!strcookieEditarProveedor.Equals("Nuevo"))
             {
                 Proveedor oProveedor = ProveedorBusiness.ObtenerProveedorPorID(strcookieEditarProveedor);
+                string strDireccion = "images\\proveedores\\" + oProveedor.ID + "\\";
                 sProveedor.Add(new
                 {
                     ID = oProveedor.ID,
@@ -60,8 +62,14 @@ namespace OSEF.AVANCES.SUCURSALES
                     CodigoPostal = oProveedor.CodigoPostal,
                     Colonia = oProveedor.Colonia,
                     Estado = oProveedor.Estado,
-                    Municipio = oProveedor.Municipio
+                    Municipio = oProveedor.Municipio,
+                    Rutalogo = oProveedor.Rutalogo
                 });
+                //if (oProveedor.Rutalogo != null || oProveedor.Rutalogo.ToString().Trim().Length <= 0)
+                //{
+                    imgLogo.ImageUrl = strDireccion + oProveedor.Rutalogo;
+                //}else{   imgLogo.ImageUrl = strDireccion + oProveedor.Rutalogo;
+                //}
             }
         }
 
@@ -156,11 +164,30 @@ namespace OSEF.AVANCES.SUCURSALES
                 }
             }
 
+            string logo = e.ExtraParams["logo"];
+            string strImagen = fuImagenProveedor.FileName;
+            string strDireccionDisplay;
+
             //4. Validar si es nuevo o es uno existente
             if (strcookieEditarProveedor.Equals("Nuevo"))
             {
+                oProveedor.Rutalogo = logo != null || !logo.Equals("") ? logo : "";
+                
                 //5. Insertar en la base de datos
                 oProveedor.ID = ProveedorBusiness.Insertar(oProveedor);
+                if (logo != null && !logo.Trim().Equals(""))
+                {
+                    string strDireccion = Server.MapPath(" ") + "\\images\\proveedores\\" + oProveedor.ID + "\\";
+                    if (Directory.Exists(strDireccion))
+                    {
+                        fuImagenProveedor.PostedFile.SaveAs(strDireccion + logo);
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(strDireccion);
+                        fuImagenProveedor.PostedFile.SaveAs(strDireccion + logo);
+                    }
+                }
                 //6. Mandar mensaje con el código del proveedor
                 var success = new JFunction { Fn = "imgbtnGuardar_Click_Success" };
                 X.Msg.Alert("Registro completo", "<p align='center'>Proveedor registrado con ID: <br/>" + oProveedor.ID + ".</p>", success).Show();
@@ -168,6 +195,36 @@ namespace OSEF.AVANCES.SUCURSALES
             else
             {
                 oProveedor.ID = strcookieEditarProveedor;
+                string strDireccion = Server.MapPath(" ") + "\\images\\proveedores\\" + oProveedor.ID + "\\";
+
+                Proveedor oProveedorRef = ProveedorBusiness.ObtenerProveedorPorID(oProveedor.ID);
+                //Si el upload file esta lleno cuando se actualiza se guarda la imagen en el directorio 
+                if (!strImagen.Equals("") && !oProveedorRef.Rutalogo.ToString().Equals(logo))
+                { 
+                    if (Directory.Exists(strDireccion))
+                    {
+                        fuImagenProveedor.PostedFile.SaveAs(strDireccion + logo);
+                    }else{ 
+                        Directory.CreateDirectory(strDireccion);
+                        fuImagenProveedor.PostedFile.SaveAs(strDireccion + logo);
+                    }
+                    if (oProveedorRef.Rutalogo != null)
+                    {
+                        File.Delete(strDireccion + oProveedorRef.Rutalogo);
+                    }//llenamos el objeto con la ruta
+                    oProveedor.Rutalogo = logo;
+                    //Mostramos la imagen
+                    strDireccionDisplay = "images\\proveedores\\" + oProveedor.ID + "\\";
+                    imgLogo.ImageUrl = strDireccionDisplay + oProveedor.Rutalogo;
+                }
+                //Si no se escoge otra imagen se deja la que ya estaba
+                else
+                { 
+                    oProveedor.Rutalogo = oProveedorRef.Rutalogo; 
+                    strDireccionDisplay = "images\\proveedores\\" + oProveedor.ID + "\\";
+                    imgLogo.ImageUrl = strDireccionDisplay + oProveedorRef.Rutalogo;
+                }
+
                 //7. Actualizar los datos del proveedor
                 ProveedorBusiness.Actualizar(oProveedor);
                 //8. Mandar mensaje con el código del proveedor
@@ -175,5 +232,6 @@ namespace OSEF.AVANCES.SUCURSALES
                 X.Msg.Alert("Actualización completa", "<p align='center'>Se han actualizado los datos del proveedor <br/>" + oProveedor.ID + ".</p>", success).Show();
             }
         }
+         
     }
 }

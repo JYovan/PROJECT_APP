@@ -27,7 +27,7 @@ namespace OSEF.APP.EL
         string colonia;
         string estado;
         string municipio;
-
+        string rutalogo;
         #endregion
 
         #region Propiedades
@@ -120,6 +120,12 @@ namespace OSEF.APP.EL
         {
             get { return municipio; }
             set { municipio = value; }
+        }
+
+        public string Rutalogo
+        {
+            get { return rutalogo; }
+            set { rutalogo = value; }
         }
 
         #endregion

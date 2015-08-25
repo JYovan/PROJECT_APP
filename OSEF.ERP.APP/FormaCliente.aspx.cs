@@ -205,6 +205,11 @@ namespace OSEF.ERP.APP
                         Directory.CreateDirectory(strDireccion);
                         fuImagenCliente.PostedFile.SaveAs(strDireccion + logo);
                     }
+                    if (oClienteRef.RutaLogo != null)
+                    {
+                        File.Delete(strDireccion + oClienteRef.RutaLogo);
+                    }
+
                     //llenamos el objeto con la ruta
                     oCliente.RutaLogo = logo;
                     //Mostramos la imagen
@@ -235,10 +240,7 @@ namespace OSEF.ERP.APP
         {
             //1. Obtener Cookie del Cliente
             string strcookieEditarCliente = Cookies.GetCookie("cookieEditarCliente").Value;
-
-
-          
-
+              
             //2. Asignar el objeto del Cliente y llenar el Store sCliente
             Cliente oCliente = ClienteBusiness.ObtenerClientePorID(strcookieEditarCliente);
 
@@ -271,10 +273,7 @@ namespace OSEF.ERP.APP
                 Reviso = oCliente.Reviso,
                 Autorizo = oCliente.Autorizo,
                 Proveedor = oCliente.Proveedor
-            });
-          
-
-
+            }); 
             imgNormal.ImageUrl = strDireccion+oCliente.RutaLogo;
         }
     }

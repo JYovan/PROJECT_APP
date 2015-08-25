@@ -50,12 +50,10 @@
                         <ext:ModelField Name="Calle" Type="String" />
                         <ext:ModelField Name="NoExterior" Type="String" />
                         <ext:ModelField Name="NoInterior" Type="String" /> 
-                        
                         <ext:ModelField Name="RCodigoPostal" Type="Object" />
                         <ext:ModelField Name="RColonia" Type="Object" />
                         <ext:ModelField Name="REstado" Type="Object" />
                         <ext:ModelField Name="RMunicipio" Type="Object" />
-
                         <ext:ModelField Name="EntreCalles" Type="String" /> 
                         <ext:ModelField Name="Usuario" Type="String" />
                         <ext:ModelField Name="FechaAlta" Type="Date" />
@@ -146,7 +144,6 @@
                                                             <Change Fn="onFUCliente"></Change>
                                                         </Listeners>  
                                                         </ext:FileUploadField>
-
                                                 </Items>
                                             </ext:FieldContainer>
                                             <ext:FieldContainer
@@ -559,8 +556,6 @@
                                                 </ext:TextField> 
                                             </Items>
                                         </ext:FieldContainer>
-                                        
-
                                         </Items>
                                     </ext:Panel>
                                 </Items>

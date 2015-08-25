@@ -43,7 +43,8 @@ CREATE PROCEDURE web_spU_ActualizarProveedor
 	@CodigoPostal		INT,
 	@Colonia			VARCHAR(50),
 	@Estado				CHAR(2),
-	@Municipio			CHAR(4)
+	@Municipio			CHAR(4),
+	@RutaLogo			VARCHAR(500)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -67,7 +68,8 @@ BEGIN
 		CodigoPostal = @CodigoPostal,
 		Colonia = @Colonia,
 		Estado = @Estado,
-		Municipio = @Municipio
+		Municipio = @Municipio,
+		RutaLogo = @RutaLogo
 	WHERE
 		ID = @ID
 END

@@ -43,7 +43,8 @@ CREATE PROCEDURE web_spI_InsertarProveedor
 	@CodigoPostal		INT,
 	@Colonia			VARCHAR(50),
 	@Estado				CHAR(2),
-	@Municipio			CHAR(4)
+	@Municipio			CHAR(4),
+	@RutaLogo			VARCHAR(500)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -103,7 +104,9 @@ BEGIN
 				CodigoPostal,
 				Colonia,
 				Estado,
-				Municipio)
+				Municipio,
+				RutaLogo
+				)
 		VALUES (
 				@ID,
 				@Nombre,
@@ -119,7 +122,8 @@ BEGIN
 				@CodigoPostal,
 				@Colonia,
 				@Estado,
-				@Municipio
+				@Municipio,
+				@RutaLogo
 				)
 END
 GO

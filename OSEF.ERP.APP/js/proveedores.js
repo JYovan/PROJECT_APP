@@ -54,7 +54,7 @@ var itemclick_Habilitar = function () {
 var imgbtnEditar_Click = function () {
     Ext.util.Cookies.set('cookieEditarProveedor', App.gpProveedores.getSelectionModel().getSelection()[0].get('ID'));
     window.parent.App.wEmergente.load('FormaProveedor.aspx');
-    window.parent.App.wEmergente.setHeight(430);
+    window.parent.App.wEmergente.setHeight(530);
     window.parent.App.wEmergente.setWidth(670);
     window.parent.App.wEmergente.center();
     window.parent.App.wEmergente.setTitle('Editar proveedor ' + Ext.util.Cookies.get('cookieEditarProveedor'));
@@ -78,22 +78,24 @@ var sProveedor_Load = function () {
 };
 
 //Evento lanzado al agregar un registro al store
-var sProveedor_Add = function (proveedor, registro) {
-    App.txtID.setValue(registro[0].get('ID'));
-    App.txtfNombre.setValue(registro[0].get('Nombre'));
-    App.txtfRFC.setValue(registro[0].get('RFC'));
-    App.txtfContactoNombre.setValue(registro[0].get('ContactoNombre'));
-    App.txtfContactoAPaterno.setValue(registro[0].get('ContactoAPaterno'));
-    App.txtfContactoAMaterno.setValue(registro[0].get('ContactoAMaterno'));
-    App.txtfCorreo.setValue(registro[0].get('Correo'));
-    App.txtfCalle.setValue(registro[0].get('Calle'));
-    App.txtfEntreCalles.setValue(registro[0].get('EntreCalles'));
-    App.txtfNoExterior.setValue(registro[0].get('NoExterior'));
-    App.txtfNoInterior.setValue(registro[0].get('NoInterior'));
-    App.txtfCodigoPostal.setValue(registro[0].get('CodigoPostal'));
-    App.cmbColonia.setValue(registro[0].get('Colonia'));
-    App.cmbEstado.setValue(registro[0].get('Estado'));
-    App.cmbMunicipio.setValue(registro[0].get('Municipio'));
+var sProveedor_Add = function (proveedor, r) {
+
+    App.txtID.setValue(r[0].get('ID'));
+    App.txtfNombre.setValue(r[0].get('Nombre'));
+    App.txtfRFC.setValue(r[0].get('RFC'));
+    App.txtfContactoNombre.setValue(r[0].get('ContactoNombre'));
+    App.txtfContactoAPaterno.setValue(r[0].get('ContactoAPaterno'));
+    App.txtfContactoAMaterno.setValue(r[0].get('ContactoAMaterno'));
+    App.txtfCorreo.setValue(r[0].get('Correo'));
+    App.txtfCalle.setValue(r[0].get('Calle'));
+    App.txtfEntreCalles.setValue(r[0].get('EntreCalles'));
+    App.txtfNoExterior.setValue(r[0].get('NoExterior'));
+    App.txtfNoInterior.setValue(r[0].get('NoInterior'));
+    App.txtfCodigoPostal.setValue(r[0].get('CodigoPostal'));
+    App.cmbColonia.setValue(r[0].get('Colonia'));
+    App.cmbEstado.setValue(r[0].get('Estado'));
+    App.cmbMunicipio.setValue(r[0].get('Municipio'));
+    App.txtFileName.setValue(r[0].get('RutaLogo'));
 };
 
 //Hacer la busqueda de información

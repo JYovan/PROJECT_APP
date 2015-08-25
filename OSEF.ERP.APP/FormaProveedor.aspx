@@ -24,7 +24,41 @@
     <link rel="stylesheet" href="css/xFieldSet.css"/>
     <link rel="stylesheet" href="css/xPanel.css"/>
     <link rel="stylesheet" href="css/xButton.css"/>
+	<script type="text/javascript" src="fancylibs/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="js/proveedores.js"></script>
+    <script type="text/javascript">
+        var uploadError = function (item, file, errorCode, message) {
+            alert("Error Code: " + errorCode + ", File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+        };
+
+        var fileSelectionError = function (item, file, errorCode, message) {
+            alert("Error Code: " + errorCode + ", File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
+        };
+        $(document).ready(function () {
+            $("#fuImagenProveedor").on('change', function () {
+                if (typeof (FileReader) != "undefined") {
+
+                    var image_holder = $("#image-holder");
+                    image_holder.empty();
+
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("<img />", {
+                            "src": e.target.result,
+                            "class": "thumb-image",
+                            "heigth":96,
+                            "width":96
+                        }).appendTo(image_holder);
+
+                    }
+                    image_holder.show();
+                    reader.readAsDataURL($(this)[0].files[0]); 
+                } else {
+                    alert("Este navegador no soporta FileReader.");
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -51,6 +85,7 @@
                         <ext:ModelField Name="Colonia" Type="String" />
                         <ext:ModelField Name="Estado" Type="String" />
                         <ext:ModelField Name="Municipio" Type="String" />
+                        <ext:ModelField Name="Rutalogo" Type="String" />
                     </Fields>
                 </ext:Model>
             </Model>
@@ -58,33 +93,81 @@
                 <Load Fn="sProveedor_Load" />
                 <Add Fn="sProveedor_Add" />
             </Listeners>
-        </ext:Store>
-    
+        </ext:Store> 
         <ext:FormPanel 
             ID="PanelProveedores"
             runat="server"
-            Height="380"
+            Height="480"
             Width="650"
             DefaultButton="imgbtnGuardar"
             BodyPadding="10"
             MonitorResize="true">
-            <Items>
+            <Items> 
+               <ext:Panel 
+                ID="Panel2"
+                runat="server" 
+                Height="145"
+                Width="350"  
+                StyleSpec="margin-left: 270px; margin-bottom:3px;"
+                BodyPadding="5">
+                <Items>
+                        <ext:Image 
+                        ID="imgLogo"
+                        runat="server" 
+                        Height="108" 
+                        Width="108" 
+                        StyleSpec="margin-bottom:3px;"
+                        Align="Middle"
+                        >
+                    </ext:Image>
+                    <ext:FileUploadField 
+                        ID="fuImagenProveedor" 
+                        runat="server" 
+                        EmptyText="Selecciona una imagen" 
+                        ButtonText=""
+                        Width="108" 
+                        Icon="ImageAdd"> 
+                        <Listeners>
+                            <Change Handler="App.txtFileName.setValue(App.fuImagenProveedor.getValue());"></Change>
+                        </Listeners>  
+                    </ext:FileUploadField>
+                </Items>
+                </ext:Panel>
+
                 <ext:FieldContainer
                     ID="ContenedorID" 
                     runat="server" 
                     FieldLabel="ID" 
-                    AnchorHorizontal="100%" 
+                    AnchorHorizontal="100%"  
                     Layout="HBoxLayout">                                       
                     <Items>
                         <ext:TextField
                             ID="txtID" 
                             runat="server" 
-                            Width="200" 
-                            Margins="0 3 0 0"
+                            Width="503"  
                             Disabled="true">
+                        </ext:TextField>  
+                        <ext:TextField
+                            ID="txtFileName"
+                            runat="server"
+                            Width="250"
+                            StyleSpec="margin-right: 6px;"
+                            AutoFocus="false"
+                            Disabled="true"
+                            MaxLength="8"
+                            Hidden="true"
+                            EnforceMaxLength="true">
                         </ext:TextField>
+                        <%--<ext:Panel ID="Panel1" runat="server" FormGroup="true" Height="200">
+                        <Content>
+                            <div align="center">       
+                            <input id="fileUpload" type="file" class="" /><br />
+                            <div id="image-holder" width="96" heigth="96" ></div>
+                         </div>
+                        </Content>
+                        </ext:Panel>--%>
                     </Items>
-                </ext:FieldContainer>            
+                </ext:FieldContainer>        
                 <ext:FieldContainer 
                     ID="ContenedorNombre" 
                     runat="server" 
@@ -97,34 +180,27 @@
                             runat="server" 
                             Width="200"
                             MaxLength="50"
-                            EnforceMaxLength="true"
+                            EnforceMaxLength="true" 
+                            StyleSpec="margin-right: 3px;"
                             AutoFocus="true"
                             AllowBlank="false">
                             <Listeners>
                                 <Blur Handler="App.txtfNombre.setValue(App.txtfNombre.getValue().toUpperCase());" />
                             </Listeners>
                         </ext:TextField>
-                    </Items>
-                </ext:FieldContainer>            
-                <ext:FieldContainer 
-                    ID="ContendeorRFC" 
-                    runat="server" 
-                    FieldLabel="RFC" 
-                    AnchorHorizontal="100%"
-                    Layout="HBoxLayout">
-                    <Items>
                         <ext:TextField
                             ID="txtfRFC"
                             runat="server"
-                            Width="200"
+                            Width="300"
                             MaxLength="15"
+                            FieldLabel="RFC"
                             EnforceMaxLength="true">
                             <Listeners>
                                 <Blur Handler="App.txtfRFC.setValue(App.txtfRFC.getValue().toUpperCase());" />
                             </Listeners>
                         </ext:TextField>
                     </Items>
-                </ext:FieldContainer>          
+                </ext:FieldContainer>                       
                 <ext:FieldContainer
                     ID="FieldContainerContactos"
                     runat="server"
@@ -427,6 +503,7 @@
                             <EventMask ShowMask="true" Msg="Registrando información..." />
                             <ExtraParams>
                                 <ext:Parameter Name="registro" Value="Ext.encode(this.up('form').getForm().getValues(false, false, false, true))" Mode="Raw" />
+                                <ext:Parameter Name="logo" Value="App.txtFileName.getValue()" Mode="Raw" />
                             </ExtraParams>
                         </Click>
                     </DirectEvents>

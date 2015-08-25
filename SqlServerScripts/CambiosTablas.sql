@@ -241,4 +241,4 @@ ALTER TABLE VolumetriasD ALTER COLUMN Cantidad DECIMAL(10,3) NULL
 
 --Cambios Giovanni Flores 24 de Agosto 2015 
 ALTER TABLE Clientes ADD Proveedor CHAR(7) NULL FOREIGN KEY REFERENCES Proveedores(ID)
-
+ALTER TABLE Proveedores ADD RutaLogo VARCHAR(500) NULL
