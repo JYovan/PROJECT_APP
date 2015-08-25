@@ -12,8 +12,7 @@
 <body class="xCustomBody">
     <form id="form1" runat="server">
  
-     <ext:ResourceManager ID="rmOrdenesEstimaciones" runat="server" HideInDesign="true">
-        </ext:ResourceManager>
+    <ext:ResourceManager ID="rmOrdenesEstimaciones" runat="server" HideInDesign="true" />
 
         <ext:GridPanel
             ID="gpOrdenesEstimaciones"
@@ -67,64 +66,57 @@
                             Width="50"
                             Disabled="true">
                         </ext:ImageButton>
-
-
                         <ext:ComboBox
-                                ID="cmbSucursal"
-                                runat="server"
-                                LabelWidth="70"
-                                Width="360"
-                                FieldLabel="SUCURSAL"
-                                ValueField="ID"
-                                Cls="spanCustomCombo xEspacioCmbxCustom"
-                                PageSize="10"
-                                DisplayField="Nombre"
-                                StyleSpec="margin-right: 3px;"
-                                Editable="true"
-                                MatchFieldWidth="true"
-                                ForceSelection="true"
-                                QueryMode="Local"
-                                TypeAhead="true"
-                                EnforceMaxLength="true">
-                                 <ListConfig ID="lcPreciario" runat="server" Width="400" Cls="xEspacioCmbxCustom">
-                                    <ItemTpl ID="itPreciario" runat="server">
-                                        <Html>
-                                            <div class="search-item">
-							                    <h3>{CR}</h3>
-                                                <span>{Nombre}</span>
-						                    </div>
-                                        </Html>
-                                    </ItemTpl>
-                                </ListConfig>
-                                 <SelectedItems>
-                                    <ext:ListItem Index="0" />
-                                </SelectedItems>
-                                <Store>
-                                    <ext:Store
-                                        ID="sSucursal"
-                                        runat="server">
-                                        <Model>
-                                            <ext:Model ID="mSucursal" runat="server" IDProperty="ID">
-                                                <Fields>
-                                                    <ext:ModelField Name="ID" Type="String" />
-                                                    <ext:ModelField Name="Nombre" Type="String" />
-                                                    <ext:ModelField Name="CR" Type="String" />
-                                                </Fields>
-                                            </ext:Model>
-                                        </Model>
-                                        
-                                          <Sorters>
-                                            <ext:DataSorter Property="CR" Direction="ASC" />
-                                        </Sorters>
-                                    </ext:Store>
-                                </Store>
-                            </ext:ComboBox>
-
+                            ID="cmbSucursal"
+                            runat="server"
+                            LabelWidth="70"
+                            Width="360"
+                            FieldLabel="SUCURSAL"
+                            ValueField="ID"
+                            Cls="spanCustomCombo xEspacioCmbxCustom"
+                            PageSize="10"
+                            DisplayField="Nombre"
+                            StyleSpec="margin-right: 3px;"
+                            Editable="true"
+                            MatchFieldWidth="true"
+                            ForceSelection="true"
+                            QueryMode="Local"
+                            TypeAhead="true"
+                            EnforceMaxLength="true">
+                            <ListConfig ID="lcPreciario" runat="server" Width="400" Cls="xEspacioCmbxCustom">
+                                <ItemTpl ID="itPreciario" runat="server">
+                                    <Html>
+                                        <div class="search-item">
+			                                <h3>{CR}</h3>
+                                            <span>{Nombre}</span>
+		                                </div>
+                                    </Html>
+                                </ItemTpl>
+                            </ListConfig>
+                            <SelectedItems>
+                                <ext:ListItem Index="0" />
+                            </SelectedItems>
+                            <Store>
+                                <ext:Store
+                                    ID="sSucursal"
+                                    runat="server">
+                                    <Model>
+                                        <ext:Model ID="mSucursal" runat="server" IDProperty="ID">
+                                            <Fields>
+                                                <ext:ModelField Name="ID" Type="String" />
+                                                <ext:ModelField Name="Nombre" Type="String" />
+                                                <ext:ModelField Name="CR" Type="String" />
+                                            </Fields>
+                                        </ext:Model>
+                                    </Model>
+                                    <Sorters>
+                                        <ext:DataSorter Property="CR" Direction="ASC" />
+                                    </Sorters>
+                                </ext:Store>
+                            </Store>
+                        </ext:ComboBox>
                         <ext:ToolbarSpacer ID="tbsOrdenesCambio" runat="server" Width="80">
                         </ext:ToolbarSpacer>
-
-                          
-                        
                          <ext:Container
                                 ID="cCorreoEnviado"
                                 runat="server">

@@ -15,7 +15,6 @@ var imgbtnNuevo_Click = function () {
 //Evento de click del botón Editar
 var imgbtnEditar_Click = function () {
     Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Id'));
-
     window.parent.App.wEmergente.load('FormaOrdenEstimacion.aspx');
     window.parent.App.wEmergente.setHeight(600);
     window.parent.App.wEmergente.setWidth(930);
@@ -25,9 +24,7 @@ var imgbtnEditar_Click = function () {
 };
 
 var gpOrdenEstimacion_ItemDblClick = function (gridview, registro, gvhtml, index) {
-
     Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.gpOrdenesEstimaciones.getSelectionModel().getSelection()[0].get('Id'));
-
     window.parent.App.wEmergente.load('FormaOrdenEstimacion.aspx');
     window.parent.App.wEmergente.setHeight(600);
     window.parent.App.wEmergente.setWidth(930);
@@ -66,7 +63,7 @@ var txtBuscar_Change = function (textfield, newValue, oldValue, e) {
 //Acciones al hacer clic en un registro
 var gpOrdenesEstimaciones_ItemClick = function (gridview, registro, gvhtml, index) {
     App.imgbtnEditar.setDisabled(false);
-    //App.imgbtnBorrar.setDisabled(false);
+    App.imgbtnBorrar.setDisabled(false);
     indice = index;
 };
 

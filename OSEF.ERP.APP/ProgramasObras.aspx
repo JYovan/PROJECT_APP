@@ -48,9 +48,9 @@
                         Height="50"
                         Width="50"
                         Disabled="true">
-<%--                            <Listeners>
+                        <Listeners>
                             <Click Fn="imgbtnEditar_Click" />
-                        </Listeners>--%>
+                        </Listeners>
                     </ext:ImageButton>
                     <ext:ImageButton
                         ID="imgbtnBorrar"
@@ -277,6 +277,10 @@
                 </ext:Column>
             </Columns>
         </ColumnModel>
+        <Listeners>
+            <ItemClick Fn="gpProgramasObras_ItemClick" />
+            <%--<ItemDblClick Fn="gpOrdenEstimacion_ItemDblClick" />--%>
+        </Listeners>
     </ext:GridPanel>
 </body>
 </html>
