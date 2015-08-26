@@ -42,7 +42,7 @@ BEGIN
                          VD.ConceptoID, PC.Descripcion AS DESC_CONCEPTO, PC.Utilizada, PC.Cantidad, V.FechaEmision, IVD.Nombre AS Expr1, IVD.Direccion, PC.Categoria, 
                          PC.SubCategoria, PC.SubSubCategoria, PC.Unidad, PC.ImporteFinal, PC.Importe, PC.CLAVE, PC.Costo, M.Descripcion AS DESC_MUNICIPIO, 
                          E.Descripcion AS EDO_DESCRIPCION, C.Descripcion AS COL_DESCRIPCION, dbo.Clientes.ID ClienteID, dbo.Clientes.RutaLogo, dbo.Clientes.Elaboro, dbo.Clientes.Reviso, dbo.Clientes.Autorizo,
-						 Pro.Nombre AS Proveedor
+						 Pro.Nombre AS Proveedor, Pro.RutaLogo AS RutaLogoPro, Pro.ID AS IDPro
 	FROM            dbo.Volumetrias AS V INNER JOIN
                          dbo.Clientes ON V.Cliente = dbo.Clientes.ID LEFT OUTER JOIN
                          dbo.Sucursales AS S ON dbo.Clientes.ID = S.Cliente AND S.ID = V.Sucursal LEFT OUTER JOIN

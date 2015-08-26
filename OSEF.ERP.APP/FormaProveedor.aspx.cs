@@ -196,35 +196,38 @@ namespace OSEF.AVANCES.SUCURSALES
             {
                 oProveedor.ID = strcookieEditarProveedor;
                 string strDireccion = Server.MapPath(" ") + "\\images\\proveedores\\" + oProveedor.ID + "\\";
-
-                Proveedor oProveedorRef = ProveedorBusiness.ObtenerProveedorPorID(oProveedor.ID);
-                //Si el upload file esta lleno cuando se actualiza se guarda la imagen en el directorio 
-                if (!strImagen.Equals("") && !oProveedorRef.Rutalogo.ToString().Equals(logo))
-                { 
-                    if (Directory.Exists(strDireccion))
+                if (oProveedor.ID != null)
+                {
+                    Proveedor oProveedorRef = ProveedorBusiness.ObtenerProveedorPorID(oProveedor.ID);
+                    //Si el upload file esta lleno cuando se actualiza se guarda la imagen en el directorio 
+                    if (!strImagen.Equals(""))
                     {
-                        fuImagenProveedor.PostedFile.SaveAs(strDireccion + logo);
-                    }else{ 
-                        Directory.CreateDirectory(strDireccion);
-                        fuImagenProveedor.PostedFile.SaveAs(strDireccion + logo);
+                        if (Directory.Exists(strDireccion))
+                        {
+                            fuImagenProveedor.PostedFile.SaveAs(strDireccion + logo);
+                        }
+                        else
+                        {
+                            Directory.CreateDirectory(strDireccion);
+                            fuImagenProveedor.PostedFile.SaveAs(strDireccion + logo);
+                        }
+                        if (oProveedorRef.Rutalogo != null)
+                        {
+                            File.Delete(strDireccion + oProveedorRef.Rutalogo);
+                        }//llenamos el objeto con la ruta
+                        oProveedor.Rutalogo = logo;
+                        //Mostramos la imagen
+                        strDireccionDisplay = "images\\proveedores\\" + oProveedor.ID + "\\";
+                        imgLogo.ImageUrl = strDireccionDisplay + oProveedor.Rutalogo;
                     }
-                    if (oProveedorRef.Rutalogo != null)
+                    //Si no se escoge otra imagen se deja la que ya estaba
+                    else
                     {
-                        File.Delete(strDireccion + oProveedorRef.Rutalogo);
-                    }//llenamos el objeto con la ruta
-                    oProveedor.Rutalogo = logo;
-                    //Mostramos la imagen
-                    strDireccionDisplay = "images\\proveedores\\" + oProveedor.ID + "\\";
-                    imgLogo.ImageUrl = strDireccionDisplay + oProveedor.Rutalogo;
+                        oProveedor.Rutalogo = oProveedorRef.Rutalogo;
+                        strDireccionDisplay = "images\\proveedores\\" + oProveedor.ID + "\\";
+                        imgLogo.ImageUrl = strDireccionDisplay + oProveedorRef.Rutalogo;
+                    }
                 }
-                //Si no se escoge otra imagen se deja la que ya estaba
-                else
-                { 
-                    oProveedor.Rutalogo = oProveedorRef.Rutalogo; 
-                    strDireccionDisplay = "images\\proveedores\\" + oProveedor.ID + "\\";
-                    imgLogo.ImageUrl = strDireccionDisplay + oProveedorRef.Rutalogo;
-                }
-
                 //7. Actualizar los datos del proveedor
                 ProveedorBusiness.Actualizar(oProveedor);
                 //8. Mandar mensaje con el código del proveedor

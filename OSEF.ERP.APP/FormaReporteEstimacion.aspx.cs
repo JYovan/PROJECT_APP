@@ -466,6 +466,8 @@ namespace OSEF.ERP.APP
                             reporteEstimaciones.SetParameterValue("reviso", strReviso);
                             reporteEstimaciones.SetParameterValue("autorizo", strAutorizo);
                             reporteEstimaciones.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
+                            reporteEstimaciones.SetParameterValue("pathlogopro", Server.MapPath(" ") + "\\images\\proveedores\\");
+
 
 
                             string strDireccion = Server.MapPath(" ") + "\\reportess\\Estimaciones\\" + strID;

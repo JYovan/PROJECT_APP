@@ -48,7 +48,7 @@ BEGIN
 		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,OED.Unidad,PGCAT.Descripcion DescripcionPreGenCat,PGCAT.ID IDCAT,
 		--Encabezado del movimiento(No del reporte)
 		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo,
-		Pro.Nombre AS Proveedor
+		Pro.Nombre AS Proveedor, Pro.RutaLogo AS RutaLogoPro, Pro.ID AS IDPro
 		FROM OrdenesEstimaciones OE
 		--Detalle del movimiento
 		LEFT JOIN OrdenesEstimacionesD OED

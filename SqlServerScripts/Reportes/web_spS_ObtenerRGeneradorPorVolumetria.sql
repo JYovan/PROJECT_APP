@@ -51,7 +51,7 @@ BEGIN
 		GVD.Eje,GVD.EntreEje1,GVD.EntreEje2,GVD.Area,GVD.Ancho,GVD.Largo,GVD.Alto,GVD.Total,GVD.Cantidad CANT_GEN, GVD.Descripcion,
 		--Encabezado del movimiento(No del reporte)
 		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo,
-		Pro.Nombre AS Proveedor
+		Pro.Nombre AS Proveedor, Pro.RutaLogo AS RutaLogoPro, Pro.ID AS IDPro
 		FROM Volumetrias V
 		--Detalle del movimiento
 		LEFT JOIN VolumetriasD VD

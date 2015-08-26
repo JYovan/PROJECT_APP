@@ -53,7 +53,8 @@ namespace OSEF.ERP.APP
                         reporte.Load(Server.MapPath("reportess/CPreciario.rpt"));
                         reporte.SetDataSource(dt);
                         reporte.SetParameterValue("path", path);
-                        reporte.SetParameterValue("pathlogo", Server.MapPath(" ")+"\\images\\clientes\\");
+                        reporte.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
+                        reporte.SetParameterValue("pathlogopro", Server.MapPath(" ") + "\\images\\proveedores\\");
 
                         string strDireccion = Server.MapPath(" ") + "\\reportess\\Volumetrias\\" + strID;
 
@@ -121,6 +122,7 @@ namespace OSEF.ERP.APP
                         reporte.Load(Server.MapPath("reportess/rGeneradorVolumetriasConcepto.rpt"));
                         reporte.SetDataSource(dt);
                         reporte.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
+                        reporte.SetParameterValue("pathlogopro", Server.MapPath(" ") + "\\images\\proveedores\\");
                        
 
                         string strDireccion = Server.MapPath(" ") + "\\reportess\\Volumetrias\\" + strID;
