@@ -1984,6 +1984,8 @@ var getDescripcion = function (r) {
     //Acciones del boton d agregar concepto en el detalle
     var ccConcepto_Command = function (columna, comando, registro, fila, opciones) {
 
+        Ext.util.Cookies.set('cookieMovimientoIdentificador', 'Mnto');
+        Ext.util.Cookies.set('cookieMovimientocliente', App.IdCliente.getValue());
         indiceDetalle = fila;
         window.parent.App.wAyudaConcepto.load('FormaBuscaPreciarioGeneralConcepto.aspx');
         window.parent.App.wAyudaConcepto.setHeight(430);

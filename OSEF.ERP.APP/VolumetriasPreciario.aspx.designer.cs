@@ -148,6 +148,15 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.Column cMovimiento;
         
         /// <summary>
+        /// Control txtNombreCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.TextField txtNombreCliente;
+        
+        /// <summary>
         /// Control cCliente.
         /// </summary>
         /// <remarks>

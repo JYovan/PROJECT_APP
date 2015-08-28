@@ -238,3 +238,20 @@ var imgbtn_EliminarCliente = function () {
 var showResult = function () {
 
 }
+
+
+//Hacer la busqueda de información
+var txtBuscar_Cliente = function (textfield, newValue, oldValue, e) {
+    App.sClientes.clearFilter();
+    App.sClientes.filter([{ filterFn: function (item) {
+        if (item.get('Nombre').toUpperCase().indexOf(newValue.toUpperCase()) > -1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    }]);
+App.gpClientes.getSelectionModel().deselectAll();
+
+};  

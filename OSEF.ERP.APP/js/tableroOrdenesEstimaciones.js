@@ -63,7 +63,12 @@ var sOrdenesEstimaciones_DataChanged = function () {
 var txtBuscar_Change = function (textfield, newValue, oldValue, e) {
     App.sOrdenesEstimaciones.clearFilter();
     App.sOrdenesEstimaciones.filter([{ filterFn: function (item) {
-        if (item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('MovID').toUpperCase().indexOf(newValue.toUpperCase()) > -1) { return true; }
+        if (
+        item.get('Id')===newValue || item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1
+        || item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('Reporte').toUpperCase().indexOf(newValue.toUpperCase()) > -1
+        || item.get('Cr') === newValue || item.get('Sucursal').toUpperCase().indexOf(newValue.toUpperCase()) > -1
+        || item.get('Cuadrilla').toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('Cliente').toUpperCase().indexOf(newValue.toUpperCase()) > -1
+        || item.get('Clasificacion').toUpperCase().indexOf(newValue.toUpperCase()) > -1 ) { return true; }
         else { return false; }
     }
     }]);

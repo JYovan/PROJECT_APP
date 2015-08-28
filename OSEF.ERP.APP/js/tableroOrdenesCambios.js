@@ -50,7 +50,13 @@ var sOrdenesEstimaciones_DataChanged = function () {
 var txtBuscar_Change = function (textfield, newValue, oldValue, e) {
     App.sOrdenesEstimaciones.clearFilter();
     App.sOrdenesEstimaciones.filter([{ filterFn: function (item) {
-        if (item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('MovID').toUpperCase().indexOf(newValue.toUpperCase()) > -1) { return true; }
+        console.log(item.get('RSucursal').CR + '-' + item.get('NoOrden'));
+        if (
+        item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('MovID').toUpperCase().indexOf(newValue.toUpperCase()) > -1
+         || item.get('Id') === newValue || item.get('RSucursal').Nombre.toUpperCase().indexOf(newValue.toUpperCase()) > -1
+          || item.get('RCliente').Nombre.toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('NoOrden') == newValue
+          || (item.get('RSucursal').CR + '-' + item.get('NoOrden')).indexOf(newValue) >-1
+          ) { return true; }
         else { return false; }
     }
     }]);

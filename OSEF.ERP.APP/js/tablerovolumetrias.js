@@ -52,11 +52,14 @@ var cMov_Renderer = function (valor, metaData, registro) {
 var txtBuscar_Change = function (textfield, newValue, oldValue, e) {
     App.sVolumetrias.clearFilter();
     App.sVolumetrias.filter([{ filterFn: function (item) {
-        if (item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('MovID').toUpperCase().indexOf(newValue.toUpperCase()) > -1) { return true; }
+        console.log(item);
+        if (item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('MovID').toUpperCase().indexOf(newValue.toUpperCase()) > -1
+         || item.get('ID') == newValue || item.get('RCliente').Nombre.toUpperCase().indexOf(newValue.toUpperCase()) > -1
+         || item.get('RSucursal').Nombre.toUpperCase().indexOf(newValue.toUpperCase()) > -1) { return true; }
         else { return false; }
     }
     }]);
-    App.gpPreciarios.getSelectionModel().deselectAll();
+    App.gpVolumetrias.getSelectionModel().deselectAll();
     App.imgbtnEditar.setDisabled(true);
     App.imgbtnBorrar.setDisabled(true);
 };

@@ -159,7 +159,7 @@
                             ID="txtfBuscar"
                             runat="server"
                             AutoFocus="true"
-                            EmptyText="Buscar por MovID"
+                            EmptyText="Buscar..."
                             Width="200">
                             <Listeners>
                                 <Change Fn="txtBuscar_Change" />

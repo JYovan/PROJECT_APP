@@ -172,6 +172,17 @@
                         Width="130"
                         Filterable="false"
                         DataIndex="Mov">
+                        <HeaderItems>
+                            <ext:TextField
+                                ID="txtNombreCliente"
+                                runat="server"
+                                EmptyText="Filtrar por cliente"
+                                Editable="false">
+                              <Listeners>
+                                    <Change Fn="txtBuscar_Change" />
+                                </Listeners>
+                            </ext:TextField>
+                        </HeaderItems>
                         <Renderer Fn="cMov_Renderer" />
                     </ext:Column>
                     <ext:Column

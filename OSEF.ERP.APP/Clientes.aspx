@@ -167,7 +167,19 @@
                         Text="CLIENTE"
                         Align="Left"
                         Width="280"
-                        DataIndex="NombreCompleto" />
+                        DataIndex="NombreCompleto" > 
+                        <HeaderItems>
+                            <ext:TextField
+                                ID="txtNombreCliente"
+                                runat="server"
+                                EmptyText="Filtrar por nombre"
+                                Editable="false">
+                              <Listeners>
+                                    <Change Fn="txtBuscar_Cliente" />
+                                </Listeners>
+                            </ext:TextField>
+                        </HeaderItems>
+                        </ext:Column>
                     <%--<ext:DateColumn
                         ID="dcFechaNacimiento"
                         runat="server"
