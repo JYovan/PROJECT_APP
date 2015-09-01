@@ -54,13 +54,13 @@
                                 <ext:ComboBox
                         ID="cmbPreciario"
                         runat="server"
-                        DisplayField="ID"
                         ValueField="ID"
                         EmptyText="PRECIARIO"
                         MatchFieldWidth="false"
                         Margins="0 3 0 0"
                         Cls="spanCustomCombo xEspacioCmbxCustom"
                         PageSize="10"
+                        DisplayField="Descripcion"
                         AllowBlank="false"
                         ForceSelection="true"
                         QueryMode="Local"
@@ -97,8 +97,17 @@
                                     </Model>
                                 </ext:Store>
                             </Store> 
-                                                                   
+                             <DirectEvents>
+                                    <Change OnEvent="cmbPreciarios_Change">
+                                        <ExtraParams>
+                                            <ext:Parameter Name="valor" Value="App.cmbPreciario.getValue()" Mode="Raw" />
+                                        </ExtraParams>
+                                    </Change>
+                                </DirectEvents>                                  
                     </ext:ComboBox>
+
+
+
                                 <ext:ComboBox
                                 ID="cmbCategoria"
                                 runat="server"
@@ -277,6 +286,7 @@
                                 <ext:ModelField Name="Costo" Type="Float" />
                                 <ext:ModelField Name="Importe" Type="Float" />
                                 <ext:ModelField Name="Importefinal" Type="Float" />
+
                                 <ext:ModelField Name="Categoria" Type="String" />
                                 <ext:ModelField Name="SubCategoria" Type="String" />
                                 <ext:ModelField Name="SubSubCategoria" Type="String" />
@@ -319,7 +329,7 @@
                         Text="CONCEPTO"
                         Filterable="false"
                         Align="Left"
-                        Width="340"
+                        Width="300"
                         DataIndex="Descripcion">
                     </ext:Column>
                     <ext:Column
@@ -328,7 +338,7 @@
                         Text="CANTIDAD"
                         Filterable="false"
                         Align="Center"
-                        Width="120"
+                        Width="85"
                         DataIndex="Cantidad">
                     </ext:Column>
                     <ext:Column
@@ -336,7 +346,7 @@
                         runat="server"
                         Text="UTLIZADA"
                         Align="Center"
-                        Width="120"
+                        Width="85"
                         DataIndex="Utilizada">
                         <Renderer Fn="renderCantidadUtilizada" />
                         <HeaderItems>
@@ -366,14 +376,24 @@
                         Text="PRECIO"
                         Filterable="false"
                         Align="Center"
-                        Width="150"
+                        Width="100"
                         DataIndex="Costo">
                         <Renderer Fn="txtCosto_renderer" />
+                    </ext:Column>
+                      <ext:Column
+                        ID="Column1"
+                        runat="server"
+                        Text="IMPORTE INICIAL"
+                        Filterable="false"
+                        Align="Center"
+                        Width="125"
+                        DataIndex="Importe">
+                         <Renderer Fn="cImporteNormal_renderer" />
                     </ext:Column>
                      <ext:Column
                         ID="cTotal"
                         runat="server"
-                        Text="IMPORTE"
+                        Text="IMPORTE FINAL"
                         Filterable="false"
                         Align="Center"
                         Width="125"

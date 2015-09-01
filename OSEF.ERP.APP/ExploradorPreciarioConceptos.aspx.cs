@@ -34,8 +34,7 @@ namespace OSEF.ERP.APP
             string strPreciarios = e.ExtraParams["valor"];
             if (strPreciarios != null)
             {
-                sPreciarioConcepto.DataSource = PreciarioConceptoBusiness.ObtenerPreciarioConceptoPorPreciario(strPreciarios);
-                sPreciarioConcepto.DataBind();
+               
                 sCategoria.DataSource = PreciarioCategoriaBuisness.ObtenerPreciarioCategoriasPorPreciario(strPreciarios);
                 sCategoria.DataBind();
             }

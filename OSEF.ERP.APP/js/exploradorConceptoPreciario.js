@@ -132,6 +132,16 @@ var cImporte_renderer = function (valor, metadata, registro) {
 
 
 //Darle formato a la columna de Programado
+var cImporteNormal_renderer = function (valor, metadata, registro) {
+    var F = Ext.util.Format;
+    F.thousandSeparator = ',';
+    F.decimalSeparator = '.';
+
+
+    return F.number(valor, "$000,000,000.00");
+};
+
+//Darle formato a la columna de Programado
 var txtCosto_renderer = function (valor) {
 
 
