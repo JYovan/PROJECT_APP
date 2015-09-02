@@ -45,7 +45,7 @@ namespace OSEF.ERP.APP
         /// <param name="e"></param>
         protected void OnReadData_sProgramasObras(object sender, StoreReadDataEventArgs e)
         {
-            sProgramasObras.DataSource = OrdenEstimacionBusiness.ObtenerOrdenesCambios();
+            sProgramasObras.DataSource = ProgramaObraBusiness.ObtenerProgramasObras();
             sProgramasObras.DataBind();
         }
     }

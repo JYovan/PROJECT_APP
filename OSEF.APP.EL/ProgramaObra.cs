@@ -17,6 +17,8 @@ namespace OSEF.APP.EL
         DateTime fechaemision;
         string estatus;
 
+        Sucursal rsucursal;
+
         #endregion
 
         #region Propiedades
@@ -43,6 +45,12 @@ namespace OSEF.APP.EL
         {
             get { return estatus; }
             set { estatus = value; }
+        }
+
+        public Sucursal RSucursal
+        {
+            get { return rsucursal; }
+            set { rsucursal = value; }
         }
 
         #endregion

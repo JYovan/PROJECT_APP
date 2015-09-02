@@ -20,7 +20,14 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static List<ProgramaObra> ObtenerProgramasObras()
         {
-            return ProgramaObraDataAccess.ObtenerProgramasObras();
+            //1. Obtener las OrdenesEstimaciones en una lista
+            List<ProgramaObra> lProgramasObras = ProgramaObraDataAccess.ObtenerProgramasObras();
+
+            //2. Complementarlas con sucursal
+            foreach (ProgramaObra sd in lProgramasObras)
+                sd.RSucursal = SucursalBusiness.ObtenerSucursalPorID(sd.SucursalId);
+
+            return lProgramasObras;
         }
 
         /// <summary>

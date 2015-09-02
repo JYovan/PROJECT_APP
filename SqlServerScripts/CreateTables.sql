@@ -71,6 +71,7 @@ CREATE TABLE Usuarios(
 CREATE TABLE Proveedores(
 	ID							CHAR(7)			NOT NULL PRIMARY KEY,
 	Nombre						VARCHAR(50)		NOT NULL,
+	RutaLogo					VARCHAR(500)	NULL,
 	RFC							VARCHAR(15)		NULL,
 	ContactoNombre				VARCHAR(50)		NULL,
 	ContactoAPaterno			VARCHAR(50)		NULL,

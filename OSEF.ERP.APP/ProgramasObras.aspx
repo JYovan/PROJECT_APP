@@ -116,6 +116,7 @@
                             <ext:ModelField Name="SucursalId" Type="String" />
                             <ext:ModelField Name="FechaEmision" Type="Date" />
                             <ext:ModelField Name="Estatus" Type="String" />
+                            <ext:ModelField Name="RSucursal" Type="Object" />
                         </Fields>
                     </ext:Model>
                 </Model>
@@ -132,7 +133,7 @@
                 <ext:Column
                     ID="cId"
                     runat="server"
-                    Text="Id"
+                    Text="ID"
                     Align="Center"
                     Width="100"
                     DataIndex="Id">
@@ -144,7 +145,7 @@
                     Align="Center"
                     Width="360"
                     DataIndex="SucursalId">
-                    <%--<Renderer Fn="cSucursal_Renderer" />--%>
+                    <Renderer Fn="cSucursal_Renderer" />
                     <HeaderItems>
                         <ext:ComboBox
                             ID="cmbSucursalFiltro"
