@@ -65,7 +65,7 @@ var imgbtnEditar_Click = function () {
 var imgbtnNuevo_Click = function () {
     Ext.util.Cookies.set('cookieEditarProveedor', 'Nuevo');
     window.parent.App.wEmergente.load('FormaProveedor.aspx');
-    window.parent.App.wEmergente.setHeight(430);
+    window.parent.App.wEmergente.setHeight(530);
     window.parent.App.wEmergente.setWidth(670);
     window.parent.App.wEmergente.center();
     window.parent.App.wEmergente.setTitle('Nuevo proveedor');

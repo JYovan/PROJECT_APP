@@ -175,12 +175,17 @@ namespace OSEF.APP.BL
         {
 
             Sucursal oSucursal = SucursalDataAccess.ObtenerSucursalPorID(strID);
-            oSucursal.RProvedor = ProveedorBusiness.ObtenerProveedorPorID(oSucursal.Contratista);
-            oSucursal.RCodigopostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(oSucursal.CodigoPostal);
-            oSucursal.RColonia = ColoniaBusiness.ObtenerColoniaPorID(oSucursal.Colonia);
-            oSucursal.REstado = EstadoBusiness.ObtenerEstadoPorID(oSucursal.Estado);
-            oSucursal.RMunicipio = MunicipioBusiness.ObtenerMunicipioPorID(oSucursal.Municipio);
-
+            if (oSucursal.RProvedor != null)
+            {
+                oSucursal.RProvedor = ProveedorBusiness.ObtenerProveedorPorID(oSucursal.Contratista);
+            }
+            if (oSucursal.RCodigopostal != null)
+            {
+                oSucursal.RCodigopostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(oSucursal.CodigoPostal);
+                oSucursal.RColonia = ColoniaBusiness.ObtenerColoniaPorID(oSucursal.Colonia);
+                oSucursal.REstado = EstadoBusiness.ObtenerEstadoPorID(oSucursal.Estado);
+                oSucursal.RMunicipio = MunicipioBusiness.ObtenerMunicipioPorID(oSucursal.Municipio);
+            }
             return oSucursal;
 
         }

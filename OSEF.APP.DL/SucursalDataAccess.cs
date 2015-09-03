@@ -161,8 +161,14 @@ namespace OSEF.APP.DL
                 SqlParameter sqlpContratista = new SqlParameter();
                 sqlpContratista.ParameterName = "@Contratista";
                 sqlpContratista.SqlDbType = SqlDbType.VarChar;
-                sqlpContratista.Value = iSucursal.Contratista;
-
+                if (iSucursal.Contratista != null)
+                {
+                    sqlpContratista.Value = iSucursal.Contratista;
+                }
+                else
+                {
+                    sqlpContratista.Value = DBNull.Value;
+                }
              
 
                 SqlParameter sqlpInicioObra = new SqlParameter();
@@ -405,8 +411,15 @@ namespace OSEF.APP.DL
 
                 SqlParameter sqlpContratista = new SqlParameter();
                 sqlpContratista.ParameterName = "@Contratista";
-                sqlpContratista.SqlDbType = SqlDbType.VarChar;
-                sqlpContratista.Value = uSucursal.Contratista;
+                sqlpContratista.SqlDbType = SqlDbType.VarChar; 
+                if (uSucursal.Contratista != null)
+                {
+                    sqlpContratista.Value = uSucursal.Contratista;
+                }
+                else
+                {
+                    sqlpContratista.Value = DBNull.Value;
+                } 
 
 
                 SqlParameter sqlpInicioObra = new SqlParameter();
