@@ -265,8 +265,8 @@
                                                     <ext:ComboBox
                                                         ID="cmbEstatus"
                                                         runat="server"
-                                                        AllowBlank="false"
-                                                        Editable="false"
+                                                        AllowBlank="true"
+                                                        Editable="true"
                                                         Width="402"
                                                         FieldLabel="Estatus"
                                                         ValueField="ID"
@@ -316,7 +316,7 @@
                                                         Editable="false"
                                                         MaxLength="50"
                                                         EnforceMaxLength="true"
-                                                        AllowBlank="false"
+                                                        AllowBlank="true"
                                                         FieldLabel="Usuario">
                                                     </ext:TextField>
                                                 </Items>
@@ -328,7 +328,7 @@
                                                 LabelWidth="250" 
                                                 AnchorHorizontal="100%" 
                                                 Layout="ColumnLayout" 
-                                                Disabled="false">
+                                                Disabled="true">
                                                 <Items>  
                                                     <ext:LinkButton ID="btnBuscarSucursal" runat="server" Icon="Add"  Text="Agregar Sucursal" TextAlign="Center" >
                                                         <Listeners>
@@ -338,8 +338,8 @@
                                                     <ext:ComboBox
                                                         ID="cmbProveedor"
                                                         runat="server"
-                                                        AllowBlank="false"
-                                                        Editable="false"
+                                                        AllowBlank="true"
+                                                        Editable="true"
                                                         Width="400" 
                                                         ValueField="ID"
                                                         FieldLabel="Proveedor"

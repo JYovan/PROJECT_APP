@@ -90,7 +90,7 @@ namespace OSEF.ERP.APP
                     case "txtfNoInterior":
                         oCliente.NoInterior = sd.Value;
                         break;
-                    case "cmbColonia":
+                    case "txtColonia":
                         oCliente.Colonia = sd.Value;
                         break;
                     case "txtfCodigoPostal":
