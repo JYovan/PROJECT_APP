@@ -90,8 +90,9 @@ namespace OSEF.APP.BL
             }
             foreach (MesaDeReporte sd in lMesaDeReportesConcluidos)
             {
-                if (sd.Cliente != null) {
-                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                if (sd.IdCliente != null)
+                {
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.IdCliente);
                 }
             }
             return lMesaDeReportesConcluidos;
@@ -114,9 +115,9 @@ namespace OSEF.APP.BL
             }
             foreach (MesaDeReporte sd in lMesaDeReportesConcluidos)
             {
-                if (sd.Cliente != null)
+                if (sd.IdCliente != null)
                 {
-                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.Cliente);
+                    sd.RCliente = ClienteBusiness.ObtenerClientePorID(sd.IdCliente);
                 }
             }
             return lMesaDeReportesConcluidos;

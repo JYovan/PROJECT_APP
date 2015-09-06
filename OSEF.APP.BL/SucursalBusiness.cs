@@ -175,11 +175,11 @@ namespace OSEF.APP.BL
         {
 
             Sucursal oSucursal = SucursalDataAccess.ObtenerSucursalPorID(strID);
-            if (oSucursal.RProvedor != null)
+            if (oSucursal != null && oSucursal.RProvedor != null)
             {
                 oSucursal.RProvedor = ProveedorBusiness.ObtenerProveedorPorID(oSucursal.Contratista);
             }
-            if (oSucursal.RCodigopostal != null)
+            if (oSucursal != null &&  oSucursal.RCodigopostal != null)
             {
                 oSucursal.RCodigopostal = CodigoPostalBusiness.ObtenerCodigoPostalPorID(oSucursal.CodigoPostal);
                 oSucursal.RColonia = ColoniaBusiness.ObtenerColoniaPorID(oSucursal.Colonia);

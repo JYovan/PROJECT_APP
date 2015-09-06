@@ -114,7 +114,7 @@ var cMov_Renderer = function (valor, metaData, registro) {
 var cSucursal_Renderer = function (valor, columna, registro) {
 
     if (valor.length != 0) {
-        return registro.get('RSucursal').CR + '  ' + registro.get('RSucursal').Nombre;
+        return registro.get('CR') + '  ' + registro.get('Sucursal');
     }
 };
 

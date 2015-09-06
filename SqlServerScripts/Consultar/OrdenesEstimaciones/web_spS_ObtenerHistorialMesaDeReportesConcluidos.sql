@@ -45,12 +45,13 @@ BEGIN
                          dbo.OrdenesEstimaciones.HoraFinActividad, dbo.OrdenesEstimaciones.ImporteTotal, dbo.OrdenesEstimaciones.HoraOrigen, dbo.OrdenesEstimaciones.RutaImagen, 
                          dbo.OrdenesEstimaciones.Atendido, dbo.OrdenesEstimaciones.MovEnLinea, dbo.OrdenesEstimaciones.NoOrden, dbo.OrdenesEstimaciones.ReferenciaOrden, 
                          dbo.OrdenesEstimaciones.Facturado, dbo.OrdenesEstimaciones.Clasificacion, dbo.OrdenesEstimaciones.Revisado, 
-                         dbo.OrdenesEstimaciones.FacturaMantenimiento, dbo.Clientes.Nombre AS Cliente, dbo.Sucursales.Nombre AS Sucursal, dbo.Cuadrillas.Nombre AS Cuadrilla
-FROM            dbo.OrdenesEstimaciones INNER JOIN
+                         dbo.OrdenesEstimaciones.FacturaMantenimiento, dbo.Clientes.ID AS IdCliente, dbo.Clientes.Nombre AS Cliente,  dbo.Sucursales.ID AS IdSucursal,  dbo.Sucursales.Nombre AS Sucursal, dbo.Sucursales.CR,
+						 dbo.Cuadrillas.Nombre AS Cuadrilla
+		 FROM            dbo.OrdenesEstimaciones INNER JOIN
                          dbo.Clientes ON dbo.OrdenesEstimaciones.Cliente = dbo.Clientes.ID INNER JOIN
                          dbo.Sucursales ON dbo.OrdenesEstimaciones.Sucursal = dbo.Sucursales.ID LEFT OUTER JOIN
                          dbo.Cuadrillas ON dbo.OrdenesEstimaciones.Cuadrilla = dbo.Cuadrillas.ID
-WHERE        (dbo.OrdenesEstimaciones.Mov = 'Mesa de Reporte') AND (dbo.OrdenesEstimaciones.Estatus = 'CONCLUIDO') AND (dbo.OrdenesEstimaciones.MovEnLinea = 1) AND
+	WHERE        (dbo.OrdenesEstimaciones.Mov = 'Mesa de Reporte') AND (dbo.OrdenesEstimaciones.Estatus = 'CONCLUIDO') AND (dbo.OrdenesEstimaciones.MovEnLinea = 1) AND
                           (dbo.OrdenesEstimaciones.Facturado = 1) AND (dbo.OrdenesEstimaciones.Revisado = 1)
 END
 GO

@@ -17,6 +17,9 @@ namespace OSEF.APP.EL
         string mov;
         string movid;
         string sucursal;
+        string idsucursal;
+        int cr;
+
         Nullable<DateTime> fechaemision;
         string observaciones;
         string estatus;
@@ -48,6 +51,7 @@ namespace OSEF.APP.EL
         bool revisado;
         string facturamantenimiento;
         string cliente;
+        string idcliente;
         Cliente rcliente;
         #endregion
 
@@ -57,6 +61,11 @@ namespace OSEF.APP.EL
         {
             get { return id; }
             set { id = value; }
+        }
+        public int CR
+        {
+            get { return cr; }
+            set { cr = value; }
         }
 
         public string Mov
@@ -257,6 +266,18 @@ namespace OSEF.APP.EL
         {
             get { return rcliente; }
             set { rcliente = value; }
+        }
+
+        public string IdSucursal
+        {
+            get { return idsucursal; }
+            set { idsucursal = value; }
+        }
+
+        public string IdCliente
+        {
+            get { return idcliente; }
+            set { idcliente = value; }
         }
         #endregion
     }

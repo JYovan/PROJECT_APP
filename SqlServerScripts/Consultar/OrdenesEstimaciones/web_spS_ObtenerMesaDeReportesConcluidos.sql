@@ -36,47 +36,24 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT
-		ID,
-		Mov,
-		MovID,
-		Sucursal,
-		FechaEmision,
-		Observaciones,
-		Estatus,
-		Usuario,
-		Origen,
-		OrigenID,
-		Reporte,
-		Division,
-		FechaOrigen,
-		FechaMaximaAtencion,
-		DiasAtencion,
-		Reporto,
-		TrabajoRequerido,
-		TrabajoRealizado,
-		CodigoFalla,
-		FechaLlegada,
-		HoraLlegada,
-		FechaFinActividad,
-		HoraFinActividad,
-		Cuadrilla,
-		ImporteTotal,
-		HoraOrigen,
-		RutaImagen,
-		Atendido,
-		MovEnLinea,
-		NoOrden,
-		ReferenciaOrden,
-		Facturado,
-		Clasificacion,
-		Revisado,
-		FacturaMantenimiento,
-		Cliente
-	FROM
-		OrdenesEstimaciones
-	WHERE 
-		Estatus = 'CONCLUIDO' AND Mov ='Mesa de Reporte' AND MovEnLinea = 1 AND FacturaMantenimiento = ''
-		AND Facturado <> 1;
+	
+
+		SELECT        dbo.OrdenesEstimaciones.ID, dbo.OrdenesEstimaciones.Mov, dbo.OrdenesEstimaciones.MovID, dbo.OrdenesEstimaciones.FechaEmision, 
+                         dbo.OrdenesEstimaciones.Observaciones, dbo.OrdenesEstimaciones.Estatus, dbo.OrdenesEstimaciones.Usuario, dbo.OrdenesEstimaciones.Origen, 
+                         dbo.OrdenesEstimaciones.OrigenID, dbo.OrdenesEstimaciones.Reporte, dbo.OrdenesEstimaciones.Division, dbo.OrdenesEstimaciones.FechaOrigen, 
+                         dbo.OrdenesEstimaciones.FechaMaximaAtencion, dbo.OrdenesEstimaciones.DiasAtencion, dbo.OrdenesEstimaciones.Reporto, 
+                         dbo.OrdenesEstimaciones.TrabajoRequerido, dbo.OrdenesEstimaciones.TrabajoRealizado, dbo.OrdenesEstimaciones.CodigoFalla, 
+                         dbo.OrdenesEstimaciones.FechaLlegada, dbo.OrdenesEstimaciones.HoraLlegada, dbo.OrdenesEstimaciones.FechaFinActividad, 
+                         dbo.OrdenesEstimaciones.HoraFinActividad, dbo.OrdenesEstimaciones.ImporteTotal, dbo.OrdenesEstimaciones.HoraOrigen, dbo.OrdenesEstimaciones.RutaImagen, 
+                         dbo.OrdenesEstimaciones.Atendido, dbo.OrdenesEstimaciones.MovEnLinea, dbo.OrdenesEstimaciones.NoOrden, dbo.OrdenesEstimaciones.ReferenciaOrden, 
+                         dbo.OrdenesEstimaciones.Facturado, dbo.OrdenesEstimaciones.Clasificacion, dbo.OrdenesEstimaciones.Revisado, 
+                         dbo.OrdenesEstimaciones.FacturaMantenimiento, dbo.Clientes.ID AS IdCliente, dbo.Clientes.Nombre AS Cliente,  dbo.Sucursales.ID AS IdSucursal,  dbo.Sucursales.Nombre AS Sucursal, dbo.Sucursales.CR, 
+						 dbo.Cuadrillas.Nombre AS Cuadrilla
+		 FROM            dbo.OrdenesEstimaciones INNER JOIN
+                         dbo.Clientes ON dbo.OrdenesEstimaciones.Cliente = dbo.Clientes.ID INNER JOIN
+                         dbo.Sucursales ON dbo.OrdenesEstimaciones.Sucursal = dbo.Sucursales.ID LEFT OUTER JOIN
+                         dbo.Cuadrillas ON dbo.OrdenesEstimaciones.Cuadrilla = dbo.Cuadrillas.ID
+	WHERE        (dbo.OrdenesEstimaciones.Estatus = 'CONCLUIDO') AND(dbo.OrdenesEstimaciones.Mov = 'Mesa de Reporte') AND  (dbo.OrdenesEstimaciones.MovEnLinea = 1)
+	AND (dbo.OrdenesEstimaciones.FacturaMantenimiento = '') AND  (dbo.OrdenesEstimaciones.Facturado <> 1) 
 END
 GO

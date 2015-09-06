@@ -192,8 +192,8 @@
                                 <ext:ModelField Name="Mov" Type="String" />
                                 <ext:ModelField Name="MovID" Type="String" />
                                 <ext:ModelField Name="Sucursal" Type="String" />
-                                <ext:ModelField Name="Reporte" Type="String" />
-                                <ext:ModelField Name="RSucursal" Type="Object" />
+                                <ext:ModelField Name="CR" Type="Int" />
+                                <ext:ModelField Name="Reporte" Type="String" /> 
                                 <ext:ModelField Name="FechaEmision" Type="Date" />
                                 <ext:ModelField Name="FechaOrigen" Type="Date" />
                                 <ext:ModelField Name="Observaciones" Type="String" />
