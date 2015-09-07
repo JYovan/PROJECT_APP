@@ -920,7 +920,7 @@ namespace OSEF.APP.DL
         /// </summary>
         /// <param name="strID"></param>
         /// <returns></returns>
-        public static bool ObtenerCREnSucursales(int strID)
+        public static bool ObtenerCREnSucursales(int strID, string cliente)
         {
             try
             {
@@ -937,8 +937,22 @@ namespace OSEF.APP.DL
                 sqlpID.SqlDbType = SqlDbType.SmallInt;
                 sqlpID.Value = strID;
 
+                SqlParameter sqlpIDCliente = new SqlParameter();
+                sqlpIDCliente.ParameterName = "@Cliente";
+                sqlpIDCliente.SqlDbType = SqlDbType.VarChar;
+                if (cliente.Trim().Equals(""))
+                {
+                    sqlpIDCliente.Value = DBNull.Value;
+                }
+                else
+                {
+                    sqlpIDCliente.Value = cliente;
+                
+                }
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
+                sqlcComando.Parameters.Add(sqlpIDCliente);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

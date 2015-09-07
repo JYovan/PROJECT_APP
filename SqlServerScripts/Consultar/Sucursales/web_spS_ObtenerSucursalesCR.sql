@@ -30,14 +30,16 @@ GO
 -- =============================================
 CREATE PROCEDURE web_spS_ObtenerSucursalesCR
 	-- Add the parameters for the stored procedure here
-@CR SMALLINT
+@CR SMALLINT,
+@Cliente CHAR(8)
+
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    	IF EXISTS(SELECT A.CR FROM Sucursales A  WHERE A.CR = @CR)
+    	IF EXISTS(SELECT S.CR FROM Sucursales S  WHERE S.CR = @CR AND S.Cliente = @Cliente)
 	BEGIN
 		SELECT CAST(1 AS BIT)
 	END

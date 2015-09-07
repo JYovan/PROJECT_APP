@@ -328,7 +328,7 @@
                                                 LabelWidth="250" 
                                                 AnchorHorizontal="100%" 
                                                 Layout="ColumnLayout" 
-                                                Disabled="true">
+                                                Disabled="false">
                                                 <Items>  
                                                     <ext:LinkButton ID="btnBuscarSucursal" runat="server" Icon="Add"  Text="Agregar Sucursal" TextAlign="Center" >
                                                         <Listeners>

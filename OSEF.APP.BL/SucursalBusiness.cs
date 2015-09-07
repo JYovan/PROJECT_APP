@@ -206,9 +206,9 @@ namespace OSEF.APP.BL
         /// </summary>
         /// <param name="strID"></param>
         /// <returns></returns>
-        public static bool ObtenerCREnSucursales(int CR)
+        public static bool ObtenerCREnSucursales(int CR, string cliente)
         {
-            return SucursalDataAccess.ObtenerCREnSucursales(CR);
+            return SucursalDataAccess.ObtenerCREnSucursales(CR, cliente);
         }
 
 

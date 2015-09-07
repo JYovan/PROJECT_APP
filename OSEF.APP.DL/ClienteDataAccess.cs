@@ -132,7 +132,7 @@ namespace OSEF.APP.DL
                 SqlParameter sqlpProveedor = new SqlParameter();
                 sqlpProveedor.ParameterName = "@Proveedor";
                 sqlpProveedor.SqlDbType = SqlDbType.Char;
-                if (iCliente.Proveedor != null)
+                if (iCliente.Proveedor != null && !iCliente.Proveedor.Trim().Equals(""))
                 {
                     sqlpProveedor.Value = iCliente.Proveedor;
                 }
@@ -298,7 +298,7 @@ namespace OSEF.APP.DL
                 SqlParameter sqlpProveedor = new SqlParameter();
                 sqlpProveedor.ParameterName = "@Proveedor";
                 sqlpProveedor.SqlDbType = SqlDbType.Char;
-                if (uCliente.Proveedor != null)
+                if (uCliente.Proveedor != null && !uCliente.Proveedor.Trim().Equals(""))
                 {
                     sqlpProveedor.Value = uCliente.Proveedor;
                 }

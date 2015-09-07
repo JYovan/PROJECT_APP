@@ -279,10 +279,10 @@ namespace OSEF.AVANCES.SUCURSALES
                 oSucursal.FechaAlta = DateTime.Now;
                 oSucursal.Estatus = "ALTA";
 
-                if (SucursalBusiness.ObtenerCREnSucursales(oSucursal.CR))
+                if (SucursalBusiness.ObtenerCREnSucursales(oSucursal.CR, strcookieCliente))
                 {
                     var success = new JFunction { Fn = "imgbtnGuardar_Click_SuccessCR" };
-                    X.Msg.Alert("Alerta", "<p align='center'>La sucursal ya se encuentra registrada con CR: <br/>" + oSucursal.CR + ".</p>", success).Show();
+                    X.Msg.Alert("Alerta", "<p align='center'>El cliente ya posee esta sucursal registrada con CR: <br/>" + oSucursal.CR + ".</p>", success).Show();
                 }else{
                     oSucursal.ID = SucursalBusiness.Insertar(oSucursal);
                     //6. Mandar mensaje con el código del proveedor
