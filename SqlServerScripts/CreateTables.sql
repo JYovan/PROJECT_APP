@@ -1,4 +1,3 @@
-
 CREATE TABLE Estados(
 	ID							CHAR(2)			NOT NULL PRIMARY KEY,
 	Abreviatura					VARCHAR(6)		NULL,
@@ -24,31 +23,6 @@ CREATE TABLE CodigosPostales(
 	Municipio					CHAR(4)			NOT NULL FOREIGN KEY REFERENCES Municipios(ID),
 	Colonia						CHAR(10)		NOT NULL FOREIGN KEY REFERENCES Colonias(ID),
 	Numero						INT				NULL
-)
-
-CREATE TABLE Categorias(
-	ID							CHAR(5)			NOT NULL PRIMARY KEY,
-	Orden						TINYINT			NOT NULL,
-	Descripcion					VARCHAR(50)		NULL
-)
-
-CREATE TABLE SubCategorias(
-	ID							CHAR(6)			NOT NULL PRIMARY KEY,
-	Orden						TINYINT			NOT NULL,
-	Descripcion					VARCHAR(50)		NULL,
-	Categoria					CHAR(5)			NOT NULL FOREIGN KEY REFERENCES Categorias(ID)
-)
-
-CREATE TABLE Conceptos(
-	ID							CHAR(7)			NOT NULL PRIMARY KEY,
-	Modulo						VARCHAR(20)		NOT NULL,
-	Orden						SMALLINT		NOT NULL,
-	Descripcion					VARCHAR(50)		NULL,
-	Categoria					CHAR(5)			NULL FOREIGN KEY REFERENCES Categorias(ID),
-	SubCategoria				CHAR(6)			NULL FOREIGN KEY REFERENCES SubCategorias(ID),
-	TipoMovimiento				VARCHAR(50)		NULL,
-	FechaAlta					SMALLDATETIME	NOT NULL,
-	Estatus						VARCHAR(50)		NOT NULL
 )
 
 CREATE TABLE Usuarios(
