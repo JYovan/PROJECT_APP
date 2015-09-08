@@ -238,6 +238,7 @@
                         runat="server"
                         Text="SUCURSAL"
                         Align="Left"
+                        edi
                         Width="280" 
                         DataIndex="RSucursal">
                          <HeaderItems>
@@ -246,8 +247,12 @@
                                 runat="server"
                                 DisplayField="Nombre"
                                 ValueField="ID"
-                                ForceSelection="true"
-                                Editable="false">
+                              ForceSelection="true"
+                                Editable="true"
+                                MatchFieldWidth="true"
+                                QueryMode="Local"
+                                TypeAhead="true"
+                                >
                                 <Items>
                                     <ext:ListItem Index="0" Text="(Todos)" Value="Todos" />
                                 </Items>
