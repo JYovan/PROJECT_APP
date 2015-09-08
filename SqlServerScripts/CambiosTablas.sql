@@ -3,10 +3,6 @@
 ALTER TABLE Revisiones ADD Origen VARCHAR(50) NULL
 ALTER TABLE Revisiones ADD OrigenID VARCHAR(50) NULL
 
-
---Cambio 16 de Febrero 2015
-ALTER TABLE Clientes ALTER COLUMN TelefonoMovil VARCHAR(19) NULL
-
 --Cambio 18 de Febrero 2015
 ALTER TABLE Volumetrias ADD Origen VARCHAR(50) NULL
 ALTER TABLE Volumetrias ADD OrigenID VARCHAR(50) NULL
@@ -130,9 +126,6 @@ ALTER TABLE OrdenesEstimaciones ADD Clasificacion VARCHAR(25) NOT NULL DEFAULT('
 --Cambios Giovanni Flores 03 de Junio 2015
 ALTER TABLE OrdenesEstimaciones ADD Revisado BIT NOT  NULL DEFAULT (0)
 
---Cambios Giovanni Flores 25 de Junio 2015
-ALTER TABLE Clientes ADD RutaLogo VARCHAR(500) NOT NULL DEFAULT('')
-
 --Cambios Giovanni Flores 26 de Junio 2015
 ALTER TABLE OrdenesEstimaciones ADD FacturaMantenimiento VARCHAR(50)NOT NULL DEFAULT('') 
 
@@ -146,40 +139,6 @@ ALTER TABLE OrdenesEstimaciones ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES 
 ALTER TABLE Sucursales ADD TipoConcepto VARCHAR(50) NULL
 ALTER TABLE Sucursales ADD EmpresaSupervisora VARCHAR(50) NULL
 ALTER TABLE Sucursales ADD TipoObra VARCHAR(50) NULL
- 
---Cambios Giovanni Flores 3 de Junio 2015
-ALTER TABLE dbo.Clientes DROP COLUMN Empresa ;
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaCalle ;
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaNoExterior ;
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaNoInterior ;
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaColonia ;
-ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Empres__4DE98D56; 
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaEstado ; 
-ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Empres__4EDDB18F; 
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaMunicipio ;
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaCodigoPostal ;
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaEntreCalles ;
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaTelefonoExt ;
-ALTER TABLE dbo.Clientes DROP COLUMN EmpresaTelefono ;
-ALTER TABLE dbo.Clientes DROP COLUMN Puesto ;
-ALTER TABLE dbo.Clientes DROP COLUMN TipoSocio ;
-ALTER TABLE dbo.Clientes DROP COLUMN NumeroSocio ;
---Cambios Giovanni Flores 7 de Junio 2015
-ALTER TABLE dbo.Clientes DROP COLUMN RFC;
-ALTER TABLE dbo.Clientes DROP COLUMN CURP;
-ALTER TABLE dbo.Clientes DROP COLUMN FechaNacimiento;
-ALTER TABLE dbo.Clientes DROP COLUMN Sexo;
-ALTER TABLE dbo.Clientes DROP COLUMN EstadoCivil;
-ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Profes__51BA1E3A; 
-ALTER TABLE dbo.Clientes DROP COLUMN Profesion;
-ALTER TABLE dbo.Clientes DROP COLUMN Edad;
-ALTER TABLE dbo.Clientes DROP COLUMN CodigoPostal; 
-ALTER TABLE dbo.Clientes ADD CodigoPostal CHAR(10) NULL FOREIGN KEY REFERENCES dbo.CodigosPostales(ID)
-ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Estado__4FD1D5C8; 
-ALTER TABLE dbo.Clientes DROP COLUMN Estado; 
-ALTER TABLE dbo.Clientes DROP CONSTRAINT FK__Clientes__Munici__50C5FA01; 
-ALTER TABLE dbo.Clientes DROP COLUMN Municipio; 
-
 
 --Cambios Giovanni Flores 8 de Junio 2015
 ALTER TABLE dbo.Sucursales ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.Clientes(ID)
@@ -230,15 +189,9 @@ ALTER TABLE OrdenesEstimacionesD ALTER COLUMN Importe DECIMAL (30,6)NULL
 
 ALTER TABLE OrdenesEstimaciones ALTER COLUMN ImporteTotal DECIMAL (30,6)NULL
 
---Cambios Giovanni Flores 14 de Agosto 2015
-ALTER TABLE Clientes ADD Elaboro VARCHAR(100) NULL
-ALTER TABLE Clientes ADD Reviso VARCHAR(100) NULL
-ALTER TABLE Clientes ADD Autorizo VARCHAR(100) NULL
-
 --Cambios Christian Medina 17 de Agosto 2015
 ALTER TABLE VolumetriasD ALTER COLUMN Utilizada DECIMAL(10,3) NULL
 ALTER TABLE VolumetriasD ALTER COLUMN Cantidad DECIMAL(10,3) NULL
 
 --Cambios Giovanni Flores 24 de Agosto 2015 
-ALTER TABLE Clientes ADD Proveedor CHAR(7) NULL FOREIGN KEY REFERENCES Proveedores(ID)
 ALTER TABLE Proveedores ADD RutaLogo VARCHAR(500) NULL
