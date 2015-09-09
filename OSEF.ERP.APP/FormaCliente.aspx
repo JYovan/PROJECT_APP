@@ -335,15 +335,27 @@
                                                             <Click Fn="btnBuscarSucursal_Click"></Click>
                                                         </Listeners>
                                                     </ext:LinkButton>
-                                                    <ext:ComboBox
+                                                   
+                                                </Items>
+                                            </ext:FieldContainer>  
+                                            <ext:FieldContainer 
+                                                ID="fcProveedor" 
+                                                runat="server" 
+                                                FieldLabel="Provedor"
+                                                LabelWidth="120" 
+                                                AnchorHorizontal="100%" 
+                                                Layout="ColumnLayout" 
+                                                Disabled="false">
+                                                <Items> 
+
+                                                      <ext:ComboBox
                                                         ID="cmbProveedor"
                                                         runat="server"
                                                         AllowBlank="true"
                                                         Editable="true"
-                                                        Width="400" 
+                                                        Width="250" 
                                                         ValueField="ID"
-                                                        FieldLabel="Proveedor"
-                                                        StyleSpec="margin-left: 6px;"
+                                                      
                                                         DisplayField="Nombre">
                                                         <Store>
                                                             <ext:Store ID="sProveedor" runat="server">
@@ -357,9 +369,13 @@
                                                                 </Model>
                                                             </ext:Store>
                                                         </Store> 
-                                                    </ext:ComboBox> 
+                                                    </ext:ComboBox>
+
                                                 </Items>
-                                            </ext:FieldContainer>  
+                                                
+                                               </ext:FieldContainer>
+
+                                            
                                             <ext:FieldContainer 
                                                 ID="FieldContainer1" 
                                                 runat="server" 
