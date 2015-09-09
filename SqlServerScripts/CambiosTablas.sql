@@ -1,55 +1,3 @@
--- Cambios 30 de Marzo 
-ALTER TABLE PreciariosGeneralesConceptos ALTER COLUMN CLAVE CHAR(30) NULL
-ALTER TABLE PreciariosGeneralesConceptos ADD  MONEDA VARCHAR(30) NULL
-
---Cambios 31 de Marzo
-ALTER TABLE OrdenesEstimaciones ADD  Reporte VARCHAR(30) NULL
-ALTER TABLE OrdenesEstimaciones ADD  Division VARCHAR(30) NULL
-ALTER TABLE OrdenesEstimaciones ADD  FechaOrigen SMALLDATETIME NULL
-ALTER TABLE OrdenesEstimaciones ADD  FechaMaximaAtencion SMALLDATETIME NULL
-ALTER TABLE OrdenesEstimaciones ADD  DiasAtencion DECIMAL(5,0) NULL 
-ALTER TABLE OrdenesEstimaciones ADD  Reporto VARCHAR(100) NULL
-ALTER TABLE OrdenesEstimaciones ADD  TrabajoRequerido VARCHAR(850) NULL
-ALTER TABLE OrdenesEstimaciones ADD  Atiende VARCHAR(100) NULL
-
---Cambios 6 de abril
-ALTER TABLE OrdenesEstimacionesD ADD IntExt VARCHAR(30) NULL
-
---Cambios 10 de Abril
-ALTER TABLE OrdenesEstimaciones ADD  TrabajoRealizado VARCHAR(500) NULL
-ALTER TABLE OrdenesEstimaciones ADD  CodigoFalla VARCHAR(30) NULL
-ALTER TABLE OrdenesEstimaciones ADD  TieneFotos VARCHAR(10) NULL
-ALTER TABLE OrdenesEstimaciones ADD  TieneReporte VARCHAR(10) NULL
-ALTER TABLE OrdenesEstimaciones ADD  FechaLlegada SMALLDATETIME NULL
-ALTER TABLE OrdenesEstimaciones ADD  HoraLlegada datetime NULL
-ALTER TABLE OrdenesEstimaciones ADD  FechaFinActividad SMALLDATETIME NULL
-ALTER TABLE OrdenesEstimaciones ADD  HoraFinActividad datetime NULL
-ALTER TABLE OrdenesEstimaciones ADD  Zona VARCHAR(80) NULL
-ALTER TABLE OrdenesEstimaciones ADD  Cuadrilla VARCHAR(200) NULL
-
---Cambios Giovanni 12 de abril
-alter table sucursales drop column codigoPostal
-
-ALTER TABLE Sucursales 
-ADD CodigoPostal char(10) NULL 
-FOREIGN KEY REFERENCES CodigosPostales(ID)
-
---Cambios Christian 14 de abril
-ALTER TABLE Usuarios ADD  Empresa VARCHAR(200) NULL
-
---Cambios Giovanni 15 de abril
-ALTER TABLE OrdenesEstimaciones DROP COLUMN Cuadrilla
-ALTER TABLE OrdenesEstimaciones ADD Cuadrilla CHAR(10) NULL FOREIGN KEY REFERENCES Cuadrillas(ID)
-
-ALTER TABLE dbo.OrdenesEstimaciones
-ADD CONSTRAINT fk_OrdenesEstimacionesID
-FOREIGN KEY (Cuadrilla) 
-REFERENCES dbo.Cuadrillas(ID)
-
---Cambios Christian 17 de abril
-ALTER TABLE OrdenesEstimaciones ADD ImporteTotal DECIMAL (20,2)
-ALTER TABLE OrdenesEstimacionesD ADD Moneda VARCHAR(10)
-
 --Cambios Christian 21 de Abril
 ALTER TABLE OrdenesEstimaciones DROP COLUMN Zona 
 
@@ -104,14 +52,6 @@ ALTER TABLE Volumetrias ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES Clientes
 --Cambios Giovanni Flores 1 de Junio 2015
 ALTER TABLE OrdenesEstimaciones ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES Clientes(ID)
 
---Cambios Giovanni Flores 2 de Junio 2015
-ALTER TABLE Sucursales ADD TipoConcepto VARCHAR(50) NULL
-ALTER TABLE Sucursales ADD EmpresaSupervisora VARCHAR(50) NULL
-ALTER TABLE Sucursales ADD TipoObra VARCHAR(50) NULL
-
---Cambios Giovanni Flores 8 de Junio 2015
-ALTER TABLE dbo.Sucursales ADD Cliente CHAR(8) NULL FOREIGN KEY REFERENCES dbo.Clientes(ID)
-
 --Cambios Giovanni Flores 9 de Junio 2015
 ALTER TABLE PreciariosGeneralesConceptos ALTER COLUMN CLAVE VARCHAR(50) NULL
   
@@ -161,6 +101,3 @@ ALTER TABLE OrdenesEstimaciones ALTER COLUMN ImporteTotal DECIMAL (30,6)NULL
 --Cambios Christian Medina 17 de Agosto 2015
 ALTER TABLE VolumetriasD ALTER COLUMN Utilizada DECIMAL(10,3) NULL
 ALTER TABLE VolumetriasD ALTER COLUMN Cantidad DECIMAL(10,3) NULL
-
---Cambios Giovanni Flores 24 de Agosto 2015 
-ALTER TABLE Proveedores ADD RutaLogo VARCHAR(500) NULL

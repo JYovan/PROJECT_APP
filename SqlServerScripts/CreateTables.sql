@@ -61,6 +61,29 @@ CREATE TABLE Proveedores(
 	Municipio					CHAR(4)			NULL FOREIGN KEY REFERENCES Municipios(ID)
 )
 
+CREATE TABLE Clientes(
+	ID							CHAR(8)			NOT NULL PRIMARY KEY,
+	Nombre						VARCHAR(50)		NULL,
+	APaterno					VARCHAR(50)		NULL,
+	AMaterno					VARCHAR(50)		NULL,
+	RutaLogo					VARCHAR(500)	NOT NULL DEFAULT(''),
+	Correo						VARCHAR(100)	NULL,
+	Telefono					VARCHAR(15)		NULL,
+	TelefonoMovil				VARCHAR(19)		NULL,
+	Calle						VARCHAR(100)	NULL,
+	NoExterior					VARCHAR(10)		NULL,
+	NoInterior					VARCHAR(10)		NULL,
+	CodigoPostal				CHAR(10)		NULL FOREIGN KEY REFERENCES CodigosPostales(ID),
+	EntreCalles					VARCHAR(100)	NULL,
+	Elaboro						VARCHAR(100)	NULL,
+	Reviso						VARCHAR(100)	NULL,
+	Autorizo					VARCHAR(100)	NULL,
+	Proveedor					CHAR(7)			NULL FOREIGN KEY REFERENCES Proveedores(ID),
+	FechaAlta					SMALLDATETIME	NULL,
+	Estatus						VARCHAR(20)		NULL,
+	Usuario						VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Usuarios(ID)
+)
+
 CREATE TABLE Sucursales(
 	ID							CHAR(10)		NOT NULL PRIMARY KEY,
 	CR							SMALLINT		NOT NULL,
@@ -92,69 +115,43 @@ CREATE TABLE Sucursales(
 	TipoConcepto				VARCHAR(50)		NULL,
 	EmpresaSupervisora			VARCHAR(50)		NULL,
 	TipoObra					VARCHAR(50)		NULL,
-	Cliente						CHAR(8)			NULL FOREIGN KEY REFERENCES dbo.Clientes(ID),
+	Cliente						CHAR(8)			NULL		FOREIGN KEY REFERENCES dbo.Clientes(ID),
 	FechaAlta					SMALLDATETIME	NULL,
 	Estatus						VARCHAR(50)		NULL
 )
 
-CREATE TABLE Revisiones(
-	ID							INT				IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Mov							VARCHAR(50)		NOT NULL,
-	MovID						VARCHAR(10)		NULL,
-	Origen						VARCHAR(50)		NULL,
-	OrigenID					VARCHAR(10)		NULL,
-	Semana						TINYINT			NULL,
-	Sucursal					CHAR(10)		NOT NULL FOREIGN KEY REFERENCES Sucursales(ID),
-	FechaEmision				SMALLDATETIME	NULL,
-	FechaRevision				DATE			NULL,
-	Observaciones				VARCHAR(200)	NULL,
-	Comentarios					VARCHAR(5000)	NULL,
-	Estatus						VARCHAR(20)		NOT NULL
-)
+--CREATE TABLE Revisiones(
+--	ID							INT				IDENTITY(1,1) NOT NULL PRIMARY KEY,
+--	Mov							VARCHAR(50)		NOT NULL,
+--	MovID						VARCHAR(10)		NULL,
+--	Origen						VARCHAR(50)		NULL,
+--	OrigenID					VARCHAR(10)		NULL,
+--	Semana						TINYINT			NULL,
+--	Sucursal					CHAR(10)		NOT NULL FOREIGN KEY REFERENCES Sucursales(ID),
+--	FechaEmision				SMALLDATETIME	NULL,
+--	FechaRevision				DATE			NULL,
+--	Observaciones				VARCHAR(200)	NULL,
+--	Comentarios					VARCHAR(5000)	NULL,
+--	Estatus						VARCHAR(20)		NOT NULL
+--)
 
-CREATE TABLE RevisionesD(
-	Revision					INT				NOT NULL FOREIGN KEY REFERENCES Revisiones(ID),
-	Renglon						SMALLINT		NOT NULL,
-	Concepto					CHAR(7)			NOT NULL FOREIGN KEY REFERENCES Conceptos(ID),
-	Proveedor					CHAR(7)			NULL FOREIGN KEY REFERENCES Proveedores(ID),
-	Programado					DECIMAL(5, 2)	NULL,
-	Real						DECIMAL(5, 2)	NULL
-)
+--CREATE TABLE RevisionesD(
+--	Revision					INT				NOT NULL FOREIGN KEY REFERENCES Revisiones(ID),
+--	Renglon						SMALLINT		NOT NULL,
+--	Concepto					CHAR(7)			NOT NULL FOREIGN KEY REFERENCES Conceptos(ID),
+--	Proveedor					CHAR(7)			NULL FOREIGN KEY REFERENCES Proveedores(ID),
+--	Programado					DECIMAL(5, 2)	NULL,
+--	Real						DECIMAL(5, 2)	NULL
+--)
 
-CREATE TABLE ImagenesRevisionesD(
-	Revision					INT				NOT NULL FOREIGN KEY REFERENCES Revisiones(ID),
-	Concepto					CHAR(7)			NOT NULL FOREIGN KEY REFERENCES Conceptos(ID),
-	Nombre						VARCHAR(50)		NOT NULL,
-	Direccion					VARCHAR(500)	NOT NULL,
-	UsuarioAlta					VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Usuarios(ID),
-	FechaAlta					SMALLDATETIME	NOT NULL
-)
-
-
-
-CREATE TABLE Clientes(
-	ID							CHAR(8)			NOT NULL PRIMARY KEY,
-	Nombre						VARCHAR(50)		NULL,
-	APaterno					VARCHAR(50)		NULL,
-	AMaterno					VARCHAR(50)		NULL,
-	RutaLogo					VARCHAR(500)	NOT NULL DEFAULT(''),
-	Correo						VARCHAR(100)	NULL,
-	Telefono					VARCHAR(15)		NULL,
-	TelefonoMovil				VARCHAR(19)		NULL,
-	Calle						VARCHAR(100)	NULL,
-	NoExterior					VARCHAR(10)		NULL,
-	NoInterior					VARCHAR(10)		NULL,
-	CodigoPostal				CHAR(10)		NULL FOREIGN KEY REFERENCES CodigosPostales(ID),
-	EntreCalles					VARCHAR(100)	NULL,
-	Elaboro						VARCHAR(100)	NULL,
-	Reviso						VARCHAR(100)	NULL,
-	Autorizo					VARCHAR(100)	NULL,
-	Proveedor					CHAR(7)			NULL FOREIGN KEY REFERENCES Proveedores(ID),
-	FechaAlta					SMALLDATETIME	NULL,
-	Estatus						VARCHAR(20)		NULL,
-	Usuario						VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Usuarios(ID)
-)
-
+--CREATE TABLE ImagenesRevisionesD(
+--	Revision					INT				NOT NULL FOREIGN KEY REFERENCES Revisiones(ID),
+--	Concepto					CHAR(7)			NOT NULL FOREIGN KEY REFERENCES Conceptos(ID),
+--	Nombre						VARCHAR(50)		NOT NULL,
+--	Direccion					VARCHAR(500)	NOT NULL,
+--	UsuarioAlta					VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Usuarios(ID),
+--	FechaAlta					SMALLDATETIME	NOT NULL
+--)
 
 CREATE TABLE Preciarios(
 	ID							CHAR(7)			NOT NULL PRIMARY KEY,
@@ -358,7 +355,9 @@ CREATE TABLE OrdenesEstimacionesD(
 	Cantidad					DECIMAL(10, 2)	NOT NULL,
 	Unidad						VARCHAR(30)		NOT NULL,
 	Precio						DECIMAL(20, 2)	NOT NULL,
-	Importe						DECIMAL(20, 2)	NOT NULL
+	Importe						DECIMAL(20, 2)	NOT NULL,
+	IntExt						VARCHAR(30)		NULL,
+	Moneda						VARCHAR(10)
 )
 
 CREATE TABLE ImagenesOrdenEstimacionD(
@@ -423,7 +422,7 @@ CREATE TABLE GeneradorVolumetriaD(
 CREATE TABLE CroquisVolumetriaD(
 	MovID						INT				NOT NULL FOREIGN KEY REFERENCES Volumetrias(ID),
 	Concepto					CHAR(10)		NOT NULL FOREIGN KEY REFERENCES PreciariosGeneralesConceptos(ID),
-	Nombre						VARCHAR(500)		NOT NULL,
+	Nombre						VARCHAR(500)	NOT NULL,
 	Direccion					VARCHAR(500)	NOT NULL,
 	Usuario						VARCHAR(50)		NOT NULL,
 	FechaAlta					SMALLDATETIME	NOT NULL
@@ -441,18 +440,16 @@ CREATE TABLE FirmasReportes(
 )
 
 CREATE TABLE Modulos(
-ID VARCHAR(50) NOT NULL PRIMARY KEY,
-Nombre VARCHAR(50) NOT NULL
+	ID							VARCHAR(50)		NOT NULL PRIMARY KEY,
+	Nombre						VARCHAR(50)		NOT NULL
 ) 
 
 CREATE TABLE UsuarioXModulo(
-ID INT NOT NULL,
-UsuarioID	VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Usuarios(ID),
-ModuloID	VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Modulos(ID),
-Permiso		BIT
+	ID							INT				NOT NULL,
+	UsuarioID					VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Usuarios(ID),
+	ModuloID					VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Modulos(ID),
+	Permiso						BIT
 )
-
-
 
 --DROP TABLE Clientes
 --DROP TABLE RevisionesD
@@ -483,6 +480,3 @@ Permiso		BIT
 --DROP TABLE OrdenesEstimaciones
 --DROP TABLE OrdenesEstimacionesD
 --DROP TABLE CodigoPPTA
-
-
-
