@@ -18,16 +18,16 @@ GO
 -- =============================================
 IF EXISTS (	SELECT name 
 			FROM sysobjects
-			WHERE  name = 'web_spS_ObtenerSucursalesEnUsoEnConcluidos' AND
+			WHERE  name = 'web_spS_ObtenerSucursalesEnUso' AND
 			TYPE = 'P')
-	DROP PROCEDURE web_spS_ObtenerSucursalesEnUsoEnConcluidos
+	DROP PROCEDURE web_spS_ObtenerSucursalesEnUso
 GO
 -- =============================================
 -- Author:		Giovanni Flores
 -- Create date: Viernes 15 de Mayo 2015
 -- Description:	Obtiene todas las Sucursales en Uso
 -- =============================================
-CREATE PROCEDURE web_spS_ObtenerSucursalesEnUsoEnConcluidos
+CREATE PROCEDURE web_spS_ObtenerSucursalesEnUso
 	-- Add the parameters for the stored procedure here
 AS
 BEGIN

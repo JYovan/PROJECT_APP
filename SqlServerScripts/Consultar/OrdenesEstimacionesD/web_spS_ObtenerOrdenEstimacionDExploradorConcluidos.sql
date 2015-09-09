@@ -38,21 +38,21 @@ BEGIN
 
     -- Insert statements for procedure here
 		SELECT 
-			OrdenesEstimacionesD.ID AS ID,
-			Renglon,
-			ConceptoID, 
-			Cantidad,
-			Unidad,
-			Precio,
-			Importe,
-			IntExt,
-			Moneda
+			OED.ID AS ID,
+			OED.Renglon,
+			OED.ConceptoID, 
+			OED.Cantidad,
+			OED.Unidad,
+			OED.Precio,
+			OED.Importe,
+			OED.IntExt,
+			OED.Moneda
 		FROM 
-			OrdenesEstimacionesD 
+			OrdenesEstimacionesD OED
 		INNER JOIN 
 			OrdenesEstimaciones OE
 		ON 
-			OE.ID=OrdenesEstimacionesD.ID
+			OE.ID=OED.ID
 		WHERE 
 			OE.Mov IN('Orden de Cambio') 
 		AND 
