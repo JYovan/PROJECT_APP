@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormaProveedor.aspx.cs" Inherits="OSEF.AVANCES.SUCURSALES.FormaProveedor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormaProveedor.aspx.cs" Inherits="OSEF.ERP.APP.FormaProveedor" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 

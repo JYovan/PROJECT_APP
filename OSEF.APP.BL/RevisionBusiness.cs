@@ -99,6 +99,24 @@ namespace OSEF.APP.BL
             return oRevision;
         }
 
+        /// <summary>
+        /// Obtener un objeto de Revision de acuerdo a la Sucursal
+        /// </summary>
+        /// <param name="strSucursal"></param>
+        /// <returns></returns>
+        public static Revision ObtenerRevisionPorSucursal(string strSucursal)
+        {
+            //1. Inicializar objeto, complementarlo con la Sucursal y RevisionD
+            Revision oRevision = RevisionDataAccess.ObtenerRevisionPorSucursal(strSucursal);
+            if (oRevision != null)
+            {
+                oRevision.RSucursal = SucursalBusiness.ObtenerSucursalPorID(oRevision.Sucursal);
+                oRevision.RRevisionD = RevisionDBusiness.ObtenerRevisionesDPorRevision(oRevision.ID);
+            }
+
+            return oRevision;
+        }
+
         #endregion
 
         #region Acciones

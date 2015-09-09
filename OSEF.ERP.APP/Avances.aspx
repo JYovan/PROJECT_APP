@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-         <link rel="Stylesheet" href="css/customControls.css" />
+    <link rel="Stylesheet" href="css/customControls.css" />
     <link rel="stylesheet" href="css/xMask.css" />
     <link rel="stylesheet" href="css/xDatePicker.css" />
     <link rel="stylesheet" href="css/xSplitButton.css" />
@@ -92,9 +92,9 @@
                             PressedImageUrl="assets/img/controles/update-pressed.png"
                             Height="50"
                             Width="50">
-                                <Listeners>
+                            <Listeners>
                                 <Click Handler="#{sAvances}.reload(); App.imgbtnEditar.setDisabled(true); App.imgbtnBorrar.setDisabled(true);" />
-                                </Listeners>
+                            </Listeners>
                         </ext:ImageButton>
                         <ext:TextField 
                             ID="txtBuscar"

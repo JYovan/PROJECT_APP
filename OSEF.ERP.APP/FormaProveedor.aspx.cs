@@ -9,7 +9,7 @@ using Ext.Net;
 using OSEF.APP.EL;
 using System.IO;
 
-namespace OSEF.AVANCES.SUCURSALES
+namespace OSEF.ERP.APP
 {
     public partial class FormaProveedor : System.Web.UI.Page
     {

@@ -30,24 +30,17 @@ namespace OSEF.APP.BL
             return lProgramasObras;
         }
 
-        /// <summary>
-        /// Obtener un registro de Categoria por su ID
-        /// </summary>
-        /// <param name="strID"></param>
-        /// <returns></returns>
-        public static Categoria ObtenerCategoriaPorID(string strID)
-        {
-            return CategoriaDataAccess.ObtenerCategoriaPorID(strID);
-        }
+        #endregion
+
+        #region Eliminar
 
         /// <summary>
-        /// Obtener un registro de Categoria por su Orden
+        /// Método que borrar algun Programa de Obra por su Id
         /// </summary>
-        /// <param name="bOrden"></param>
-        /// <returns></returns>
-        public static Categoria ObtenerCategoriaPorOrden(byte bOrden)
+        /// <param name="iID"></param>
+        public static int Borrar(int iId)
         {
-            return CategoriaDataAccess.ObtenerCategoriaPorOrden(bOrden);
+            return ProgramaObraDataAccess.Borrar(iId);
         }
 
         #endregion

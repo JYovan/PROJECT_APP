@@ -58,11 +58,11 @@ namespace OSEF.APP.DL
         }
 
         /// <summary>
-        /// Obtener un registro de Categoria por su ID
-        /// </summary>
+        /// Revisar si existen registros de un Programa de Obra en uso para algun Movimiento de Avance de Obra
+        /// /// </summary>
         /// <param name="strID"></param>
         /// <returns></returns>
-        public static Categoria ObtenerCategoriaPorID(string strID)
+        public static bool ObtenerProgramaObraEnAvanceObraPorSucursal(string strSucursal)
         {
             try
             {
@@ -71,14 +71,14 @@ namespace OSEF.APP.DL
                 SqlCommand sqlcComando = new SqlCommand();
                 sqlcComando.Connection = sqlcConectar;
                 sqlcComando.CommandType = CommandType.StoredProcedure;
-                sqlcComando.CommandText = "web_spS_ObtenerCategoriaPorID";
+                sqlcComando.CommandText = "web_spS_ObtenerProgramaObraEnAvanceObraPorSucursal";
 
                 //2. Declarar los parametros
                 SqlParameter sqlpID = new SqlParameter();
-                sqlpID.ParameterName = "@ID";
+                sqlpID.ParameterName = "@Sucursal";
                 sqlpID.SqlDbType = SqlDbType.Char;
-                sqlpID.Size = 5;
-                sqlpID.Value = strID;
+                sqlpID.Size = 10;
+                sqlpID.Value = strSucursal;
 
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
@@ -87,10 +87,9 @@ namespace OSEF.APP.DL
                 sqlcComando.Connection.Open();
 
                 //5. Ejecutar la instrucción SELECT que regresa filas
-                SqlDataReader reader = sqlcComando.ExecuteReader();
+                bool result = Convert.ToBoolean(sqlcComando.ExecuteScalar());
 
-                //6. Asignar la lista de Clientes
-                Categoria result = LibraryGenerics<Categoria>.ConvertDataSetToList(reader).FirstOrDefault();
+                //6. Asignar la lista de objetos
 
                 //7. Cerrar la conexión
                 sqlcComando.Connection.Close();
@@ -100,16 +99,19 @@ namespace OSEF.APP.DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error capa de datos (public static Categoria ObtenerCategoriaPorID(string " + strID + ")): " + ex.Message);
+                throw new Exception("Error capa de datos (public static bool ObtenerProgramaObraEnAvanceObraPorSucursal(string " + strSucursal + ")): " + ex.Message);
             }
         }
 
+        #endregion
+
+        #region Borrar
+
         /// <summary>
-        /// Obtener un registro de Categoria por su Orden
+        /// Método que borrar algun Programa de Obra por su Id
         /// </summary>
-        /// <param name="bOrden"></param>
-        /// <returns></returns>
-        public static Categoria ObtenerCategoriaPorOrden(byte bOrden)
+        /// <param name="dID"></param>
+        public static int Borrar(int dID)
         {
             try
             {
@@ -118,35 +120,32 @@ namespace OSEF.APP.DL
                 SqlCommand sqlcComando = new SqlCommand();
                 sqlcComando.Connection = sqlcConectar;
                 sqlcComando.CommandType = CommandType.StoredProcedure;
-                sqlcComando.CommandText = "web_spS_ObtenerCategoriaPorOrden";
+                sqlcComando.CommandText = "web_spD_BorrarProgramaObra";
 
                 //2. Declarar los parametros
-                SqlParameter sqlpOrden = new SqlParameter();
-                sqlpOrden.ParameterName = "@Orden";
-                sqlpOrden.SqlDbType = SqlDbType.TinyInt;
-                sqlpOrden.Value = bOrden;
+                SqlParameter sqlpID = new SqlParameter();
+                sqlpID.ParameterName = "@Id";
+                sqlpID.SqlDbType = SqlDbType.Int;
+                sqlpID.Value = dID;
 
                 //3. Agregar los parametros al comando
-                sqlcComando.Parameters.Add(sqlpOrden);
+                sqlcComando.Parameters.Add(sqlpID);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();
 
-                //5. Ejecutar la instrucción SELECT que regresa filas
-                SqlDataReader reader = sqlcComando.ExecuteReader();
+                //5. Ejecutar la instrucción DELETE que no regresa filas
+                int result = sqlcComando.ExecuteNonQuery();
 
-                //6. Asignar la lista de Clientes
-                Categoria result = LibraryGenerics<Categoria>.ConvertDataSetToList(reader).FirstOrDefault();
-
-                //7. Cerrar la conexión
+                //6. Cerrar la conexión
                 sqlcComando.Connection.Close();
 
-                //8. Regresar el resultado
+                //7. Regresar el resultado
                 return result;
             }
             catch (Exception ex)
             {
-                throw new Exception("Error capa de datos (public static Categoria ObtenerCategoriaPorOrden(byte " + bOrden + ")): " + ex.Message);
+                throw new Exception("Error capa de datos (public static int Borrar(ProgramaObra " + dID + ")): " + ex.Message);
             }
         }
 

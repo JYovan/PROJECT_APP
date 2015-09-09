@@ -120,38 +120,38 @@ CREATE TABLE Sucursales(
 	Estatus						VARCHAR(50)		NULL
 )
 
---CREATE TABLE Revisiones(
---	ID							INT				IDENTITY(1,1) NOT NULL PRIMARY KEY,
---	Mov							VARCHAR(50)		NOT NULL,
---	MovID						VARCHAR(10)		NULL,
---	Origen						VARCHAR(50)		NULL,
---	OrigenID					VARCHAR(10)		NULL,
---	Semana						TINYINT			NULL,
---	Sucursal					CHAR(10)		NOT NULL FOREIGN KEY REFERENCES Sucursales(ID),
---	FechaEmision				SMALLDATETIME	NULL,
---	FechaRevision				DATE			NULL,
---	Observaciones				VARCHAR(200)	NULL,
---	Comentarios					VARCHAR(5000)	NULL,
---	Estatus						VARCHAR(20)		NOT NULL
---)
+CREATE TABLE Revisiones(
+	ID							INT				IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Mov							VARCHAR(50)		NOT NULL,
+	MovID						VARCHAR(10)		NULL,
+	Origen						VARCHAR(50)		NULL,
+	OrigenID					VARCHAR(10)		NULL,
+	Semana						TINYINT			NULL,
+	Sucursal					CHAR(10)		NOT NULL FOREIGN KEY REFERENCES Sucursales(ID),
+	FechaEmision				SMALLDATETIME	NULL,
+	FechaRevision				DATE			NULL,
+	Observaciones				VARCHAR(200)	NULL,
+	Comentarios					VARCHAR(5000)	NULL,
+	Estatus						VARCHAR(20)		NOT NULL
+)
 
---CREATE TABLE RevisionesD(
---	Revision					INT				NOT NULL FOREIGN KEY REFERENCES Revisiones(ID),
---	Renglon						SMALLINT		NOT NULL,
---	Concepto					CHAR(7)			NOT NULL FOREIGN KEY REFERENCES Conceptos(ID),
---	Proveedor					CHAR(7)			NULL FOREIGN KEY REFERENCES Proveedores(ID),
---	Programado					DECIMAL(5, 2)	NULL,
---	Real						DECIMAL(5, 2)	NULL
---)
+CREATE TABLE RevisionesD(
+	Revision					INT				NOT NULL FOREIGN KEY REFERENCES Revisiones(ID),
+	Renglon						SMALLINT		NOT NULL,
+	Concepto					CHAR(7)			NOT NULL FOREIGN KEY REFERENCES Conceptos(Id),
+	Proveedor					CHAR(7)			NULL FOREIGN KEY REFERENCES Proveedores(ID),
+	Programado					DECIMAL(5, 2)	NULL,
+	Real						DECIMAL(5, 2)	NULL
+)
 
---CREATE TABLE ImagenesRevisionesD(
---	Revision					INT				NOT NULL FOREIGN KEY REFERENCES Revisiones(ID),
---	Concepto					CHAR(7)			NOT NULL FOREIGN KEY REFERENCES Conceptos(ID),
---	Nombre						VARCHAR(50)		NOT NULL,
---	Direccion					VARCHAR(500)	NOT NULL,
---	UsuarioAlta					VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Usuarios(ID),
---	FechaAlta					SMALLDATETIME	NOT NULL
---)
+CREATE TABLE ImagenesRevisionesD(
+	Revision					INT				NOT NULL FOREIGN KEY REFERENCES Revisiones(ID),
+	Concepto					CHAR(7)			NOT NULL FOREIGN KEY REFERENCES Conceptos(Id),
+	Nombre						VARCHAR(50)		NOT NULL,
+	Direccion					VARCHAR(500)	NOT NULL,
+	UsuarioAlta					VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Usuarios(ID),
+	FechaAlta					SMALLDATETIME	NOT NULL
+)
 
 CREATE TABLE Preciarios(
 	ID							CHAR(7)			NOT NULL PRIMARY KEY,
