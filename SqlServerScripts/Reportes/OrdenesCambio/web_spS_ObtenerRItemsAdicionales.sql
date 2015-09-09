@@ -80,7 +80,7 @@ BEGIN
 		ON S.Cliente = cli.ID
 		INNER JOIN Proveedores AS Pro
 		ON Pro.ID = cli.Proveedor
-		WHERE OE.Mov in ('Orden de Cambio')
+		WHERE OE.Mov in ('Orden de Cambio','Orden de Compra')
 		AND OE.Estatus IN('CONCLUIDO','BORRADOR')
 		AND OE.Sucursal like @Sucursal
 		--WHERE OE.ID = @IDMovimiento
