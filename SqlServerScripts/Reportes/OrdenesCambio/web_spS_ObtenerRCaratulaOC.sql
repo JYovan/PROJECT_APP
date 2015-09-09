@@ -55,7 +55,7 @@ BEGIN
 		--Datos del concepto
 		PGC.CLAVE,PGC.Descripcion DescripcionPreGenConceptos,OED.Cantidad,OED.Unidad,PGCAT.Descripcion DescripcionPreGenCat,
 		--Datos del cliente
-		cli.ID ClienteID, cli.RutaLogo, cli.Elaboro, cli.Reviso, cli.Autorizo,
+		cli.ID ClienteID, cli.RutaLogo, 
 		Pro.Nombre AS Proveedor
 		FROM OrdenesEstimaciones OE 
 		--Detalle del movimiento
@@ -80,7 +80,7 @@ BEGIN
 		ON OE.Cliente = cli.ID
 		INNER JOIN Proveedores AS Pro
 		ON cli.Proveedor = Pro.ID
-		WHERE OE.Mov in ('Orden de Cambio')
+		WHERE OE.Mov in ('Orden de Cambio','Orden de Compra')
 		AND OE.ID like @ID
 		--WHERE OE.ID = @IDMovimiento
 END
