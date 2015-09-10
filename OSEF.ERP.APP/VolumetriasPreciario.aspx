@@ -262,6 +262,16 @@
 
 
                     </ext:Column>
+
+                     <ext:Column
+                        ID="cObservaciones"
+                        runat="server"
+                        Text="OBSERVACIONES"
+                        Align="Center"
+                        Width="170"
+                        DataIndex="Observaciones">
+                    </ext:Column>
+
                      <ext:Column
                         ID="cPreciario"
                         runat="server"

@@ -220,6 +220,15 @@ namespace OSEF.AVANCES.SUCURSALES {
         protected global::Ext.Net.ComboBox cmbFiltroEstatus;
         
         /// <summary>
+        /// Control cObservaciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Column cObservaciones;
+        
+        /// <summary>
         /// Control cPreciario.
         /// </summary>
         /// <remarks>
