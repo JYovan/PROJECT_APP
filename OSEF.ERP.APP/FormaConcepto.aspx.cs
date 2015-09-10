@@ -69,10 +69,10 @@ namespace OSEF.AVANCES.SUCURSALES
                         oConcepto.Descripcion = sd.Value;
                         break;
                     case "cmbCategoria":
-                        oConcepto.Categoria = sd.Value;
+                        oConcepto.CategoriaIdRaw = sd.Value;
                         break;
                     case "cmbSubCategoria":
-                        oConcepto.SubCategoria = sd.Value;
+                        oConcepto.SubCategoriaIdRaw = sd.Value;
                         break;
                     case "cmbEstatus":
                         oConcepto.Estatus = sd.Value;
@@ -88,10 +88,10 @@ namespace OSEF.AVANCES.SUCURSALES
                     //5. Insertar en la base de datos
                     oConcepto.FechaAlta = DateTime.Now;
                     oConcepto.Estatus = "ALTA";
-                    oConcepto.ID = ConceptoBusiness.Insertar(oConcepto);
+                    oConcepto.Id = ConceptoBusiness.Insertar(oConcepto);
                     //6. Mandar mensaje con el código del proveedor
                     var success = new JFunction { Fn = "imgbtnGuardar_Click_Success" };
-                    X.Msg.Alert("Registro completo", "<p align='center'>Concepto registrado con ID: <br/>" + oConcepto.ID + ".</p>", success).Show();
+                    X.Msg.Alert("Registro completo", "<p align='center'>Concepto registrado con ID: <br/>" + oConcepto.Id + ".</p>", success).Show();
                 }
                 else
                 {
@@ -110,8 +110,8 @@ namespace OSEF.AVANCES.SUCURSALES
             }
             else
             {
-                oConcepto.ID = strcookieEditarConcepto;
-                Concepto pConcepto = ConceptoBusiness.ObtenerConceptoPorID(oConcepto.ID);
+                oConcepto.Id = strcookieEditarConcepto;
+                Concepto pConcepto = ConceptoBusiness.ObtenerConceptoPorID(oConcepto.Id);
                 oConcepto.FechaAlta = pConcepto.FechaAlta;
 
                 if (oConcepto.Orden == pConcepto.Orden)
@@ -120,7 +120,7 @@ namespace OSEF.AVANCES.SUCURSALES
                     ConceptoBusiness.Actualizar(oConcepto);
                     //8. Mandar mensaje con el código del proveedor
                     var success = new JFunction { Fn = "imgbtnGuardar_Click_Success" };
-                    X.Msg.Alert("Actualización completa", "<p align='center'>Se han actualizado los datos del concepto <br/>" + oConcepto.ID + ".</p>", success).Show();
+                    X.Msg.Alert("Actualización completa", "<p align='center'>Se han actualizado los datos del concepto <br/>" + oConcepto.Id + ".</p>", success).Show();
                 }
                 else
                 {
@@ -130,7 +130,7 @@ namespace OSEF.AVANCES.SUCURSALES
                         ConceptoBusiness.Actualizar(oConcepto);
                         //8. Mandar mensaje con el código del proveedor
                         var success = new JFunction { Fn = "imgbtnGuardar_Click_Success" };
-                        X.Msg.Alert("Actualización completa", "<p align='center'>Se han actualizado los datos del concepto <br/>" + oConcepto.ID + ".</p>", success).Show();
+                        X.Msg.Alert("Actualización completa", "<p align='center'>Se han actualizado los datos del concepto <br/>" + oConcepto.Id + ".</p>", success).Show();
                     }
                     else
                     {
@@ -162,12 +162,12 @@ namespace OSEF.AVANCES.SUCURSALES
                 Concepto oConcepto = ConceptoBusiness.ObtenerConceptoPorID(strcookieEditarConcepto);
                 sConcepto.Add(new
                 {
-                    ID = oConcepto.ID,
+                    ID = oConcepto.Id,
                     Modulo = oConcepto.Modulo,
                     Orden = oConcepto.Orden,
                     Descripcion = oConcepto.Descripcion,
-                    Categoria = oConcepto.Categoria,
-                    SubCategoria = oConcepto.SubCategoria,
+                    Categoria = oConcepto.CategoriaIdRaw,
+                    SubCategoria = oConcepto.SubCategoriaIdRaw,
                     FechaAlta = oConcepto.FechaAlta,
                     Estatus = oConcepto.Estatus
                 });

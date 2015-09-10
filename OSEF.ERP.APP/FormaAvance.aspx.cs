@@ -28,20 +28,20 @@ namespace OSEF.ERP.APP
                 sProveedores.DataBind();
 
                 //3. Cargar las Categorias
-                sCategorias.DataSource = CategoriaBusiness.ObtenerCategorias();
-                sCategorias.DataBind();
+                //sCategorias.DataSource = CategoriaBusiness.ObtenerCategorias();
+                //sCategorias.DataBind();
 
                 //4. Cargar las SubCategorias
-                sSubCategorias.DataSource = SubcategoriaBusiness.ObtenerSubCategorias();
-                sSubCategorias.DataBind();
+                //sSubCategorias.DataSource = SubcategoriaBusiness.ObtenerSubCategorias();
+                //sSubCategorias.DataBind();
 
                 //5. Validar si es un registro nuevo carga Categorias, SubCategorias y Conceptos
-                if (Cookies.GetCookie("cookieEditarRevision").Value.Equals("Nuevo"))
-                {
+                //if (Cookies.GetCookie("cookieEditarRevision").Value.Equals("Nuevo"))
+                //{
                     //6. Cargar todos los Conceptos
-                    sConceptos.DataSource = ConceptoBusiness.ObtenerConceptos();
-                    sConceptos.DataBind();
-                }
+                    //sConceptos.DataSource = ConceptoBusiness.ObtenerConceptos();
+                    //sConceptos.DataBind();
+                //}
            }
         }
 
@@ -52,7 +52,8 @@ namespace OSEF.ERP.APP
         /// <param name="e"></param>
         protected void OnReadData_sCategorias(object sender, StoreReadDataEventArgs e)
         {
-            sCategorias.DataSource = CategoriaBusiness.ObtenerCategorias();
+            string strSucursalId = e.Parameters["SucursalID"];
+            sCategorias.DataSource = CategoriaBusiness.ObtenerCategoriasPorSucursal(strSucursalId);
             sCategorias.DataBind();
         }
 
@@ -63,7 +64,8 @@ namespace OSEF.ERP.APP
         /// <param name="e"></param>
         protected void OnReadData_sSubCategorias(object sender, StoreReadDataEventArgs e)
         {
-            sSubCategorias.DataSource = SubcategoriaBusiness.ObtenerSubCategorias();
+            string strSucursalId = e.Parameters["SucursalID"];
+            sSubCategorias.DataSource = SubcategoriaBusiness.ObtenerSubCategoriaPorSucursal(strSucursalId);
             sSubCategorias.DataBind();
         }
 
@@ -74,7 +76,8 @@ namespace OSEF.ERP.APP
         /// <param name="e"></param>
         protected void OnReadData_sConceptos(object sender, StoreReadDataEventArgs e)
         {
-            sConceptos.DataSource = ConceptoBusiness.ObtenerConceptos();
+            string strSucursalId = e.Parameters["SucursalID"];
+            sConceptos.DataSource = ConceptoBusiness.ObtenerConceptoPorSucursal(strSucursalId);
             sConceptos.DataBind();
         }
 

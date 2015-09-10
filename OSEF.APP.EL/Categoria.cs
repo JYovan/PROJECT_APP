@@ -23,7 +23,7 @@ namespace OSEF.APP.EL
 
         #region Propiedades
 
-        public string ID
+        public string Id
         {
             get { return id; }
             set { id = value; }

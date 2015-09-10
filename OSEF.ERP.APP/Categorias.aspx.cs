@@ -53,8 +53,8 @@ namespace OSEF.AVANCES.SUCURSALES
                 Categoria iCategoria = new Categoria();
                 iCategoria.Orden = bOrden;
                 iCategoria.Descripcion = string.Empty;
-                iCategoria.ID = CategoriaBusiness.Insertar(iCategoria);
-                strResultado = "false|" + iCategoria.ID;
+                iCategoria.Id = CategoriaBusiness.Insertar(iCategoria);
+                strResultado = "false|" + iCategoria.Id;
                 return strResultado;
             }
             else
@@ -70,7 +70,7 @@ namespace OSEF.AVANCES.SUCURSALES
         public void ActualizarCategoria(string strID, byte bOrden, string strDescripcion)
         {
             Categoria uCategoria = new Categoria();
-            uCategoria.ID = strID;
+            uCategoria.Id = strID;
             uCategoria.Orden = bOrden;
             uCategoria.Descripcion = strDescripcion;
             CategoriaBusiness.Actualizar(uCategoria);

@@ -66,13 +66,13 @@ namespace OSEF.APP.BL
             //2. Complementar el objeto con Categoria y SubCategoria si es que tienen
             foreach(Concepto sd in lConceptos)
             {
-                if (sd.Categoria == null)
-                    sd.Categoria = string.Empty;
-                if (sd.SubCategoria == null)
-                    sd.SubCategoria = string.Empty;
+                if (sd.CategoriaIdRaw == null)
+                    sd.CategoriaIdRaw = string.Empty;
+                if (sd.SubCategoriaIdRaw == null)
+                    sd.SubCategoriaIdRaw = string.Empty;
 
-                sd.RCategoria = CategoriaBusiness.ObtenerCategoriaPorID(sd.Categoria);
-                sd.RSubCategoria = SubcategoriaBusiness.ObtenerSubCategoriaPorID(sd.SubCategoria);
+                sd.RCategoria = CategoriaBusiness.ObtenerCategoriaPorID(sd.CategoriaIdRaw);
+                sd.RSubCategoria = SubcategoriaBusiness.ObtenerSubCategoriaPorID(sd.SubCategoriaIdRaw);
             }
             
             //3. Regresar los objeto completos
@@ -97,6 +97,16 @@ namespace OSEF.APP.BL
         public static Concepto ObtenerConceptoPorOrden(short bOrden)
         {
             return ConceptoDataAccess.ObtenerConceptoPorOrden(bOrden);
+        }
+
+        /// <summary>
+        /// Obtener una lista de objetos Concepto por Sucursal en Tasks (Programas de Obra)
+        /// </summary>
+        /// <param name="strSucursal"></param>
+        /// <returns></returns>
+        public static List<Concepto> ObtenerConceptoPorSucursal(string strSucursal)
+        {
+            return ConceptoDataAccess.ObtenerConceptoPorSucursal(strSucursal);
         }
 
         #endregion

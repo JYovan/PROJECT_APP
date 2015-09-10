@@ -15,8 +15,8 @@ namespace OSEF.APP.EL
         string id;
         short orden;
         string descripcion;
-        string categoria;
-        string subcategoria;
+        string categoriaidraw;
+        string subcategoriaidraw;
         string tipomov;
         string modulo;
         DateTime fechaalta;
@@ -29,7 +29,7 @@ namespace OSEF.APP.EL
 
         #region Propiedades
 
-        public string ID
+        public string Id
         {
             get { return id; }
             set { id = value; }
@@ -53,16 +53,16 @@ namespace OSEF.APP.EL
             set { descripcion = value; }
         }
 
-        public string Categoria
+        public string CategoriaIdRaw
         {
-            get { return categoria; }
-            set { categoria = value; }
+            get { return categoriaidraw; }
+            set { categoriaidraw = value; }
         }
 
-        public string SubCategoria
+        public string SubCategoriaIdRaw
         {
-            get { return subcategoria; }
-            set { subcategoria = value; }
+            get { return subcategoriaidraw; }
+            set { subcategoriaidraw = value; }
         }
 
         public string TipoMov

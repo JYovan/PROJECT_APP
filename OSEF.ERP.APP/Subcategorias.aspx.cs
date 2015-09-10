@@ -54,9 +54,9 @@ namespace OSEF.AVANCES.SUCURSALES
                 Subcategoria iSubcategoria = new Subcategoria();
                 iSubcategoria.Orden = bOrden;
                 iSubcategoria.Descripcion = string.Empty;
-                iSubcategoria.Categoria = strCategoria;
-                iSubcategoria.ID = SubcategoriaBusiness.Insertar(iSubcategoria);
-                strResultado = "false|" + iSubcategoria.ID;
+                iSubcategoria.CategoriaIdRaw = strCategoria;
+                iSubcategoria.Id = SubcategoriaBusiness.Insertar(iSubcategoria);
+                strResultado = "false|" + iSubcategoria.Id;
                 return strResultado;
             }
             else
@@ -74,10 +74,10 @@ namespace OSEF.AVANCES.SUCURSALES
         public void ActualizarSubCategoria(string strID, string strCategoria, byte bOrden, string strDescripcion)
         {
             Subcategoria uSubcategoria = new Subcategoria();
-            uSubcategoria.ID = strID;
+            uSubcategoria.Id = strID;
             uSubcategoria.Orden = bOrden;
             uSubcategoria.Descripcion = strDescripcion;
-            uSubcategoria.Categoria = strCategoria;
+            uSubcategoria.CategoriaIdRaw = strCategoria;
 
             SubcategoriaBusiness.Actualizar(uSubcategoria);
         }

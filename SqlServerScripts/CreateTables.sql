@@ -132,16 +132,19 @@ CREATE TABLE Revisiones(
 	FechaRevision				DATE			NULL,
 	Observaciones				VARCHAR(200)	NULL,
 	Comentarios					VARCHAR(5000)	NULL,
-	Estatus						VARCHAR(20)		NOT NULL
+	Estatus						VARCHAR(20)		NOT NULL,
+	UsuarioAlta					VARCHAR(50)		NOT NULL FOREIGN KEY REFERENCES Usuarios(ID)
 )
 
 CREATE TABLE RevisionesD(
-	Revision					INT				NOT NULL FOREIGN KEY REFERENCES Revisiones(ID),
+	Revision					INT				NOT NULL	FOREIGN KEY REFERENCES Revisiones(ID),
 	Renglon						SMALLINT		NOT NULL,
-	Concepto					CHAR(7)			NOT NULL FOREIGN KEY REFERENCES Conceptos(Id),
-	Proveedor					CHAR(7)			NULL FOREIGN KEY REFERENCES Proveedores(ID),
+	Categoria					CHAR(5)			NOT NULL	FOREIGN KEY REFERENCES Categorias(Id),
+	SubCategoria				CHAR(6)			NULL		FOREIGN KEY REFERENCES SubCategorias(Id),
+	Concepto					CHAR(7)			NOT NULL	FOREIGN KEY REFERENCES Conceptos(Id),
+	Proveedor					CHAR(7)			NULL		FOREIGN KEY REFERENCES Proveedores(ID),
 	Programado					DECIMAL(5, 2)	NULL,
-	Real						DECIMAL(5, 2)	NULL
+	[Real]						DECIMAL(5, 2)	NULL
 )
 
 CREATE TABLE ImagenesRevisionesD(

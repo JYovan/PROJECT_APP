@@ -20,6 +20,7 @@ var txtBuscarSucursal_Change = function (textfield, newValue, oldValue, e) {
 
 //Acciones al hacer clic en un registro de busqueda
 var gpBuscaSucursales_ItemDblClick = function (gridview, registro, gvhtml, index) {
+    Ext.util.Cookies.set('cookieSucursalID', App.sBSucursales.getAt(index).get('ID'));
     window.parent.App.wEmergente.getBody().App.txtfSucursalCR.setValue(App.sBSucursales.getAt(index).get('CR'));
     window.parent.App.wEmergente.getBody().App.txtfSucursalNombre.setValue(App.sBSucursales.getAt(index).get('Nombre'));
     window.parent.App.wEmergente.getBody().App.txtfSucursalID.setValue(App.sBSucursales.getAt(index).get('ID'));

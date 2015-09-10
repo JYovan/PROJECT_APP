@@ -51,6 +51,7 @@
                         <ext:ModelField Name="Observaciones" Type="String" />
                         <ext:ModelField Name="Comentarios" Type="String" />
                         <ext:ModelField Name="Estatus" Type="String" />
+                        <ext:ModelField Name="UsuarioAlta" Type="String" />
                         <ext:ModelField Name="RSucursal" Type="Object" />
                     </Fields>
                 </ext:Model>
@@ -111,9 +112,9 @@
                 <ext:Model
                     ID="mCategorias"
                     runat="server"
-                    IDProperty="ID">
+                    IDProperty="Id">
                     <Fields>
-                        <ext:ModelField Name="ID" Type="String" />
+                        <ext:ModelField Name="Id" Type="String" />
                         <ext:ModelField Name="Orden" Type="Int" />
                         <ext:ModelField Name="Descripcion" Type="String" />
                     </Fields>
@@ -129,12 +130,12 @@
                 <ext:Model
                     ID="mSubCategorias"
                     runat="server"
-                    IDProperty="ID">
+                    IDProperty="Id">
                     <Fields>
-                        <ext:ModelField Name="ID" Type="String" />
+                        <ext:ModelField Name="Id" Type="String" />
                         <ext:ModelField Name="Orden" Type="Int" />
                         <ext:ModelField Name="Descripcion" Type="String" />
-                        <ext:ModelField Name="Categoria" Type="String" />
+                        <ext:ModelField Name="CategoriaIdRaw" Type="String" />
                     </Fields>
                 </ext:Model>
             </Model>
@@ -145,14 +146,17 @@
             runat="server"
             OnReadData="OnReadData_sConceptos">
             <Model>
-                <ext:Model ID="mConceptos" runat="server">
+                <ext:Model
+                    ID="mConceptos"
+                    runat="server"
+                    IDProperty="Id">
                     <Fields>
-                        <ext:ModelField Name="ID" Type="String" />
+                        <ext:ModelField Name="Id" Type="String" />
                         <ext:ModelField Name="Modulo" Type="String" />
                         <ext:ModelField Name="Orden" Type="Int" />
                         <ext:ModelField Name="Descripcion" Type="String" />
-                        <ext:ModelField Name="Categoria" Type="String" />
-                        <ext:ModelField Name="SubCategoria" Type="String" />
+                        <ext:ModelField Name="CategoriaIdRaw" Type="String" />
+                        <ext:ModelField Name="SubCategoriaIdRaw" Type="String" />
                     </Fields>
                 </ext:Model>
             </Model>

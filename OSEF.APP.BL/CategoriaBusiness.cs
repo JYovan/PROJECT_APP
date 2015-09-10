@@ -83,6 +83,16 @@ namespace OSEF.APP.BL
             return CategoriaDataAccess.ObtenerCategoriaPorOrden(bOrden);
         }
 
+        /// <summary>
+        /// Obtener una lista de objetos tipo Categoria por Sucursal en Tasks (Programa de Obra)
+        /// </summary>
+        /// <param name="strSucursal"></param>
+        /// <returns></returns>
+        public static List<Categoria> ObtenerCategoriasPorSucursal(string strSucursal)
+        {
+            return CategoriaDataAccess.ObtenerCategoriasPorSucursal(strSucursal);
+        }
+
         #endregion
     }
 }

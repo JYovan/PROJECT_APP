@@ -15,7 +15,7 @@ namespace OSEF.APP.EL
         string id;
         byte orden;
         string descripcion;
-        string categoria;
+        string categoriaidraw;
 
         Categoria rcategoria;
         List<Concepto> rconcepto;
@@ -24,7 +24,7 @@ namespace OSEF.APP.EL
 
         #region Propiedades
 
-        public string ID
+        public string Id
         {
             get { return id; }
             set { id = value; }
@@ -42,10 +42,10 @@ namespace OSEF.APP.EL
             set { descripcion = value; }
         }
 
-        public string Categoria
+        public string CategoriaIdRaw
         {
-            get { return categoria; }
-            set { categoria = value; }
+            get { return categoriaidraw; }
+            set { categoriaidraw = value; }
         }
 
         public Categoria RCategoria

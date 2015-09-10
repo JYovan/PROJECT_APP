@@ -53,7 +53,7 @@ namespace OSEF.APP.DL
                 sqlpCategoria.ParameterName = "@Categoria";
                 sqlpCategoria.SqlDbType = SqlDbType.Char;
                 sqlpCategoria.Size = 5;
-                sqlpCategoria.Value = iSubcategoria.Categoria;
+                sqlpCategoria.Value = iSubcategoria.CategoriaIdRaw;
 
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
@@ -75,7 +75,7 @@ namespace OSEF.APP.DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error capa de datos (public static int Insertar(Subcategoria " + iSubcategoria.ID + ")): " + ex.Message);
+                throw new Exception("Error capa de datos (public static int Insertar(Subcategoria " + iSubcategoria.Id + ")): " + ex.Message);
             }
         }
 
@@ -103,7 +103,7 @@ namespace OSEF.APP.DL
                 sqlpID.ParameterName = "@ID";
                 sqlpID.SqlDbType = SqlDbType.Char;
                 sqlpID.Size = 6;
-                sqlpID.Value = uSubCategoria.ID;
+                sqlpID.Value = uSubCategoria.Id;
 
                 SqlParameter sqlpOrden = new SqlParameter();
                 sqlpOrden.ParameterName = "@Orden";
@@ -119,7 +119,7 @@ namespace OSEF.APP.DL
                 sqlpCategoria.ParameterName = "@Categoria";
                 sqlpCategoria.SqlDbType = SqlDbType.Char;
                 sqlpCategoria.Size = 5;
-                sqlpCategoria.Value = uSubCategoria.Categoria;
+                sqlpCategoria.Value = uSubCategoria.CategoriaIdRaw;
 
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
@@ -141,7 +141,7 @@ namespace OSEF.APP.DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error capa de datos (public static int Actualizar(Subcategoria " + uSubCategoria.ID + ")): " + ex.Message);
+                throw new Exception("Error capa de datos (public static int Actualizar(Subcategoria " + uSubCategoria.Id + ")): " + ex.Message);
             }
         }
 
@@ -373,6 +373,53 @@ namespace OSEF.APP.DL
             catch (Exception ex)
             {
                 throw new Exception("Error capa de datos (public static List<Subcategoria> ObtenerSubCategoriaPorCategoria(string " + strCategoria + ")): " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Obtener los registros de SubCategoria por su Sucursal en Tasks (Programa de Obra)
+        /// </summary>
+        /// <param name="strSucursal"></param>
+        /// <returns></returns>
+        public static List<Subcategoria> ObtenerSubCategoriaPorSucursal(string strSucursal)
+        {
+            try
+            {
+                //1. Configurar la conexión y el tipo de comando
+                SqlConnection sqlcConectar = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+                SqlCommand sqlcComando = new SqlCommand();
+                sqlcComando.Connection = sqlcConectar;
+                sqlcComando.CommandType = CommandType.StoredProcedure;
+                sqlcComando.CommandText = "web_spS_ObtenerSubCategoriaPorSucursal";
+
+                //2. Declarar los parametros
+                SqlParameter sqlpSucursal = new SqlParameter();
+                sqlpSucursal.ParameterName = "@Sucursal";
+                sqlpSucursal.SqlDbType = SqlDbType.Char;
+                sqlpSucursal.Size = 10;
+                sqlpSucursal.Value = strSucursal;
+
+                //3. Agregar los parametros al comando
+                sqlcComando.Parameters.Add(sqlpSucursal);
+
+                //4. Abrir la conexión
+                sqlcComando.Connection.Open();
+
+                //5. Ejecutar la instrucción SELECT que regresa filas
+                SqlDataReader reader = sqlcComando.ExecuteReader();
+
+                //6. Asignar la lista de Clientes
+                List<Subcategoria> result = LibraryGenerics<Subcategoria>.ConvertDataSetToList(reader);
+
+                //7. Cerrar la conexión
+                sqlcComando.Connection.Close();
+
+                //8. Regresar el resultado
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error capa de datos (public static List<Subcategoria> ObtenerSubCategoriaPorSucursal(string " + strSucursal + ")): " + ex.Message);
             }
         }
 

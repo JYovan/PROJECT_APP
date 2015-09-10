@@ -93,6 +93,16 @@ namespace OSEF.APP.BL
             return SubcategoriaDataAccess.ObtenerSubCategoriaPorCategoria(strCategoria);
         }
 
+        /// <summary>
+        /// Obtener una lista de objetos SubCategorias por Sucursal en Tasks (Programa de Obra)
+        /// </summary>
+        /// <param name="strSucursal"></param>
+        /// <returns></returns>
+        public static List<Subcategoria> ObtenerSubCategoriaPorSucursal(string strSucursal)
+        {
+            return SubcategoriaDataAccess.ObtenerSubCategoriaPorSucursal(strSucursal);
+        }
+
         #endregion
     }
 }

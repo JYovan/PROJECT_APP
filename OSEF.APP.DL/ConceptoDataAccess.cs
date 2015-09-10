@@ -58,19 +58,19 @@ namespace OSEF.APP.DL
                 sqlpCategoria.ParameterName = "@Categoria";
                 sqlpCategoria.SqlDbType = SqlDbType.Char;
                 sqlpCategoria.Size = 5;
-                if (iConcepto.Categoria == null)
+                if (iConcepto.CategoriaIdRaw == null)
                     sqlpCategoria.Value = DBNull.Value;
                 else
-                    sqlpCategoria.Value = iConcepto.Categoria;
+                    sqlpCategoria.Value = iConcepto.CategoriaIdRaw;
 
                 SqlParameter sqlpSubCategoria = new SqlParameter();
                 sqlpSubCategoria.ParameterName = "@SubCategoria";
                 sqlpSubCategoria.SqlDbType = SqlDbType.Char;
                 sqlpSubCategoria.Size = 6;
-                if (iConcepto.SubCategoria == null)
+                if (iConcepto.SubCategoriaIdRaw == null)
                     sqlpSubCategoria.Value = DBNull.Value;
                 else
-                    sqlpSubCategoria.Value = iConcepto.SubCategoria;
+                    sqlpSubCategoria.Value = iConcepto.SubCategoriaIdRaw;
 
                 SqlParameter sqlpFechaAlta = new SqlParameter();
                 sqlpFechaAlta.ParameterName = "@FechaAlta";
@@ -134,7 +134,7 @@ namespace OSEF.APP.DL
                 sqlpID.ParameterName = "@ID";
                 sqlpID.SqlDbType = SqlDbType.Char;
                 sqlpID.Size = 7;
-                sqlpID.Value = uConcepto.ID;
+                sqlpID.Value = uConcepto.Id;
 
                 SqlParameter sqlpModulo = new SqlParameter();
                 sqlpModulo.ParameterName = "@Modulo";
@@ -155,19 +155,19 @@ namespace OSEF.APP.DL
                 sqlpCategoria.ParameterName = "@Categoria";
                 sqlpCategoria.SqlDbType = SqlDbType.Char;
                 sqlpCategoria.Size = 5;
-                if (uConcepto.Categoria == null)
+                if (uConcepto.CategoriaIdRaw == null)
                     sqlpCategoria.Value = DBNull.Value;
                 else
-                    sqlpCategoria.Value = uConcepto.Categoria;
+                    sqlpCategoria.Value = uConcepto.CategoriaIdRaw;
 
                 SqlParameter sqlpSubCategoria = new SqlParameter();
                 sqlpSubCategoria.ParameterName = "@SubCategoria";
                 sqlpSubCategoria.SqlDbType = SqlDbType.Char;
                 sqlpSubCategoria.Size = 6;
-                if (uConcepto.SubCategoria == null)
+                if (uConcepto.SubCategoriaIdRaw == null)
                     sqlpSubCategoria.Value = DBNull.Value;
                 else
-                    sqlpSubCategoria.Value = uConcepto.SubCategoria;
+                    sqlpSubCategoria.Value = uConcepto.SubCategoriaIdRaw;
 
                 SqlParameter sqlpFechaAlta = new SqlParameter();
                 sqlpFechaAlta.ParameterName = "@FechaAlta";
@@ -203,7 +203,7 @@ namespace OSEF.APP.DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error capa de datos (public static int Actualizar(Concepto " + uConcepto.ID + ")): " + ex.Message);
+                throw new Exception("Error capa de datos (public static int Actualizar(Concepto " + uConcepto.Id + ")): " + ex.Message);
             }
         }
 
@@ -387,6 +387,53 @@ namespace OSEF.APP.DL
             catch (Exception ex)
             {
                 throw new Exception("Error capa de datos (public static Concepto ObtenerConceptoPorOrden(short " + bOrden + ")): " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Obtener los registros de Conceptos por Sucursal en Tasks (Programa de Obra)
+        /// </summary>
+        /// <param name="strSucursal"></param>
+        /// <returns></returns>
+        public static List<Concepto> ObtenerConceptoPorSucursal(string strSucursal)
+        {
+            try
+            {
+                //1. Configurar la conexión y el tipo de comando
+                SqlConnection sqlcConectar = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+                SqlCommand sqlcComando = new SqlCommand();
+                sqlcComando.Connection = sqlcConectar;
+                sqlcComando.CommandType = CommandType.StoredProcedure;
+                sqlcComando.CommandText = "web_spS_ObtenerConceptoPorSucursal";
+
+                //2. Declarar los parametros
+                SqlParameter sqlpSucursal = new SqlParameter();
+                sqlpSucursal.ParameterName = "@Sucursal";
+                sqlpSucursal.SqlDbType = SqlDbType.Char;
+                sqlpSucursal.Size = 10;
+                sqlpSucursal.Value = strSucursal;
+
+                //3. Agregar los parametros al comando
+                sqlcComando.Parameters.Add(sqlpSucursal);
+
+                //4. Abrir la conexión
+                sqlcComando.Connection.Open();
+
+                //5. Ejecutar la instrucción SELECT que regresa filas
+                SqlDataReader reader = sqlcComando.ExecuteReader();
+
+                //6. Asignar la lista de Clientes
+                List<Concepto> result = LibraryGenerics<Concepto>.ConvertDataSetToList(reader);
+
+                //7. Cerrar la conexión
+                sqlcComando.Connection.Close();
+
+                //8. Regresar el resultado
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error capa de datos (public static List<Concepto> ObtenerConceptoPorSucursal(string " + strSucursal + ")): " + ex.Message);
             }
         }
 

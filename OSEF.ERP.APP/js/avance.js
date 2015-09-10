@@ -16,29 +16,11 @@ var imgbtnNuevo_Click = function () {
     App.txtfObservaciones.setValue(null);
     App.txtfComentarios.setValue(null);
 
-    //3. Recargar el Detalle de Conceptos
-    App.sCategorias.reload({
-        scope: this,
-        callback: function (registros, operacion, success) {
-            if (success) {
-                App.sSubCategorias.reload({
-                    scope: this,
-                    callback: function (registros, operacion, success) {
-                        if (success) {
-                            App.sConceptos.reload({
-                                scope: this,
-                                callback: function (registros, operacion, success) {
-                                    if (success) {
-                                        ConfigurarDetalle(App.sConceptos);
-                                    }
-                                }
-                            });
-                        }
-                    }
-                });
-            }
-        }
-    });
+    //3. Eliminar todos los conceptos y TabPaneles
+    App.tpDetalle.removeAll();
+    App.sCategorias.removeAll();
+    App.sSubCategorias.removeAll();
+    App.sConceptos.removeAll();
 
     //4. Actualizar cookie y título
     Ext.util.Cookies.set('cookieEditarRevision', 'Nuevo');
@@ -240,21 +222,27 @@ var nfSemana_Change = function () {
 };
 
 //Evento que se lanza al cambiar el CR de la sucursal
-var txtfSucursalCR_Change = function () {
-    //Validar si se habilita Guardar
+var txtfSucursalCR_Change = function (textfield, nuevoValor, viejoValor, opciones) {
+    //1. Validar si se habilita Guardar
     HabilitarGuardar();
 
-    //Validar si se habilita Información
+    //2. Validar si se habilita Información
     HabilitarInformacion();
 
-    //Validar si se habilita Afectar
+    //3. Validar si se habilita Afectar
     HabilitarAfectar();
+
+    //4. Configurar el detalle
+    if (nuevoValor != '') {
+        CargarDetalle(Ext.util.Cookies.get('cookieSucursalID'));
+    }
 };
 
 //Evento de clic del botón BuscarSucursal
 var btnBuscarSucursal_Click = function (boton, evento, opciones) {
     //1. Asignar cookie y abrir ventana
     Ext.util.Cookies.set('cookieElijeSucursal', "Avance");
+    Ext.util.Cookies.set('cookieElijeSucursalID', '');
     window.parent.App.wAyudaConcepto.load('FormaBuscaSucursal.aspx');
     window.parent.App.wAyudaConcepto.setHeight(370);
     window.parent.App.wAyudaConcepto.setWidth(720);
@@ -274,11 +262,11 @@ var sConceptos_Load = function (store, registros, transaccion, opciones) {
     //1. Validar si es nuevo movimiento
     if (Ext.util.Cookies.get('cookieEditarRevision') == 'Nuevo') {
         //2. Configurar el detalle
-        ConfigurarDetalle(store);
+        //ConfigurarDetalle(store);
     }
     else {
         //3. Configurar el detalle
-        MostrarDetalle(App.sRevisionD);
+        //MostrarDetalle(App.sRevisionD);
     }
 };
 
@@ -286,7 +274,7 @@ var sConceptos_Load = function (store, registros, transaccion, opciones) {
 var cConcepto_Renderer = function (valor) {
     var registro;
     if (valor.length != 0) {
-        registro = App.sConceptos.findRecord('ID', valor);
+        registro = App.sConceptos.findRecord('Id', valor);
         return registro.get('Descripcion');
     }
 };
@@ -481,6 +469,49 @@ function HabilitarAfectar() {
     }
 }
 
+//Método que carga el detalle de Categorias, SubCategorias y Conceptos de acuerdo a la Sucursal(Obra)
+function CargarDetalle(Id) {
+    //1. Lanzar Mascara
+    Ext.net.Mask.show({
+        el: App.pDetalleAvance.el,
+        msg: "Cargando conceptos..."
+    });
+
+    //2. Llenar el Store de Categorias
+    App.sCategorias.reload({
+        scope: this,
+        params: {
+            SucursalID: Id
+        },
+        callback: function (registros, operacion, success) {
+            if (success) {
+                App.sSubCategorias.reload({
+                    scope: this,
+                    params: {
+                        SucursalID: Id
+                    },
+                    callback: function (registros, operacion, success) {
+                        if (success) {
+                            App.sConceptos.reload({
+                                scope: this,
+                                params: {
+                                    SucursalID: Id
+                                },
+                                callback: function (registros, operacion, success) {
+                                    if (success) {
+                                        ConfigurarDetalle(App.sConceptos);
+                                        Ext.net.Mask.hide();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    });
+}
+
 //Método que vuelve a cargar los conceptos
 function ConfigurarDetalle(store) {
     //1. Eliminar todos los conceptos
@@ -490,7 +521,7 @@ function ConfigurarDetalle(store) {
     App.sCategorias.each(function (registro) {
         //3. Crear el Panel que contrendra un TabPanel
         var pCategoria = Ext.create('Ext.panel.Panel', {
-            id: 'p' + registro.get('ID'),
+            id: 'p' + registro.get('Id'),
             title: registro.get('Descripcion')
         });
 
@@ -498,38 +529,38 @@ function ConfigurarDetalle(store) {
         App.tpDetalle.addTab(pCategoria);
 
         //5. Crear el modelo de Conceptos para la Categoria
-        Ext.define('mConcepto' + registro.get('ID'), {
+        Ext.define('mConcepto' + registro.get('Id'), {
             extend: 'Ext.data.Model',
-            idProperty: 'ID',
+            idProperty: 'Id',
             fields: [
-                { name: 'ID', type: 'string' },
+                { name: 'Id', type: 'string' },
                 { name: 'Modulo', type: 'string' },
                 { name: 'Orden', type: 'int' },
                 { name: 'Descripcion', type: 'string' },
-                { name: 'Categoria', type: 'string' },
-                { name: 'SubCategoria', type: 'string' }
+                { name: 'CategoriaIdRaw', type: 'string' },
+                { name: 'SubCategoriaIdRaw', type: 'string' }
             ]
         });
 
         //6. Crear el Store para los Conceptos
         var sConceptos = Ext.create('Ext.data.Store', {
-            storeId: 'sConceptos' + registro.get('ID'),
-            model: 'mConcepto' + registro.get('ID'),
+            storeId: 'sConceptos' + registro.get('Id'),
+            model: 'mConcepto' + registro.get('Id'),
             sorters: [{
-                property: 'ID',
+                property: 'Id',
                 direction: 'ASC'
             }]
         });
 
         //7. Filtrar el store de Conceptos por su Categoria
         store.each(function (record, index) {
-            if (record.get('Categoria') == registro.get('ID')) {
+            if (record.get('CategoriaIdRaw') == registro.get('Id')) {
                 sConceptos.add(record);
             }
         });
 
         //8. Construir el Modelo del Store para el GridPanel
-        Ext.define('mCategoria' + registro.get('ID'), {
+        Ext.define('mCategoria' + registro.get('Id'), {
             extend: 'Ext.data.Model',
             idProperty: 'Renglon',
             fields: [
@@ -547,8 +578,8 @@ function ConfigurarDetalle(store) {
 
         //9. Contriur el Store del GridPanel
         var sCategoria = Ext.create('Ext.data.Store', {
-            storeId: 's' + registro.get('ID'),
-            model: 'mCategoria' + registro.get('ID'),
+            storeId: 's' + registro.get('Id'),
+            model: 'mCategoria' + registro.get('Id'),
             groupField: 'SubCategoriaDesc',
             sorters: [{
                 property: 'SubCategoria',
@@ -566,28 +597,28 @@ function ConfigurarDetalle(store) {
         //10. Agregar los conceptos al store del GridPanel
         var cont = 1;
         sConceptos.each(function (record, index) {
-            var registro = App.sSubCategorias.findRecord('ID', record.get('SubCategoria'));
+            var registro = App.sSubCategorias.findRecord('Id', record.get('SubCategoriaIdRaw'));
             if (registro !== null) {
-                sCategoria.add({ Revision: 1, Renglon: cont, Concepto: record.get('ID'), SubCategoria: registro.get('SubCategoria'), Categoria: registro.get('Categoria'), SubCategoriaDesc: registro.get('Descripcion'), Proveedor: '', Programado: 0, Real: 0 });
+                sCategoria.add({ Revision: 1, Renglon: cont, Concepto: record.get('Id'), SubCategoria: registro.get('SubCategoriaIdRaw'), Categoria: registro.get('CategoriaIdRaw'), SubCategoriaDesc: registro.get('Descripcion'), Proveedor: '', Programado: 0, Real: 0 });
             }
             else {
-                sCategoria.add({ Revision: 1, Renglon: cont, Concepto: record.get('ID'), SubCategoria: '', Categoria: '', Proveedor: '', Programado: 0, Real: 0 });
+                sCategoria.add({ Revision: 1, Renglon: cont, Concepto: record.get('Id'), SubCategoria: '', Categoria: '', Proveedor: '', Programado: 0, Real: 0 });
             }
             cont++;
         });
 
         //11. Construir el gridPanel
         var gpCategoria = Ext.create('Ext.grid.Panel', {
-            id: 'gpCategoria' + registro.get('ID'),
-            store: Ext.data.StoreManager.lookup('s' + registro.get('ID')),
+            id: 'gpCategoria' + registro.get('Id'),
+            store: Ext.data.StoreManager.lookup('s' + registro.get('Id')),
             columns: [
-                    { id: 'ccEliminar' + registro.get('ID'), width: 25, xtype: "commandcolumn", commands: [{ xtype: "button", command: "Borrar", tooltip: { text: "Borrar" }, iconCls: "#Delete"}], listeners: { command: { fn: ccAcciones_Command}} },
-                    { id: 'cConcepto' + registro.get('ID'), width:300, text: 'Concepto', dataIndex: 'Concepto', renderer: cConcepto_Renderer },
-                    { id: 'cSubCategoriaDesc' + registro.get('ID'), text: 'SubCategoria', dataIndex: 'SubCategoriaDesc' },
-                    { id: 'cProveedor' + registro.get('ID'), width: 300, text: 'Proveedor', dataIndex: 'Proveedor', flex: 1, renderer: cProveedor_Renderer, editor: { id: 'cmbProveedores' + registro.get('ID'), xtype: 'combobox', displayField: 'Nombre', valueField: 'ID', queryMode: 'local', store: App.sProveedores} },
-                    { id: 'cProgramado' + registro.get('ID'), width: 100, text: 'Programado', dataIndex: 'Programado', xtype: 'numbercolumn', align: 'center', summaryType: 'sum', renderer: cProgramado_Renderer, editor: { id: 'nfProgramado' + registro.get('ID'), xtype: 'numberfield', allowDecimals: true, allowExponential: false, decimalPrecision: 2, decimalSeparator: '.', step: 0.01, maxValue: 100, minValue: 0} },
-                    { id: 'cReal' + registro.get('ID'), width: 100, text: 'Real', dataIndex: 'Real', xtype: 'numbercolumn', align: 'center', summaryType: 'sum', renderer: cReal_Renderer, editor: { id: 'nfReal' + registro.get('ID'), xtype: 'numberfield', allowDecimals: true, allowExponential: false, decimalPrecision: 2, decimalSeparator: '.', step: 0.01, maxValue: 100, minValue: 0} },
-                    { id: 'ccFotos' + registro.get('ID'), text: 'Fotos', width: 65, xtype: "commandcolumn", commands: [{ xtype: "button", command: "cnCargarFotos", tooltip: { text: "Cargar Fotos" }, iconCls: "#ImageAdd" }, { xtype: "button", command: "cnVerFotos", tooltip: { text: "Ver Fotos" }, iconCls: "#FolderPicture"}], prepareToolbar: ccFotos_PrepareToolbar, listeners: { command: { fn: ccFotos_Command}} }
+                    { id: 'ccEliminar' + registro.get('Id'), width: 25, xtype: "commandcolumn", commands: [{ xtype: "button", command: "Borrar", tooltip: { text: "Borrar" }, iconCls: "#Delete"}], listeners: { command: { fn: ccAcciones_Command}} },
+                    { id: 'cConcepto' + registro.get('Id'), width:300, text: 'Concepto', dataIndex: 'Concepto', renderer: cConcepto_Renderer },
+                    { id: 'cSubCategoriaDesc' + registro.get('Id'), text: 'SubCategoria', dataIndex: 'SubCategoriaDesc' },
+                    { id: 'cProveedor' + registro.get('Id'), width: 300, text: 'Proveedor', dataIndex: 'Proveedor', flex: 1, renderer: cProveedor_Renderer, editor: { id: 'cmbProveedores' + registro.get('ID'), xtype: 'combobox', displayField: 'Nombre', valueField: 'ID', queryMode: 'local', store: App.sProveedores} },
+                    { id: 'cProgramado' + registro.get('Id'), width: 100, text: 'Programado', dataIndex: 'Programado', xtype: 'numbercolumn', align: 'center', summaryType: 'sum', renderer: cProgramado_Renderer, editor: { id: 'nfProgramado' + registro.get('ID'), xtype: 'numberfield', allowDecimals: true, allowExponential: false, decimalPrecision: 2, decimalSeparator: '.', step: 0.01, maxValue: 100, minValue: 0} },
+                    { id: 'cReal' + registro.get('Id'), width: 100, text: 'Real', dataIndex: 'Real', xtype: 'numbercolumn', align: 'center', summaryType: 'sum', renderer: cReal_Renderer, editor: { id: 'nfReal' + registro.get('ID'), xtype: 'numberfield', allowDecimals: true, allowExponential: false, decimalPrecision: 2, decimalSeparator: '.', step: 0.01, maxValue: 100, minValue: 0} },
+                    { id: 'ccFotos' + registro.get('Id'), text: 'Fotos', width: 65, xtype: "commandcolumn", commands: [{ xtype: "button", command: "cnCargarFotos", tooltip: { text: "Cargar Fotos" }, iconCls: "#ImageAdd" }, { xtype: "button", command: "cnVerFotos", tooltip: { text: "Ver Fotos" }, iconCls: "#FolderPicture"}], prepareToolbar: ccFotos_PrepareToolbar, listeners: { command: { fn: ccFotos_Command}} }
                 ],
             height: 210,
             width: 870,
@@ -601,7 +632,7 @@ function ConfigurarDetalle(store) {
                 mode: 'SINGLE'
             },
             plugins: {
-                id: 'ceCategoria' + registro.get('ID'),
+                id: 'ceCategoria' + registro.get('Id'),
                 ptype: 'cellediting',
                 clicksToEdit: 1,
                 listeners: {
@@ -611,7 +642,7 @@ function ConfigurarDetalle(store) {
                 }
             },
             viewConfig: {
-                id: 'gvCategoria' + registro.get('ID'),
+                id: 'gvCategoria' + registro.get('Id'),
                 stripeRows: true
             },
             features: [{ ftype: 'groupingsummary', hideGroupedHeader: true}]
@@ -655,7 +686,7 @@ var ObtenerDetalle = function () {
 
     var contador = 1;
     App.sCategorias.each(function (registro) {
-        var gridpanel = Ext.getCmp('gpCategoria' + registro.get('ID'));
+        var gridpanel = Ext.getCmp('gpCategoria' + registro.get('Id'));
         if (gridpanel != undefined) {
             var store = gridpanel.getStore();
             store.each(function (modelo) {
