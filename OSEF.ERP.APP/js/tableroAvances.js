@@ -30,6 +30,7 @@ var imgbtnEditar_Click = function () {
     window.parent.App.wEmergente.show();
 };
 
+//Evento de docble clic sobre algun elemento del GridPanel
 var gpAvances_ItemDblClick = function (gridview, registro, gvhtml, index) {
     Ext.util.Cookies.set('cookieEditarRevision', App.gpAvances.getSelectionModel().getSelection()[0].get('ID'));
     window.parent.App.wEmergente.load('FormaAvance.aspx');

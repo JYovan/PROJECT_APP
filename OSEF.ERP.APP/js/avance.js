@@ -54,7 +54,7 @@ var imgbtnGuardar_Click_Success = function (response, result) {
 
         //Deshabilita los comandos del grid
         App.sCategorias.each(function (registro) {
-            var gridpanel = Ext.getCmp('gpCategoria' + registro.get('ID'));
+            var gridpanel = Ext.getCmp('gpCategoria' + registro.get('Id'));
             if (gridpanel != undefined) {
                 gridpanel.reconfigure();
             }
@@ -283,7 +283,7 @@ var cConcepto_Renderer = function (valor) {
 var cSubCategoria_Renderer = function (valor) {
     var registro;
     if (valor.length != 0) {
-        registro = App.sSubCategorias.findRecord('ID', valor);
+        registro = App.sSubCategorias.findRecord('Id', valor);
         return registro.get('Descripcion');
     }
 };
@@ -430,6 +430,8 @@ var ccFotos_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
     }
 };
 
+//------------------------------ Funciones ------------------------------//
+
 //Función que valida si se habilita el botón de Guardar
 function HabilitarGuardar() {
     //1. Validar si Mov y SucursalCR tienen información
@@ -528,38 +530,11 @@ function ConfigurarDetalle(store) {
         //4. Agregar el Panel al control TabPanel
         App.tpDetalle.addTab(pCategoria);
 
-        //5. Crear el modelo de Conceptos para la Categoria
-        Ext.define('mConcepto' + registro.get('Id'), {
-            extend: 'Ext.data.Model',
-            idProperty: 'Id',
-            fields: [
-                { name: 'Id', type: 'string' },
-                { name: 'Modulo', type: 'string' },
-                { name: 'Orden', type: 'int' },
-                { name: 'Descripcion', type: 'string' },
-                { name: 'CategoriaIdRaw', type: 'string' },
-                { name: 'SubCategoriaIdRaw', type: 'string' }
-            ]
-        });
+        //5. Eliminar si existe algun filtro y lanzar el filtro por Categoria
+        store.clearFilter(true);
+        store.filter('CategoriaIdRaw', registro.get('Id'));
 
-        //6. Crear el Store para los Conceptos
-        var sConceptos = Ext.create('Ext.data.Store', {
-            storeId: 'sConceptos' + registro.get('Id'),
-            model: 'mConcepto' + registro.get('Id'),
-            sorters: [{
-                property: 'Id',
-                direction: 'ASC'
-            }]
-        });
-
-        //7. Filtrar el store de Conceptos por su Categoria
-        store.each(function (record, index) {
-            if (record.get('CategoriaIdRaw') == registro.get('Id')) {
-                sConceptos.add(record);
-            }
-        });
-
-        //8. Construir el Modelo del Store para el GridPanel
+        //6. Construir el Modelo del Store para el GridPanel
         Ext.define('mCategoria' + registro.get('Id'), {
             extend: 'Ext.data.Model',
             idProperty: 'Renglon',
@@ -576,7 +551,7 @@ function ConfigurarDetalle(store) {
             ]
         });
 
-        //9. Contriur el Store del GridPanel
+        //7. Contriur el Store del GridPanel
         var sCategoria = Ext.create('Ext.data.Store', {
             storeId: 's' + registro.get('Id'),
             model: 'mCategoria' + registro.get('Id'),
@@ -594,9 +569,9 @@ function ConfigurarDetalle(store) {
             }
         });
 
-        //10. Agregar los conceptos al store del GridPanel
+        //8. Agregar los conceptos al store del GridPanel
         var cont = 1;
-        sConceptos.each(function (record, index) {
+        store.each(function (record, index) {
             var registro = App.sSubCategorias.findRecord('Id', record.get('SubCategoriaIdRaw'));
             if (registro !== null) {
                 sCategoria.add({ Revision: 1, Renglon: cont, Concepto: record.get('Id'), SubCategoria: registro.get('SubCategoriaIdRaw'), Categoria: registro.get('CategoriaIdRaw'), SubCategoriaDesc: registro.get('Descripcion'), Proveedor: '', Programado: 0, Real: 0 });
@@ -607,13 +582,13 @@ function ConfigurarDetalle(store) {
             cont++;
         });
 
-        //11. Construir el gridPanel
+        //9. Construir el gridPanel
         var gpCategoria = Ext.create('Ext.grid.Panel', {
             id: 'gpCategoria' + registro.get('Id'),
             store: Ext.data.StoreManager.lookup('s' + registro.get('Id')),
             columns: [
                     { id: 'ccEliminar' + registro.get('Id'), width: 25, xtype: "commandcolumn", commands: [{ xtype: "button", command: "Borrar", tooltip: { text: "Borrar" }, iconCls: "#Delete"}], listeners: { command: { fn: ccAcciones_Command}} },
-                    { id: 'cConcepto' + registro.get('Id'), width:300, text: 'Concepto', dataIndex: 'Concepto', renderer: cConcepto_Renderer },
+                    { id: 'cConcepto' + registro.get('Id'), width: 300, text: 'Concepto', dataIndex: 'Concepto', renderer: cConcepto_Renderer },
                     { id: 'cSubCategoriaDesc' + registro.get('Id'), text: 'SubCategoria', dataIndex: 'SubCategoriaDesc' },
                     { id: 'cProveedor' + registro.get('Id'), width: 300, text: 'Proveedor', dataIndex: 'Proveedor', flex: 1, renderer: cProveedor_Renderer, editor: { id: 'cmbProveedores' + registro.get('ID'), xtype: 'combobox', displayField: 'Nombre', valueField: 'ID', queryMode: 'local', store: App.sProveedores} },
                     { id: 'cProgramado' + registro.get('Id'), width: 100, text: 'Programado', dataIndex: 'Programado', xtype: 'numbercolumn', align: 'center', summaryType: 'sum', renderer: cProgramado_Renderer, editor: { id: 'nfProgramado' + registro.get('ID'), xtype: 'numberfield', allowDecimals: true, allowExponential: false, decimalPrecision: 2, decimalSeparator: '.', step: 0.01, maxValue: 100, minValue: 0} },
@@ -648,12 +623,15 @@ function ConfigurarDetalle(store) {
             features: [{ ftype: 'groupingsummary', hideGroupedHeader: true}]
         });
 
-        //12. Agregar el GridPanel al Panel correspondiente
+        //10. Agregar el GridPanel al Panel correspondiente
         pCategoria.add(gpCategoria);
     });
 
-    //13. Asignar la primer pestaña como activa
+    //11. Asignar la primer pestaña como activa
     App.tpDetalle.setActiveTab(0);
+
+    //12. Quitar filtro
+    store.clearFilter(true);
 }
 
 //Construir Store del Detalle
