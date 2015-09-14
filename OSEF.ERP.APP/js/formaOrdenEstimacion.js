@@ -177,7 +177,7 @@ var sMov_Change = function (combo) {
 
     }
 
-    if (combo.value.trim() == 'Orden de Cambio') {
+    else {
         Ext.util.Cookies.set('cookieMovimientoIdentificador', 'Obra');
         App.pDatosReporte.hide();
         App.pDatosReporte.tab.hide();
@@ -1984,7 +1984,16 @@ var getDescripcion = function (r) {
     //Acciones del boton d agregar concepto en el detalle
     var ccConcepto_Command = function (columna, comando, registro, fila, opciones) {
 
-        Ext.util.Cookies.set('cookieMovimientoIdentificador', 'Mnto');
+        //2. Identificamos que tablero de que modulo es
+        var tablero = window.parent.App.pCentro.getBody().App.gpOrdenesEstimaciones.title;
+        if (tablero == 'REPORTES & ESTIMACIONES') {
+            Ext.util.Cookies.set('cookieMovimientoIdentificador', 'Mnto');
+        }
+        else {
+            Ext.util.Cookies.set('cookieMovimientoIdentificador', 'Obra');
+        }
+
+
         Ext.util.Cookies.set('cookieMovimientocliente', App.IdCliente.getValue());
         indiceDetalle = fila;
         window.parent.App.wAyudaConcepto.load('FormaBuscaPreciarioGeneralConcepto.aspx');
