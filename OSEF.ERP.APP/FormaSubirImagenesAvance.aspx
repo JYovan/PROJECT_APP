@@ -128,7 +128,7 @@
                             runat="server"
                             Text="Iniciar"
                             Icon="Tick"
-                            Handler="#{muSubirImagenesAvance}.startUpload();">
+                            Handler="#{muSubirImagenesAvance}.startUpload(); onUploadImages();">
                         </ext:Button>
                         <ext:Button
                             ID="btnCancelar"

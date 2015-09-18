@@ -93,7 +93,12 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static List<RevisionD> ObtenerRevisionesDPorRevision(int iRevision)
         {
-            return RevisionDDataAccess.ObtenerRevisionesDPorRevision(iRevision);
+            List<RevisionD> lRevisionD = RevisionDDataAccess.ObtenerRevisionesDPorRevision(iRevision);
+
+            foreach (RevisionD sd in lRevisionD)
+                sd.RSubCategoria = SubCategoriaBusiness.ObtenerSubCategoriaPorID(sd.SubCategoria);
+
+            return lRevisionD;
         }
 
         #endregion

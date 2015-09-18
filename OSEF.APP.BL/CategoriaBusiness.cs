@@ -93,6 +93,16 @@ namespace OSEF.APP.BL
             return CategoriaDataAccess.ObtenerCategoriasPorSucursal(strSucursal);
         }
 
+        /// <summary>
+        /// Obtener una lista de objetos tipo Categoria por RevisionD
+        /// </summary>
+        /// <param name="iRevision"></param>
+        /// <returns></returns>
+        public static List<Categoria> ObtenerCategoriasPorRevisionD(int iRevision)
+        {
+            return CategoriaDataAccess.ObtenerCategoriasPorRevisionD(iRevision);
+        }
+
         #endregion
     }
 }

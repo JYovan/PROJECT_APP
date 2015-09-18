@@ -66,7 +66,7 @@
                 fn: function (btn) {
                     if (btn === 'yes') {
                         App.direct.BorrarImagen(conceptoID, ID, nombreIMG);
-                        App.sImagenesAvance.reload({
+                        App.sImagenesAvanceD.reload({
                             callback: function () {
                                 App.direct.onLoadDataImages();
                             }
@@ -100,9 +100,9 @@
     <form id="form1" runat="server">
         <ext:ResourceManager ID="rmImagenesAvance" runat="server" HideInDesign="true" />
 
-        <ext:Store ID="sImagenesAvance" runat="server" >
+        <ext:Store ID="sImagenesAvanceD" runat="server" >
             <Model>
-                <ext:Model ID="mImagenesAvance" runat="server">
+                <ext:Model ID="mImagenesAvanceD" runat="server">
                     <Fields>
                         <ext:ModelField Name="Revision" Type="Int" />
                         <ext:ModelField Name="Concepto" Type="String" />
@@ -116,7 +116,7 @@
         </ext:Store>
 
          <ext:Panel 
-            ID="fpImagenesAvance"
+            ID="fpImagenesAvanceD"
             runat="server" 
             BodyStyle="background-color:#fff;"
             Height="479"
@@ -124,11 +124,11 @@
             AutoScroll="true">
             <Items>
                 <ext:DataView
-                    ID="dvImagenesAvance"
+                    ID="dvImagenesAvanceD"
                     runat="server"
                     ItemSelector="div.thumb-wrap"
                     EmptyText="No hay imagenes para mostrar"
-                    StoreID="sImagenesAvance"
+                    StoreID="sImagenesAvanceD"
                     MultiSelect="true"
                     OverItemCls="x-item-over"
                     TrackOver="true"

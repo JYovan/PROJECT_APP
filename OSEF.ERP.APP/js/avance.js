@@ -257,19 +257,6 @@ var dfFechaRevision_Change = function () {
     HabilitarAfectar();
 };
 
-//Evento que se lanza al cargar datos al Store
-var sConceptos_Load = function (store, registros, transaccion, opciones) {
-    //1. Validar si es nuevo movimiento
-    if (Ext.util.Cookies.get('cookieEditarRevision') == 'Nuevo') {
-        //2. Configurar el detalle
-        //ConfigurarDetalle(store);
-    }
-    else {
-        //3. Configurar el detalle
-        //MostrarDetalle(App.sRevisionD);
-    }
-};
-
 //Evento que muestra el valor de la columna Concepto por su descripción y no por su ID
 var cConcepto_Renderer = function (valor) {
     var registro;
@@ -339,7 +326,45 @@ var sRevision_Add = function (avance, registro) {
         }
 
         //Construir detalle
-        App.sConceptos.reload();
+        //1. Lanzar Mascara
+        Ext.net.Mask.show({
+            el: App.pDetalleAvance.el,
+            msg: "Cargando conceptos..."
+        });
+
+        //2. Llenar el Store de Categorias
+        App.sCategorias.reload({
+            scope: this,
+            params: {
+                Revision: Ext.util.Cookies.get('cookieEditarRevision')
+            },
+            callback: function (registros, operacion, success) {
+                if (success) {
+                    App.sSubCategorias.reload({
+                        scope: this,
+                        params: {
+                            Revision: Ext.util.Cookies.get('cookieEditarRevision')
+                        },
+                        callback: function (registros, operacion, success) {
+                            if (success) {
+                                App.sConceptos.reload({
+                                    scope: this,
+                                    params: {
+                                        Revision: Ext.util.Cookies.get('cookieEditarRevision')
+                                    },
+                                    callback: function (registros, operacion, success) {
+                                        if (success) {
+                                            MostrarDetalle(App.sRevisionD);
+                                            Ext.net.Mask.hide();
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+            }
+        });
     }
 };
 
@@ -400,16 +425,16 @@ var ccFotos_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
         botonCargar.setTooltip("No se pueden cargar fotos a un movimiento cancelado");
     }
 
-    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar conceptos 
+    //5. Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar conceptos 
     if (Ext.util.Cookies.get('cookieEditarRevision') != 'Nuevo' && App.sRevision.getAt(0).get('Mov').trim() == 'Iniciar proyecto') {
-        //Toma el primer elemento de la columna para poder desabilitarlo
+        //6. Toma el primer elemento de la columna para poder deshabilitarlo
         var botonCargar2 = toolbar.items.get(0);
         botonCargar2.setDisabled(true);
     }
 
-    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar fotos 
+    //7. Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar fotos 
     if (Ext.util.Cookies.get('cookieEditarRevision') == 'Nuevo' && App.sRevision.getAt(0) == undefined) {
-        //Toma el primer elemento de la columna para poder desabilitarlo
+        //8. Toma el primer elemento de la columna para poder desabilitarlo
         var botonCargar2 = toolbar.items.get(0);
         var botonVerFotos2 = toolbar.items.get(1);
         botonCargar2.setDisabled(true);
@@ -418,9 +443,9 @@ var ccFotos_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
         botonVerFotos2.setTooltip("Debes de guardar el movimiento antes");
     }
 
-    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar y ver fotos
+    //9. Valida el estatus del movimiento para saber si se tiene que habilitar el comando de cargar y ver fotos
     if (Ext.util.Cookies.get('cookieEditarRevision') != 'Nuevo' && App.sRevision.getAt(0).get('Estatus') == 'BORRADOR') {
-        //Toma el primer elemento de la columna para poder desabilitarlo
+        //10. Toma el primer elemento de la columna para poder desabilitarlo
         var botonCargar2 = toolbar.items.get(0);
         var botonVerFotos2 = toolbar.items.get(1);
         botonCargar2.setDisabled(false);
@@ -457,7 +482,7 @@ function HabilitarInformacion() {
 //Validar si se habilita el botón d Afectar
 function HabilitarAfectar() {
     //1. Validar si los datos son llenos de los campos Mov, Semana, SucursalCR, FechaEmision y FechaRevision
-    if (App.cmbMov.getValue() != null && App.nfSemana.getValue() != null && App.txtfSucursalCR.getValue() != null && App.dfFechaRevision.getValue() != null && App.dfFechaEmision.getValue() != null) {
+    if (App.cmbMov.getValue() != null && App.nfSemana.getValue() != null && App.txtfSucursalCR.getValue() != '' && App.dfFechaRevision.getValue() != null && App.dfFechaEmision.getValue() != null) {
         //2. Validar si los campos Semana, SucursalCR, FechaEmision y FechaRevision son validos
         if (App.nfSemana.isValid() && App.txtfSucursalCR.isValid() && App.dfFechaEmision.isValid() && App.dfFechaRevision.isValid()) {
             App.imgbtnAfectar.setDisabled(false);
@@ -469,6 +494,28 @@ function HabilitarAfectar() {
     else {
         App.imgbtnAfectar.setDisabled(true);
     }
+}
+
+//Función que deshabilita todos los controles cuando se afecta un movimiento
+function DeshabilitarControlesAfectar() {
+    //1. Deshabilitar controles
+    App.cmbMov.setDisabled(true);
+    App.nfSemana.setDisabled(true);
+    App.txtfSucursalCR.setDisabled(true);
+    App.dfFechaEmision.setDisabled(true);
+    App.dfFechaRevision.setDisabled(true);
+    App.txtfObservaciones.setDisabled(true);
+    App.txtfComentarios.setDisabled(true);
+    App.imgbtnGuardar.setDisabled(true);
+    App.imgbtnBorrar.setDisabled(true);
+
+    //2. Deshabilitar los GridPanel
+    App.sCategorias.each(function (registro) {
+        var gridpanel = Ext.getCmp('gpCategoria' + registro.get('ID'));
+        if (gridpanel != undefined) {
+            editable = false;
+        }
+    });
 }
 
 //Método que carga el detalle de Categorias, SubCategorias y Conceptos de acuerdo a la Sucursal(Obra)
@@ -535,7 +582,7 @@ function ConfigurarDetalle(store) {
         store.filter('CategoriaIdRaw', registro.get('Id'));
 
         //6. Construir el Modelo del Store para el GridPanel
-        Ext.define('mCategoria' + registro.get('Id'), {
+        Ext.define('mRevisionD' + registro.get('Id'), {
             extend: 'Ext.data.Model',
             idProperty: 'Renglon',
             fields: [
@@ -552,9 +599,9 @@ function ConfigurarDetalle(store) {
         });
 
         //7. Contriur el Store del GridPanel
-        var sCategoria = Ext.create('Ext.data.Store', {
-            storeId: 's' + registro.get('Id'),
-            model: 'mCategoria' + registro.get('Id'),
+        var sRevisionD = Ext.create('Ext.data.Store', {
+            storeId: 'sRevisionD' + registro.get('Id'),
+            model: 'mRevisionD' + registro.get('Id'),
             groupField: 'SubCategoriaDesc',
             sorters: [{
                 property: 'SubCategoria',
@@ -573,19 +620,15 @@ function ConfigurarDetalle(store) {
         var cont = 1;
         store.each(function (record, index) {
             var registro = App.sSubCategorias.findRecord('Id', record.get('SubCategoriaIdRaw'));
-            if (registro !== null) {
-                sCategoria.add({ Revision: 1, Renglon: cont, Concepto: record.get('Id'), SubCategoria: registro.get('SubCategoriaIdRaw'), Categoria: registro.get('CategoriaIdRaw'), SubCategoriaDesc: registro.get('Descripcion'), Proveedor: '', Programado: 0, Real: 0 });
-            }
-            else {
-                sCategoria.add({ Revision: 1, Renglon: cont, Concepto: record.get('Id'), SubCategoria: '', Categoria: '', Proveedor: '', Programado: 0, Real: 0 });
-            }
+            registro = registro == null ? '' : registro.get('Descripcion');
+            sRevisionD.add({ Revision: 1, Renglon: cont, Concepto: record.get('Id'), SubCategoria: record.get('SubCategoriaIdRaw'), Categoria: record.get('CategoriaIdRaw'), SubCategoriaDesc: registro, Proveedor: '', Programado: 0, Real: 0 });
             cont++;
         });
 
         //9. Construir el gridPanel
         var gpCategoria = Ext.create('Ext.grid.Panel', {
             id: 'gpCategoria' + registro.get('Id'),
-            store: Ext.data.StoreManager.lookup('s' + registro.get('Id')),
+            store: Ext.data.StoreManager.lookup('sRevisionD' + registro.get('Id')),
             columns: [
                     { id: 'ccEliminar' + registro.get('Id'), width: 25, xtype: "commandcolumn", commands: [{ xtype: "button", command: "Borrar", tooltip: { text: "Borrar" }, iconCls: "#Delete"}], listeners: { command: { fn: ccAcciones_Command}} },
                     { id: 'cConcepto' + registro.get('Id'), width: 300, text: 'Concepto', dataIndex: 'Concepto', renderer: cConcepto_Renderer },
@@ -637,12 +680,15 @@ function ConfigurarDetalle(store) {
 //Construir Store del Detalle
 var ObtenerDetalle = function () {
     //1. Construir el modelo general
-    Ext.define('mRevisionFinal', {
+    Ext.define('mRevisionDFinal', {
         extend: 'Ext.data.Model',
         fields: [
                 { name: 'Revision', type: 'int' },
                 { name: 'Renglon', type: 'int' },
                 { name: 'Concepto', type: 'string' },
+                { name: 'SubCategoria', type: 'string' },
+                { name: 'Categoria', type: 'string' },
+                { name: 'SubCategoriaDesc', type: 'string' },
                 { name: 'Proveedor', type: 'string' },
                 { name: 'Programado', type: 'float' },
                 { name: 'Real', type: 'float' }
@@ -650,9 +696,9 @@ var ObtenerDetalle = function () {
     });
 
     //2. Contriur el store general
-    var sRevision = Ext.create('Ext.data.Store', {
-        storeId: 'sRevisionFinal',
-        model: 'mRevisionFinal',
+    var sRevisionD = Ext.create('Ext.data.Store', {
+        storeId: 'sRevisionDFinal',
+        model: 'mRevisionDFinal',
         proxy: {
             type: 'memory',
             reader: {
@@ -668,56 +714,37 @@ var ObtenerDetalle = function () {
         if (gridpanel != undefined) {
             var store = gridpanel.getStore();
             store.each(function (modelo) {
-                sRevision.add({ Revision: modelo.get('Revision'), Renglon: modelo.get('Renglon'), Concepto: modelo.get('Concepto'), Proveedor: modelo.get('Proveedor'), Programado: modelo.get('Programado'), Real: modelo.get('Real') });
+                sRevisionD.add({ Revision: modelo.get('Revision'), Renglon: modelo.get('Renglon'), Concepto: modelo.get('Concepto'), Proveedor: modelo.get('Proveedor'), Programado: modelo.get('Programado'), Real: modelo.get('Real') });
                 contador++;
             });
         }
     });
 
-    return Ext.encode(sRevision.getRecordsValues());
+    return Ext.encode(sRevisionD.getRecordsValues());
 };
 
 //Método que muestra el Detalle
 function MostrarDetalle(store) {
-    //1. Obtener el arreglo de Categorias y pasar por el vector
-    var categorias = App.sRevisionD.getGroups();
+    //1. Eliminar todos los conceptos
+    App.tpDetalle.removeAll();
 
-    for (var i = 0; i < categorias.length; i++) {        
-        //2. Crear el Panel que contrendra un TabPanel
+    //2. Recorrer el Store de Categorias
+    App.sCategorias.each(function (registro) {
+        //3. Crear el Panel que contrendra un TabPanel
         var pCategoria = Ext.create('Ext.panel.Panel', {
-            id: 'p' + categorias[i].name,
-            title: App.sCategorias.getAt(App.sCategorias.findExact('ID', categorias[i].name)).get('Descripcion')
+            id: 'p' + registro.get('Id'),
+            title: registro.get('Descripcion')
         });
 
-        //3. Agregar el Panel al control TabPanel
+        //4. Agregar el Panel al control TabPanel
         App.tpDetalle.addTab(pCategoria);
 
-        //4. Crear el modelo de Conceptos para la Categoria
-        Ext.define('mConcepto' + categorias[i].name, {
-            extend: 'Ext.data.Model',
-            idProperty: 'ID',
-            fields: [
-                { name: 'ID', type: 'string' },
-                { name: 'Modulo', type: 'string' },
-                { name: 'Orden', type: 'int' },
-                { name: 'Descripcion', type: 'string' },
-                { name: 'Categoria', type: 'string' },
-                { name: 'SubCategoria', type: 'string' }
-            ]
-        });
-
-        //5. Crear el Store para los Conceptos
-        var sConceptos = Ext.create('Ext.data.Store', {
-            storeId: 'sConceptos' + categorias[i].name,
-            model: 'mConcepto' + categorias[i].name,
-            sorters: [{
-                property: 'ID',
-                direction: 'ASC'
-            }]
-        });
+        //5. Eliminar si existe algun filtro y lanzar el filtro por Categoria
+        store.clearFilter(true);
+        store.filter('Categoria', registro.get('Id'));
 
         //6. Construir el Modelo del Store para el GridPanel
-        Ext.define('mCategoria' + categorias[i].name, {
+        Ext.define('mRevisionD' + registro.get('Id'), {
             extend: 'Ext.data.Model',
             idProperty: 'Renglon',
             fields: [
@@ -734,9 +761,9 @@ function MostrarDetalle(store) {
         });
 
         //7. Contriur el Store del GridPanel
-        var sCategoria = Ext.create('Ext.data.Store', {
-            storeId: 's' + categorias[i].name,
-            model: 'mCategoria' + categorias[i].name,
+        var sRevisionD = Ext.create('Ext.data.Store', {
+            storeId: 'sRevisionD' + registro.get('Id'),
+            model: 'mRevisionD' + registro.get('Id'),
             groupField: 'SubCategoriaDesc',
             sorters: [{
                 property: 'SubCategoria',
@@ -751,33 +778,25 @@ function MostrarDetalle(store) {
             }
         });
 
-        //8. Filtrar el store de Conceptos por su Categoria
+        //8. Agregar los conceptos al store del GridPanel
         store.each(function (record, index) {
-            if (record.get('Categoria') == categorias[i].name) {
-                var indice = App.sSubCategorias.findExact('ID', record.get('SubCategoria'));
-                if (indice == -1) {
-                    sCategoria.add({ Revision: record.get('Revision'), Renglon: record.get('Renglon'), Concepto: record.get('Concepto'), SubCategoria: record.get('SubCategoria'), Categoria: record.get('Categoria'), SubCategoriaDesc: '', Proveedor: record.get('Proveedor'), Programado: record.get('Programado'), Real: record.get('Real') });
-                }
-                else {
-                    sCategoria.add({ Revision: record.get('Revision'), Renglon: record.get('Renglon'), Concepto: record.get('Concepto'), SubCategoria: record.get('SubCategoria'), Categoria: record.get('Categoria'), SubCategoriaDesc: App.sSubCategorias.getAt(indice).get('Descripcion'), Proveedor: record.get('Proveedor'), Programado: record.get('Programado'), Real: record.get('Real') });
-                }
-
-                sConceptos.add({ ID: record.get('Concepto'), Descripcion: App.sConceptos.getAt(App.sConceptos.findExact('ID', record.get('Concepto'))).get('Descripcion') });
-            }
+            var registro = App.sSubCategorias.findRecord('Id', record.get('SubCategoria'));
+            registro = registro == null ? '' : registro.get('Descripcion');
+            sRevisionD.add({ Revision: record.get('Revision'), Renglon: record.get('Renglon'), Concepto: record.get('Concepto'), SubCategoria: record.get('SubCategoria'), Categoria: record.get('Categoria'), SubCategoriaDesc: registro, Proveedor: record.get('Proveedor'), Programado: record.get('Programado'), Real: record.get('Real') });
         });
 
         //9. Construir el gridPanel
         var gpCategoria = Ext.create('Ext.grid.Panel', {
-            id: 'gpCategoria' + categorias[i].name,
-            store: Ext.data.StoreManager.lookup('s' + categorias[i].name),
+            id: 'gpCategoria' + registro.get('Id'),
+            store: Ext.data.StoreManager.lookup('sRevisionD' + registro.get('Id')),
             columns: [
-                    { id: 'ccEliminar' + categorias[i].name, width: 25, xtype: "commandcolumn", commands: [{ xtype: "button", command: "Borrar", tooltip: { text: "Borrar" }, iconCls: "#Delete"}], listeners: { command: { fn: ccAcciones_Command}} },
-                    { id: 'cConcepto' + categorias[i].name, text: 'Concepto', dataIndex: 'Concepto', flex: 1, renderer: cConcepto_Renderer },
-                    { id: 'cSubCategoriaDesc' + categorias[i].name, text: 'SubCategoria', dataIndex: 'SubCategoriaDesc' },
-                    { id: 'cProveedor' + categorias[i].name, text: 'Proveedor', dataIndex: 'Proveedor', flex: 1, renderer: cProveedor_Renderer, editor: { id: 'cmbProveedores' + categorias[i].name, xtype: 'combobox', displayField: 'Nombre', valueField: 'ID', queryMode: 'local', store: App.sProveedores} },
-                    { id: 'cProgramado' + categorias[i].name, text: 'Programado', dataIndex: 'Programado', xtype: 'numbercolumn', align: 'center', summaryType: 'sum', renderer: cProgramado_Renderer, editor: { id: 'nfProgramado' + categorias[i].name, xtype: 'numberfield', allowDecimals: true, allowExponential: false, decimalPrecision: 2, decimalSeparator: '.', step: 0.01, maxValue: 100, minValue: 0} },
-                    { id: 'cReal' + categorias[i].name, text: 'Real', dataIndex: 'Real', xtype: 'numbercolumn', align: 'center', summaryType: 'sum', renderer: cReal_Renderer, editor: { id: 'nfReal' + categorias[i].name, xtype: 'numberfield', allowDecimals: true, allowExponential: false, decimalPrecision: 2, decimalSeparator: '.', step: 0.01, maxValue: 100, minValue: 0} },
-                    { id: 'ccFotos' + categorias[i].name, text: 'Fotos', width: 65, xtype: "commandcolumn", commands: [{ xtype: "button", command: "cnCargarFotos", tooltip: { text: "Cargar Fotos" }, iconCls: "#ImageAdd" }, { xtype: "button", command: "cnVerFotos", tooltip: { text: "Ver Fotos" }, iconCls: "#FolderPicture"}], prepareToolbar: ccFotos_PrepareToolbar, listeners: { command: { fn: ccFotos_Command}} }
+                    { id: 'ccEliminar' + registro.get('Id'), width: 25, xtype: "commandcolumn", commands: [{ xtype: "button", command: "Borrar", tooltip: { text: "Borrar" }, iconCls: "#Delete"}], listeners: { command: { fn: ccAcciones_Command}} },
+                    { id: 'cConcepto' + registro.get('Id'), width: 300, text: 'Concepto', dataIndex: 'Concepto', renderer: cConcepto_Renderer },
+                    { id: 'cSubCategoriaDesc' + registro.get('Id'), text: 'SubCategoria', dataIndex: 'SubCategoriaDesc' },
+                    { id: 'cProveedor' + registro.get('Id'), width: 300, text: 'Proveedor', dataIndex: 'Proveedor', flex: 1, renderer: cProveedor_Renderer, editor: { id: 'cmbProveedores' + registro.get('ID'), xtype: 'combobox', displayField: 'Nombre', valueField: 'ID', queryMode: 'local', store: App.sProveedores} },
+                    { id: 'cProgramado' + registro.get('Id'), width: 100, text: 'Programado', dataIndex: 'Programado', xtype: 'numbercolumn', align: 'center', summaryType: 'sum', renderer: cProgramado_Renderer, editor: { id: 'nfProgramado' + registro.get('ID'), xtype: 'numberfield', allowDecimals: true, allowExponential: false, decimalPrecision: 2, decimalSeparator: '.', step: 0.01, maxValue: 100, minValue: 0} },
+                    { id: 'cReal' + registro.get('Id'), width: 100, text: 'Real', dataIndex: 'Real', xtype: 'numbercolumn', align: 'center', summaryType: 'sum', renderer: cReal_Renderer, editor: { id: 'nfReal' + registro.get('ID'), xtype: 'numberfield', allowDecimals: true, allowExponential: false, decimalPrecision: 2, decimalSeparator: '.', step: 0.01, maxValue: 100, minValue: 0} },
+                    { id: 'ccFotos' + registro.get('Id'), text: 'Fotos', width: 65, xtype: "commandcolumn", commands: [{ xtype: "button", command: "cnCargarFotos", tooltip: { text: "Cargar Fotos" }, iconCls: "#ImageAdd" }, { xtype: "button", command: "cnVerFotos", tooltip: { text: "Ver Fotos" }, iconCls: "#FolderPicture"}], prepareToolbar: ccFotos_PrepareToolbar, listeners: { command: { fn: ccFotos_Command}} }
                 ],
             height: 210,
             width: 870,
@@ -791,7 +810,7 @@ function MostrarDetalle(store) {
                 mode: 'SINGLE'
             },
             plugins: {
-                id: 'ceCategoria' + categorias[i].name,
+                id: 'ceCategoria' + registro.get('Id'),
                 ptype: 'cellediting',
                 clicksToEdit: 1,
                 listeners: {
@@ -801,7 +820,7 @@ function MostrarDetalle(store) {
                 }
             },
             viewConfig: {
-                id: 'gvCategoria' + categorias[i].name,
+                id: 'gvCategoria' + registro.get('Id'),
                 stripeRows: true
             },
             features: [{ ftype: 'groupingsummary', hideGroupedHeader: true}]
@@ -809,30 +828,12 @@ function MostrarDetalle(store) {
 
         //10. Agregar el GridPanel al Panel correspondiente
         pCategoria.add(gpCategoria);
-    }
+
+    });
 
     //11. Asignar la primer pestaña como activa
     App.tpDetalle.setActiveTab(0);
-}
 
-//Función que deshabilita todos los controles cuando se afecta un movimiento
-function DeshabilitarControlesAfectar() {
-    //1. Deshabilitar controles
-    App.cmbMov.setDisabled(true);
-    App.nfSemana.setDisabled(true);
-    App.txtfSucursalCR.setDisabled(true);
-    App.dfFechaEmision.setDisabled(true);
-    App.dfFechaRevision.setDisabled(true);
-    App.txtfObservaciones.setDisabled(true);
-    App.txtfComentarios.setDisabled(true);
-    App.imgbtnGuardar.setDisabled(true);
-    App.imgbtnBorrar.setDisabled(true);
-
-    //2. Deshabilitar los GridPanel
-    App.sCategorias.each(function (registro) {
-        var gridpanel = Ext.getCmp('gpCategoria' + registro.get('ID'));
-        if (gridpanel != undefined) {
-            editable = false;
-        }
-    });
+    //12. Quitar filtro
+    store.clearFilter(true);
 }

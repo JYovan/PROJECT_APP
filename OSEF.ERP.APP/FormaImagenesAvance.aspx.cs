@@ -42,8 +42,8 @@ namespace OSEF.ERP.APP
                 sd.Direccion = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + sd.Direccion;
 
             //3. Llenar el store con los datos
-            sImagenesAvance.DataSource = lImagenRevisionD;
-            sImagenesAvance.DataBind();
+            sImagenesAvanceD.DataSource = lImagenRevisionD;
+            sImagenesAvanceD.DataBind();
         }
 
         /// <summary>

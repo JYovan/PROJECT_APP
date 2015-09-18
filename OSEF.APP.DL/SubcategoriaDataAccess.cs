@@ -13,7 +13,7 @@ namespace OSEF.APP.DL
     /// <summary>
     /// Clase que administra los datos de la tabla de SubCategorias
     /// </summary>
-    public class SubcategoriaDataAccess
+    public class SubCategoriaDataAccess
     {
         #region Insertar
 
@@ -420,6 +420,52 @@ namespace OSEF.APP.DL
             catch (Exception ex)
             {
                 throw new Exception("Error capa de datos (public static List<Subcategoria> ObtenerSubCategoriaPorSucursal(string " + strSucursal + ")): " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Obtener los registros de SubCategoria por su RevisionD
+        /// </summary>
+        /// <param name="iRevision"></param>
+        /// <returns></returns>
+        public static List<Subcategoria> ObtenerSubCategoriaPorRevisionD(int iRevision)
+        {
+            try
+            {
+                //1. Configurar la conexión y el tipo de comando
+                SqlConnection sqlcConectar = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+                SqlCommand sqlcComando = new SqlCommand();
+                sqlcComando.Connection = sqlcConectar;
+                sqlcComando.CommandType = CommandType.StoredProcedure;
+                sqlcComando.CommandText = "web_spS_ObtenerSubCategoriaPorRevisionD";
+
+                //2. Declarar los parametros
+                SqlParameter sqlpRevision = new SqlParameter();
+                sqlpRevision.ParameterName = "@Revision";
+                sqlpRevision.SqlDbType = SqlDbType.Int;
+                sqlpRevision.Value = iRevision;
+
+                //3. Agregar los parametros al comando
+                sqlcComando.Parameters.Add(sqlpRevision);
+
+                //4. Abrir la conexión
+                sqlcComando.Connection.Open();
+
+                //5. Ejecutar la instrucción SELECT que regresa filas
+                SqlDataReader reader = sqlcComando.ExecuteReader();
+
+                //6. Asignar la lista de Clientes
+                List<Subcategoria> result = LibraryGenerics<Subcategoria>.ConvertDataSetToList(reader);
+
+                //7. Cerrar la conexión
+                sqlcComando.Connection.Close();
+
+                //8. Regresar el resultado
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error capa de datos (public static List<Subcategoria> ObtenerSubCategoriaPorRevisionD(int " + iRevision + ")): " + ex.Message);
             }
         }
 

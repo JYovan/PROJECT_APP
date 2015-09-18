@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace OSEF.AVANCES.SUCURSALES {
+namespace OSEF.ERP.APP {
     
     
     public partial class Subcategorias {

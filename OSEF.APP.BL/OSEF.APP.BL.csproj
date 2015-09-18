@@ -86,7 +86,7 @@
     <Compile Include="ProveedorBusiness.cs" />
     <Compile Include="RevisionBusiness.cs" />
     <Compile Include="RevisionDBusiness.cs" />
-    <Compile Include="SubcategoriaBusiness.cs" />
+    <Compile Include="SubCategoriaBusiness.cs" />
     <Compile Include="SucursalBusiness.cs" />
     <Compile Include="UsuarioBusiness.cs" />
     <Compile Include="VolumetriaBusiness.cs" />

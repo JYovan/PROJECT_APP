@@ -26,22 +26,6 @@ namespace OSEF.ERP.APP
                 //2. Cargar Proveedores
                 sProveedores.DataSource = ProveedorBusiness.ObtenerProveedores();
                 sProveedores.DataBind();
-
-                //3. Cargar las Categorias
-                //sCategorias.DataSource = CategoriaBusiness.ObtenerCategorias();
-                //sCategorias.DataBind();
-
-                //4. Cargar las SubCategorias
-                //sSubCategorias.DataSource = SubcategoriaBusiness.ObtenerSubCategorias();
-                //sSubCategorias.DataBind();
-
-                //5. Validar si es un registro nuevo carga Categorias, SubCategorias y Conceptos
-                //if (Cookies.GetCookie("cookieEditarRevision").Value.Equals("Nuevo"))
-                //{
-                    //6. Cargar todos los Conceptos
-                    //sConceptos.DataSource = ConceptoBusiness.ObtenerConceptos();
-                    //sConceptos.DataBind();
-                //}
            }
         }
 
@@ -53,8 +37,18 @@ namespace OSEF.ERP.APP
         protected void OnReadData_sCategorias(object sender, StoreReadDataEventArgs e)
         {
             string strSucursalId = e.Parameters["SucursalID"];
-            sCategorias.DataSource = CategoriaBusiness.ObtenerCategoriasPorSucursal(strSucursalId);
-            sCategorias.DataBind();
+            int iRevision = Convert.ToInt32(e.Parameters["Revision"]);
+
+            if (strSucursalId != null && iRevision == 0)
+            {
+                sCategorias.DataSource = CategoriaBusiness.ObtenerCategoriasPorSucursal(strSucursalId);
+                sCategorias.DataBind();
+            }
+            else
+            {
+                sCategorias.DataSource = CategoriaBusiness.ObtenerCategoriasPorRevisionD(iRevision);
+                sCategorias.DataBind();
+            }
         }
 
         /// <summary>
@@ -65,8 +59,18 @@ namespace OSEF.ERP.APP
         protected void OnReadData_sSubCategorias(object sender, StoreReadDataEventArgs e)
         {
             string strSucursalId = e.Parameters["SucursalID"];
-            sSubCategorias.DataSource = SubcategoriaBusiness.ObtenerSubCategoriaPorSucursal(strSucursalId);
-            sSubCategorias.DataBind();
+            int iRevision = Convert.ToInt32(e.Parameters["Revision"]);
+
+            if (strSucursalId != null && iRevision == 0)
+            {
+                sSubCategorias.DataSource = SubCategoriaBusiness.ObtenerSubCategoriaPorSucursal(strSucursalId);
+                sSubCategorias.DataBind();
+            }
+            else
+            {
+                sSubCategorias.DataSource = SubCategoriaBusiness.ObtenerSubCategoriaPorRevisionD(iRevision);
+                sSubCategorias.DataBind();
+            }
         }
 
         /// <summary>
@@ -77,8 +81,18 @@ namespace OSEF.ERP.APP
         protected void OnReadData_sConceptos(object sender, StoreReadDataEventArgs e)
         {
             string strSucursalId = e.Parameters["SucursalID"];
-            sConceptos.DataSource = ConceptoBusiness.ObtenerConceptoPorSucursal(strSucursalId);
-            sConceptos.DataBind();
+            int iRevision = Convert.ToInt32(e.Parameters["Revision"]);
+
+            if (strSucursalId != null && iRevision == 0)
+            {
+                sConceptos.DataSource = ConceptoBusiness.ObtenerConceptoPorSucursal(strSucursalId);
+                sConceptos.DataBind();
+            }
+            else
+            {
+                sConceptos.DataSource = ConceptoBusiness.ObtenerConceptoPorRevisionD(iRevision);
+                sConceptos.DataBind();
+            }
         }
 
         /// <summary>
@@ -233,6 +247,7 @@ namespace OSEF.ERP.APP
             {
                 //6. Complementar datos y actualizar encabezado
                 oRevisionForma.ID = oRevision.ID;
+                oRevisionForma.Estatus = oRevision.Estatus;
                 RevisionBusiness.Actualizar(oRevisionForma);
 
                 //7. Actualizar store de Revision
@@ -264,13 +279,8 @@ namespace OSEF.ERP.APP
             foreach (RevisionD sd in lRevisionD)
             {
                 //2. Validar que el objeto no venga en blanco
-                if (sd.Concepto.Equals(string.Empty) && sd.Proveedor.Equals(string.Empty) && sd.Programado == 0 && sd.Real == 0)
-                    continue;
-                else
-                {
-                    sd.Revision = oRevisionForma.ID;
-                    RevisionDBusiness.Insertar(sd);
-                }
+                sd.Revision = oRevisionForma.ID;
+                RevisionDBusiness.Insertar(sd);
             }
         }
 

@@ -23,6 +23,7 @@ namespace OSEF.APP.EL
 
         Concepto rconcepto;
         Proveedor rproveedor;
+        Subcategoria rsubcategoria;
 
         #endregion
 
@@ -86,6 +87,12 @@ namespace OSEF.APP.EL
         {
             get { return rproveedor; }
             set { rproveedor = value; }
+        }
+
+        public Subcategoria RSubCategoria
+        {
+            get { return rsubcategoria; }
+            set { rsubcategoria = value; }
         }
 
         #endregion

@@ -36,7 +36,7 @@ namespace OSEF.AVANCES.SUCURSALES
         {
             //1. Obtener el valor seleccionado y obtener las subcategorias
             string strSubCategoria = e.ExtraParams["valor"];
-            sSubCategorias.DataSource = SubcategoriaBusiness.ObtenerSubCategoriaPorCategoria(strSubCategoria);
+            sSubCategorias.DataSource = SubCategoriaBusiness.ObtenerSubCategoriaPorCategoria(strSubCategoria);
             sSubCategorias.DataBind();
         }
 

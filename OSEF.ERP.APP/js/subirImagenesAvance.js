@@ -139,3 +139,13 @@ var fileSelectionError = function (item, file, errorCode, message) {
 var loadFailed = function () {
     alert("Something went wrong while loading SWFUpload. If this were a real application we'd clean up and then give you an alternative");
 };
+
+var onUploadImages = function () {
+    if (Ext.util.Cookies.get('cookieConceptoRevision') != null) {
+//        window.parent.App.wEmergente.getBody().App.sConceptos.reload({
+//            callback: function () {
+//                window.parent.App.wEmergente.getBody().App.direct.sOrdenMantenimiento_Load();
+//            }
+//        });
+    }
+}

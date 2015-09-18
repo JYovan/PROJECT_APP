@@ -8,7 +8,7 @@ using Ext.Net;
 using OSEF.APP.BL;
 using OSEF.APP.EL;
 
-namespace OSEF.AVANCES.SUCURSALES
+namespace OSEF.ERP.APP
 {
     public partial class Subcategorias : System.Web.UI.Page
     {
@@ -21,7 +21,7 @@ namespace OSEF.AVANCES.SUCURSALES
         {
             if (!X.IsAjaxRequest)
             {
-                sSubCategorias.DataSource = SubcategoriaBusiness.ObtenerSubCategorias();
+                sSubCategorias.DataSource = SubCategoriaBusiness.ObtenerSubCategorias();
                 sSubCategorias.DataBind();
                 rmSubcategorias.RegisterIcon(Icon.Delete);
                 sCategorias.DataSource = CategoriaBusiness.ObtenerCategorias();
@@ -36,7 +36,7 @@ namespace OSEF.AVANCES.SUCURSALES
         /// <param name="e"></param>
         protected void OnReadData_sSubCategorias(object sender, StoreReadDataEventArgs e)
         {
-            sSubCategorias.DataSource = SubcategoriaBusiness.ObtenerSubCategorias();
+            sSubCategorias.DataSource = SubCategoriaBusiness.ObtenerSubCategorias();
             sSubCategorias.DataBind();
         }
 
@@ -49,13 +49,13 @@ namespace OSEF.AVANCES.SUCURSALES
         public string InsertarSubCategoria(byte bOrden, string strCategoria)
         {
             string strResultado;
-            if (SubcategoriaBusiness.ObtenerSubCategoriaPorOrden(bOrden) == null)
+            if (SubCategoriaBusiness.ObtenerSubCategoriaPorOrden(bOrden) == null)
             {
                 Subcategoria iSubcategoria = new Subcategoria();
                 iSubcategoria.Orden = bOrden;
                 iSubcategoria.Descripcion = string.Empty;
                 iSubcategoria.CategoriaIdRaw = strCategoria;
-                iSubcategoria.Id = SubcategoriaBusiness.Insertar(iSubcategoria);
+                iSubcategoria.Id = SubCategoriaBusiness.Insertar(iSubcategoria);
                 strResultado = "false|" + iSubcategoria.Id;
                 return strResultado;
             }
@@ -79,7 +79,7 @@ namespace OSEF.AVANCES.SUCURSALES
             uSubcategoria.Descripcion = strDescripcion;
             uSubcategoria.CategoriaIdRaw = strCategoria;
 
-            SubcategoriaBusiness.Actualizar(uSubcategoria);
+            SubCategoriaBusiness.Actualizar(uSubcategoria);
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace OSEF.AVANCES.SUCURSALES
         [DirectMethod]
         public void EliminarSubCategoria(string strID)
         {
-            SubcategoriaBusiness.Borrar(strID);
+            SubCategoriaBusiness.Borrar(strID);
         }
     }
 }

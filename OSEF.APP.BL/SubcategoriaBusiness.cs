@@ -10,7 +10,7 @@ namespace OSEF.APP.BL
     /// <summary>
     /// Clase que se encarga de la manipulación de capa de negocio de SubCategorias
     /// </summary>
-    public class SubcategoriaBusiness
+    public class SubCategoriaBusiness
     {
         #region Insertar
 
@@ -20,7 +20,7 @@ namespace OSEF.APP.BL
         /// <param name="iSubcategoria"></param>
         public static string Insertar(Subcategoria iSubcategoria)
         {
-            return SubcategoriaDataAccess.Insertar(iSubcategoria);
+            return SubCategoriaDataAccess.Insertar(iSubcategoria);
         }
 
         #endregion
@@ -34,7 +34,7 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static int Actualizar(Subcategoria uSubCategoria)
         {
-            return SubcategoriaDataAccess.Actualizar(uSubCategoria);
+            return SubCategoriaDataAccess.Actualizar(uSubCategoria);
         }
 
         #endregion
@@ -47,7 +47,7 @@ namespace OSEF.APP.BL
         /// <param name="dID"></param>
         public static int Borrar(string dID)
         {
-            return SubcategoriaDataAccess.Borrar(dID);
+            return SubCategoriaDataAccess.Borrar(dID);
         }
 
         #endregion
@@ -60,7 +60,7 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static List<Subcategoria> ObtenerSubCategorias()
         {
-            return SubcategoriaDataAccess.ObtenerSubCategorias();
+            return SubCategoriaDataAccess.ObtenerSubCategorias();
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static Subcategoria ObtenerSubCategoriaPorID(string strID)
         {
-            return SubcategoriaDataAccess.ObtenerSubCategoriaPorID(strID);
+            return SubCategoriaDataAccess.ObtenerSubCategoriaPorID(strID);
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static Subcategoria ObtenerSubCategoriaPorOrden(byte bOrden)
         {
-            return SubcategoriaDataAccess.ObtenerSubCategoriaPorOrden(bOrden);
+            return SubCategoriaDataAccess.ObtenerSubCategoriaPorOrden(bOrden);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static List<Subcategoria> ObtenerSubCategoriaPorCategoria(string strCategoria)
         {
-            return SubcategoriaDataAccess.ObtenerSubCategoriaPorCategoria(strCategoria);
+            return SubCategoriaDataAccess.ObtenerSubCategoriaPorCategoria(strCategoria);
         }
 
         /// <summary>
@@ -100,7 +100,17 @@ namespace OSEF.APP.BL
         /// <returns></returns>
         public static List<Subcategoria> ObtenerSubCategoriaPorSucursal(string strSucursal)
         {
-            return SubcategoriaDataAccess.ObtenerSubCategoriaPorSucursal(strSucursal);
+            return SubCategoriaDataAccess.ObtenerSubCategoriaPorSucursal(strSucursal);
+        }
+
+        /// <summary>
+        /// Obtener una lista de objetos SubCategorias por RevisionD
+        /// </summary>
+        /// <param name="iRevision"></param>
+        /// <returns></returns>
+        public static List<Subcategoria> ObtenerSubCategoriaPorRevisionD(int iRevision)
+        {
+            return SubCategoriaDataAccess.ObtenerSubCategoriaPorRevisionD(iRevision);
         }
 
         #endregion

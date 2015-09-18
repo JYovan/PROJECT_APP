@@ -79,6 +79,7 @@
                         <ext:ModelField Name="Proveedor" Type="String" />
                         <ext:ModelField Name="Programado" Type="Float" />
                         <ext:ModelField Name="Real" Type="Float" />
+                        <ext:ModelField Name="RSubCategoria" Type="Object" />
                     </Fields>
                 </ext:Model>
             </Model>
@@ -163,9 +164,6 @@
             <Sorters>
                 <ext:DataSorter Property="Categoria" Direction="ASC" />
             </Sorters>
-            <Listeners>
-                <Load Fn="sConceptos_Load" />
-            </Listeners>
         </ext:Store>
 
         <ext:FormPanel 

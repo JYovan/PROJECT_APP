@@ -72,7 +72,7 @@ namespace OSEF.APP.BL
                     sd.SubCategoriaIdRaw = string.Empty;
 
                 sd.RCategoria = CategoriaBusiness.ObtenerCategoriaPorID(sd.CategoriaIdRaw);
-                sd.RSubCategoria = SubcategoriaBusiness.ObtenerSubCategoriaPorID(sd.SubCategoriaIdRaw);
+                sd.RSubCategoria = SubCategoriaBusiness.ObtenerSubCategoriaPorID(sd.SubCategoriaIdRaw);
             }
             
             //3. Regresar los objeto completos
@@ -107,6 +107,16 @@ namespace OSEF.APP.BL
         public static List<Concepto> ObtenerConceptoPorSucursal(string strSucursal)
         {
             return ConceptoDataAccess.ObtenerConceptoPorSucursal(strSucursal);
+        }
+
+        /// <summary>
+        /// Obtener una lista de objetos Concepto por RevisionD
+        /// </summary>
+        /// <param name="iRevision"></param>
+        /// <returns></returns>
+        public static List<Concepto> ObtenerConceptoPorRevisionD(int iRevision)
+        {
+            return ConceptoDataAccess.ObtenerConceptoPorRevisionD(iRevision);
         }
 
         #endregion

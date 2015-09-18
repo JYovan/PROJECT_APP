@@ -82,7 +82,7 @@
     <Compile Include="ProveedorDataAccess.cs" />
     <Compile Include="RevisionDataAccess.cs" />
     <Compile Include="RevisionDDataAccess.cs" />
-    <Compile Include="SubcategoriaDataAccess.cs" />
+    <Compile Include="SubCategoriaDataAccess.cs" />
     <Compile Include="SucursalDataAccess.cs" />
     <Compile Include="UsuarioDataAccess.cs" />
     <Compile Include="VolumetriaDataAccess.cs" />

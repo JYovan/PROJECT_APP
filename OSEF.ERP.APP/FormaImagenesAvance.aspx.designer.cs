@@ -40,39 +40,39 @@ namespace OSEF.ERP.APP {
         protected global::Ext.Net.ResourceManager rmImagenesAvance;
         
         /// <summary>
-        /// Control sImagenesAvance.
+        /// Control sImagenesAvanceD.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Store sImagenesAvance;
+        protected global::Ext.Net.Store sImagenesAvanceD;
         
         /// <summary>
-        /// Control mImagenesAvance.
+        /// Control mImagenesAvanceD.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Model mImagenesAvance;
+        protected global::Ext.Net.Model mImagenesAvanceD;
         
         /// <summary>
-        /// Control fpImagenesAvance.
+        /// Control fpImagenesAvanceD.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Panel fpImagenesAvance;
+        protected global::Ext.Net.Panel fpImagenesAvanceD;
         
         /// <summary>
-        /// Control dvImagenesAvance.
+        /// Control dvImagenesAvanceD.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.DataView dvImagenesAvance;
+        protected global::Ext.Net.DataView dvImagenesAvanceD;
     }
 }
