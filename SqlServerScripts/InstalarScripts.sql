@@ -4,6 +4,8 @@
 :r c:\SqlServerScripts\Consultar\Categorias\web_spS_ObtenerCategorias.sql
 :r c:\SqlServerScripts\Consultar\Categorias\web_spS_ObtenerCategoriaPorID.sql
 :r c:\SqlServerScripts\Consultar\Categorias\web_spS_ObtenerCategoriaPorOrden.sql
+:r c:\SqlServerScripts\Consultar\Categorias\web_spS_ObtenerCategoriasPorRevisionD.sql
+:r c:\SqlServerScripts\Consultar\Categorias\web_spS_ObtenerCategoriasPorSucursal.sql
 -- Categorias (Insertar)
 :r c:\SqlServerScripts\Insertar\Categorias\web_spI_InsertarCategoria.sql
 -- Categorias (Modificar)
@@ -26,6 +28,8 @@
 :r c:\SqlServerScripts\Consultar\Conceptos\web_spS_ObtenerConceptos.sql
 :r c:\SqlServerScripts\Consultar\Conceptos\web_spS_ObtenerConceptoPorID.sql
 :r c:\SqlServerScripts\Consultar\Conceptos\web_spS_ObtenerConceptoPorOrden.sql
+:r c:\SqlServerScripts\Consultar\Conceptos\web_spS_ObtenerConceptoPorRevisionD.sql
+:r c:\SqlServerScripts\Consultar\Conceptos\web_spS_ObtenerConceptoPorSucursal.sql
 -- Conceptos (Insertar)
 :r c:\SqlServerScripts\Insertar\Conceptos\web_spI_InsertarConcepto.sql
 -- Conceptos (Modificar)
@@ -80,6 +84,7 @@
 :r c:\SqlServerScripts\Consultar\Revisiones\web_spS_ObtenerRevisiones.sql
 :r c:\SqlServerScripts\Consultar\Revisiones\web_spS_ObtenerRevisionPorID.sql
 :r c:\SqlServerScripts\Consultar\Revisiones\web_spS_ObtenerRevisionesUltimaRevision.sql
+:r c:\SqlServerScripts\Consultar\Revisiones\web_spS_ObtenerRevisionPorSucursal.sql
 -- Revisiones (Insertar)
 :r c:\SqlServerScripts\Insertar\Revisiones\web_spI_InsertarRevision.sql
 -- Revisiones (Modificar)
@@ -107,6 +112,8 @@
 :r c:\SqlServerScripts\Consultar\SubCategorias\web_spS_ObtenerSubCategoriaPorID.sql
 :r c:\SqlServerScripts\Consultar\SubCategorias\web_spS_ObtenerSubCategoriaPorOrden.sql
 :r c:\SqlServerScripts\Consultar\SubCategorias\web_spS_ObtenerSubCategoriaPorCategoria.sql
+:r c:\SqlServerScripts\Consultar\SubCategorias\web_spS_ObtenerSubCategoriaPorRevisionD.sql
+:r c:\SqlServerScripts\Consultar\SubCategorias\web_spS_ObtenerSubCategoriaPorSucursal.sql
 -- SubCategorias (Insertar)
 :r c:\SqlServerScripts\Insertar\SubCategorias\web_spI_InsertarSubCategoria.sql
 -- SubCategorias (Modificar)
@@ -146,7 +153,8 @@
 :r c:\SqlServerScripts\Accion\Usuarios\web_spU_CambiarContrasena.sql
 :r c:\SqlServerScripts\Accion\Usuarios\web_spS_ObtenerContrasenaPorID.sql
 :r c:\SqlServerScripts\Accion\Usuarios\web_spU_UltimoAcceso.sql
-------------------------------------------------------------------------------------- Preciarios (Borrar)
+-------------------------------------------------------------------------------------
+--Preciarios (Borrar)
 :r c:\SqlServerScripts\Borrar\Preciarios\web_spD_BorrarPreciario.sql
 -- Preciarios (Consultar)
 :r c:\SqlServerScripts\Consultar\Preciarios\web_spS_ObtenerPreciarios.sql
