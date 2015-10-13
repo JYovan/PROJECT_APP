@@ -433,7 +433,7 @@ CREATE TABLE Revisiones(
 	Origen						VARCHAR(50)		NULL,
 	OrigenID					VARCHAR(10)		NULL,
 	Semana						TINYINT			NULL,
-	Sucursal					CHAR(10)		NOT NULL FOREIGN KEY REFERENCES Sucursales(ID),
+	SucursalId					CHAR(10)		NOT NULL FOREIGN KEY REFERENCES Sucursales(ID),
 	FechaEmision				SMALLDATETIME	NULL,
 	FechaRevision				DATE			NULL,
 	Observaciones				VARCHAR(200)	NULL,
