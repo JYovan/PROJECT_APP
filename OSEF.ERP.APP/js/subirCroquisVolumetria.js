@@ -21,17 +21,7 @@
 
 var validaLimite_BeforeRender = function () {
 
-    var movimiento = window.parent.App.wEmergente.getBody().App.cmbMov.getValue().trim();
-    // window.parent.parent.App.pCentro.getBody().App.gpOrdenesEstimaciones.title;
-    Ext.util.Cookies.set('cockieMovimientoCroquis', movimiento);
-
-
-    //    if (movimiento == 'Mesa de reporte') {
-    //        Ext.util.Cookies.get('cookieEditarVolumetria', movimiento)
-    //    }
-    //    else {
-
-    //    }
+  
 
 
 }
