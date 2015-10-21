@@ -161,14 +161,29 @@
                
                     </div>
                     <div align="right">
+
+                     <asp:ImageButton 
+                ID="ibgbtnExcelEstimacion" 
+                runat="server" 
+                class="imgs" 
+                  ToolTip="Exportar Estimación a Excel"
+                OnClick="imgbtnEstimacionExcel_click"
+                    Height="30"
+                    Width="30"
+                ImageUrl="assets/img/controles/ExcelNormal.png"/>
+
+
+
                 <asp:ImageButton 
                 ID="imgbtnTodos" 
                 runat="server" 
                 class="imgs" 
+              ToolTip="Exportar a Zip todos los reportes"
                 OnClick="imgbtnTodo"
                     Height="30"
                     Width="30"
                 ImageUrl="assets/img/controles/bajar.png"/>
+
                 </div>
             </Content>
             <%--<Listeners>
