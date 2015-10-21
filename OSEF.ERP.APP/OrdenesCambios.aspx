@@ -273,11 +273,20 @@
                         </HeaderItems>
                     </ext:Column>
                     <ext:Column
+                        ID="cObservaciones"
+                        runat="server"
+                        Text="OBSERVACIONES"
+                        Align="Center"
+                        Width="245"
+                        DataIndex="Observaciones">
+                     </ext:Column>
+
+                    <ext:Column
                         ID="cCliente"
                         runat="server"
                         Text="CLIENTE"
                         Align="Center"
-                        Width="150"
+                        Width="120"
                         Filterable="false"
                         DataIndex="Cliente">
                         <Renderer Fn="cCliente_Renderer" />
@@ -287,7 +296,7 @@
                         runat="server"
                         Text="SUCURSAL"
                         Align="Center"
-                        Width="360"
+                        Width="250"
                         DataIndex="Sucursal">
                       <Renderer Fn="cSucursal_Renderer" />
                         <HeaderItems>
@@ -331,7 +340,7 @@
                         runat="server"
                         Text="FECHA EMISIÓN"
                         Align="Center"
-                        Width="135"
+                        Width="115"
                         DataIndex="FechaEmision"
                         Format="dd/MM/yyyy">
                         <HeaderItems>
@@ -355,7 +364,7 @@
                         runat="server"
                         Text="ESTATUS"
                         Align="Center"
-                        Width="135"
+                        Width="125"
                         DataIndex="Estatus">
                         <HeaderItems>
                             <ext:ComboBox
@@ -388,7 +397,7 @@
                         runat="server"
                         Text="USUARIO"
                         Align="Center"
-                        Width="150"
+                        Width="120"
                         DataIndex="Usuario">
                         <HeaderItems>
                              <ext:ComboBox
