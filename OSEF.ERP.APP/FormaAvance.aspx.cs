@@ -106,6 +106,7 @@ namespace OSEF.ERP.APP
             string strRevisionForma = e.ExtraParams["RevisionForma"];
             string strRevision = e.ExtraParams["Revision"];
             string strRevisionD = e.ExtraParams["RevisionD"];
+            string strUsuario = e.ExtraParams["Usuario"];
             string strcookieEditarRevision = Cookies.GetCookie("cookieEditarRevision").Value;
 
             //2. Serializar el encabezado y el detalle
@@ -219,7 +220,9 @@ namespace OSEF.ERP.APP
             if (oRevision == null)
             {
                 //2. Asignar campos faltantes
+                Usuario oUsuario = (Usuario)Session["Usuario"];
                 oRevisionForma.Estatus = "BORRADOR";
+                oRevisionForma.UsuarioAlta = oUsuario.ID;
 
                 //3. Insertar en la base de datos
                 oRevisionForma.ID = RevisionBusiness.Insertar(oRevisionForma);

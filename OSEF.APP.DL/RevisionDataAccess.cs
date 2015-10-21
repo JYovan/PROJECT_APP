@@ -90,6 +90,11 @@ namespace OSEF.APP.DL
                 sqlpEstatus.SqlDbType = SqlDbType.VarChar;
                 sqlpEstatus.Value = iRevision.Estatus;
 
+                SqlParameter sqlpUsuarioAlta = new SqlParameter();
+                sqlpUsuarioAlta.ParameterName = "@UsuarioAlta";
+                sqlpUsuarioAlta.SqlDbType = SqlDbType.VarChar;
+                sqlpUsuarioAlta.Value = iRevision.UsuarioAlta;
+
                 //3. Agregar los parametros al comando
                 sqlcComando.Parameters.Add(sqlpID);
                 sqlcComando.Parameters.Add(sqlpMov);
@@ -101,6 +106,7 @@ namespace OSEF.APP.DL
                 sqlcComando.Parameters.Add(sqlpObservaciones);
                 sqlcComando.Parameters.Add(sqlpComentarios);
                 sqlcComando.Parameters.Add(sqlpEstatus);
+                sqlcComando.Parameters.Add(sqlpUsuarioAlta);
 
                 //4. Abrir la conexión
                 sqlcComando.Connection.Open();

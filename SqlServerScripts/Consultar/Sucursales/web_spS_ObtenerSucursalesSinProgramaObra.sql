@@ -73,6 +73,7 @@ BEGIN
 	FROM 
 		Sucursales
 	WHERE NOT EXISTS(SELECT Id FROM ProgramasObras WHERE Sucursales.ID = ProgramasObras.SucursalId)
+	AND ID = 'SUC0000175'
 	ORDER BY Sucursales.ID ASC
 	
 	

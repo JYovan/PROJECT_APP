@@ -24,6 +24,7 @@ namespace OSEF.APP.EL
         string observaciones;
         string comentarios;
         string estatus;
+        string usuarioalta;
 
         Sucursal rsucursal;
         List<RevisionD> rrevisiond;
@@ -105,6 +106,12 @@ namespace OSEF.APP.EL
         {
             get { return estatus; }
             set { estatus = value; }
+        }
+
+        public string UsuarioAlta
+        {
+            get { return usuarioalta; }
+            set { usuarioalta = value; }
         }
 
         public Sucursal RSucursal

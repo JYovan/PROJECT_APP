@@ -225,6 +225,7 @@
                                         <ext:Parameter Name="RevisionForma" Value="Ext.encode(this.up('form').getForm().getValues(false, false, false, true))" Mode="Raw" />
                                         <ext:Parameter Name="Revision" Value="Ext.encode(#{sRevision}.getRecordsValues())" Mode="Raw" />
                                         <ext:Parameter Name="RevisionD" Value="ObtenerDetalle()" Mode="Raw" />
+                                        <ext:Parameter Name="Usuario" Value="Ext.encode(window.parent.App.sUsuario.getRecordsValues())" Mode="Raw" />
                                     </ExtraParams>
                                 </Click>
                             </DirectEvents>

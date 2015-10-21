@@ -38,7 +38,8 @@ CREATE PROCEDURE web_spI_InsertarRevision
 	@FechaRevision	SMALLDATETIME,
 	@Observaciones	VARCHAR(200),
 	@Comentarios	VARCHAR(5000),
-	@Estatus		VARCHAR(20)
+	@Estatus		VARCHAR(20),
+	@UsuarioAlta	VARCHAR(20)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -57,7 +58,8 @@ BEGIN
 			FechaRevision,
 			Observaciones,
 			Comentarios,
-			Estatus
+			Estatus,
+			UsuarioAlta
 		)
 	VALUES (
 			@Mov,
@@ -68,7 +70,8 @@ BEGIN
 			@FechaRevision,
 			@Observaciones,
 			@Comentarios,
-			@Estatus
+			@Estatus,
+			@UsuarioAlta
 			)
 	SELECT @ID = SCOPE_IDENTITY()
 END
