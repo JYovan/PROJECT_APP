@@ -445,7 +445,7 @@ CREATE TABLE Revisiones(
 CREATE TABLE RevisionesD(
 	Revision					INT				NOT NULL	FOREIGN KEY REFERENCES Revisiones(ID),
 	Renglon						SMALLINT		NOT NULL,
-	Categoria					CHAR(5)			NOT NULL	FOREIGN KEY REFERENCES Categorias(Id),
+	Categoria					CHAR(5)			NULL		FOREIGN KEY REFERENCES Categorias(Id),
 	SubCategoria				CHAR(6)			NULL		FOREIGN KEY REFERENCES SubCategorias(Id),
 	Concepto					CHAR(7)			NOT NULL	FOREIGN KEY REFERENCES Conceptos(Id),
 	Proveedor					CHAR(7)			NULL		FOREIGN KEY REFERENCES Proveedores(ID),

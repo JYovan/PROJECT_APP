@@ -96,7 +96,10 @@ namespace OSEF.APP.BL
             List<RevisionD> lRevisionD = RevisionDDataAccess.ObtenerRevisionesDPorRevision(iRevision);
 
             foreach (RevisionD sd in lRevisionD)
-                sd.RSubCategoria = SubCategoriaBusiness.ObtenerSubCategoriaPorID(sd.SubCategoria);
+            {
+                if (sd.SubCategoria != null)
+                { sd.RSubCategoria = SubCategoriaBusiness.ObtenerSubCategoriaPorID(sd.SubCategoria); }
+            }
 
             return lRevisionD;
         }
