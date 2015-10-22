@@ -504,7 +504,67 @@ namespace OSEF.ERP.APP
 
         }
 
+        protected void imgbtnExportarDetalleExcel_Click(object sender, EventArgs e)
+        {
 
+            //Parametros del store procedure
+            string strID = Cookies.GetCookie("cookieEditarOrdenEstimacion").Value;
+
+
+            FirmasReportes oFirmas = FirmasReportesBusiness.ObtenerFirmasReportesPorModulo("Reportes");
+
+            Usuario oUsuario = (Usuario)Session["Usuario"];
+            string strElaboro = oUsuario.Nombre + " " + oUsuario.APaterno + " " + oUsuario.AMaterno;
+            string strReviso = oFirmas.FirmaReviso;
+            string strAutorizo = oFirmas.FirmaAutorizo;
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            //1. Configurar la conexión y el tipo de comando
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OSEF"].ConnectionString);
+            try
+            {
+
+
+
+                using (var comando = new SqlCommand("web_spS_ObtenerREstimacion", conn))
+                {
+                    using (var adaptador = new SqlDataAdapter(comando))
+                    {
+                        DataTable dt = new DataTable();
+                        adaptador.SelectCommand.CommandType = CommandType.StoredProcedure;
+                        adaptador.SelectCommand.Parameters.Add(@"IDMovimiento", SqlDbType.Int).Value = Convert.ToInt32(strID);
+                        adaptador.Fill(dt);
+
+                        var reporteEstimaciones = new ReportDocument();
+                        reporteEstimaciones.Load(Server.MapPath("reportess/rDetalleReporte.rpt"));
+                        reporteEstimaciones.SetDataSource(dt);
+                        reporteEstimaciones.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
+
+
+                        reporteEstimaciones.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.Excel , Response, true, "rDetalleReporte " + strID);
+
+
+                        reporteEstimaciones.Dispose();
+                        reporteEstimaciones.Close();
+                    } // end using adaptador
+                } // end using comando
+
+
+
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+                conn.Dispose();
+            }
+
+        }
+
+        
 
 
         protected void imgbtnResumen_click(object sender, EventArgs e)

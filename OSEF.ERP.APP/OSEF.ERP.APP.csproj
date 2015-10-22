@@ -993,6 +993,12 @@
       <DependentUpon>rCroquisVolumetria.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="reportess\rDetalleReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rDetalleReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="reportess\ResumenOC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1177,6 +1183,10 @@
     <EmbeddedResource Include="reportess\rCroquisVolumetria.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rCroquisVolumetria.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportess\rDetalleReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rDetalleReporte.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="reportess\ResumenOC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

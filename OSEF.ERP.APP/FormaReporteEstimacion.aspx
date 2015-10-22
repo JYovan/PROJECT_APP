@@ -157,6 +157,16 @@
                 class="imgs"
                 OnClick="imgbtnExportarFactura_Click" 
                 ImageUrl="assets/img/controles/facturas.png"/>
+
+
+                   <asp:ImageButton 
+                ID="imgbtnTarifario" 
+                runat="server"
+                    Height="30"
+                    Width="30"
+                class="imgs"
+                OnClick="imgbtnExportarDetalleExcel_Click" 
+                ImageUrl="assets/img/controles/Modulo.png"/>
                 
                
                     </div>
