@@ -16,6 +16,19 @@ namespace OSEF.ERP.APP
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            string Mov = Cookies.GetCookie("cockieMovimientoCroquis").Value;
+
+
+            if (Mov.Equals("Reporte"))
+            {
+                muSubirImagenesOrdenEstimacion.FileUploadLimit = 0;
+                muSubirImagenesOrdenEstimacion.FileQueueLimit = 1;
+            }
+            else
+            {
+                muSubirImagenesOrdenEstimacion.FileUploadLimit = 0;
+                muSubirImagenesOrdenEstimacion.FileQueueLimit = 10;
+            }
         }
 
         /// <summary>
