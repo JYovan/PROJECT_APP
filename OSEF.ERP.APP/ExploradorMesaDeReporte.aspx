@@ -68,6 +68,7 @@
                                         runat="server" 
                                         Height="22"
                                         Width="22"
+                                        ToolTip="Reportes mensuales por clasificación"
                                         OnClick="ExportEt"
                                         class="imgs" 
                                         ImageUrl="assets/img/controles/ExcelNormal.png"/>
@@ -76,6 +77,7 @@
                                         runat="server" 
                                         Height="22"
                                         Width="22"
+                                        ToolTip="Tarifario de conceptos"
                                         OnClick="ExportEstimacionCostos"
                                         class="imgs" 
                                         ImageUrl="assets/img/controles/EstCost.png"/>

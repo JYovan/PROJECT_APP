@@ -96,6 +96,7 @@
            OnClick="imgbtnPresupuesto_click"
             Height="30"
             Width="30"
+            ToolTip="Presupuesto"
             class="imgs" 
             ImageUrl="assets/img/controles/PRE.png"/>
 
@@ -105,6 +106,7 @@
             runat="server" 
            OnClick="imgbtnResumen_click"
             Height="30"
+            ToolTip="Resumen de partidas"
             Width="30"
             class="imgs" 
             ImageUrl="assets/img/controles/RES.png"/>
@@ -115,6 +117,7 @@
             runat="server" 
             OnClick="imgbtnEstimacion_click"
             Height="30"
+            ToolTip="Estimación"
             Width="30"
             class="imgs" 
             ImageUrl="assets/img/controles/EST.png"/>
@@ -125,7 +128,7 @@
                 runat="server" 
                 Height="30"
                 Width="30"
-                                            
+                 ToolTip="Generador"                           
                 OnClick="imgbtnExportarGenerador_Click"
                 class="imgs" 
                 ImageUrl="assets/img/controles/generador.png"/>
@@ -134,6 +137,7 @@
                 ID="imgbtnCroquis" 
                 runat="server" 
                 class="imgs" 
+                ToolTip="Presupuesto"
                     Height="30"
                     Width="30"
                     OnClick="imgbtnExportarCroquis_Click"
@@ -144,6 +148,7 @@
                 ID="imgbtnFotos" 
                 runat="server" 
                 class="imgs" 
+                ToolTip="Reporte fotográfico"
                 OnClick="imgbtnExportarFotos_Click"
                     Height="30"
                     Width="30"
@@ -153,6 +158,7 @@
                 ID="imgbtnFacturas" 
                 runat="server"
                     Height="30"
+                    ToolTip="Factura o Nota de bitácora"
                     Width="30"
                 class="imgs"
                 OnClick="imgbtnExportarFactura_Click" 
@@ -162,6 +168,7 @@
                    <asp:ImageButton 
                 ID="imgbtnTarifario" 
                 runat="server"
+                ToolTip="Detalle de conecptos"
                     Height="30"
                     Width="30"
                 class="imgs"
