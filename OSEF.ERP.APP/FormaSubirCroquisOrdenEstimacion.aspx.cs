@@ -25,7 +25,7 @@ namespace OSEF.ERP.APP
             }
             else {
                 muSubirImagenesOrdenEstimacion.FileUploadLimit = 0;
-                muSubirImagenesOrdenEstimacion.FileQueueLimit = 5;
+                muSubirImagenesOrdenEstimacion.FileQueueLimit = 10;
             }
 
         }
