@@ -208,12 +208,14 @@ namespace OSEF.ERP.APP
                 if (strID != "null" && !newRecords.Equals("0"))
                 {
                     List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(newRecords);
+                    OrdenEstimacionDBusiness.BorrarPorID(oOrdenEstimacion.Id);
                     GuardarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacion);
                 }
                 if (strID != "null" && !updateRecords.Equals("0"))
                 {
                     List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(updateRecords);
-                        ActualizarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacion); 
+                    OrdenEstimacionDBusiness.BorrarPorID(oOrdenEstimacion.Id);
+                    ActualizarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacion); 
                 }
             }
         }
@@ -616,7 +618,7 @@ namespace OSEF.ERP.APP
                     continue;
                 else
                 {
-                    sd.Id = oOrdenEstimacionForma.Id;
+                    sd.Id = oOrdenEstimacionForma.Id; 
                     OrdenEstimacionDBusiness.Actualizar(sd);
                 }
             }
