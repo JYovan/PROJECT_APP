@@ -2300,7 +2300,8 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
         if (records.length > 0 || records != null) {
             var r = records[0];
             for (var key in r) {
-                //                console.log(key, r[key]);
+                //                                console.log(key, r[key]);
+                console.log(App.sConceptos.getRecordsValues());
                 xudata.push('"' + key + '":' + r[key]);
                 data[key] = r[key];
             }
@@ -2472,4 +2473,7 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
                 App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
                 break;
         }
+    };
+
+    var showResult = function () {
     };

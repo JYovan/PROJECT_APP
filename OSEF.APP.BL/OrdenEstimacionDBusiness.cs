@@ -131,6 +131,15 @@ namespace OSEF.APP.BL
         //}
 
 
+        /// <summary>
+        /// Obtener registros de Colonia en Sucursales por su ID
+        /// </summary>
+        /// <param name="strID"></param>
+        /// <returns></returns>
+        public static bool ObtenerConceptosEnUsoPorIDenOED(int strIDOE, string strConceptoID)
+        {
+            return OrdenEstimacionDDataAccess.ObtenerConceptosEnUsoPorIDenOED(strIDOE, strConceptoID);
+        }
         #endregion
 
     }

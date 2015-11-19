@@ -47,7 +47,7 @@ BEGIN
     -- Insert statements for procedure here
 	DECLARE @TF INT;
 	SET @TF = (SELECT COUNT(*) FROM OrdenesEstimacionesD oed 
-	WHERE oed.ID = @ID AND oed.ConceptoID = @ConceptoID AND oed.Cantidad = @Cantidad AND oed.Precio = @Precio);
+	WHERE oed.ID = @ID AND oed.ConceptoID = @ConceptoID);
 
 	IF @TF > 0 BEGIN
     UPDATE
@@ -68,31 +68,31 @@ BEGIN
 	SET @Importe = (@Cantidad * @Precio);
 	 
 		-- Insert statements for procedure here
-		INSERT INTO
-			OrdenesEstimacionesD
-			(
-				ID,
-				Renglon,
-				ConceptoID,
-				Cantidad,
-				Unidad,
-				Precio,
-				Importe,
-				IntExt,
-				Moneda
-			)
-		VALUES
-			(
-				@ID,
-				@Renglon,
-				@ConceptoID,
-				@Cantidad,
-				@Unidad,
-				@Precio,
-				@Importe,
-				@IntExt,
-				@Moneda
-			);
+		--INSERT INTO
+		--	OrdenesEstimacionesD
+		--	(
+		--		ID,
+		--		Renglon,
+		--		ConceptoID,
+		--		Cantidad,
+		--		Unidad,
+		--		Precio,
+		--		Importe,
+		--		IntExt,
+		--		Moneda
+		--	)
+		--VALUES
+		--	(
+		--		@ID,
+		--		@Renglon,
+		--		@ConceptoID,
+		--		@Cantidad,
+		--		@Unidad,
+		--		@Precio,
+		--		@Importe,
+		--		@IntExt,
+		--		@Moneda
+		--	);
 	END
 END
 GO
