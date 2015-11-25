@@ -12,6 +12,7 @@ using System.Configuration;
 using System.Data;
 using CrystalDecisions.CrystalReports.Engine;
 using OSEF.APP.EL;
+using CrystalDecisions.Shared;
 
 namespace OSEF.ERP.APP
 {
@@ -148,7 +149,17 @@ namespace OSEF.ERP.APP
                 rCaratulaEstimacionCostos.SetDataSource(dt);
                 rCaratulaEstimacionCostos.SetParameterValue("pProveedor", "A & R Construcciones S.A de C.V");
                 rCaratulaEstimacionCostos.SetParameterValue("pathlogo", Server.MapPath(" ") + "\\images\\clientes\\");
-               
+
+           
+
+
+                ExcelFormatOptions excelFormatOpts = new ExcelFormatOptions();
+                excelFormatOpts.ExcelUseConstantColumnWidth = false;
+                rCaratulaEstimacionCostos.ExportOptions.FormatOptions = excelFormatOpts;
+
+
+
+
                 rCaratulaEstimacionCostos.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.Excel, Response, true, "Reportes Mantenimiento " + parametro);
             }
             catch (Exception ex)

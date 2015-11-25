@@ -2395,9 +2395,9 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
             deleteRecords = getRemovedRecords();
             updateRecords = getUpdatedRecords();
 
-            App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, App.sConceptos.getCount());
             App.sConceptos.reload({
                 callback: function () {
+                    App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, App.sConceptos.getCount());
                     if (App.sConceptos.getCount() > 0) {
                         //Obtener el Renglon anterior
                         var auxRenglonAnterior = App.sConceptos.getCount() - 1;

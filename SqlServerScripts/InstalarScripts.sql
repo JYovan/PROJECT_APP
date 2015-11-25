@@ -340,9 +340,13 @@
 :r c:\SqlServerScripts\Consultar\OrdenesEstimacionesD\web_spS_ObtenerOrdenEstimacionDPorOrdenEstimacion.sql
 :r c:\SqlServerScripts\Consultar\OrdenesEstimacionesD\web_spS_ObtenerEstimacionDPorMesaReporte.sql
 :r c:\SqlServerScripts\Consultar\OrdenesEstimacionesD\web_spS_ObtenerOrdenEstimacionDExploradorConcluidos.sql
+:r c:\SqlServerScripts\Consultar\OrdenesEstimacionesD\web_spS_ObtenerConceptoEnUsoPorID.sql
+:r c:\SqlServerScripts\Consultar\OrdenesEstimacionesD\web_spS_ObtenerConceptoEnUsoPorIDenOED.sql
 -- OrdenesEstimacionesD (Insertar)
 :r c:\SqlServerScripts\Insertar\OrdenesEstimacionesD\web_spI_InsertarOrdenEstimacionD.sql
 -- OrdenesEstimacionesD (Modificar)
+:r c:\SqlServerScripts\Modificar\OrdenesEstimacionesD\web_spU_ActualizarOrdenEstimacionD.sql
+
 :r c:\SqlServerScripts\Modificar\OrdenesEstimacionesD\web_spU_ActualizarOrdenEstimacionD.sql
 -----------------------------------------------------------------------------------
 -- ImagenOrdenesEstimacionesD (Insertar)

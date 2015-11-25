@@ -55,5 +55,6 @@ BEGIN
                          dbo.Cuadrillas ON dbo.OrdenesEstimaciones.Cuadrilla = dbo.Cuadrillas.ID
 	WHERE        (dbo.OrdenesEstimaciones.Estatus = 'CONCLUIDO') AND(dbo.OrdenesEstimaciones.Mov = 'Mesa de Reporte') AND  (dbo.OrdenesEstimaciones.MovEnLinea = 1)
 	AND (dbo.OrdenesEstimaciones.FacturaMantenimiento = '') AND  (dbo.OrdenesEstimaciones.Facturado <> 1) 
+	ORDER BY dbo.OrdenesEstimaciones.Reporte ASC
 END
 GO
