@@ -2236,7 +2236,8 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
         if (records.length > 0 || records != null) {
             var r = records[0];
             for (var key in r) {
-                //                console.log(key, r[key]);
+                //                                console.log(key, r[key]);
+                console.log(App.sConceptos.getRecordsValues());
                 xudata.push('"' + key + '":' + r[key]);
                 data[key] = r[key];
             }
@@ -2330,9 +2331,9 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
             deleteRecords = getRemovedRecords();
             updateRecords = getUpdatedRecords();
 
-            App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, App.sConceptos.getCount());
             App.sConceptos.reload({
                 callback: function () {
+                    App.direct.imgbtnGuardarDirect_Click(strID(), newRecords, updateRecords, deleteRecords, App.sConceptos.getCount());
                     if (App.sConceptos.getCount() > 0) {
                         //Obtener el Renglon anterior
                         var auxRenglonAnterior = App.sConceptos.getCount() - 1;
@@ -2408,4 +2409,7 @@ Ext.util.Cookies.set('cookieTieneImagenReporte', 'NO')
                 App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
                 break;
         }
+    };
+
+    var showResult = function () {
     };

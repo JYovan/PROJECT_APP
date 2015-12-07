@@ -277,7 +277,9 @@
                                 Editable="true"
                                 MatchFieldWidth="true"
                                 QueryMode="Local"
-                                TypeAhead="true">
+                                TypeAhead="true"
+                                EnforceMaxLength="true"
+                                >
                                 <Items>
                                     <ext:ListItem Index="0" Text="(Todos)" Value="Todos" />
                                 </Items>

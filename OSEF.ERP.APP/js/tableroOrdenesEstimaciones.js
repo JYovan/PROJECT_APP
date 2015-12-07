@@ -65,9 +65,11 @@ var txtBuscar_Change = function (textfield, newValue, oldValue, e) {
     App.sOrdenesEstimaciones.filter([{ filterFn: function (item) {
         if (
         item.get('Id')===newValue || item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1
-        || item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('Reporte').toUpperCase().indexOf(newValue.toUpperCase()) > -1
+        || item.get('Mov').toUpperCase().indexOf(newValue.toUpperCase()) > -1 
+        || item.get('Reporte').toUpperCase().indexOf(newValue.toUpperCase()) > -1
         || item.get('Cr') === newValue || item.get('Sucursal').toUpperCase().indexOf(newValue.toUpperCase()) > -1
-        || item.get('Cuadrilla').toUpperCase().indexOf(newValue.toUpperCase()) > -1 || item.get('Cliente').toUpperCase().indexOf(newValue.toUpperCase()) > -1
+        || item.get('Cuadrilla').toUpperCase().indexOf(newValue.toUpperCase()) > -1 
+        || item.get('Cliente').toUpperCase().indexOf(newValue.toUpperCase()) > -1
         || item.get('Clasificacion').toUpperCase().indexOf(newValue.toUpperCase()) > -1 ) { return true; }
         else { return false; }
     }
@@ -181,9 +183,10 @@ var cmbSucursalFiltro_Select = function (combobox, registro) {
     //1. Obtener el valor
     var valor = combobox.rawValue;
     //2. Validar si es todos o hacer el filtro, sino si hace el filtro por Sucursal 
-    if (valor == '(Todos)' || valor.toString().trim() ==='') {
+    if (valor == '(Todos)') {
         App.sOrdenesEstimaciones.clearFilter();
-    } else {
+    } 
+    else {
         App.sOrdenesEstimaciones.filterBy(function (elemento) {
             if (elemento.data.Sucursal == valor) {
                 return true;

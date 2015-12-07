@@ -45,5 +45,6 @@ FROM            dbo.OrdenesEstimaciones AS OE INNER JOIN
                          dbo.Cuadrillas ON OE.Cuadrilla = dbo.Cuadrillas.ID INNER JOIN
                          dbo.Clientes ON OE.Cliente = dbo.Clientes.ID
 WHERE        (OE.Mov IN ('Mesa de reporte', 'Estimacion'))
+ORDER BY OE.Reporte ASC
 END
 GO

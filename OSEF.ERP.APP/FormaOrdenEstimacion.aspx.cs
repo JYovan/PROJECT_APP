@@ -198,22 +198,45 @@ namespace OSEF.ERP.APP
         {
 
             //1. Obtener datos de la Forma y saber si es edición o nuevo  
-            
             int nrows = Convert.ToInt32(rows);
             //2. Serializar el encabezado y el detalle  
             OrdenEstimacion oOrdenEstimacion = null;
+            List<OrdenEstimacionD> lOrdenEstimacionDI = null; 
+            List<OrdenEstimacionD> lOrdenEstimacionDU = null;
             if (strID != "null")
             {
                 oOrdenEstimacion = OrdenEstimacionBusiness.ObtenerOrdenEstimacionPorID(Convert.ToInt32(strID));
                 if (strID != "null" && !newRecords.Equals("0"))
                 {
-                    List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(newRecords);
-                    GuardarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacion);
+                    lOrdenEstimacionDI = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(newRecords);
                 }
                 if (strID != "null" && !updateRecords.Equals("0"))
                 {
-                    List<OrdenEstimacionD> lOrdenEstimacionD = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(updateRecords);
-                        ActualizarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacion); 
+                    lOrdenEstimacionDU = JsonConvert.DeserializeObject<List<OrdenEstimacionD>>(updateRecords);
+                }
+            }
+            //VALIDAR SI EXISTE O NO EL CONCEPTO DENTRO DE LA ORDEN
+            if (lOrdenEstimacionDI != null)
+            {
+                foreach (OrdenEstimacionD oed in lOrdenEstimacionDI)
+                {
+                    //INSTRUCCION PARA GUARDAR
+                    OrdenEstimacionDBusiness.Insertar(oed);
+                }
+            }
+            if (lOrdenEstimacionDU != null)
+            {
+                foreach(OrdenEstimacionD oed in lOrdenEstimacionDU){
+                //INSTRUCCION PARA ACTUALIZAR
+                    oed.Id = oOrdenEstimacion.Id;
+                    if (OrdenEstimacionDBusiness.ObtenerConceptosEnUsoPorIDenOED(oOrdenEstimacion.Id, oed.ConceptoID))
+                    {
+                        ActualizarDetalleOrdenEstimacion(lOrdenEstimacionDU, oOrdenEstimacion);
+                    }
+                    else
+                    {
+                        OrdenEstimacionDBusiness.Insertar(oed);
+                    }
                 }
             }
         }
@@ -572,6 +595,7 @@ namespace OSEF.ERP.APP
                 sOrdenEstimacion.GetAt(0).Set("Clasificacion", oOrdenEstimacionForma.Clasificacion);
                 sOrdenEstimacion.GetAt(0).Set("Cliente", oOrdenEstimacionForma.Cliente);
                 //13. Borrar todo el detalle e insertarlo de nuevo
+               // OrdenEstimacionDBusiness.BorrarPorID(oOrdenEstimacionForma.Id);
                 OrdenEstimacionDBusiness.BorrarPorID(oOrdenEstimacionForma.Id);
                 GuardarDetalleOrdenEstimacion(lOrdenEstimacionD, oOrdenEstimacionForma);
 
@@ -587,6 +611,7 @@ namespace OSEF.ERP.APP
         /// <param name="oOrdenEstimacionForma"></param>
         private void GuardarDetalleOrdenEstimacion(List<OrdenEstimacionD> lOrdenEstimacionD, OrdenEstimacion oOrdenEstimacionForma)
         {
+            //X.Msg.Alert("Confirm", "R: " + lOrdenEstimacionD.Count(), new JFunction { Fn = "showResult" }).Show();
             //1. Insertar los datos del detalle
             foreach (OrdenEstimacionD sd in lOrdenEstimacionD)
             {
@@ -596,6 +621,8 @@ namespace OSEF.ERP.APP
                 else
                 {
                     sd.Id = oOrdenEstimacionForma.Id;
+                    //
+   
                     OrdenEstimacionDBusiness.Insertar(sd);
                 }
             }
@@ -617,6 +644,7 @@ namespace OSEF.ERP.APP
                 else
                 {
                     sd.Id = oOrdenEstimacionForma.Id;
+                    //OrdenEstimacionDBusiness.BorrarPorID(sd.Id);
                     OrdenEstimacionDBusiness.Actualizar(sd);
                 }
             }
