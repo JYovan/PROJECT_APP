@@ -44,6 +44,7 @@ namespace OSEF.ERP.APP
             sConceptos.DataBind();
 
         }
+
         /// <summary>
         /// Evento que se lanza al cargar el store
         /// </summary>
@@ -123,7 +124,6 @@ namespace OSEF.ERP.APP
         [DirectMethod]
         protected void imgbtnGuardar_Click(object sender, DirectEventArgs e)
         {
-
             //1. Obtener datos de la Forma y saber si es edición o nuevo
             string strOrdenEstimacionForma = e.ExtraParams["OrdenEstimacionForma"];
             string strOrdenEstimacion = e.ExtraParams["OrdenEstimacion"];

@@ -198,9 +198,6 @@ var sMov_Change = function (combo) {
     App.gpOrdenEstimacion.reconfigure();
 };
 
-
-
-
 //Evento que se lanza al seleccionar un elemento del ComboBox de Movimiento
 var cmbMov_Select = function (combobox, registro) {
     //Asignar Fecha en el control Fecha de emisión
@@ -247,7 +244,6 @@ var btnBuscarSucursal_Click = function () {
 
 //Evento de clic del botón BuscarCodigo
 var btnBuscarCodigos_Click = function () {
-
     if (App.dfFechaOrigen.getValue() != null) {
         window.parent.App.wAyudaConcepto.load('FormaBuscaCodigoPPTA.aspx');
         window.parent.App.wAyudaConcepto.setHeight(370);
@@ -271,7 +267,6 @@ var btnBuscarCodigos_Click = function () {
 
 //Evento que se lanza al poner algun caracter en el control de la Sucursal
 var txtfSucursalCR_Change = function () {
-
     Ext.util.Cookies.set('cookieMovimientocliente', App.IdCliente.getValue());
     //Validar si se habilita Guardar
     HabilitarGuardar();
@@ -283,7 +278,6 @@ var txtfSucursalCR_Change = function () {
 
 //Evento que ocurre al dar clic en imgbtnGuardar
 var imgbtnGuardar_Click_Success = function (response, result) {
-
     //1. Validar si se hizo un INSERT o UPDATE
     if (result.extraParamsResponse.accion == 'insertar') {
         Ext.Msg.show({
@@ -302,17 +296,13 @@ var imgbtnGuardar_Click_Success = function (response, result) {
         //3. Actualiza al estatus BORRADOR de la captura
         App.sbOrdenEstimacion.setText(App.sOrdenEstimacion.getAt(0).get('Estatus'));
 
-
         //4. Recargar el tablero
         window.parent.App.pCentro.getBody().App.sOrdenesEstimaciones.reload();
-
-
 
         //5. Asignar la cookie con el nuevo ID y asignarlo al titulo de la ventan
         Ext.util.Cookies.set('cookieEditarOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
         window.parent.App.wEmergente.setTitle('Editar Movimiento ' + App.sOrdenEstimacion.getAt(0).get('ID'));
         App.txtNoOrden.setValue(App.sOrdenEstimacion.getAt(0).get('NoOrden'));
-
 
         App.cmbMov.setReadOnly(true);
         //6. Deshabilita los comandos del grid
@@ -323,7 +313,6 @@ var imgbtnGuardar_Click_Success = function (response, result) {
         App.ccFacturas.commands[0].disabled = false;
         App.ccFacturas.commands[1].disabled = false;
         App.gpOrdenEstimacion.reconfigure();
-
     }
     else {
         Ext.Msg.show({
@@ -335,17 +324,13 @@ var imgbtnGuardar_Click_Success = function (response, result) {
             closable: false,
             icon: Ext.MessageBox.INFO
         });
-        //4. Recargar el tablero
 
+        //4. Recargar el tablero
         window.parent.App.pCentro.getBody().App.sOrdenesEstimaciones.reload({
             callback: function () {
                 window.parent.App.pCentro.getBody().App.gpOrdenesEstimaciones.getSelectionModel().select(window.parent.App.pCentro.getBody().App.sOrdenesEstimaciones.find("Id", Ext.util.Cookies.get('cookieEditarOrdenEstimacion')));
             }
-
         });
-
-
-
     }
     App.sConceptos.reload({
         callback: function () {
@@ -359,7 +344,6 @@ var imgbtnGuardar_Click_Success = function (response, result) {
             }
         }
     });
-
 };
 
 //Para el botón de eliminar de la forma, Eliminar un registro
@@ -377,7 +361,6 @@ var imgbtnBorrar_Click_Success = function (response, result) {
     //Se actualiza el tablero
     window.parent.App.pCentro.getBody().App.sOrdenesEstimaciones.reload();
     window.parent.App.wEmergente.hide();
-
 };
 
 //Método que se lanza antes de llamar al procedimiento de Afectar
@@ -415,7 +398,6 @@ var imgbtnAfectar_Click_Success = function (response, result) {
     var d = new Date();
 
     if (result.extraParamsResponse.mov == 'Estimacion') {
-
         //2. Lanzar ventana de movimiento afectado
         Ext.Msg.show({
             id: 'msgAvanzar',
@@ -426,7 +408,6 @@ var imgbtnAfectar_Click_Success = function (response, result) {
             closable: false,
             icon: Ext.MessageBox.INFO
         });
-
 
         App.sConceptos.removeAt(App.sConceptos.getCount() - 1);
         //Actualizar campos 
@@ -443,8 +424,6 @@ var imgbtnAfectar_Click_Success = function (response, result) {
         App.dfFechaEmision.setValue(d);
         App.sbOrdenEstimacion.setText(App.sOrdenEstimacion.getAt(0).get('Estatus'));
 
-
-
         //6. Deshabilita los comandos del grid
         App.ccFotos.commands[0].disabled = false;
         App.ccFotos.commands[1].disabled = false;
@@ -453,10 +432,6 @@ var imgbtnAfectar_Click_Success = function (response, result) {
         App.ccFacturas.commands[0].disabled = false;
         App.ccFacturas.commands[1].disabled = false;
         App.gpOrdenEstimacion.reconfigure();
-
-
-
-
     }
 
     if (result.extraParamsResponse.mov == 'Reporte') {
@@ -494,7 +469,6 @@ var imgbtnAfectar_Click_Success = function (response, result) {
         App.chkAtendido.setReadOnly(true);
         App.cmbClasificacion.setReadOnly(true);
 
-
         //Actualizar campos afetados
         App.txtfMovID.setValue(App.sOrdenEstimacion.getAt(0).get('MovID'));
         App.sbOrdenEstimacion.setText(App.sOrdenEstimacion.getAt(0).get('Estatus'));
@@ -507,9 +481,7 @@ var imgbtnAfectar_Click_Success = function (response, result) {
         App.imgbtnBorrar.setDisabled(true);
         App.imgbtnGuardar.setDisabled(true);
         App.imgbtnImprimir.setDisabled(false);
-
-
-
+        
         //3. Remover la útima fila
         var ultimoRegistro = App.sConceptos.getAt(App.sConceptos.getCount() - 1);
         if (ultimoRegistro.get('ConceptoID').length == 0 && ultimoRegistro.get('Cantidad') == 0 && ultimoRegistro.get('Precio') == 0) {
@@ -609,10 +581,7 @@ var imgbtnAfectar_Click_Success = function (response, result) {
         }
 
     });
-
 };
-
-
 
 //Para el botón de cancelar, cancela un registro
 var imgbtnCancelar_Click_Success = function (response, result) {
@@ -663,16 +632,11 @@ var imgbtnCancelar_Click_Success = function (response, result) {
     window.parent.App.wEmergente.setTitle('Movimiento Cancelado');
 };
 
-
 //var store;
 //Evento lanzado al cargar el store de avance encabezado
 var sOrdenesMantenimiento_Load = function () {
     App.direct.sOrdenMantenimiento_Load();
     // store = window.parent.App.pCentro.getBody().App.sOrdenesEstimaciones;
-
-
-
-
 };
 
 //Evento lanzado al agregar un registro al store
@@ -870,8 +834,6 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
 
     }
 
-
-
     //Si es Reporte Y NO ESTA AFECTADO
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && r.get('Estatus') == 'BORRADOR'
          && r.get('Mov').trim() == "Mesa de reporte") {
@@ -925,7 +887,6 @@ var sOrdenesMantenimiento_Add = function (avance, registro) {
         App.imgbtnGuardar.setDisabled(false);
         App.imgbtnBorrar.setDisabled(false);
     }
-
 
     //Si es Orden de cambio Y NO ESTA AFECTADO
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && r.get('Estatus') == 'BORRADOR'
@@ -1287,7 +1248,6 @@ var cImporte_Renderer = function (valor) {
     }
 };
 
-
 var sConceptos_Load = function (avance, registro, index) {
     var sum = 0;
     App.sConceptos.each(function (record) {
@@ -1306,8 +1266,6 @@ var sConceptos_Load = function (avance, registro, index) {
 
     //    App.dfTotalSinRender.setValue(sum.toFixed(6));
     //    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
-
-
 }
 
 //Calular Importe cuando la columna de precio cambia
@@ -1430,8 +1388,6 @@ var sConceptos_DataUpdate = function (store, registro, operacion, columnaStore) 
 
 //Evento que se lanza despues de editar una columna en PreciarioConceptoOrdenEstimacion
 var cePreciarioConcepto_Edit = function (cellediting, columna) {
-
-
     //Valida que el movimiento sea diferente de nuevo y que la columna en la que se obtenga el valor original seal la unica que se mande al metodo del lado del servidor
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') {
         if (columna.field == 'ConceptoID') {
@@ -1442,12 +1398,8 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
     }
 }
 
-
-
-
-    //Evento que se lanza despues de editar una columna en PreciarioConceptoOrdenEstimacion
+//Evento que se lanza despues de editar una columna en PreciarioConceptoOrdenEstimacion
 var cePreciarioConcepto_Edit = function (cellediting, columna) {
-
     //Valida que el movimiento sea diferente de nuevo y que la columna en la que se obtenga el valor original seal la unica que se mande al metodo del lado del servidor
     if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') {
         if (columna.field == 'ConceptoID') {
@@ -1456,26 +1408,22 @@ var cePreciarioConcepto_Edit = function (cellediting, columna) {
             App.direct.obtenerImagenesPorConcepto();
         }
     }
+
     var sum = 0;
     App.sConceptos.each(function (record) {
-
         sum += record.get('Importe');
     });
 
     var F = Ext.util.Format;
-
     F.thousandSeparator = ',';
     F.decimalSeparator = '.';
-
 //    App.dfTotalSinRender.setValue(sum.toFixed(6));
 //    App.dfTotal.setValue(F.number(sum.toFixed(6), "$000,000.000000"));
     ImporteFinal = sum; 
 };
 
-
-    //Trae la descripcion al displayfield
+//Trae la descripcion al displayfield
 var gpOrdenEstimacion_ItemClick = function (gridview, registro, gvhtml, index) {
-
     indiceDetalle = index;
     getDescripcion(registro);
 };
@@ -1496,81 +1444,69 @@ var getDescripcion = function (r) {
     }
 };
 
-    //Obtner el indice del grid panel del detalle y desplegar informacion
-    var obetenerRenglon_Select = function (a, registro, c) {
-        indiceDetalle = registro.internalId;
-        getDescripcion(registro); 
-    } 
-    //Evento de la columna de acciones
-    var ccAcciones_Command = function (columna, comando, registro, fila, opciones) {
-        //Eliminar registro
-        App.sConceptos.removeAt(fila);
+//Obtner el indice del grid panel del detalle y desplegar informacion
+var obetenerRenglon_Select = function (a, registro, c) {
+    indiceDetalle = registro.internalId;
+    getDescripcion(registro);
+}
 
+//Evento de la columna de acciones
+var ccAcciones_Command = function (columna, comando, registro, fila, opciones) {
+    //Eliminar registro
+    App.sConceptos.removeAt(fila);
 
-        //Setea el valor final 
-        ImporteFinal = ImporteFinal - parseFloat(registro.get('Importe'));
+    //Recalcula el valor del Importe Final
+    ImporteFinal = ImporteFinal - parseFloat(registro.get('Importe'));
 
+    var F = Ext.util.Format;
+    F.thousandSeparator = ',';
+    F.decimalSeparator = '.';
+    //        App.dfTotalSinRender.setValue(ImporteFinal.toFixed(6));
+    //        App.dfTotal.setValue(F.number(ImporteFinal.toFixed(6), "$000,000.000000"));
+    beforeRender_Importe(ImporteFinal, F);
 
-        var F = Ext.util.Format;
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') {
+        Ext.util.Cookies.set('cookieIDBorrarFotosOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
+        Ext.util.Cookies.set('cookieConceptoFotosOrdenEstimacion', registro.get('ConceptoID'));
+        App.direct.obtenerImagenesPorConcepto();
+    }
 
-        F.thousandSeparator = ',';
-        F.decimalSeparator = '.';
+    //Asignar renglones
+    var renglon = 0;
+    App.sConceptos.each(function (dato) {
+        dato.set('Renglon', renglon);
+        renglon = renglon + 1;
+    });
 
+    //Validar si se habilita el boton de afectar
+    HabilitarAfectar();
+};
 
-//        App.dfTotalSinRender.setValue(ImporteFinal.toFixed(6));
-//        App.dfTotal.setValue(F.number(ImporteFinal.toFixed(6), "$000,000.000000"));
+//Ocultar el último renglon
+var ccAcciones_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
+    if (grid.getStore().getCount() - 1 == rowIndex) {
+        toolbar.items.get(0).hide();
 
+    }
 
-        beforeRender_Importe(ImporteFinal, F);
+    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de borrar
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sOrdenEstimacion.getAt(0).get('Estatus') == 'CONCLUIDO') {
 
-        if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo') {
-            Ext.util.Cookies.set('cookieIDBorrarFotosOrdenEstimacion', App.sOrdenEstimacion.getAt(0).get('ID'));
-            Ext.util.Cookies.set('cookieConceptoFotosOrdenEstimacion', registro.get('ConceptoID'));
+        //Toma el primer elemento de la columna para poder desabilitarlo
+        var botonEliminar = toolbar.items.get(0);
+        botonEliminar.setDisabled(true);
+        botonEliminar.setTooltip("No se puede borrar un concepto");
+    }
 
-            App.direct.obtenerImagenesPorConcepto();
-        }
+    //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de borrar
+    if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sOrdenEstimacion.getAt(0).get('Estatus') == 'CANCELADO') {
 
-        //Asignar renglones
-        var renglon = 0;
-        App.sConceptos.each(function (dato) {
-            dato.set('Renglon', renglon);
-            renglon = renglon + 1;
-        });
-
-        //Validar si se habilita el boton de afectar
-        HabilitarAfectar();
-    };
-
-
-
-
-
-
-    //Ocultar el último renglon
-    var ccAcciones_PrepareToolbar = function (grid, toolbar, rowIndex, record) {
-        if (grid.getStore().getCount() - 1 == rowIndex) {
-            toolbar.items.get(0).hide();
-
-        }
-
-        //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de borrar
-        if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sOrdenEstimacion.getAt(0).get('Estatus') == 'CONCLUIDO') {
-
-            //Toma el primer elemento de la columna para poder desabilitarlo
-            var botonEliminar = toolbar.items.get(0);
-            botonEliminar.setDisabled(true);
-            botonEliminar.setTooltip("No se puede borrar un concepto");
-        }
-
-        //Valida el estatus del movimiento para saber si se tiene que habilitar el comando de borrar
-        if (Ext.util.Cookies.get('cookieEditarOrdenEstimacion') != 'Nuevo' && App.sOrdenEstimacion.getAt(0).get('Estatus') == 'CANCELADO') {
-
-            //Toma el primer elemento de la columna para poder desabilitarlo
-            var botonEliminar = toolbar.items.get(0);
-            botonEliminar.setDisabled(true);
-            botonEliminar.setTooltip("No se puede borrar un concepto");
-        }
-    };
+        //Toma el primer elemento de la columna para poder desabilitarlo
+        var botonEliminar = toolbar.items.get(0);
+        botonEliminar.setDisabled(true);
+        botonEliminar.setTooltip("No se puede borrar un concepto");
+    }
+};
 
     //Deshablitar comandos detalle
     var ccDimensiones_PrepareToolbar = function (grid, toolbar, rowIndex, record) {

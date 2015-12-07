@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="OSEF.AVANCES.SUCURSALES.Menu" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="OSEF.ERP.APP.Menu" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -22,39 +22,35 @@
                 <!-- Header -->
                 <div class="metro panorama">
                     <div class="panorama-sections">
-
                         <!-- Primer pagina  Programa -->
                         <div class="panorama-section">
                             <h2>Programa</h2>
-
-                            <div class="tile-column-span-2">
-                            
-                            <div id="Avances">
-                                 <a class="tile widepeek" id="avances" href="#">
-                                    <div class="tile wide image">
-                                        <img src="assets/img/revisiones.png" alt="Revisiones" />
-                                        <div class="text-header">Avances</div>
-                                    </div>
-                                </a>
-                             </div>
-
-                             <div id="pObra">
-                                 <a class="tile square image bg-color-yellow" id="gantt" href="#">
-                                        <img src="assets/img/menu-gantt.png" alt="Gantt" />
-                                        <div class="textover-wrapper transparent">
-                                            <div class="text2">Programa Obra</div>
+                            <div class="tile-column-span-2">                            
+                                <div id="Avances">
+                                     <a class="tile widepeek" id="avances" href="#">
+                                        <div class="tile wide image">
+                                            <img src="assets/img/revisiones.png" alt="Revisiones" />
+                                            <div class="text-header">Avances</div>
                                         </div>
-                                  </a>
-                              </div>
-                              <div id="Monitor">
-                                 <a class="tile square image bg-color-green" id="lPlantas" 
-                                 href="" target="_blank">
-                                    <img src="assets/img/menu-preciariosG.png" alt="Gantt" />
-                                    <div class="textover-wrapper transparent">
-                                        <div class="text2">Monitor</div>
-                                    </div>
-                                </a>
-                               </div>
+                                    </a>
+                                 </div>
+                                 <div id="pObra">
+                                     <a class="tile square image bg-color-yellow" id="gantt" href="#">
+                                            <img src="assets/img/menu-gantt.png" alt="Gantt" />
+                                            <div class="textover-wrapper transparent">
+                                                <div class="text2">Programa Obra</div>
+                                            </div>
+                                      </a>
+                                  </div>
+                                  <div id="Monitor">
+                                     <a class="tile square image bg-color-green" id="lPlantas" 
+                                     href="" target="_blank">
+                                        <img src="assets/img/menu-preciariosG.png" alt="Gantt" />
+                                        <div class="textover-wrapper transparent">
+                                            <div class="text2">Monitor</div>
+                                        </div>
+                                    </a>
+                                   </div>
                             </div>  
                         </div>
                         <!-- Fin Primer pagina  -->
@@ -161,8 +157,7 @@
                                 </a>
                             </div>
                             <%--  Division Extra--%>
-                            <div class="tile-column-span-2">
-                               
+                            <div class="tile-column-span-2">                               
                                 <a class="tile square image" id="estados" href="#">
                                     <img src="assets/img/edos.png" alt="" />
                                     <div class="textover-wrapper transparent">

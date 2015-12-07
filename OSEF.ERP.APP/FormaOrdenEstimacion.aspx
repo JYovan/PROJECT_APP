@@ -432,8 +432,6 @@
                                                 </ext:TextField>                                            
                                             </Items>
                                         </ext:FieldContainer>
-
-                                        
                                         <ext:FieldContainer
                                         ID="fClientes"
                                         runat="server"
@@ -1183,8 +1181,7 @@
                                                 Text="Cantidad" 
                                                 DataIndex="Cantidad"
                                                 Width="90">
-                                                <Renderer Fn="cCantidad_Renderer" /> 
-                                               
+                                                <Renderer Fn="cCantidad_Renderer" />
                                             </ext:NumberColumn>
                                             <ext:CommandColumn
                                                 ID="ccGenerador"

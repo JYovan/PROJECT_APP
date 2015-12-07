@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace OSEF.AVANCES.SUCURSALES
+namespace OSEF.ERP.APP
 {
     public partial class Menu : System.Web.UI.Page
     {

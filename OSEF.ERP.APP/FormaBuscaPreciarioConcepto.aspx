@@ -175,8 +175,7 @@
                                     </DirectEvents>
                                 </ext:Button>
                             </Items>
-                        </ext:FieldContainer>
-                      
+                        </ext:FieldContainer>                      
                         <ext:FieldContainer
                             ID="fcDescripcion"
                             runat="server"
